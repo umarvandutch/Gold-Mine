@@ -1,0 +1,97 @@
+name: One-time EAS Update setup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      EXPO_ACCOUNT: ${{ vars.EXPO_ACCOUNT }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify Expo token exists
+        run: |
+          if [ -z "$EXPO_TOKEN" ]; then
+            echo "EXPO_TOKEN is missing. Add it in Settings > Secrets and variables > Actions > Repository secrets."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create or link EAS project
+        run: |
+          if [ -n "$EXPO_ACCOUNT" ]; then
+            npx eas-cli@latest init --account "$EXPO_ACCOUNT" --non-interactive --force --json > eas-init.json
+          else
+            npx eas-cli@latest init --non-interactive --force --json > eas-init.json
+          fi
+
+      - name: Save EAS project ID in app config
+        run: |
+          PROJECT_ID=$(node <<'NODE'
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('eas-init.json', 'utf8'));
+
+          function findProjectId(value) {
+            if (!value || typeof value !== 'object') return null;
+            for (const key of ['projectId', 'id']) {
+              const candidate = value[key];
+              if (typeof candidate === 'string' && /^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(candidate)) {
+                return candidate;
+              }
+            }
+            for (const child of Object.values(value)) {
+              const found = findProjectId(child);
+              if (found) return found;
+            }
+            return null;
+          }
+
+          const id = findProjectId(data);
+          if (!id) {
+            console.error('Could not determine the EAS project ID from eas init output.');
+            process.exit(1);
+          }
+          process.stdout.write(id);
+          NODE
+          )
+
+          node - "$PROJECT_ID" <<'NODE'
+          const fs = require('fs');
+          const projectId = process.argv[2];
+          const app = JSON.parse(fs.readFileSync('app.json', 'utf8'));
+          app.expo.extra = app.expo.extra || {};
+          app.expo.extra.eas = { ...(app.expo.extra.eas || {}), projectId };
+          fs.writeFileSync('app.json', JSON.stringify(app, null, 2) + '\n');
+          NODE
+
+          echo "Linked EAS project: $PROJECT_ID"
+
+      - name: Commit EAS link
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.json
+          if git diff --cached --quiet; then
+            echo "Project is already linked."
+          else
+            git commit -m "Link Gold Mine to EAS Update"
+            git push origin main
+          fi
