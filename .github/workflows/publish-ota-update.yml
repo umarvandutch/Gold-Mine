@@ -1,0 +1,63 @@
+name: Publish live app update
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'assets/**'
+      - '*.ts'
+      - '*.tsx'
+      - '*.js'
+
+concurrency:
+  group: gold-mine-production-update
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      EXPO_UPDATE_CHANNEL: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify live updates are configured
+        id: configured
+        run: |
+          PROJECT_ID=$(node -e "const a=require('./app.json'); process.stdout.write(a.expo?.extra?.eas?.projectId || '')")
+          if [ -z "$EXPO_TOKEN" ] || [ -z "$PROJECT_ID" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Live update publishing is not active yet. Run the one-time EAS setup after adding EXPO_TOKEN."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "EXPO_PROJECT_ID=$PROJECT_ID" >> "$GITHUB_ENV"
+          fi
+
+      - name: Install dependencies
+        if: steps.configured.outputs.ready == 'true'
+        run: npm install
+
+      - name: Type check
+        if: steps.configured.outputs.ready == 'true'
+        run: npm run typecheck
+
+      - name: Publish production OTA update
+        if: steps.configured.outputs.ready == 'true'
+        run: |
+          npx eas-cli@latest update \
+            --channel production \
+            --message "Auto update from ${GITHUB_SHA::7}" \
+            --non-interactive
