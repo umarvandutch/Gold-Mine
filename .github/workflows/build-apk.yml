@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-apk:
     runs-on: ubuntu-latest
@@ -49,10 +52,24 @@ jobs:
       - name: Prepare APK
         run: cp android/app/build/outputs/apk/debug/app-debug.apk Gold-Mine.apk
 
-      - name: Upload Gold Mine APK
+      - name: Upload Gold Mine APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: Gold-Mine-APK
           path: Gold-Mine.apk
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish APK as GitHub Release
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view apk-v1.0.0 >/dev/null 2>&1; then
+            gh release upload apk-v1.0.0 Gold-Mine.apk --clobber
+          else
+            gh release create apk-v1.0.0 Gold-Mine.apk \
+              --target "$GITHUB_SHA" \
+              --title "Gold Mine Android APK v1.0.0" \
+              --notes "Installable Android APK for the Gold Mine US macro news and XAUUSD analysis app. This is the first test build; live market feeds are not yet connected."
+          fi
