@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Gold Mine",
+    "slug": "gold-mine",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "goldmine",
+    "userInterfaceStyle": "light",
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.goldmine.macro"
+    },
+    "android": {
+      "package": "com.goldmine.macro",
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F8FB"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
