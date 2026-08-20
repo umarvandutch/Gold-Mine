@@ -2,6 +2,11 @@ name: One-time EAS Update setup
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.eas-setup-trigger'
 
 permissions:
   contents: write
