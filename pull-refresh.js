@@ -1,7 +1,8 @@
 (()=>{
   "use strict";
 
-  const DATA_URL="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
+  const SNAPSHOT_URL="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
+  const WORKER_URL=String(window.GOLD_MINE_CONFIG?.liveWorkerUrl||"").trim();
   const WORKFLOW_URL="https://api.github.com/repos/umarvandutch/Gold-Mine/actions/workflows/refresh-live-data.yml/runs?per_page=1";
   const THRESHOLD=72;
   const MAX_PULL=112;
@@ -12,7 +13,8 @@
   let refreshing=false;
   let startY=0;
   let pull=0;
-  let snapshotGeneratedAt=null;
+  let currentMaterialKey=null;
+  let lastSourceQueryAt=null;
   let lastCollectorRunAt=null;
   let lastAppCheckAt=null;
   let lastWorkflowStatusCheck=0;
@@ -44,7 +46,7 @@
   }
 
   function atTop(){
-    return window.scrollY<=1 && document.documentElement.scrollTop<=1;
+    return window.scrollY<=1&&document.documentElement.scrollTop<=1;
   }
 
   function relative(iso){
@@ -59,13 +61,29 @@
     return`${d} day${d===1?"":"s"} ago`;
   }
 
+  function materialKey(payload){
+    const events=(payload.events||[]).map(e=>[e.id,e.dateUtc,e.actual,e.revised,e.consensus,e.previous]);
+    const headlines=(payload.headlines||[]).map(h=>[h.title,h.url,h.publishedUtc]);
+    const market=payload.market||{};
+    const marketBits=Object.keys(market).sort().map(k=>{
+      const v=market[k]||{};
+      return[k,v.price,v.previous,v.changePct,v.deltaBps,v.date,v.time];
+    });
+    return JSON.stringify([events,headlines,marketBits]);
+  }
+
   function updateFreshnessText(){
     const el=document.getElementById("dataStatusText");
-    if(!el||!snapshotGeneratedAt)return;
+    if(!el)return;
     const appText=lastAppCheckAt?`App checked ${relative(lastAppCheckAt)}`:"App checking now";
+    if(WORKER_URL){
+      const sourceText=lastSourceQueryAt?`source feeds queried ${relative(lastSourceQueryAt)}`:"source query starting";
+      const backupText=lastCollectorRunAt?`GitHub backup ran ${relative(lastCollectorRunAt)}`:"GitHub backup runs about every 5 min";
+      el.textContent=`${appText} · ${sourceText} · ${backupText}.`;
+      return;
+    }
     const collectorText=lastCollectorRunAt?`collector last ran ${relative(lastCollectorRunAt)}`:"collector scheduled about every 5 min";
-    const snapshotText=`latest material snapshot changed ${relative(snapshotGeneratedAt)}`;
-    el.textContent=`${appText} · ${collectorText} · ${snapshotText}.`;
+    el.textContent=`${appText} · ${collectorText} · using the newest published snapshot.`;
   }
 
   async function fetchCollectorStatus(force=false){
@@ -85,28 +103,46 @@
     }
   }
 
-  async function fetchLatestSnapshot(){
-    const response=await fetch(`${DATA_URL}?sync=${Date.now()}`,{cache:"no-store"});
-    if(!response.ok)throw new Error(`HTTP ${response.status}`);
-    const latest=await response.json();
+  async function fetchJsonNoCache(url){
+    const r=await fetch(url,{cache:"no-store"});
+    if(!r.ok)throw new Error(`HTTP ${r.status}`);
+    const latest=await r.json();
     if(!latest||!Array.isArray(latest.events))throw new Error("Invalid live data");
+    return latest;
+  }
+
+  async function fetchLatestSnapshot(forceSource=false){
+    let latest;
+    if(WORKER_URL){
+      const join=WORKER_URL.includes("?")?"&":"?";
+      const workerRequest=`${WORKER_URL}${join}${forceSource?"fresh=1&":""}t=${Date.now()}`;
+      try{
+        latest=await fetchJsonNoCache(workerRequest);
+      }catch(error){
+        console.warn("Live Worker unavailable, falling back to GitHub snapshot",error);
+        latest=await fetchJsonNoCache(`${SNAPSHOT_URL}?fallback=${Date.now()}`);
+      }
+    }else{
+      latest=await fetchJsonNoCache(`${SNAPSHOT_URL}?sync=${Date.now()}`);
+    }
     lastAppCheckAt=new Date().toISOString();
+    lastSourceQueryAt=latest.sourceQueriedAt||latest.generatedAt||lastSourceQueryAt;
     return latest;
   }
 
   async function backgroundSync(){
     if(document.hidden)return;
     try{
-      const latest=await fetchLatestSnapshot();
-      const incoming=latest.generatedAt||null;
-      if(!snapshotGeneratedAt){
-        snapshotGeneratedAt=incoming;
+      const latest=await fetchLatestSnapshot(false);
+      const incomingKey=materialKey(latest);
+      if(currentMaterialKey===null){
+        currentMaterialKey=incomingKey;
         updateFreshnessText();
         fetchCollectorStatus(false);
         return;
       }
-      if(incoming&&incoming!==snapshotGeneratedAt){
-        snapshotGeneratedAt=incoming;
+      if(incomingKey!==currentMaterialKey){
+        currentMaterialKey=incomingKey;
         updateFreshnessText();
         if(alertsActive())window.location.reload();
       }else{
@@ -130,7 +166,7 @@
     const shown=Math.min(42,pull*.42);
     indicator.style.transform=`translate(-50%,${-58+shown}px)`;
     spinner.style.setProperty("--pull-rotation",`${Math.round(Math.min(180,pull/THRESHOLD*180))}deg`);
-    label.textContent=pull>=THRESHOLD?"Release to check live feed":"Pull to refresh";
+    label.textContent=pull>=THRESHOLD?(WORKER_URL?"Release to query live sources":"Release to check live feed"):"Pull to refresh";
   }
 
   function reset(delay=0){
@@ -149,38 +185,35 @@
     refreshing=true;
     indicator.classList.add("visible","refreshing");
     indicator.style.transform="translate(-50%,-10px)";
-    label.textContent="Checking latest feed…";
+    label.textContent=WORKER_URL?"Querying source feeds…":"Checking latest feed…";
 
     try{
-      const before=snapshotGeneratedAt;
-      const latest=await fetchLatestSnapshot();
-      const incoming=latest.generatedAt||null;
-      snapshotGeneratedAt=incoming||snapshotGeneratedAt;
+      const before=currentMaterialKey;
+      const latest=await fetchLatestSnapshot(true);
+      const incomingKey=materialKey(latest);
+      currentMaterialKey=incomingKey;
       await fetchCollectorStatus(true);
       updateFreshnessText();
 
-      if(incoming&&before&&incoming!==before){
-        label.textContent="New source data ✓";
+      if(before!==null&&incomingKey!==before){
+        label.textContent=WORKER_URL?"New source data ✓":"New snapshot ✓";
         setTimeout(()=>window.location.reload(),350);
         return;
       }
 
-      label.textContent="Feed checked ✓ · no newer snapshot";
+      label.textContent=WORKER_URL?"Sources queried ✓ · no new items":"Feed checked ✓ · no newer snapshot";
       refreshing=false;
-      reset(1500);
+      reset(1600);
     }catch(error){
       console.warn("Alerts pull-to-refresh failed",error);
-      label.textContent="Couldn't check feed — try again";
+      label.textContent="Couldn't refresh — try again";
       refreshing=false;
       reset(1800);
     }
   }
 
   document.addEventListener("touchstart",event=>{
-    if(refreshing||!alertsActive()||!atTop()||event.touches.length!==1){
-      tracking=false;
-      return;
-    }
+    if(refreshing||!alertsActive()||!atTop()||event.touches.length!==1){tracking=false;return;}
     startY=event.touches[0].clientY;
     pull=0;
     tracking=true;
@@ -203,13 +236,8 @@
     else reset();
   },{passive:true});
 
-  document.addEventListener("touchcancel",()=>{
-    if(!refreshing)reset();
-  },{passive:true});
-
-  document.addEventListener("visibilitychange",()=>{
-    if(!document.hidden)backgroundSync();
-  });
+  document.addEventListener("touchcancel",()=>{if(!refreshing)reset();},{passive:true});
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)backgroundSync();});
 
   backgroundSync();
   setInterval(backgroundSync,AUTO_SYNC_MS);
