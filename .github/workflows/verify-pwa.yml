@@ -8,6 +8,7 @@ on:
       - 'styles.css'
       - 'live.css'
       - 'app.js'
+      - 'refresh-fix.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
@@ -25,10 +26,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Validate JavaScript
-        run: node --check app.js
+        run: |
+          node --check app.js
+          node --check refresh-fix.js
       - name: Validate live data refresher
         run: python3 -m py_compile scripts/refresh_live_data.py
       - name: Validate manifest
         run: node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f sw.js && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f refresh-fix.js && test -f sw.js && test -f icons/icon-192.png && test -f icons/icon-512.png
