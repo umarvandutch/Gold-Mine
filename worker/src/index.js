@@ -161,7 +161,7 @@ async function fetchHeadlines(){
 
 async function baselineSnapshot(){
   try{
-    const baseline=await fetchJson(`${GITHUB_SNAPSHOT}?worker=${Date.now()}`,{headers:{Cache-Control:"no-cache"}});
+    const baseline=await fetchJson(`${GITHUB_SNAPSHOT}?worker=${Date.now()}`,{headers:{"Cache-Control":"no-cache"}});
     return baseline&&typeof baseline==="object"?baseline:{};
   }catch{
     return {};
