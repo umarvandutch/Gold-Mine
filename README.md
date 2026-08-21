@@ -1,68 +1,30 @@
 # Gold Mine
 
-A light-theme Expo / React Native mobile app for US macro-economic alerts and evidence-based XAUUSD analysis.
+Gold Mine is a mobile-first US macroeconomic alert and XAUUSD intelligence app.
 
-## What is included
+## Current architecture
 
-- US-only economic release feed
-- Actual / consensus / previous figures
-- Plain-English explanation of what happened, what it means for the economy and likely USD implications
-- FOMC / interest-rate decisions explicitly ranked as the highest-priority macro events
-- XAUUSD evidence model using transparent weights rather than opaque or random signals
-- DXY, US 10Y and real-yield confirmation factors in the model
-- Calendar, release detail, prediction and settings tabs
-- Safe demo fallback while a live backend is not configured
-- Expo/EAS configuration for iOS and Android
+Gold Mine is now **web-first** for reliability:
 
-## Important modelling principle
+1. `index.html`, `styles.css`, `app.js` and the PWA files are the live application.
+2. GitHub Pages deploys the PWA automatically from `main`.
+3. `android-shell/` is a deliberately small native Android WebView wrapper that opens the live PWA.
+4. Normal UI, methodology and analysis changes therefore update through the web without shipping another APK.
 
-The prediction tab is a **rough, evidence-based decision-support guide**. The number shown is *evidence strength*, not a claimed trade win probability. Mixed evidence returns a neutral/mixed signal instead of forcing a long or short call.
+The earlier Expo/React Native source remains as legacy reference, but it is no longer the preferred Android runtime.
 
-Interest-rate decisions, FOMC statement tone, dot plots and major Fed guidance receive the highest macro weight because they can directly reprice Treasury yields, real yields and the USD — all major XAUUSD drivers.
+## Live URL
 
-## Run on a phone
+After GitHub Pages is enabled: `https://umarvandutch.github.io/Gold-Mine/`
 
-This project intentionally uses Expo SDK 54 so it can be tested easily with Expo Go on a physical device during the current SDK transition.
+## Data status
 
-```bash
-npm install
-npx expo start
-```
+The current UI uses clearly-labelled **demo macro and market values**. Production data should flow through a secure backend: FXStreet calendar/webhooks plus XAUUSD, DXY, Treasury-yield and real-yield feeds. API credentials must remain on the backend.
 
-Scan the QR code with Expo Go.
+## XAUUSD methodology
 
-## Live FXStreet integration
+Base macro relevance: Fed/rates/guidance 45; inflation 24; labour 16; growth 10. The macro score is then checked against DXY, US 2Y, US 10Y and real-yield reactions. Conflicting evidence lowers conviction rather than forcing a call. “Evidence strength” is not a claimed win probability.
 
-The app currently starts in demo mode. Set:
+## Updates
 
-```bash
-EXPO_PUBLIC_MACRO_API_BASE=https://your-secure-backend.example.com
-```
-
-The mobile app expects a backend endpoint such as:
-
-```text
-GET /releases?country=US
-```
-
-Do **not** place an FXStreet OAuth client secret in the mobile app or in any `EXPO_PUBLIC_*` variable. The FXStreet API authentication and webhook handling should live on a server/serverless backend. The backend should normalise FXStreet occurrences into the `MacroRelease` shape used by `src/data/releases.ts`.
-
-## Next production steps
-
-1. Deploy a small secure backend for FXStreet OAuth + webhook ingestion.
-2. Add a real-time market feed for XAUUSD, DXY, US 10Y and 10Y TIPS/real yields.
-3. Replace demo market-reaction values in `src/lib/prediction.ts` with live observations.
-4. Add Expo push notifications for new US releases.
-5. Back-test the deterministic weighting model on historical releases and store measured hit rates separately from live evidence strength.
-
-## Build an Android APK
-
-After configuring EAS:
-
-```bash
-npx eas build --platform android --profile preview
-```
-
-## Disclaimer
-
-For research and decision support only. This app does not guarantee market direction or investment returns and is not financial advice.
+The service worker is network-first for navigation and revalidates static files. The Android shell contains almost no business logic and loads the live app over HTTPS, with a local offline/retry screen if the first network load fails.
