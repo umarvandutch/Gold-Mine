@@ -1,0 +1,29 @@
+name: Verify Gold Mine PWA
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'styles.css'
+      - 'app.js'
+      - 'manifest.webmanifest'
+      - 'sw.js'
+      - 'icons/**'
+      - '.github/workflows/verify-pwa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Validate JavaScript
+        run: node --check app.js
+      - name: Validate manifest
+        run: node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
+      - name: Verify required files
+        run: test -f index.html && test -f styles.css && test -f sw.js && test -f icons/icon-192.png && test -f icons/icon-512.png
