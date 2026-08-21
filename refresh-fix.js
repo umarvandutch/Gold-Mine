@@ -54,6 +54,16 @@
     });
   }
 
+  function loadAlertsPullRefresh(){
+    if(document.querySelector('script[data-goldmine-pull-refresh]'))return;
+    const script=document.createElement("script");
+    script.src="./pull-refresh.js";
+    script.async=false;
+    script.dataset.goldminePullRefresh="true";
+    document.body.appendChild(script);
+  }
+
   restoreGoldView();
   installRefreshButton();
+  loadAlertsPullRefresh();
 })();
