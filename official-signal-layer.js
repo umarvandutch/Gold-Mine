@@ -2,6 +2,7 @@
   "use strict";
 
   const originalFetch=window.fetch.bind(window);
+  const SNAPSHOT_URL="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
   const workerUrl=()=>String(window.GOLD_MINE_CONFIG?.liveWorkerUrl||"").trim();
 
   const HAWKISH=[
@@ -51,6 +52,41 @@
     return v;
   }
 
+  async function mergeOfficialSnapshot(payload){
+    const worker=workerUrl();
+    if(!worker||!payload||typeof payload!=="object")return payload;
+    try{
+      const response=await originalFetch(`${SNAPSHOT_URL}?official=${Date.now()}`,{cache:"no-store"});
+      if(!response.ok)return payload;
+      const snapshot=await response.json();
+      const eventMap=new Map((snapshot.events||[]).map(e=>[`${e.id||""}|${e.dateUtc||""}`,e]));
+      const headlineMap=new Map((snapshot.headlines||[]).filter(h=>h.url).map(h=>[h.url,h]));
+      if(Array.isArray(payload.events)){
+        payload.events=payload.events.map(e=>{
+          const official=eventMap.get(`${e.id||""}|${e.dateUtc||""}`);
+          if(!official)return e;
+          return{
+            ...e,
+            actual:e.actual??official.actual,
+            actualSource:e.actualSource||official.actualSource,
+            officialVerification:e.officialVerification||official.officialVerification
+          };
+        });
+      }
+      if(Array.isArray(payload.headlines)){
+        payload.headlines=payload.headlines.map(h=>{
+          const official=headlineMap.get(h.url);
+          if(!official)return h;
+          return{...h,officialText:h.officialText||official.officialText,officialTextSource:h.officialTextSource||official.officialTextSource};
+        });
+      }
+      payload.officialSourceStatus=payload.officialSourceStatus||snapshot.officialSourceStatus;
+    }catch(error){
+      console.debug("Official snapshot merge unavailable",error);
+    }
+    return payload;
+  }
+
   function transform(payload){
     if(!payload||typeof payload!=="object")return payload;
     if(Array.isArray(payload.headlines)){
@@ -87,7 +123,8 @@
     const response=await originalFetch(input,init);
     if(!isLiveDataRequest(input)||!response.ok)return response;
     try{
-      const payload=await response.clone().json();
+      let payload=await response.clone().json();
+      payload=await mergeOfficialSnapshot(payload);
       const transformed=transform(payload);
       const headers=new Headers(response.headers);
       headers.set("Content-Type","application/json; charset=utf-8");
