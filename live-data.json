@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-21T01:26:30Z",
+  "generatedAt": "2026-08-21T01:29:45Z",
   "calendarStatus": "live",
   "counts": {
     "events": 78,
     "headlines": 36,
-    "marketFeeds": 0
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
     "headlines": "live",
-    "market": "unavailable"
+    "market": "live-or-delayed"
   },
   "events": [
     {
@@ -697,7 +697,7 @@
       "volatility": "MEDIUM",
       "isSpeech": false,
       "isTentative": false,
-      "category": "other",
+      "category": "growth",
       "source": "FXStreet public calendar"
     },
     {
@@ -729,7 +729,7 @@
       "volatility": "MEDIUM",
       "isSpeech": false,
       "isTentative": false,
-      "category": "other",
+      "category": "business",
       "source": "FXStreet public calendar"
     },
     {
@@ -777,7 +777,7 @@
       "volatility": "MEDIUM",
       "isSpeech": false,
       "isTentative": false,
-      "category": "other",
+      "category": "inflation",
       "source": "FXStreet public calendar"
     },
     {
@@ -905,7 +905,7 @@
       "volatility": "HIGH",
       "isSpeech": false,
       "isTentative": false,
-      "category": "other",
+      "category": "rates",
       "source": "FXStreet public calendar"
     },
     {
@@ -1081,7 +1081,7 @@
       "volatility": "HIGH",
       "isSpeech": false,
       "isTentative": false,
-      "category": "other",
+      "category": "rates",
       "source": "FXStreet public calendar"
     },
     {
@@ -1113,7 +1113,7 @@
       "volatility": "MEDIUM",
       "isSpeech": false,
       "isTentative": false,
-      "category": "other",
+      "category": "consumer",
       "source": "FXStreet public calendar"
     },
     {
@@ -1257,72 +1257,102 @@
       "volatility": "HIGH",
       "isSpeech": false,
       "isTentative": false,
-      "category": "other",
+      "category": "rates",
       "source": "FXStreet public calendar"
     }
   ],
   "market": {
     "xau": null,
     "dxy": null,
-    "us2y": null,
-    "us10y": null
+    "us2y": {
+      "label": "US 2Y Treasury yield",
+      "symbol": "BC_2YEAR",
+      "name": "US 2Y Treasury yield",
+      "price": 4.19,
+      "previous": 4.19,
+      "changePct": null,
+      "deltaBps": 0.0,
+      "date": "2026-08-20",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
+    "us10y": {
+      "label": "US 10Y Treasury yield",
+      "symbol": "BC_10YEAR",
+      "name": "US 10Y Treasury yield",
+      "price": 4.69,
+      "previous": 4.65,
+      "changePct": null,
+      "deltaBps": 4.0,
+      "date": "2026-08-20",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
+    "real10y": {
+      "label": "US 10Y real yield",
+      "symbol": "TC_10YEAR",
+      "name": "US 10Y real yield",
+      "price": 2.35,
+      "previous": 2.35,
+      "changePct": null,
+      "deltaBps": 0.0,
+      "date": "2026-08-20",
+      "time": null,
+      "kind": "real-yield",
+      "source": "U.S. Treasury official daily rate"
+    }
   },
   "headlines": [
     {
-      "title": "Evans cites progress in affordable housing efforts - Rochester Beacon",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQdldwNWV1d2h2ZjEyb2kxeGNjb1JuZzRIcEF0UWNRRWhRc056a2ZRZGwtbi03VW9pektjMXJ1X0JtVjlCdkp3c2xuSzFJTW13cFhhTk91cEFNN1lmaVJJMjJnWDRUMEZVWHlNMURKa1JkS0J1R0VubG1HeWJIQzRfRVh2MmpVUGdvRG9FeU9FdTFSUWhv?oc=5",
-      "publishedUtc": "2026-08-21T00:38:46Z",
+      "title": "Fed officials tread carefully after Treasury's bond market intervention - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQNExUX05vcVRoMGFiSkhtemgyTmhlSVpPd25ldTV2d0NXQWpvTzJLdTJSOUFnTjBPN2JKVU1oWXA2STYzNHBlVVdoa1V3a25ka1NVbkdSQXo5N2VhQU1DSFIwbjEtM0ZIN1ZPd2tNMDJPR1NTcWpNaWxUSzhsRmw0VHRtenJtc2N6bU9aREw1bnp0d1lMdkU5Y29xSHhZb3paQjRfeGRER1drWEc5aXc?oc=5",
+      "publishedUtc": "2026-08-20T23:44:04Z",
       "source": "Google News aggregation",
-      "category": "housing"
-    },
-    {
-      "title": "Court ruling boosts Palo Alto’s efforts to build housing on downtown lot - Palo Alto Online",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNejlzQkVaOFFUcmhaUGhEYVd1ekxIdXpXTHVHVnJISHVUaVBxd2V6U1UzU01JSjJQQjRKaW83VTRKRW13NUhDRWFlWmtpZ0ZYYmFUZkJZLUxYaVpHamVaZnhOY0IzeDFrZk5PNnpoaXo2aGZKS2EyR0pjX2J1aGF2Uzg2Nm5aMEdzV05ETTYzQjBua2tQN0w3T3hSVzV1c3RreWtkeUkyUHQwSHVMVG14Q3hGSUZIeXExTlNxTWlNMA?oc=5",
-      "publishedUtc": "2026-08-21T00:20:18Z",
-      "source": "Google News aggregation",
-      "category": "housing"
-    },
-    {
-      "title": "Altoona pivots 80-acre affordable housing plan over high infrastructure costs - WEAU",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQdDdlUXdsQlRzUGZuTS03el9fa091LTJkbWhIX1NMbUcwRWlKTVZrQ1hBSWtteHhqZnZrUlFpUjVJVzAtbDNqTkhULWFESWw2LVRjS1pMRDVETFNDQ0FLWkhrRVNBUTZidmdJSWNVSDVyNllJTWU4RjF6NWdiS3NWbWpZem0tb21laWk0dTZkOEVQclR2VUViQVQ0bUtETEs1NEdCZlBVV29HNW9PcTE40gHDAUFVX3lxTE9xT3FIUkVrUmFvNFJobkp0amJGMXdaOHBNdEJvTm1WOVNVX1JtT2daeU1CdWduUGJaV1BYekRtOVVRaGExcVhWTVNoVnp1cVpxM2E0UERjYzd5dkFOYUFOMUxzRW91SGJjTkF5ZmN3dlZEMi1pSldOUVBWQVpBZnpzYjN1R21Yc2xxRFNOQXBTeXBfbWdYN25OenZWS1V0dnVUeEllc2hSdk5EN1Zqb1RNQk1icEphcDdmc2pWN2hSTHExMA?oc=5",
-      "publishedUtc": "2026-08-20T23:34:00Z",
-      "source": "Google News aggregation",
-      "category": "housing"
-    },
-    {
-      "title": "UK consumer confidence jumps to two-year high, GfK says - WTVB",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbXpKUEJXWU1YX0dtRXNRYVIxdEVUOHVRc2xpWkF6aThBWFpkR25sSmIwb0g0Q0VoU0VLdzZiYTBzemxPWjQxXzBHZm9nWmFOWXR6X3E0a2t6LUNReFdSNVMzRGt6dEY4ZG9NRUh3R1VwaHNaTVVCeDlkS2NVV25GSVlwUjAzTURRU0p5MmVR?oc=5",
-      "publishedUtc": "2026-08-20T23:31:45Z",
-      "source": "Google News aggregation",
-      "category": "consumer"
-    },
-    {
-      "title": "Fed minutes show September rate hike still on the table - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSVRUSV8yamU0TV9KS0l6VjdObHdFelZjd2QxY2ZhWXBJTjN5b3hRbzZGekxuNWVQUHFVSXNHdFFscG1LTTVMX2xKZkx2Nk1GNzRBY3E4RGlGcXpUSkVxUnRaQllXeFlrT2lFd0UycUpVV1Q2MHpYQzU2TFBaM3JYTW50dHFKTlJtd2Y3QzViUWpRRklDSU13VzlHUjRHMmRrSlFibHM3Rzlsa0NNcHh1Tm9XdG1qRTdZ?oc=5",
-      "publishedUtc": "2026-08-20T23:31:30Z",
-      "source": "Google News aggregation",
-      "category": "other"
+      "category": "rates"
     },
     {
       "title": "Gold wavers as bond yields rebound, oil jump fuels US inflation worries - The Business Times",
       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNldFYV9GQ2JpUENwZmRFNmE0aEpvNWpJV3ZqbTRuLUxqcm9od180MjZ1VW5yeDh1QnVfNHhCVkJlRVhnZlJnRU5Mbmg5cjhvOWo1MGlYX1pENF9QR0x3QWdKMF9NSU1ydGlTdHJ6MnhmMzVTNy1WUkZFcWo0YUlNZFNPSDRMTjYwUW5jbktqRGxkaVFPMGk3RVlaRHpxdlBQR0JYS05Pc2VpMzdFZThfRlVadllxeUxyQ2RPcEM4MGxBNTE1YUIzRmVUdWUzWWNvazE0?oc=5",
       "publishedUtc": "2026-08-20T23:31:00Z",
       "source": "Google News aggregation",
+      "category": "inflation"
+    },
+    {
+      "title": "How much will Trump's 'economic D-Day' sanctions hurt Iran? - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1UXzE5YWdPVk5wS3RnR0tpbm9KSHBBMUZ0WVFmN2hPQ29zcVB3MnZrdm1MYnJhS2FySERBMzhmV3JEamRWQ2QxT2RMT3JLVXBpR0xIa3hnRDdiUQ?oc=5",
+      "publishedUtc": "2026-08-20T23:16:45Z",
+      "source": "Google News aggregation",
       "category": "other"
     },
     {
-      "title": "Wilson Launches Housing Task Force, Pledging to Streamline Permitting - The Urbanist",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNbXdsRHVhdjBudEx1LW51R3JlSlhCNmJaUEJxWDBGaEppOFczTmItYWVqWHY1WW5EVlliOWthNVBhR1ZEZGxuS0lSTFg2TUtLQlBUcU5GUXlWaE9jcnA4WGxUTnl6S2NWczlBN09UVWFFZlJ0NTFFWDdjdkRpMVFQLVhId3BSWHhfUk56ZGxnX1N4c20xTHI5a1ZOS3JCZw?oc=5",
-      "publishedUtc": "2026-08-20T22:15:17Z",
+      "title": "Texas cities among 2026 best US real estate markets - USA Today",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOUlFvODdUNUplU0dieGppYjBIOXA4dHJaV2Z1S2F1QnRaZV8wVzlmZmZLNC11UkpvUUNETnBHTHdmbEVwR21WaEg5eC1oZzFFcDRhUHpuWnNWT1JMSkU3Q0ZINUpTZnZpemdyUm5saVZZc25VTXNhUjVLV2puRTZTVFhOVUY1TGQzcmZBdTBCUlBfMHZ5bHVTd0paNA?oc=5",
+      "publishedUtc": "2026-08-20T23:05:00Z",
       "source": "Google News aggregation",
-      "category": "housing"
+      "category": "other"
     },
     {
-      "title": "Families face repeated power outages at military housing on same grid as Naval Station Norfolk - 13newsnow.com",
-      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxONndCWmZHckY3cDRWWUxUS2VKVHAzRVJ6dktTeVpBZGlERDJZR0RlMGRWOEpUNHBkN0lhWWxtV212QkZwcC1qQlE3ZktfTHQyclliOEdEaDF5QmtpNkRJTXd1Sl9zVkI2M3BoVG9qNjNUV21hdjh1U2szckNlR0tZQlkxUlBpMzNuOVg1Y0NOLUtIenZCaEFtaDlEYUFWMGFVbDhTLXQ3Wm96RklWVXB4LXJDODhiWjVOeXppSVJzZjVsYTBHaG1PdkNvbGlRQUtpYnVFRlU3Zk1sTV9VQy1WS0ZNSi0tVzN2Y2d0NE1OMkZwQQ?oc=5",
-      "publishedUtc": "2026-08-20T22:14:00Z",
+      "title": "Trump Tariff Talks Leave Key Canadian Official Hopeful - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNeEhoMDItQ25jRDlpSlRnT0w4eEZHTnE1M1d2TE9rR0tGOWpYY1ZCWHdxRkhtcGh3azJrSU9id3FYdkxiTmJaQ2Z0b1A1YkstUDl3LTJEdVdlcTFScVBzU2JlbUlIeG9mQUlSbTJqek1TbnFlRGl3X2xld1FBM05uQXItelJJcFdCZklUZg?oc=5",
+      "publishedUtc": "2026-08-20T22:46:13Z",
       "source": "Google News aggregation",
-      "category": "housing"
+      "category": "other"
+    },
+    {
+      "title": "Trump vows tougher economic measures on Iran and supporting countries - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE10NXpxUDd6UnRUMjB4X2k3SnljQ0VYNjJCb1VUaUpJTmV3SlFPdWszMDZVWWdzUkduVEpBWk9zSGNseW56M2JWOXEtRjV6WVlxMlVTc0N4bVRKdw?oc=5",
+      "publishedUtc": "2026-08-20T22:18:56Z",
+      "source": "Google News aggregation",
+      "category": "other"
+    },
+    {
+      "title": "Gold miners climb as US Treasury yields rebound - Mining.com",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFA2ZDJvbC1uUU5jdkMyblB5UTlhcmhWNERaUEItbEFIcXlaQnJKSEJpYlRzZW14Qk40ZDREUFdrclNXN3ZzMUV4SDNyVGk0WWs0dzdvckZ1Vk9GemZ0bUU2ZW9GU3hBY1VybjdjbVR6anpGUV8wSTF0aldUbw?oc=5",
+      "publishedUtc": "2026-08-20T22:11:02Z",
+      "source": "Google News aggregation",
+      "category": "government"
     },
     {
       "title": "Does the Government Want Higher Borrowing Costs, Or Lower? Top Financial Officials Are Sending Mixed Signals - Investopedia",
@@ -1332,11 +1362,11 @@
       "category": "government"
     },
     {
-      "title": "Bill Seeks to Increase Accessible LIHTC Developments - Affordable Housing Finance",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOVW1MRzA0RmZ1Z19qQktvUGRBNlV3dS1zUkJsbnoyVnQtMjhzY1pMeXBuQU1hbllGVHRDT0lNa3RGVzFlYWxvZGxOb2YzNExJNWpmRWFyNTFqNmM5ZlVUV2pCWGcwcHFVNEtoaUpZREFpV1pnSnljQzQ5NFJfV3NfUlRaLVFpOFhaT0xMaXdYRXhmbjlfNkxyR3lfRUVGR3lO?oc=5",
-      "publishedUtc": "2026-08-20T21:57:11Z",
+      "title": "Who’s to blame for the $40 trillion national debt? - NBC News",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOSzUyMjVwQXYwallmbGljYWlhek5YYkZUNVNZYmdiSG9PYlZWQmZaMGNtSXdSUUdoT2J2N3YtOTR1V25Rc1RCWlNhRFdtZnVCbS1CQVFrejROY3NHMDRlR2s1TUlpeXFlM1dKb2ZaSXpQQkxVY2xveGMyLUdWM2M4NkdySUJoMHRkZ0ZuX01R?oc=5",
+      "publishedUtc": "2026-08-20T22:00:42Z",
       "source": "Google News aggregation",
-      "category": "housing"
+      "category": "other"
     },
     {
       "title": "Who’s buying U.S. Treasury debt, and why? - Brookings",
@@ -1344,13 +1374,6 @@
       "publishedUtc": "2026-08-20T21:48:18Z",
       "source": "Google News aggregation",
       "category": "government"
-    },
-    {
-      "title": "Fazio promises to find a ‘grand bargain’ on housing, zoning reform - CT Mirror",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBKX0VfS1lQV0lBdDBCUF9KT3A5WFkxaEZPREJNdm44UlpicS1nSE5VWnZldDVmUjFubjFlYUlRM0hJZnN0TGdYbEVPQzVmTjEzb2hRRzhTd1MzSEp1a3FZakgtTG1Sd1p3elBlNGRDV3owQl9td1g2Z3lERQ?oc=5",
-      "publishedUtc": "2026-08-20T21:30:00Z",
-      "source": "Google News aggregation",
-      "category": "housing"
     },
     {
       "title": "US Treasury buyback strategy falls short as debt worries persist - Yahoo Finance",
@@ -1367,6 +1390,13 @@
       "category": "government"
     },
     {
+      "title": "Chamath Palihapitiya warns data center revolt could dent US GDP - Cryptonews.net",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1uemJOa0RNdk9iR01uZjRiZ1VJUEJKandfQnFvbzA1VjVjV012T2d1MkRqQmtiSXZrS0xkbHlyMXhobUpkQ1NRVzlxZHN2YWZkWXNfbmZuMFA?oc=5",
+      "publishedUtc": "2026-08-20T20:40:39Z",
+      "source": "Google News aggregation",
+      "category": "growth"
+    },
+    {
       "title": "The Fed's preferred measure of inflation is changing - marketplace.org",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNaDBnRlJKZDIwTFVSZkRvRnFXM0VXd2hkVzFrcWpLMkZxS0RHdmtDRFVJNjJxVmJGTFFqNURoeFpKOHNnYkZRV2xZRnRuNm9Dc2pZZ2J3ai1aMjJKcEJPRk9mRWt6VjlXVHJHOUh5N2dEQnpzemJUdU5JY012aXd0WDNlQnYtcTVENXpvcWpnY3NTeEJMbENnc195U2dPWVVFNnFn?oc=5",
       "publishedUtc": "2026-08-20T20:18:00Z",
@@ -1374,32 +1404,11 @@
       "category": "rates"
     },
     {
-      "title": "Key to Home housing 75 people, closing largest encampment - City of OKC (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOTXVENUlfbjM2ajRib2dMem53TjJWT2lTMkxnWUFUUU5Lb1RZVElDUlRWNk4zd2dqUERmZkoxRHI1WFlzQ1dqNldkbm43TERnU25CTFRYQnNxdGdWQkZ4TFo5QWhpSkRjUzU5WVRfTGtQc3dna1JRSlRTcUJUQ3o3UXZMVl90OWJ2b2tVX2RfS3Z5N0gyRWNRbkhGUGRUM2RpRmhBSERqRkowVjhDYnEtV3k5S2YwZUU1ZlE?oc=5",
-      "publishedUtc": "2026-08-20T20:15:00Z",
+      "title": "Trump plan to allow drilling near US world heritage site sparks alarm - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPc28xd2ZPTXdYWF9UU2pHNWhkRUZ5UmFUNDQzRUZoM0pOaXA2cWZZSEV5NEh0WUMyb2RBUGFYRWotOEI0SHRXQWV4UXFURkp1eWZBWHNWQTlRbWNNUHk2OVBYMDlWUXRNanNOVURBODA5VWRxMHNpQkJXV2dFZUNycm5VMUNuU0ltMEthZ0R3X3h0emM4TVdmLUVXSUFxZw?oc=5",
+      "publishedUtc": "2026-08-20T20:09:00Z",
       "source": "Google News aggregation",
-      "category": "housing"
-    },
-    {
-      "title": "Tonko Cheers $12.8 Million+ in Affordable Housing Grants for Capital Region Communities - Congressman Paul Tonko (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE42elhBRlJOYm1IMWtOSUo4dXZwWXpXUVQ3WXJjMlZ5RHRvWDlDcEpiUmpGOS1aUzRhYklhUEh6azBtXzhxenVkeS0yUmVCVUQ4UzYtMERBSkJKWDBjbnQ0MmNtaEhYNGtsUVF3SG1KZlJpQQ?oc=5",
-      "publishedUtc": "2026-08-20T19:41:31Z",
-      "source": "Google News aggregation",
-      "category": "housing"
-    },
-    {
-      "title": "Vermont’s housing shortage is the real obstacle to growth - VTDigger",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQa0ttVmhWajlCU1JobEdhc05zaUFIS2lkaDV6S3JGN3Z6d3NFeUI0Zldtc0V6NkN5dVZMb1BoSXdsSWNETVZsZks1YWFsOUE2amdQeFhCNnZVR2Z0RDlXWkQ4Ums2MGIzZVlxRGI3LWp4NXdYYjJQZE5MVERXT2s1MkpsVnJlWkNfQTg0b3VjbU5SZ2UwNXNsc0NSQ1k3Zw?oc=5",
-      "publishedUtc": "2026-08-20T18:59:47Z",
-      "source": "Google News aggregation",
-      "category": "housing"
-    },
-    {
-      "title": "Governor Newsom awards $11.3 million to 13 prohousing communities to build more affordable housing - California State Portal | CA.gov",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNWjJkd1N5a2o5S01oUTBxeWdEaEVHaGducHVLajlxRG95MUJoR19US0wzWUdNdXR0V1ZhcG8xTGNvenAzaHljenpmMlhXSndQaGlRTi0xODNVQTd2cXZTZXdSdk1vQmoybkJkNEJqTURpaVN3SS1WVUl3bW9Udnd4YjF1YjhVQ3RuNjRBTEZNMUV1UXAwcnFXS3E0THhXYlhaVFNJemtrazFxSmJlbF9XZVA0bWZJblpzOHZYYmZyT3hqajVJOUY5V1Brb1A?oc=5",
-      "publishedUtc": "2026-08-20T18:54:46Z",
-      "source": "Google News aggregation",
-      "category": "housing"
+      "category": "other"
     },
     {
       "title": "Japanese Yen underperforms as elevated Oil prices weigh, US Dollar recovers - FXStreet",
@@ -1409,23 +1418,30 @@
       "category": "other"
     },
     {
-      "title": "Trump says he 'will not sign' bipartisan housing bill, but doesn't threaten veto either - ABC News - Breaking News, Latest News and Videos",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQa0tLaEhwanhIY0M1RnVjRi1kRS01T25YUU1iZjBQQnpjdXB3ZFJRa21fc3VMelZHU3BLUjByQzF1LTYySS1rUnc4cFlsSWFvai16ZC1wQXh4N2RONXQ3US1zWk9pN0UzMmYzeTlzRElpZXNNX3lfTml1bE1lWmQ2VWpMWDlfR0M1aGNXcEE0V2VoenRZQnRpX2dUNjjSAaIBQVVfeXFMUC1HdU9CeWNKeVUya0J5YnphcWltYVJNYWdrNDhqMkMtTnNSeDh6bHlRQmo5c1ZadnJmWUhweWJwdjhTTW5iNmlxeUFBZk5KZ3JNWUJoamw1TV8tM2VzLW96V00zMGhQeVJ3UHpDQWZPM1lWUU03ZmZVNjZfOVNGQkM2N2ZBOEI1R2FmenlrM3RQZlpKd0dCSzEycHF3UndMWlBR?oc=5",
-      "publishedUtc": "2026-08-20T17:48:19Z",
-      "source": "Google News aggregation",
-      "category": "housing"
-    },
-    {
       "title": "Fed officials warned rate hikes may be needed if inflation stays high - Axios",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQWEt5Q3dhWUdERVp6Q3JZQ05KQk5qUTcwZi1WZVMteFVTX09YQVZrZ0FPN0pyRU9qZnpJbElqNEE4Vm05ZmcyZ3ZEdl9YcUpEb2prb1F1cVdLM1daTkMxNjNCV3ZXQlE?oc=5",
       "publishedUtc": "2026-08-20T17:36:58Z",
       "source": "Google News aggregation",
-      "category": "inflation"
+      "category": "rates"
     },
     {
       "title": "Grey hair, black gold: Nigeria’s oil industry calls back retirees as skills pipeline falters - The Africa Report",
       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQaDVlMFFkSzl2S3dtQVpOOGxiSzM0R25pbFhMbHE1bXVsRkJvVUFsRkJ0V196YVdHQTgxUjVNSHlrU3JlVXEtbE5XQjZ5bnpwa0RCZzdDMTRJdjNVdFp4QUtoc3ItVm5heFpsakJhN3dXbGt0b2twM25uX2tIeVo5VVkxQVYzaVREdVpiQzFaUEJYSW5sbUdoSm54WWIxYzc0dkNOZ1NCNXMxVnFRdVNUQUFuMkE4dVV0eXFlNERpQXk2UEp3SWxUNg?oc=5",
       "publishedUtc": "2026-08-20T17:00:08Z",
+      "source": "Google News aggregation",
+      "category": "other"
+    },
+    {
+      "title": "‘Starve the beast’? The $40tn cost of Republicans’ false promises to cut spending - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQZU9FNkJFTmo0bW9kR1dXd2M2NTgwN3NUTEdJS2VqcmUyWDFkM0hmRDZldy14bEJCY1B2T0FpMlN0WlM2bWNwZHVFcXdCd21CbXNQNUxLX2pxVkhqb1JrUnN3TGp1X29hQUdaWGtSTlluaWJ1U1BGajRRblRiaHYwMzZuYw?oc=5",
+      "publishedUtc": "2026-08-20T16:40:00Z",
+      "source": "Google News aggregation",
+      "category": "other"
+    },
+    {
+      "title": "Tracking the Impact of the Trump Tariffs & Trade War - Tax Foundation",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5LU1daamtmcnNXWEZENFBwb3BYMThMQ1M4bHFPSzVZX0s5QmlLYWM4dDdKUGNiOF9iNjcxZ2VZTXd0bVJ6NGNNcDZVVmlkc25rTmxLd3Q4RVJhQmM3dUhpR3h1aXhXNGs3UkNQN0ZKLUpSSnBnOWVaX0tTRQ?oc=5",
+      "publishedUtc": "2026-08-20T16:36:30Z",
       "source": "Google News aggregation",
       "category": "other"
     },
@@ -1437,23 +1453,16 @@
       "category": "government"
     },
     {
-      "title": "Housing Affordability Worsens on Higher Mortgage Rates - National Association of Home Builders | NAHB",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQS05jNFl0VEdvTHFTaWZoZGd4LTgxcWRWcm1HMTBNNFlpdEE4Yks0amx2NlFvTlVCY2hiTmRUNmJMYkg1UURjejR2aDR5c2xhUjBSNFNIWVRMWHpsTF81a2RKOXhJQUN3M1dIOUdhUExaZU9hLWMya2VtUWdIa21jNGJiN2E3WXloMm1RLUZycnh1U0UwVEpaa0xvZ3RJd0JXZTJxVVhIdTBvRElCMG5NRk5UX3BKbTdB?oc=5",
-      "publishedUtc": "2026-08-20T16:05:37Z",
+      "title": "Bond sell-off: Why government bond yields soared – and why it matters - The World Economic Forum",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON2FmSTNBSURza2J6Wk5PbkJWM0VjZ1VNeVBEYUtXOWhHS2FqdFl0dFJkOTMyZ2pSSFFPVDRqV2xvWFhzeThaZVhSX3JCS0VBb0xwRW5uQVY3dnVha3pwbHR6MS1BWFpXWktzTUxPaGVvNkhMOW9CcTVOSHNNLThjLTdreVoweHhKT2REenp5T3M2SXp6c2x6RzV2ZnhfcDE5ZzZ2aQ?oc=5",
+      "publishedUtc": "2026-08-20T16:27:00Z",
       "source": "Google News aggregation",
-      "category": "housing"
+      "category": "government"
     },
     {
-      "title": "FOMC minutes show a Fed growing restless on inflation as Warsh floats six-meeting FOMC schedule for 2027 - KITCO",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQNGNtNEYtZ3ZmODlLMHF3RE0xR3d6X3BJci1ab3NZR2tyUFRuWlV0WXFKcVktYzZlaWJOenlHRHZOWWV4bnpoaW1pcUVBMWZWNEpqWUY1enpnLXZrWnZOSlNoMnBUd291aUNNWVc4S1pfX0dmWEpFZmJHNFQyMFRyc0RmRHdVWWdfTk9ITGh3d0VDdDY5NkE1UXRrZ3d0VWtKMlNmbTNhSWtSNWpvdjhwU2ZhU2ltX1BRYkFN?oc=5",
-      "publishedUtc": "2026-08-20T15:27:29Z",
-      "source": "Google News aggregation",
-      "category": "rates"
-    },
-    {
-      "title": "Investors Warn US Over Shifting From Predictable Debt Management - Bloomberg",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxObC1QX3hLM3JTRFJkbnBFWmRsMlItTmQ2Nko1eWJscEJ0SUVBMzFmQnJNREFyLUNsck9hZ0JNRkxGSTg0Nkw2YjZvZ1dvMzhpYVZQWGFIUUM2anBUWG9UQ1JGaHVLWkhocFJSZXlQOVhKYnhELUtHMTBWcVQ1OEVPdjl2dEhXV0U4YkpUeUNSZFdydzR4d3l2Um9XNjlXZ1BtZ1RQN2VlVjdZbWQ0Zi0wUERSZDdkZw?oc=5",
-      "publishedUtc": "2026-08-20T13:55:11Z",
+      "title": "Bessent says there's a 'very good chance' U.S. budget deficit under Trump has peaked - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5najFFTl9nN3F4TVNFZzhrUktaSEhSMkxHN1RaVWs3WU5CWUp0b1FjRjJRTXpld2lqcFd2OVpPX2ZtVDBMdkZSenlza19PVjMzVEJrazI0QjJJVG1TVkZZR3I3a2FpaXFQNDFuQUFOWU01RHfSAXhBVV95cUxQS0xBMmM5cVRmT05FOEZNT1pjSEZfVHB3WXVWZjhiWTZTMl8zLUJIbURDcTJtc2xKemFQUmJIemJOb3lFYnZ6b1dQNkV5N3duT2NKd3RybFRjUk1lY0ItUUJsMW9sZnRTY2lHdGtFRkZfeEljd0lTdjg?oc=5",
+      "publishedUtc": "2026-08-20T16:23:57Z",
       "source": "Google News aggregation",
       "category": "other"
     },
@@ -1465,9 +1474,30 @@
       "category": "other"
     },
     {
+      "title": "Pending U.S. home sales hit lowest since March amid high costs and economic uncertainty. - Pluang",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPSExWU0ZmZmxZWlc2Mk0tdVM4YW1tc0t4SUFzT3pGR1N0c0lXU0t4bDBnVnY4WUVselg2SG4taEh3U3BUT013c3piMHYteGx6WTJVb0E0a29GM1ZOOXE3MTB6NkJYTTBISm1CY0dYNzZnV29PaW83bmNGMndGTUxHcFQyWnMwZGNpbU1vV3dSNzdRaGVJN1NSaThR?oc=5",
+      "publishedUtc": "2026-08-20T12:18:05Z",
+      "source": "Google News aggregation",
+      "category": "housing"
+    },
+    {
       "title": "Gold pulls back after two-month high as oil, hawkish Fed outlook weigh - TradingView",
       "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPMU4xZElDN2VMZnVrU0kyTkVKMXQ5RWhER3NmVzRQNXhqSzhKSjd2dGt6ZjJOVGVsaWxDcmROVFRRSFcyQWdMUUg0OUNWaUxnYWh2RGdHem9mVXplaDdXUzV6bERYekQxVmFqeFVsN3JfMFpYWTBFbmpIRmJ2M2JVUVlmaHhUTTI3YzQyTk1FMkNzTjRiY1FGXzgxX1JYeFdOWk5pN0l1QlVqRWdIQy1uWGJNR0J6NnhoVl9QVjltVlduQzVHcUFNUW9OWEdKN1lXVlF3VFZn?oc=5",
       "publishedUtc": "2026-08-20T12:00:04Z",
+      "source": "Google News aggregation",
+      "category": "other"
+    },
+    {
+      "title": "Sterling today: Pound firms as soft U.S. jobs data weighs on dollar - Investing.com",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPOFBnaHVHUF84cmlNWF93bGRCZzJVd0Q1cHpxczhzcmhCWnRvOVRMMmcwdFE3cUQyMGRIcUE3SUNtNVNUV1F5dHV0VTJvY1VqbDduMTVMcDFvTE0tN0JYdGhMeXNfcGNYQ0dhaTVnMVMxZUEyNGVpaER4U2ZvMWJvbGlSRU9oOVNOWDJiQi15b0Z2R2JIRjYzS1I2VktUd1dweDVMcGRWbjVWM2RCeUNySk96V1o?oc=5",
+      "publishedUtc": "2026-08-20T11:38:24Z",
+      "source": "Google News aggregation",
+      "category": "other"
+    },
+    {
+      "title": "How much has the national debt grown under President Trump? - Fox Business",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNYm95dGFiYnQ1c3FNLXd4cTB5NllpLVFIUUxBdlpOWUVlekxDeHl1TFpHQTc4RWVBNE95X0stR0RhbkJwUkYxTHN5VW5ZWkZmLThSMnptbzVVQ3hYMXVSQU5YeG50Smo4Rk13c1VkWW5fNjZuVnJYWUI4bmpaSTdudVg0d3UxUXIwZDN1ZFRPWlBpUG51SVHSAZsBQVVfeXFMTm5FRFMxeFFYcXV5NlFETEU0LWRnSTV3R1BzRTNSQnJ0ZHhBWUhoVWxYMHBCSFNiX00tV2sySTI3QkE5X2ZpRkxNZDJCVVlCdl8weUFvdjc2MkJENTFyMmtPUTRUbUw2djBwd0R0OEt6clhENzZEVmZkVXVuLW5fWjhqa09pZ3RURjZhc2Y2X0NoUm5SQmVPbnZ0dFU?oc=5",
+      "publishedUtc": "2026-08-20T11:38:00Z",
       "source": "Google News aggregation",
       "category": "other"
     },
@@ -1486,11 +1516,25 @@
       "category": "other"
     },
     {
+      "title": "'Want to buy at 7%, hate to sell': US housing market freezes up - 헤럴드경제",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9xelB3T1Iwd3JpLXNGa0tFV1lTc0I5UkRFcWZFa1ozeno4ei1Xd2FmNVlNWVp2aVZ2OG02MmJJQ2Y0STJreUZRdzU5YUdJYzd0bUJUWTR3OA?oc=5",
+      "publishedUtc": "2026-08-20T10:18:06Z",
+      "source": "Google News aggregation",
+      "category": "housing"
+    },
+    {
       "title": "Why the U.S. Treasury moved to lower long-term bond yields - NPR",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNRE1GdFgtV1FMV2hQUXd6R3hCb3EzNDl5aXhvYmttTEMxMU9aTUI4S1lJX3FHZmVPTHhhZkpITzV2Q3RQNzQ1LWxISTRIbVVVSzdXdGNsREhFNzMxMVFBdjFpZ3Rvd2ViX0hxbTk1MDVlRjBnTWhycXBfUVRGMFJKNGxLYTFGTVBNX0VzcS1pdkpzbDhTaGdnVUlZeEFWWmw5a2RMVw?oc=5",
       "publishedUtc": "2026-08-20T08:45:23Z",
       "source": "Google News aggregation",
       "category": "government"
+    },
+    {
+      "title": "US retail sales post first decline in nine months in July - AOL.com",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNRHRzTmhYQTV1bDctVTNTZjEyOTFLVG5wNzUyWG5WYS1GcVozNHRBemlFVW4zNWh6dWc2ZUZRS3JQNmxhLU1vWTRSOHhsa051bnh5WjdzNnFCWFJ2eXdSLTRmOF93VTFXYW9vbkw4cnQ1c1pFc0Z1OWNUNm1VdFhlZ2hBYw?oc=5",
+      "publishedUtc": "2026-08-20T08:24:35Z",
+      "source": "Google News aggregation",
+      "category": "consumer"
     },
     {
       "title": "Fed chair Jerome Powell says he will stay on central bank's board after term expires next month - ABC News - Breaking News, Latest News and Videos",
@@ -1512,13 +1556,6 @@
       "publishedUtc": "2026-08-19T23:34:15Z",
       "source": "Google News aggregation",
       "category": "other"
-    },
-    {
-      "title": "Riyadh’s Black Gold Museum Reframes Oil’s Legacy - Interior Design Magazine",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE16c2laT1hZSEVNdnVjRlZoaW5TOEt1SHFOaG1IRWRsNndlQ3N2TzNxVjMxVGI1UFJ4TU1kWklkV0ZrbWhvV3l0S1dGOF83RDJLSWFGVklKeXoyb042TlZ6c0xBbGxDNnpsSTFvUG92cnZEUQ?oc=5",
-      "publishedUtc": "2026-08-19T21:28:57Z",
-      "source": "Google News aggregation",
-      "category": "other"
     }
   ],
   "errors": [],
@@ -1526,6 +1563,7 @@
     "US economic calendar: FXStreet public web calendar feed (best-effort; not the paid official API).",
     "Fed/BLS headlines: official public RSS feeds.",
     "Broader macro headlines: Google News RSS aggregation; headlines are context, not automatically trusted as trade signals.",
-    "Market confirmation: free Stooq quotes; may be delayed and are labelled as such in the app."
+    "Gold/DXY: free Stooq quote when available; may be delayed or throttled.",
+    "2Y/10Y/real yields: official U.S. Treasury daily rates; not intraday realtime."
   ]
 }
