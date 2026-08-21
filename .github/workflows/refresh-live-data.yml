@@ -9,6 +9,7 @@ on:
     paths:
       - 'scripts/refresh_live_data.py'
       - 'scripts/enrich_official_data.py'
+      - 'scripts/enrich_fed_minutes.py'
       - 'scripts/record_signal_history.py'
       - '.github/workflows/refresh-live-data.yml'
 
@@ -32,6 +33,8 @@ jobs:
         run: python3 scripts/refresh_live_data.py
       - name: Cross-check official BLS data and enrich Fed text
         run: python3 scripts/enrich_official_data.py
+      - name: Follow underlying FOMC minutes document
+        run: python3 scripts/enrich_fed_minutes.py
       - name: Record model calibration history
         run: python3 scripts/record_signal_history.py
       - name: Commit data only when it changed
