@@ -1,7 +1,7 @@
 (()=>{
   "use strict";
 
-  const DATA_URL="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
+  const SNAPSHOT_URL="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
   const VIEW_KEY="goldmine-refresh-view";
   const STATUS_KEY="goldmine-refresh-status";
 
@@ -10,6 +10,31 @@
     sessionStorage.removeItem(VIEW_KEY);
     const nav=document.querySelector('.nav-item[data-view="predictions"]');
     if(nav)nav.click();
+  }
+
+  function workerUrl(){
+    return String(window.GOLD_MINE_CONFIG?.liveWorkerUrl||"").trim();
+  }
+
+  async function fetchLatest(forceSource=false){
+    const worker=workerUrl();
+    if(worker){
+      const join=worker.includes("?")?"&":"?";
+      try{
+        const r=await fetch(`${worker}${join}${forceSource?"fresh=1&":""}t=${Date.now()}`,{cache:"no-store"});
+        if(!r.ok)throw new Error(`HTTP ${r.status}`);
+        const j=await r.json();
+        if(!j||!Array.isArray(j.events))throw new Error("Invalid live worker data");
+        return j;
+      }catch(error){
+        console.warn("Gold view live Worker unavailable; using GitHub snapshot",error);
+      }
+    }
+    const response=await fetch(`${SNAPSHOT_URL}?manual=${Date.now()}`,{cache:"no-store"});
+    if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const latest=await response.json();
+    if(!latest||!Array.isArray(latest.events))throw new Error("Invalid live data");
+    return latest;
   }
 
   function installRefreshButton(){
@@ -31,14 +56,10 @@
       busy=true;
       button.disabled=true;
       button.setAttribute("aria-busy","true");
-      button.textContent="Refreshing…";
+      button.textContent=workerUrl()?"Querying live sources…":"Refreshing…";
 
       try{
-        const response=await fetch(`${DATA_URL}?manual=${Date.now()}`,{cache:"no-store"});
-        if(!response.ok)throw new Error(`HTTP ${response.status}`);
-        const latest=await response.json();
-        if(!latest||!Array.isArray(latest.events))throw new Error("Invalid live data");
-
+        await fetchLatest(true);
         sessionStorage.setItem(VIEW_KEY,"predictions");
         sessionStorage.setItem(STATUS_KEY,"updated");
         button.textContent="Updating…";
@@ -54,16 +75,25 @@
     });
   }
 
-  function loadAlertsPullRefresh(){
-    if(document.querySelector('script[data-goldmine-pull-refresh]'))return;
-    const script=document.createElement("script");
-    script.src="./pull-refresh.js";
-    script.async=false;
-    script.dataset.goldminePullRefresh="true";
-    document.body.appendChild(script);
+  function loadScript(src,marker){
+    return new Promise(resolve=>{
+      if(document.querySelector(`script[data-${marker}]`)){resolve();return;}
+      const script=document.createElement("script");
+      script.src=src;
+      script.async=false;
+      script.setAttribute(`data-${marker}`,"true");
+      script.addEventListener("load",()=>resolve(),{once:true});
+      script.addEventListener("error",()=>resolve(),{once:true});
+      document.body.appendChild(script);
+    });
   }
 
-  restoreGoldView();
-  installRefreshButton();
-  loadAlertsPullRefresh();
+  async function boot(){
+    restoreGoldView();
+    await loadScript("./config.js","goldmine-config");
+    installRefreshButton();
+    await loadScript("./pull-refresh.js","goldmine-pull-refresh");
+  }
+
+  boot();
 })();
