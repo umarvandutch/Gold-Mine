@@ -35,34 +35,62 @@ def iso_z(dt):
 
 def category_for(name):
     s = (name or "").lower()
-    # Monetary-policy events first, but do not treat regional Fed economic
-    # surveys (Philadelphia Fed, Dallas Fed, etc.) as rate decisions.
+
+    # True monetary-policy / central-bank events. Do not use a bare "fed"
+    # match because names such as "Philadelphia Fed Manufacturing Survey"
+    # are business indicators, not rate decisions.
     if any(k in s for k in [
         "fomc", "interest rate", "fed funds", "federal reserve",
-        "powell", "beige book", "fed chair", "fed governor",
-        "fed president", "fed's "
+        "powell", "beige book", "jackson hole", "fed chair",
+        "fed governor", "fed president", "fed official", "fed policymaker",
+        "fed minutes", "fed meeting", "fed rate", "fed's "
     ]):
         return "rates"
-    if any(k in s for k in ["cpi", "pce", "ppi", "inflation", "price index", "prices paid", "prices received"]):
+
+    if any(k in s for k in [
+        "cpi", "pce", "ppi", "inflation", "price index", "prices paid",
+        "prices received", "personal consumption expenditures price",
+        "personal consumption expenditures prices"
+    ]):
         return "inflation"
-    if any(k in s for k in ["payroll", "employment", "unemployment", "jobless", "jolts", "job openings", "labor", "labour", "wages", "earnings"]):
+
+    if any(k in s for k in [
+        "payroll", "employment", "unemployment", "jobless", "jolts",
+        "job openings", "labor", "labour", "wages", "earnings",
+        "employment cost"
+    ]):
         return "labour"
-    if any(k in s for k in ["gdp", "growth rate"]):
+
+    if any(k in s for k in ["gdp", "growth rate", "gross domestic product"]):
         return "growth"
-    if any(k in s for k in ["retail", "consumer confidence", "consumer sentiment", "personal spending", "personal income"]):
+
+    if any(k in s for k in [
+        "retail", "consumer confidence", "consumer sentiment",
+        "consumer expectations", "personal spending", "personal income",
+        "consumer spending"
+    ]):
         return "consumer"
-    if any(k in s for k in ["housing", "home sales", "building permits", "mortgage", "construction"]):
+
+    if any(k in s for k in [
+        "housing", "home sales", "building permits", "mortgage",
+        "construction", "housing starts"
+    ]):
         return "housing"
+
     if any(k in s for k in [
         "pmi", "ism", "industrial production", "factory", "durable",
-        "business", "manufacturing", "services", "philadelphia fed",
-        "dallas fed", "richmond fed", "kansas city fed", "empire state"
+        "capital goods", "business", "manufacturing", "services",
+        "philadelphia fed", "dallas fed", "richmond fed",
+        "kansas city fed", "empire state"
     ]):
         return "business"
+
     if any(k in s for k in ["trade", "exports", "imports", "current account"]):
         return "trade"
+
     if any(k in s for k in ["treasury", "auction", "budget", "government"]):
         return "government"
+
     return "other"
 
 
@@ -117,20 +145,25 @@ def parse_float(v):
 
 
 def stooq_quote(candidates, label, kind):
+    """Best-effort free current quote. Stooq may throttle automated access."""
     for symbol in candidates:
         try:
-            q = urllib.parse.urlencode({"s": symbol, "f": "sd2t2ohlcvnp", "h": "", "e": "csv"})
-            text = fetch_bytes(f"https://stooq.com/q/l/?{q}").decode("utf-8", "replace")
+            safe_symbol = urllib.parse.quote(symbol, safe=".^=")
+            # Stooq's h flag is deliberately left as a bare query flag.
+            url = f"https://stooq.com/q/l/?s={safe_symbol}&f=sd2t2ohlcvnp&h&e=csv"
+            text = fetch_bytes(url).decode("utf-8", "replace")
+            lower = text.lower()
+            if "exceeded" in lower or "apikey" in lower or len(text.strip()) < 20:
+                continue
             rows = list(csv.DictReader(io.StringIO(text)))
             if not rows:
                 continue
             row = rows[0]
             close = parse_float(row.get("Close"))
-            prev = parse_float(row.get("Prev"))
+            prev = parse_float(row.get("Prev") or row.get("Previous"))
             if close is None:
                 continue
             change_pct = ((close - prev) / prev * 100.0) if prev not in (None, 0) else None
-            delta_bps = ((close - prev) * 100.0) if kind == "yield" and prev is not None else None
             return {
                 "label": label,
                 "symbol": symbol,
@@ -138,24 +171,89 @@ def stooq_quote(candidates, label, kind):
                 "price": round(close, 4),
                 "previous": round(prev, 4) if prev is not None else None,
                 "changePct": round(change_pct, 3) if change_pct is not None else None,
-                "deltaBps": round(delta_bps, 1) if delta_bps is not None else None,
+                "deltaBps": None,
                 "date": row.get("Date"),
                 "time": row.get("Time"),
                 "kind": kind,
-                "source": "Stooq free quote"
+                "source": "Stooq free quote (may be delayed)"
             }
         except Exception:
             continue
     return None
 
 
-def fetch_market():
+def treasury_rows(data_key, year):
+    """Read the official U.S. Treasury XML feed using namespace-agnostic tags."""
+    url = (
+        "https://home.treasury.gov/resource-center/data-chart-center/"
+        f"interest-rates/pages/xml?data={data_key}&field_tdr_date_value={year}"
+    )
+    root = ET.fromstring(fetch_bytes(url, headers={"Accept": "application/xml,text/xml,*/*"}))
+    rows = []
+    for elem in root.iter():
+        if not elem.tag.endswith("properties"):
+            continue
+        row = {}
+        for child in list(elem):
+            key = child.tag.split("}")[-1]
+            row[key] = child.text
+        if row.get("NEW_DATE"):
+            rows.append(row)
+    rows.sort(key=lambda r: r.get("NEW_DATE") or "")
+    return rows
+
+
+def treasury_quote(rows, field, label, kind="yield"):
+    valid = []
+    for row in rows:
+        value = parse_float(row.get(field))
+        if value is not None:
+            valid.append((row.get("NEW_DATE"), value))
+    if not valid:
+        return None
+    latest_date, latest = valid[-1]
+    previous = valid[-2][1] if len(valid) > 1 else None
+    delta_bps = (latest - previous) * 100.0 if previous is not None else None
     return {
-        "xau": stooq_quote(["xauusd", "gc.f"], "Gold / XAUUSD proxy", "gold"),
-        "dxy": stooq_quote(["^dxy", "dx.f"], "US Dollar Index", "index"),
-        "us2y": stooq_quote(["^uts"], "US 2Y yield", "yield"),
-        "us10y": stooq_quote(["^tnx"], "US 10Y yield", "yield")
+        "label": label,
+        "symbol": field,
+        "name": label,
+        "price": round(latest, 3),
+        "previous": round(previous, 3) if previous is not None else None,
+        "changePct": None,
+        "deltaBps": round(delta_bps, 1) if delta_bps is not None else None,
+        "date": (latest_date or "")[:10],
+        "time": None,
+        "kind": kind,
+        "source": "U.S. Treasury official daily rate"
     }
+
+
+def fetch_market(now):
+    market = {
+        "xau": stooq_quote(["xauusd", "gc.f"], "Gold / XAUUSD", "gold"),
+        "dxy": stooq_quote(["dx.f", "^dxy"], "US Dollar Index", "index"),
+        "us2y": None,
+        "us10y": None,
+        "real10y": None
+    }
+
+    # Official Treasury data is daily rather than tick-by-tick, but it is free,
+    # stable and auditable. It is used as context, not presented as realtime.
+    try:
+        nominal = treasury_rows("daily_treasury_yield_curve", now.year)
+        market["us2y"] = treasury_quote(nominal, "BC_2YEAR", "US 2Y Treasury yield")
+        market["us10y"] = treasury_quote(nominal, "BC_10YEAR", "US 10Y Treasury yield")
+    except Exception:
+        pass
+
+    try:
+        real = treasury_rows("daily_treasury_real_yield_curve", now.year)
+        market["real10y"] = treasury_quote(real, "TC_10YEAR", "US 10Y real yield", "real-yield")
+    except Exception:
+        pass
+
+    return market
 
 
 def rss_items(url, source, category, limit=10):
@@ -202,11 +300,29 @@ def fetch_headlines():
     for url, source, category in feeds:
         items.extend(rss_items(url, source, category, 12))
 
-    # Broad, gold-relevant US macro context. These are displayed as context and
-    # receive model weight only when the headline has a clear rule-based signal.
-    items.extend(google_news('("Federal Reserve" OR FOMC OR Powell OR "US Treasury") (rates OR inflation OR jobs OR debt OR deficit) when:2d', "auto", 12))
-    items.extend(google_news('("US inflation" OR "US jobs" OR "US GDP" OR "US retail sales" OR PMI OR ISM OR "consumer confidence" OR housing) when:2d', "auto", 14))
-    items.extend(google_news('(gold OR XAUUSD OR "US dollar" OR DXY) (tariff OR war OR attack OR sanctions OR geopolitics OR recession OR crisis OR oil) when:2d', "other", 12))
+    # Broad but explicitly US/macro-focused context. Precise query phrases stop
+    # generic local housing or foreign consumer-confidence stories leaking in.
+    items.extend(google_news(
+        '("Federal Reserve" OR FOMC OR Powell OR "US Treasury") '
+        '(rates OR inflation OR jobs OR debt OR deficit OR yields) when:2d',
+        "auto", 12
+    ))
+    items.extend(google_news(
+        '("US inflation" OR "US jobs" OR "US GDP" OR "US retail sales" '
+        'OR "US PMI" OR "US ISM" OR "US consumer confidence" '
+        'OR "US housing market" OR "US home sales") when:2d',
+        "auto", 14
+    ))
+    items.extend(google_news(
+        '("White House" OR Trump OR "US Treasury") '
+        '(tariff OR sanctions OR trade OR oil OR debt OR deficit) when:2d',
+        "other", 10
+    ))
+    items.extend(google_news(
+        '(gold OR XAUUSD OR "US dollar" OR DXY) '
+        '(tariff OR war OR attack OR sanctions OR geopolitics OR recession OR crisis OR oil) when:2d',
+        "other", 12
+    ))
 
     seen = set()
     unique = []
@@ -241,7 +357,7 @@ def main():
         errors.append(f"FXStreet calendar: {type(e).__name__}: {e}")
 
     try:
-        market = fetch_market()
+        market = fetch_market(now)
     except Exception as e:
         market = {}
         errors.append(f"Market quotes: {type(e).__name__}: {e}")
@@ -282,7 +398,8 @@ def main():
             "US economic calendar: FXStreet public web calendar feed (best-effort; not the paid official API).",
             "Fed/BLS headlines: official public RSS feeds.",
             "Broader macro headlines: Google News RSS aggregation; headlines are context, not automatically trusted as trade signals.",
-            "Market confirmation: free Stooq quotes; may be delayed and are labelled as such in the app."
+            "Gold/DXY: free Stooq quote when available; may be delayed or throttled.",
+            "2Y/10Y/real yields: official U.S. Treasury daily rates; not intraday realtime."
         ]
     }
 
