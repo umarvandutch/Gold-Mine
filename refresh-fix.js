@@ -94,6 +94,7 @@
     installRefreshButton();
     await loadScript("./pull-refresh.js","goldmine-pull-refresh");
     await loadScript("./gold-direction-labels.js","goldmine-gold-direction-labels");
+    await loadScript("./accuracy-engine.js","goldmine-accuracy-engine");
   }
 
   boot();
