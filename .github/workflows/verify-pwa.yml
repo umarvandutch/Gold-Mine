@@ -8,12 +8,14 @@ on:
       - 'styles.css'
       - 'live.css'
       - 'app.js'
+      - 'config.js'
       - 'refresh-fix.js'
       - 'pull-refresh.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
       - 'scripts/**'
+      - 'worker/**'
       - '.github/workflows/verify-pwa.yml'
       - '.github/workflows/refresh-live-data.yml'
 
@@ -29,11 +31,13 @@ jobs:
       - name: Validate JavaScript
         run: |
           node --check app.js
+          node --check config.js
           node --check refresh-fix.js
           node --check pull-refresh.js
+          node --input-type=module --check < worker/src/index.js
       - name: Validate live data refresher
         run: python3 -m py_compile scripts/refresh_live_data.py
       - name: Validate manifest
         run: node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f sw.js && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
