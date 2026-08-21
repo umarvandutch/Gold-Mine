@@ -35,7 +35,13 @@ def iso_z(dt):
 
 def category_for(name):
     s = (name or "").lower()
-    if any(k in s for k in ["fed", "fomc", "interest rate", "powell", "beige book", "fed funds"]):
+    # Monetary-policy events first, but do not treat regional Fed economic
+    # surveys (Philadelphia Fed, Dallas Fed, etc.) as rate decisions.
+    if any(k in s for k in [
+        "fomc", "interest rate", "fed funds", "federal reserve",
+        "powell", "beige book", "fed chair", "fed governor",
+        "fed president", "fed's "
+    ]):
         return "rates"
     if any(k in s for k in ["cpi", "pce", "ppi", "inflation", "price index", "prices paid", "prices received"]):
         return "inflation"
@@ -47,7 +53,11 @@ def category_for(name):
         return "consumer"
     if any(k in s for k in ["housing", "home sales", "building permits", "mortgage", "construction"]):
         return "housing"
-    if any(k in s for k in ["pmi", "ism", "industrial production", "factory", "durable", "business", "manufacturing", "services"]):
+    if any(k in s for k in [
+        "pmi", "ism", "industrial production", "factory", "durable",
+        "business", "manufacturing", "services", "philadelphia fed",
+        "dallas fed", "richmond fed", "kansas city fed", "empire state"
+    ]):
         return "business"
     if any(k in s for k in ["trade", "exports", "imports", "current account"]):
         return "trade"
@@ -191,9 +201,13 @@ def fetch_headlines():
     ]
     for url, source, category in feeds:
         items.extend(rss_items(url, source, category, 12))
-    items.extend(google_news('("Federal Reserve" OR FOMC OR Powell) when:2d', "rates", 10))
-    items.extend(google_news('("US inflation" OR "US jobs" OR "US GDP" OR "US retail sales" OR "US economy") when:2d', "auto", 12))
-    items.extend(google_news('(gold OR XAUUSD OR "US dollar" OR DXY) (tariff OR war OR sanctions OR geopolitics OR recession) when:2d', "other", 10))
+
+    # Broad, gold-relevant US macro context. These are displayed as context and
+    # receive model weight only when the headline has a clear rule-based signal.
+    items.extend(google_news('("Federal Reserve" OR FOMC OR Powell OR "US Treasury") (rates OR inflation OR jobs OR debt OR deficit) when:2d', "auto", 12))
+    items.extend(google_news('("US inflation" OR "US jobs" OR "US GDP" OR "US retail sales" OR PMI OR ISM OR "consumer confidence" OR housing) when:2d', "auto", 14))
+    items.extend(google_news('(gold OR XAUUSD OR "US dollar" OR DXY) (tariff OR war OR attack OR sanctions OR geopolitics OR recession OR crisis OR oil) when:2d', "other", 12))
+
     seen = set()
     unique = []
     for h in items:
@@ -203,7 +217,7 @@ def fetch_headlines():
         seen.add(key)
         unique.append(h)
     unique.sort(key=lambda x: x.get("publishedUtc") or "", reverse=True)
-    return unique[:30]
+    return unique[:36]
 
 
 def comparable(payload):
@@ -238,6 +252,8 @@ def main():
         headlines = []
         errors.append(f"Headlines: {type(e).__name__}: {e}")
 
+    market_count = sum(1 for v in market.values() if v) if isinstance(market, dict) else 0
+
     existing = {}
     if OUT.exists():
         try:
@@ -248,6 +264,16 @@ def main():
     payload = {
         "generatedAt": iso_z(now),
         "calendarStatus": calendar_status,
+        "counts": {
+            "events": len(events),
+            "headlines": len(headlines),
+            "marketFeeds": market_count
+        },
+        "sourceStatus": {
+            "calendar": "live" if calendar_status == "live" else calendar_status,
+            "headlines": "live" if headlines else "unavailable",
+            "market": "live-or-delayed" if market_count else "unavailable"
+        },
         "events": events,
         "market": market,
         "headlines": headlines,
@@ -265,7 +291,7 @@ def main():
         return 0
 
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Updated {OUT.name}: {len(events)} events, {len(headlines)} headlines")
+    print(f"Updated {OUT.name}: {len(events)} events, {len(headlines)} headlines, {market_count} market feeds")
     if errors:
         print("Warnings:", *errors, sep="\n- ")
     return 0
