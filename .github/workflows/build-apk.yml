@@ -47,12 +47,12 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x android/gradlew
 
-      - name: Build installable APK
+      - name: Build standalone release APK
         working-directory: android
-        run: ./gradlew assembleDebug --no-daemon
+        run: ./gradlew assembleRelease --no-daemon
 
       - name: Prepare APK
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk Gold-Mine.apk
+        run: cp android/app/build/outputs/apk/release/app-release.apk Gold-Mine.apk
 
       - name: Upload Gold Mine APK artifact
         uses: actions/upload-artifact@v4
@@ -73,5 +73,5 @@ jobs:
             gh release create apk-v1.0.0 Gold-Mine.apk \
               --target "$GITHUB_SHA" \
               --title "Gold Mine Android APK v1.0.0" \
-              --notes "Installable Android APK for the Gold Mine US macro news and XAUUSD analysis app. This is the first test build; live market feeds are not yet connected."
+              --notes "Standalone Android release APK for Gold Mine. JavaScript is bundled inside the app, so no Metro development server is required. Live market feeds are not yet connected."
           fi
