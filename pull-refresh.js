@@ -2,13 +2,20 @@
   "use strict";
 
   const DATA_URL="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
+  const WORKFLOW_URL="https://api.github.com/repos/umarvandutch/Gold-Mine/actions/workflows/refresh-live-data.yml/runs?per_page=1";
   const THRESHOLD=72;
   const MAX_PULL=112;
+  const AUTO_SYNC_MS=30000;
+  const WORKFLOW_STATUS_MS=240000;
 
   let tracking=false;
   let refreshing=false;
   let startY=0;
   let pull=0;
+  let snapshotGeneratedAt=null;
+  let lastCollectorRunAt=null;
+  let lastAppCheckAt=null;
+  let lastWorkflowStatusCheck=0;
 
   const indicator=document.createElement("div");
   indicator.id="pullRefreshIndicator";
@@ -40,6 +47,77 @@
     return window.scrollY<=1 && document.documentElement.scrollTop<=1;
   }
 
+  function relative(iso){
+    if(!iso)return"unknown";
+    const ms=Math.max(0,Date.now()-new Date(iso).getTime());
+    const m=Math.floor(ms/60000);
+    if(m<1)return"just now";
+    if(m<60)return`${m} min${m===1?"":"s"} ago`;
+    const h=Math.floor(m/60);
+    if(h<24)return`${h} hr${h===1?"":"s"} ago`;
+    const d=Math.floor(h/24);
+    return`${d} day${d===1?"":"s"} ago`;
+  }
+
+  function updateFreshnessText(){
+    const el=document.getElementById("dataStatusText");
+    if(!el||!snapshotGeneratedAt)return;
+    const appText=lastAppCheckAt?`App checked ${relative(lastAppCheckAt)}`:"App checking now";
+    const collectorText=lastCollectorRunAt?`collector last ran ${relative(lastCollectorRunAt)}`:"collector scheduled about every 5 min";
+    const snapshotText=`latest material snapshot changed ${relative(snapshotGeneratedAt)}`;
+    el.textContent=`${appText} · ${collectorText} · ${snapshotText}.`;
+  }
+
+  async function fetchCollectorStatus(force=false){
+    if(!force&&Date.now()-lastWorkflowStatusCheck<WORKFLOW_STATUS_MS)return;
+    lastWorkflowStatusCheck=Date.now();
+    try{
+      const r=await fetch(`${WORKFLOW_URL}&t=${Date.now()}`,{cache:"no-store",headers:{Accept:"application/vnd.github+json"}});
+      if(!r.ok)return;
+      const j=await r.json();
+      const run=Array.isArray(j.workflow_runs)?j.workflow_runs[0]:null;
+      if(run){
+        lastCollectorRunAt=run.updated_at||run.run_started_at||run.created_at||null;
+        updateFreshnessText();
+      }
+    }catch(error){
+      console.debug("Collector status unavailable",error);
+    }
+  }
+
+  async function fetchLatestSnapshot(){
+    const response=await fetch(`${DATA_URL}?sync=${Date.now()}`,{cache:"no-store"});
+    if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const latest=await response.json();
+    if(!latest||!Array.isArray(latest.events))throw new Error("Invalid live data");
+    lastAppCheckAt=new Date().toISOString();
+    return latest;
+  }
+
+  async function backgroundSync(){
+    if(document.hidden)return;
+    try{
+      const latest=await fetchLatestSnapshot();
+      const incoming=latest.generatedAt||null;
+      if(!snapshotGeneratedAt){
+        snapshotGeneratedAt=incoming;
+        updateFreshnessText();
+        fetchCollectorStatus(false);
+        return;
+      }
+      if(incoming&&incoming!==snapshotGeneratedAt){
+        snapshotGeneratedAt=incoming;
+        updateFreshnessText();
+        if(alertsActive())window.location.reload();
+      }else{
+        updateFreshnessText();
+      }
+      fetchCollectorStatus(false);
+    }catch(error){
+      console.debug("Background feed sync unavailable",error);
+    }
+  }
+
   function setPull(px){
     pull=Math.max(0,Math.min(MAX_PULL,px));
     if(pull<=0){
@@ -52,7 +130,7 @@
     const shown=Math.min(42,pull*.42);
     indicator.style.transform=`translate(-50%,${-58+shown}px)`;
     spinner.style.setProperty("--pull-rotation",`${Math.round(Math.min(180,pull/THRESHOLD*180))}deg`);
-    label.textContent=pull>=THRESHOLD?"Release to refresh":"Pull to refresh";
+    label.textContent=pull>=THRESHOLD?"Release to check live feed":"Pull to refresh";
   }
 
   function reset(delay=0){
@@ -71,18 +149,28 @@
     refreshing=true;
     indicator.classList.add("visible","refreshing");
     indicator.style.transform="translate(-50%,-10px)";
-    label.textContent="Refreshing alerts…";
+    label.textContent="Checking latest feed…";
 
     try{
-      const response=await fetch(`${DATA_URL}?pull=${Date.now()}`,{cache:"no-store"});
-      if(!response.ok)throw new Error(`HTTP ${response.status}`);
-      const latest=await response.json();
-      if(!latest||!Array.isArray(latest.events))throw new Error("Invalid live data");
-      label.textContent="Updated ✓";
-      setTimeout(()=>window.location.reload(),280);
+      const before=snapshotGeneratedAt;
+      const latest=await fetchLatestSnapshot();
+      const incoming=latest.generatedAt||null;
+      snapshotGeneratedAt=incoming||snapshotGeneratedAt;
+      await fetchCollectorStatus(true);
+      updateFreshnessText();
+
+      if(incoming&&before&&incoming!==before){
+        label.textContent="New source data ✓";
+        setTimeout(()=>window.location.reload(),350);
+        return;
+      }
+
+      label.textContent="Feed checked ✓ · no newer snapshot";
+      refreshing=false;
+      reset(1500);
     }catch(error){
       console.warn("Alerts pull-to-refresh failed",error);
-      label.textContent="Couldn't refresh — try again";
+      label.textContent="Couldn't check feed — try again";
       refreshing=false;
       reset(1800);
     }
@@ -118,4 +206,12 @@
   document.addEventListener("touchcancel",()=>{
     if(!refreshing)reset();
   },{passive:true});
+
+  document.addEventListener("visibilitychange",()=>{
+    if(!document.hidden)backgroundSync();
+  });
+
+  backgroundSync();
+  setInterval(backgroundSync,AUTO_SYNC_MS);
+  setInterval(updateFreshnessText,15000);
 })();
