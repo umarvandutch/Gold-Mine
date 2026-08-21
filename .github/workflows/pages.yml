@@ -6,6 +6,7 @@ on:
     paths:
       - 'index.html'
       - 'styles.css'
+      - 'live.css'
       - 'app.js'
       - 'manifest.webmanifest'
       - 'sw.js'
@@ -41,7 +42,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/icons
-          cp index.html styles.css app.js manifest.webmanifest sw.js .nojekyll _site/
+          cp index.html styles.css live.css app.js manifest.webmanifest sw.js .nojekyll _site/
           cp icons/icon-192.png icons/icon-512.png _site/icons/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
