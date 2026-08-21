@@ -8,6 +8,7 @@ on:
       - 'styles.css'
       - 'live.css'
       - 'app.js'
+      - 'refresh-fix.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
@@ -36,13 +37,14 @@ jobs:
       - name: Verify static app
         run: |
           node --check app.js
+          node --check refresh-fix.js
           node -e "JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'))"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/icons
-          cp index.html styles.css live.css app.js manifest.webmanifest sw.js .nojekyll _site/
+          cp index.html styles.css live.css app.js refresh-fix.js manifest.webmanifest sw.js .nojekyll _site/
           cp icons/icon-192.png icons/icon-512.png _site/icons/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
