@@ -2,14 +2,21 @@
 import json
 import re
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LIVE = ROOT / "live-data.json"
-UA = "Mozilla/5.0 (compatible; GoldMineMacro/2.1; +https://github.com/umarvandutch/Gold-Mine)"
+UA = "Mozilla/5.0 (compatible; GoldMineMacro/2.2; +https://github.com/umarvandutch/Gold-Mine)"
 BLS_URL = "https://api.bls.gov/publicAPI/v2/timeseries/data/"
+OFFICIAL_FEEDS = [
+    ("https://www.federalreserve.gov/feeds/press_monetary.xml", "Federal Reserve", "rates"),
+    ("https://www.federalreserve.gov/feeds/speeches_and_testimony.xml", "Federal Reserve", "rates"),
+    ("https://www.bls.gov/feed/bls_latest.rss", "U.S. Bureau of Labor Statistics", "auto"),
+]
 
 BLS_SERIES = {
     "unemployment": "LNS14000000",
@@ -87,6 +94,158 @@ def fetch_bytes(url, data=None, headers=None, timeout=15):
     req = urllib.request.Request(url, data=data, headers=h)
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return response.read()
+
+
+def headline_category(title):
+    s = str(title or "").lower()
+    if re.search(r"fomc|federal reserve|interest rate|monetary policy|fed funds|powell", s):
+        return "rates"
+    if re.search(r"cpi|pce|ppi|inflation|consumer price|producer price|price index", s):
+        return "inflation"
+    if re.search(r"payroll|employment|unemployment|jobless|jolts|job openings|wage|earnings|labor|labour", s):
+        return "labour"
+    if re.search(r"gdp|gross domestic product|productivity", s):
+        return "growth"
+    if re.search(r"consumer|retail|spending|income", s):
+        return "consumer"
+    if re.search(r"housing|home sales|building permit|construction", s):
+        return "housing"
+    if re.search(r"manufacturing|business|productivity|import price|export price", s):
+        return "business"
+    return "other"
+
+
+def child_text(node, names):
+    names = set(names)
+    for child in node.iter():
+        local = child.tag.split("}")[-1]
+        if local in names and child.text:
+            return child.text.strip()
+    return ""
+
+
+def node_link(node):
+    text = child_text(node, {"link"})
+    if text:
+        return text
+    for child in node.iter():
+        if child.tag.split("}")[-1] == "link":
+            href = child.attrib.get("href")
+            if href:
+                return href.strip()
+    return ""
+
+
+def parse_feed_date(value):
+    if not value:
+        return None
+    parsed = parse_iso(value)
+    if parsed:
+        return parsed
+    try:
+        parsed = parsedate_to_datetime(value)
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.astimezone(timezone.utc)
+    except Exception:
+        return None
+
+
+def official_feed_items(url, source, category, now, limit=10):
+    root = ET.fromstring(fetch_bytes(url, headers={"Accept": "application/rss+xml,application/atom+xml,application/xml,text/xml,*/*"}))
+    nodes = [n for n in root.iter() if n.tag.split("}")[-1] in ("item", "entry")]
+    out = []
+    max_age = timedelta(days=7 if source == "Federal Reserve" else 4)
+    for node in nodes[: max(limit * 2, 16)]:
+        title = child_text(node, {"title"})
+        if not title:
+            continue
+        link = node_link(node)
+        date_text = child_text(node, {"pubDate", "published", "updated", "date"})
+        published = parse_feed_date(date_text)
+        if published and published < now - max_age:
+            continue
+        out.append({
+            "title": re.sub(r"\s+", " ", title).strip(),
+            "url": link,
+            "publishedUtc": iso_z(published) if published else None,
+            "source": source,
+            "category": headline_category(title) if category == "auto" else category,
+            "primarySource": True,
+        })
+        if len(out) >= limit:
+            break
+    return out
+
+
+def headline_key(headline):
+    url = str(headline.get("url") or "").strip().lower()
+    if url:
+        return f"url:{url}"
+    title = re.sub(r"\W+", "", str(headline.get("title") or "").lower())[:180]
+    return f"title:{title}" if title else ""
+
+
+def headline_sort_key(headline):
+    parsed = parse_iso(headline.get("publishedUtc"))
+    return parsed.timestamp() if parsed else 0.0
+
+
+def ensure_official_headlines(live, now):
+    fetched = []
+    feed_errors = []
+    for url, source, category in OFFICIAL_FEEDS:
+        try:
+            fetched.extend(official_feed_items(url, source, category, now, limit=10))
+        except Exception as exc:
+            feed_errors.append(f"{source}: {type(exc).__name__}")
+
+    existing = list(live.get("headlines") or [])
+    merged = {}
+    # Existing objects win first so any already-added metadata is retained.
+    for item in existing:
+        key = headline_key(item)
+        if key:
+            merged[key] = item
+    for item in fetched:
+        key = headline_key(item)
+        if not key:
+            continue
+        if key in merged:
+            current = merged[key]
+            current["primarySource"] = True
+            current["source"] = item["source"]
+            if not current.get("publishedUtc"):
+                current["publishedUtc"] = item.get("publishedUtc")
+            if not current.get("category"):
+                current["category"] = item.get("category")
+        else:
+            merged[key] = item
+
+    all_items = list(merged.values())
+    official = [h for h in all_items if str(h.get("source") or "") in ("Federal Reserve", "U.S. Bureau of Labor Statistics")]
+    other = [h for h in all_items if h not in official]
+    official.sort(key=headline_sort_key, reverse=True)
+    other.sort(key=headline_sort_key, reverse=True)
+
+    # Reserve up to ten places for primary sources; broad context still gets up
+    # to thirty slots. This prevents the Google News quota from crowding out a
+    # recent FOMC statement, Fed speech/testimony or BLS release.
+    selected_official = official[:10]
+    selected_other = other[:30]
+    selected = selected_official + selected_other
+    selected.sort(key=headline_sort_key, reverse=True)
+    live["headlines"] = selected[:40]
+    if isinstance(live.get("counts"), dict):
+        live["counts"]["headlines"] = len(live["headlines"])
+
+    return {
+        "status": "live" if fetched else "unavailable",
+        "fetched": len(fetched),
+        "reserved": len(selected_official),
+        "totalAfterMerge": len(live["headlines"]),
+        "feedErrors": feed_errors,
+    }
 
 
 def fetch_bls(start_year, end_year):
@@ -262,6 +421,7 @@ def extract_relevant_fed_text(html):
 
 def apply_fed_text(live, now):
     enriched = 0
+    attempted = 0
     for headline in live.get("headlines") or []:
         if enriched >= 6:
             break
@@ -271,8 +431,9 @@ def apply_fed_text(live, now):
         if not url.startswith("https://www.federalreserve.gov/"):
             continue
         published = parse_iso(headline.get("publishedUtc"))
-        if published and published < now - timedelta(days=3):
+        if published and published < now - timedelta(days=7):
             continue
+        attempted += 1
         try:
             html = fetch_bytes(url, headers={"Accept": "text/html"}, timeout=12).decode("utf-8", "replace")
             official_text = extract_relevant_fed_text(html)
@@ -282,7 +443,13 @@ def apply_fed_text(live, now):
                 enriched += 1
         except Exception:
             continue
-    return {"status": "live" if enriched else "unavailable", "enriched": enriched}
+    if attempted == 0:
+        status = "not-needed"
+    elif enriched:
+        status = "live"
+    else:
+        status = "unavailable"
+    return {"status": status, "attempted": attempted, "enriched": enriched}
 
 
 def main():
@@ -292,6 +459,15 @@ def main():
     now = now_utc()
     status = {}
     errors = []
+
+    # Reserve primary sources before page-text enrichment so a broad aggregated
+    # headline quota cannot remove the official Fed/BLS item we need to inspect.
+    try:
+        status["officialHeadlines"] = ensure_official_headlines(live, now)
+    except Exception as exc:
+        status["officialHeadlines"] = {"status": "error"}
+        errors.append(f"Official headline reserve: {type(exc).__name__}: {exc}")
+
     try:
         status["bls"] = apply_bls_checks(live, now)
     except Exception as exc:
