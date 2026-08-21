@@ -45,18 +45,27 @@ jobs:
       - name: Validate data refresh, enrichment and calibration scripts
         run: |
           python3 -m py_compile scripts/refresh_live_data.py
+          python3 -m py_compile scripts/merge_headline_continuity.py
           python3 -m py_compile scripts/enrich_official_data.py
           python3 -m py_compile scripts/enrich_fed_minutes.py
           python3 -m py_compile scripts/record_signal_history.py
           python3 - <<'PY'
+          from datetime import datetime, timezone
           from scripts.enrich_official_data import shift_month, pct_change
           from scripts.enrich_fed_minutes import find_minutes_html_url, extract_policy_text
+          from scripts.merge_headline_continuity import merge_headlines
           assert shift_month(2026, 1, -1) == (2025, 12)
           assert shift_month(2026, 12, 1) == (2027, 1)
           assert round(pct_change(101, 100), 6) == 1.0
           sample = '<a href="/monetarypolicy/fomcminutes20260729.htm">HTML</a>'
           assert find_minutes_html_url('https://www.federalreserve.gov/newsevents/pressreleases/test.htm', sample) == 'https://www.federalreserve.gov/monetarypolicy/fomcminutes20260729.htm'
           assert 'inflation' in extract_policy_text('<p>The Committee noted that inflation remained elevated and monetary policy would remain restrictive while risks were assessed.</p>').lower()
+          now = datetime(2026, 8, 21, 18, 0, tzinfo=timezone.utc)
+          current = [{'title':'Fresh item','url':'https://example.com/fresh','publishedUtc':'2026-08-21T17:50:00Z'}]
+          previous = [{'title':'Still recent','url':'https://example.com/recent','publishedUtc':'2026-08-20T17:00:00Z'}, {'title':'Too old','url':'https://example.com/old','publishedUtc':'2026-08-15T17:00:00Z'}]
+          merged, retained = merge_headlines(current, previous, now)
+          assert len(merged) == 2 and retained == 1
+          assert any(x.get('retainedFromPreviousSnapshot') for x in merged)
           PY
           python3 scripts/record_signal_history.py
       - name: Validate JSON and manifest
@@ -64,4 +73,4 @@ jobs:
           node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
           node -e "const h=JSON.parse(require('fs').readFileSync('data/signal-history.json','utf8')); if(!Array.isArray(h.events)||!h.events.length) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f data/signal-history.json && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f data/signal-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
