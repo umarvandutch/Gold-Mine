@@ -1,0 +1,41 @@
+name: Build Gold Mine Web Shell APK
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths: ['android-shell/**','.github/workflows/build-shell-apk.yml']
+  push:
+    branches: [main]
+    paths: ['android-shell/**','.github/workflows/build-shell-apk.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Build standalone web shell APK
+        run: gradle -p android-shell :app:assembleRelease --no-daemon
+      - name: Prepare artifact
+        run: cp android-shell/app/build/outputs/apk/release/app-release.apk Gold-Mine-Web.apk
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gold-Mine-Web-APK
+          path: Gold-Mine-Web.apk
+          if-no-files-found: error
+          retention-days: 30

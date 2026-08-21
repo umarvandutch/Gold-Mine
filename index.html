@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f8f7f3" />
+  <meta name="description" content="Gold Mine — US macro alerts and evidence-based XAUUSD intelligence." />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Gold Mine" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Gold Mine</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark">GM</div>
+        <div><h1>Gold Mine</h1><p>US macro &amp; XAUUSD intelligence</p></div>
+      </div>
+      <button id="installButton" class="icon-button install-button" hidden aria-label="Install app">Install</button>
+    </header>
+
+    <div id="modeBanner" class="mode-banner" role="status">
+      <span class="status-dot"></span>
+      <div><strong>Demo market feed</strong><span>UI and evidence engine are live; external market APIs are not connected yet.</span></div>
+    </div>
+
+    <main class="main-content">
+      <section id="view-alerts" class="view active" aria-labelledby="alerts-title">
+        <div class="section-heading"><div><span class="eyebrow">US ECONOMIC RELEASES</span><h2 id="alerts-title">Macro alerts</h2></div><div class="live-pill"><span></span> Ready</div></div>
+        <div class="priority-card"><div class="priority-icon">%</div><div><strong>Interest-rate news has highest weight</strong><p>FOMC decisions, Fed guidance, dot plots and Powell commentary take priority because they directly reprice USD and Treasury yields.</p></div></div>
+        <div class="chips" aria-label="Release filters"><button class="chip active" data-filter="all">All</button><button class="chip" data-filter="critical">Critical</button><button class="chip" data-filter="high">High impact</button><button class="chip" data-filter="rates">Rates</button></div>
+        <div id="releaseList" class="card-list"></div>
+      </section>
+
+      <section id="view-calendar" class="view" aria-labelledby="calendar-title">
+        <div class="section-heading"><div><span class="eyebrow">WHAT'S NEXT</span><h2 id="calendar-title">US calendar</h2></div></div>
+        <div class="calendar-note"><strong>Rate-sensitive events are pinned first.</strong><span>Times shown in Eastern Time until a live calendar feed is connected.</span></div>
+        <div id="calendarList" class="timeline"></div>
+      </section>
+
+      <section id="view-predictions" class="view" aria-labelledby="prediction-title">
+        <div class="section-heading"><div><span class="eyebrow">FACT-BASED GUIDELINE</span><h2 id="prediction-title">XAUUSD outlook</h2></div><button id="recalcButton" class="text-button">Recalculate</button></div>
+        <div id="predictionPanel"></div>
+      </section>
+
+      <section id="view-settings" class="view" aria-labelledby="settings-title">
+        <div class="section-heading"><div><span class="eyebrow">SYSTEM</span><h2 id="settings-title">Settings &amp; methodology</h2></div></div>
+        <div class="settings-card">
+          <div class="settings-row"><div><strong>Live app updates</strong><span>Web-first deployment from GitHub</span></div><span class="state-badge success">On</span></div>
+          <div class="settings-row"><div><strong>Economic feed</strong><span>FXStreet backend connection</span></div><span class="state-badge warning">Demo</span></div>
+          <div class="settings-row"><div><strong>Market confirmations</strong><span>XAUUSD · DXY · US2Y · US10Y · real yields</span></div><span class="state-badge warning">Demo</span></div>
+        </div>
+        <div class="method-card"><span class="eyebrow">EVIDENCE MODEL</span><h3>How the XAUUSD bias is built</h3><p>Gold Mine does not invent a trade from a headline. It scores released macro facts, then checks whether USD and yield markets confirm the same direction.</p><div class="weight-list"><div><span>Fed / interest rates / guidance</span><strong>45</strong></div><div><span>Inflation (CPI, Core CPI, PCE)</span><strong>24</strong></div><div><span>Labour (NFP, unemployment, claims)</span><strong>16</strong></div><div><span>Growth / activity</span><strong>10</strong></div></div><p class="fine-print">“Evidence strength” measures how strongly the available inputs agree. It is not a claimed probability of a profitable trade.</p></div>
+        <div class="method-card"><span class="eyebrow">UPDATE MODEL</span><h3>Why this version should be more reliable</h3><p>The Android app is only a thin browser shell. The actual Gold Mine interface lives on the web, so normal UI and prediction changes update without rebuilding the APK.</p><div class="build-info"><span>Web build</span><strong id="buildId">—</strong></div></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Primary">
+      <button class="nav-item active" data-view="alerts" aria-label="Alerts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span>Alerts</span></button>
+      <button class="nav-item" data-view="calendar" aria-label="Calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v16H3zM7 3v4M17 3v4M3 10h18"/></svg><span>Calendar</span></button>
+      <button class="nav-item" data-view="predictions" aria-label="Predictions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3M2 19h21"/></svg><span>Predictions</span></button>
+      <button class="nav-item" data-view="settings" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21H9.6v-.1A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3V9.6h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.17.37.5.72 1 .92.25.1.52.14.8.14H21v4h-.1a1.7 1.7 0 0 0-1.5.94z"/></svg><span>Settings</span></button>
+    </nav>
+  </div>
+
+  <div id="detailOverlay" class="overlay" hidden><div class="overlay-backdrop" data-close-detail></div><article class="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><div class="sheet-handle"></div><button class="close-button" data-close-detail aria-label="Close">×</button><div id="detailContent"></div></article></div>
+  <script src="./app.js"></script>
+</body>
+</html>
