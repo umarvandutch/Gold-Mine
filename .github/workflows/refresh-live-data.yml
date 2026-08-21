@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/refresh_live_data.py'
+      - 'scripts/record_signal_history.py'
       - '.github/workflows/refresh-live-data.yml'
 
 permissions:
@@ -28,14 +29,16 @@ jobs:
           ref: main
       - name: Refresh free calendar, news and market data
         run: python3 scripts/refresh_live_data.py
+      - name: Record model calibration history
+        run: python3 scripts/record_signal_history.py
       - name: Commit data only when it changed
         run: |
-          if git diff --quiet -- live-data.json; then
-            echo "No material live-data change."
+          if git diff --quiet -- live-data.json data/signal-history.json; then
+            echo "No material live-data or calibration-history change."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add live-data.json
-          git commit -m "Refresh Gold Mine live data"
+          git add live-data.json data/signal-history.json
+          git commit -m "Refresh Gold Mine live data and calibration history"
           git push origin main
