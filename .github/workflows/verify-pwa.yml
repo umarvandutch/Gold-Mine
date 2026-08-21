@@ -12,10 +12,12 @@ on:
       - 'refresh-fix.js'
       - 'pull-refresh.js'
       - 'gold-direction-labels.js'
+      - 'accuracy-engine.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
       - 'scripts/**'
+      - 'data/**'
       - 'worker/**'
       - '.github/workflows/verify-pwa.yml'
       - '.github/workflows/refresh-live-data.yml'
@@ -36,10 +38,15 @@ jobs:
           node --check refresh-fix.js
           node --check pull-refresh.js
           node --check gold-direction-labels.js
+          node --check accuracy-engine.js
           node --input-type=module --check < worker/src/index.js
-      - name: Validate live data refresher
-        run: python3 -m py_compile scripts/refresh_live_data.py
-      - name: Validate manifest
-        run: node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
+      - name: Validate data refresh and calibration scripts
+        run: |
+          python3 -m py_compile scripts/refresh_live_data.py
+          python3 -m py_compile scripts/record_signal_history.py
+      - name: Validate JSON and manifest
+        run: |
+          node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
+          node -e "const h=JSON.parse(require('fs').readFileSync('data/signal-history.json','utf8')); if(!Array.isArray(h.events)) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f gold-direction-labels.js && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f gold-direction-labels.js && test -f accuracy-engine.js && test -f data/signal-history.json && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
