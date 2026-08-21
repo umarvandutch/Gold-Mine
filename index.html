@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f8f7f3" />
-  <meta name="description" content="Gold Mine — US macro alerts and evidence-based XAUUSD intelligence." />
+  <meta name="description" content="Gold Mine — live US macro alerts and evidence-based XAUUSD intelligence." />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -20,52 +20,67 @@
     <header class="app-header">
       <div class="brand">
         <div class="brand-mark">GM</div>
-        <div><h1>Gold Mine</h1><p>US macro &amp; XAUUSD intelligence</p></div>
+        <div><h1>Gold Mine</h1><p>US news explained for gold traders</p></div>
       </div>
       <button id="installButton" class="icon-button install-button" hidden aria-label="Install app">Install</button>
     </header>
 
     <div id="modeBanner" class="mode-banner" role="status">
       <span class="status-dot"></span>
-      <div><strong>Demo market feed</strong><span>UI and evidence engine are live; external market APIs are not connected yet.</span></div>
+      <div><strong id="dataStatusTitle">Connecting live feeds…</strong><span id="dataStatusText">Checking the latest US calendar, macro headlines and market confirmation.</span></div>
     </div>
 
     <main class="main-content">
       <section id="view-alerts" class="view active" aria-labelledby="alerts-title">
-        <div class="section-heading"><div><span class="eyebrow">US ECONOMIC RELEASES</span><h2 id="alerts-title">Macro alerts</h2></div><div class="live-pill"><span></span> Ready</div></div>
-        <div class="priority-card"><div class="priority-icon">%</div><div><strong>Interest-rate news has highest weight</strong><p>FOMC decisions, Fed guidance, dot plots and Powell commentary take priority because they directly reprice USD and Treasury yields.</p></div></div>
-        <div class="chips" aria-label="Release filters"><button class="chip active" data-filter="all">All</button><button class="chip" data-filter="critical">Critical</button><button class="chip" data-filter="high">High impact</button><button class="chip" data-filter="rates">Rates</button></div>
+        <div class="section-heading"><div><span class="eyebrow">US ECONOMIC RELEASES</span><h2 id="alerts-title">What just happened?</h2></div><div id="livePill" class="live-pill"><span></span> Updating</div></div>
+
+        <div class="priority-card"><div class="priority-icon">%</div><div><strong>Everything relevant is considered — rates simply matter most.</strong><p>Fed decisions and guidance can move the dollar and yields very quickly, so they receive the biggest weight. Inflation, jobs, GDP, spending, PMIs, housing, trade and other US releases are still included.</p></div></div>
+
+        <div class="beginner-card">
+          <span class="eyebrow">BEGINNER GUIDE</span>
+          <h3>How to read each release</h3>
+          <div class="beginner-steps"><div><b>1</b><span><strong>Actual</strong> = what was just reported.</span></div><div><b>2</b><span><strong>Consensus</strong> = what economists expected.</span></div><div><b>3</b><span>The surprise vs consensus is usually what markets react to first.</span></div></div>
+        </div>
+
+        <div class="chips" aria-label="Release filters"><button class="chip active" data-filter="all">All US</button><button class="chip" data-filter="critical">Critical</button><button class="chip" data-filter="high">High impact</button><button class="chip" data-filter="rates">Fed / rates</button></div>
         <div id="releaseList" class="card-list"></div>
+
+        <div class="subsection-heading"><div><span class="eyebrow">BROADER NEWS CONTEXT</span><h3>US macro headlines being watched</h3></div><span class="context-badge">Context layer</span></div>
+        <p class="section-help">These headlines are considered too. Gold Mine only gives them directional weight when the wording has a clear, defensible macro meaning; otherwise they stay as context rather than forcing a trade signal.</p>
+        <div id="newsList" class="news-list"></div>
       </section>
 
       <section id="view-calendar" class="view" aria-labelledby="calendar-title">
         <div class="section-heading"><div><span class="eyebrow">WHAT'S NEXT</span><h2 id="calendar-title">US calendar</h2></div></div>
-        <div class="calendar-note"><strong>Rate-sensitive events are pinned first.</strong><span>Times shown in Eastern Time until a live calendar feed is connected.</span></div>
+        <div class="calendar-note"><strong>Dates and times are shown clearly.</strong><span>Each event shows your phone's local date/time plus New York (ET), which is the standard reference for US releases.</span></div>
         <div id="calendarList" class="timeline"></div>
       </section>
 
       <section id="view-predictions" class="view" aria-labelledby="prediction-title">
-        <div class="section-heading"><div><span class="eyebrow">FACT-BASED GUIDELINE</span><h2 id="prediction-title">XAUUSD outlook</h2></div><button id="recalcButton" class="text-button">Recalculate</button></div>
+        <div class="section-heading"><div><span class="eyebrow">ROUGH FACT-BASED GUIDELINE</span><h2 id="prediction-title">What could this mean for gold?</h2></div><button id="recalcButton" class="text-button">Refresh view</button></div>
         <div id="predictionPanel"></div>
       </section>
 
       <section id="view-settings" class="view" aria-labelledby="settings-title">
-        <div class="section-heading"><div><span class="eyebrow">SYSTEM</span><h2 id="settings-title">Settings &amp; methodology</h2></div></div>
+        <div class="section-heading"><div><span class="eyebrow">SYSTEM</span><h2 id="settings-title">Data &amp; methodology</h2></div></div>
         <div class="settings-card">
           <div class="settings-row"><div><strong>Live app updates</strong><span>Web-first deployment from GitHub</span></div><span class="state-badge success">On</span></div>
-          <div class="settings-row"><div><strong>Economic feed</strong><span>FXStreet backend connection</span></div><span class="state-badge warning">Demo</span></div>
-          <div class="settings-row"><div><strong>Market confirmations</strong><span>XAUUSD · DXY · US2Y · US10Y · real yields</span></div><span class="state-badge warning">Demo</span></div>
+          <div class="settings-row"><div><strong>US economic calendar</strong><span>FXStreet public calendar feed, refreshed free via GitHub</span></div><span id="calendarState" class="state-badge warning">Checking</span></div>
+          <div class="settings-row"><div><strong>Macro news context</strong><span>Fed + BLS official feeds and broader public news aggregation</span></div><span id="newsState" class="state-badge warning">Checking</span></div>
+          <div class="settings-row"><div><strong>Market confirmation</strong><span>Gold · DXY · US2Y · US10Y free quote snapshots</span></div><span id="marketState" class="state-badge warning">Checking</span></div>
         </div>
-        <div class="method-card"><span class="eyebrow">EVIDENCE MODEL</span><h3>How the XAUUSD bias is built</h3><p>Gold Mine does not invent a trade from a headline. It scores released macro facts, then checks whether USD and yield markets confirm the same direction.</p><div class="weight-list"><div><span>Fed / interest rates / guidance</span><strong>45</strong></div><div><span>Inflation (CPI, Core CPI, PCE)</span><strong>24</strong></div><div><span>Labour (NFP, unemployment, claims)</span><strong>16</strong></div><div><span>Growth / activity</span><strong>10</strong></div></div><p class="fine-print">“Evidence strength” measures how strongly the available inputs agree. It is not a claimed probability of a profitable trade.</p></div>
-        <div class="method-card"><span class="eyebrow">UPDATE MODEL</span><h3>Why this version should be more reliable</h3><p>The Android app is only a thin browser shell. The actual Gold Mine interface lives on the web, so normal UI and prediction changes update without rebuilding the APK.</p><div class="build-info"><span>Web build</span><strong id="buildId">—</strong></div></div>
+
+        <div class="method-card"><span class="eyebrow">EVIDENCE MODEL</span><h3>What Gold Mine considers</h3><p>No single headline automatically becomes a buy or sell. The model looks at all recent US releases it receives, then adds market and headline context where the evidence is clear.</p><div class="weight-list"><div><span>Fed / rates / guidance</span><strong>45</strong></div><div><span>Inflation (CPI, PCE, PPI)</span><strong>28</strong></div><div><span>Labour (NFP, unemployment, claims, JOLTS)</span><strong>22</strong></div><div><span>GDP / growth</span><strong>18</strong></div><div><span>Consumer / retail / sentiment</span><strong>12</strong></div><div><span>Business / PMIs / production</span><strong>10</strong></div><div><span>Trade / housing / government / other</span><strong>5–9</strong></div></div><p class="fine-print">The weights show relative macro importance, not a promised price move. “Evidence strength” measures agreement among available inputs; it is not a win probability.</p></div>
+
+        <div class="method-card"><span class="eyebrow">FREE DATA LIMITS</span><h3>What “live” means on this free setup</h3><p>The calendar/news collector runs automatically on GitHub roughly every 10 minutes. GitHub can occasionally delay scheduled jobs, and free market quotes may be delayed. For institutional-style instant feeds we would eventually need a paid or dedicated realtime backend.</p><div class="build-info"><span>Last data refresh</span><strong id="lastRefresh">—</strong></div><div class="build-info"><span>Web build</span><strong id="buildId">—</strong></div></div>
       </section>
     </main>
 
     <nav class="bottom-nav" aria-label="Primary">
       <button class="nav-item active" data-view="alerts" aria-label="Alerts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span>Alerts</span></button>
       <button class="nav-item" data-view="calendar" aria-label="Calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v16H3zM7 3v4M17 3v4M3 10h18"/></svg><span>Calendar</span></button>
-      <button class="nav-item" data-view="predictions" aria-label="Predictions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3M2 19h21"/></svg><span>Predictions</span></button>
-      <button class="nav-item" data-view="settings" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21H9.6v-.1A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3V9.6h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.17.37.5.72 1 .92.25.1.52.14.8.14H21v4h-.1a1.7 1.7 0 0 0-1.5.94z"/></svg><span>Settings</span></button>
+      <button class="nav-item" data-view="predictions" aria-label="Predictions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3M2 19h21"/></svg><span>Gold view</span></button>
+      <button class="nav-item" data-view="settings" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21H9.6v-.1A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3V9.6h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.17.37.5.72 1 .92.25.1.52.14.8.14H21v4h-.1a1.7 1.7 0 0 0-1.5.94z"/></svg><span>Method</span></button>
     </nav>
   </div>
 
