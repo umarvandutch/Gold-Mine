@@ -12,6 +12,7 @@ on:
       - 'refresh-fix.js'
       - 'pull-refresh.js'
       - 'gold-direction-labels.js'
+      - 'official-signal-layer.js'
       - 'accuracy-engine.js'
       - 'manifest.webmanifest'
       - 'sw.js'
@@ -38,16 +39,24 @@ jobs:
           node --check refresh-fix.js
           node --check pull-refresh.js
           node --check gold-direction-labels.js
+          node --check official-signal-layer.js
           node --check accuracy-engine.js
           node --input-type=module --check < worker/src/index.js
-      - name: Validate data refresh and calibration scripts
+      - name: Validate data refresh, enrichment and calibration scripts
         run: |
           python3 -m py_compile scripts/refresh_live_data.py
+          python3 -m py_compile scripts/enrich_official_data.py
           python3 -m py_compile scripts/record_signal_history.py
+          python3 - <<'PY'
+          from scripts.enrich_official_data import shift_month, pct_change
+          assert shift_month(2026, 1, -1) == (2025, 12)
+          assert shift_month(2026, 12, 1) == (2027, 1)
+          assert round(pct_change(101, 100), 6) == 1.0
+          PY
           python3 scripts/record_signal_history.py
       - name: Validate JSON and manifest
         run: |
           node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
           node -e "const h=JSON.parse(require('fs').readFileSync('data/signal-history.json','utf8')); if(!Array.isArray(h.events)||!h.events.length) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f gold-direction-labels.js && test -f accuracy-engine.js && test -f data/signal-history.json && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f data/signal-history.json && test -f scripts/enrich_official_data.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png

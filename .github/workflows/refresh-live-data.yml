@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/refresh_live_data.py'
+      - 'scripts/enrich_official_data.py'
       - 'scripts/record_signal_history.py'
       - '.github/workflows/refresh-live-data.yml'
 
@@ -29,6 +30,8 @@ jobs:
           ref: main
       - name: Refresh free calendar, news and market data
         run: python3 scripts/refresh_live_data.py
+      - name: Cross-check official BLS data and enrich Fed text
+        run: python3 scripts/enrich_official_data.py
       - name: Record model calibration history
         run: python3 scripts/record_signal_history.py
       - name: Commit data only when it changed

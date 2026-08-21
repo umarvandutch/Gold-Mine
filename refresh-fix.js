@@ -91,6 +91,7 @@
   async function boot(){
     restoreGoldView();
     await loadScript("./config.js","goldmine-config");
+    await loadScript("./official-signal-layer.js","goldmine-official-signal-layer");
     installRefreshButton();
     await loadScript("./pull-refresh.js","goldmine-pull-refresh");
     await loadScript("./gold-direction-labels.js","goldmine-gold-direction-labels");
