@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/refresh_live_data.py'
+      - 'scripts/merge_headline_continuity.py'
       - 'scripts/enrich_official_data.py'
       - 'scripts/enrich_fed_minutes.py'
       - 'scripts/record_signal_history.py'
@@ -29,8 +30,12 @@ jobs:
         uses: actions/checkout@v6
         with:
           ref: main
+      - name: Preserve previous snapshot for continuity
+        run: cp live-data.json /tmp/gold-mine-previous-live-data.json || true
       - name: Refresh free calendar, news and market data
         run: python3 scripts/refresh_live_data.py
+      - name: Preserve recent macro headlines if a feed temporarily thins out
+        run: python3 scripts/merge_headline_continuity.py /tmp/gold-mine-previous-live-data.json
       - name: Cross-check official BLS data and enrich Fed text
         run: python3 scripts/enrich_official_data.py
       - name: Follow underlying FOMC minutes document
