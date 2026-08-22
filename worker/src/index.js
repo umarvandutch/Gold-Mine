@@ -1,7 +1,9 @@
 const GITHUB_SNAPSHOT="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
-const CACHE_KEY="https://gold-mine-cache.internal/live";
-const CACHE_SECONDS=20;
-const UA="GoldMineMacro/2.0 (+https://github.com/umarvandutch/Gold-Mine)";
+const LIVE_CACHE_KEY="https://gold-mine-cache.internal/live";
+const BASELINE_CACHE_KEY="https://gold-mine-cache.internal/baseline";
+const HEADLINE_CACHE_KEY="https://gold-mine-cache.internal/headlines";
+const UA="GoldMineMacro/3.0 (+https://github.com/umarvandutch/Gold-Mine)";
+const DAY=86400000;
 
 function corsHeaders(){
   return {
@@ -21,9 +23,7 @@ async function fetchWithTimeout(url,options={},timeoutMs=8000){
   const timer=setTimeout(()=>controller.abort(),timeoutMs);
   try{
     return await fetch(url,{...options,signal:controller.signal,headers:{"User-Agent":UA,"Accept":"*/*",...(options.headers||{})}});
-  }finally{
-    clearTimeout(timer);
-  }
+  }finally{clearTimeout(timer);}
 }
 
 async function fetchJson(url,options={}){
@@ -37,6 +37,9 @@ async function fetchText(url,options={}){
   if(!r.ok)throw new Error(`HTTP ${r.status} for ${url}`);
   return r.text();
 }
+
+function isoNoMs(d){return new Date(d).toISOString().replace(/\.\d{3}Z$/,"Z");}
+function num(v){const n=Number(v);return Number.isFinite(n)?n:null;}
 
 function categoryFor(name){
   const s=String(name||"").toLowerCase();
@@ -52,13 +55,25 @@ function categoryFor(name){
   return"other";
 }
 
-function isoNoMs(d){
-  return new Date(d).toISOString().replace(/\.\d{3}Z$/,"Z");
+function releaseCadence(events,now=new Date()){
+  let nearest=Infinity;
+  for(const e of events||[]){
+    const t=Date.parse(e.dateUtc||"");
+    if(!Number.isFinite(t))continue;
+    const important=String(e.volatility||"").toUpperCase()==="HIGH"||(e.category==="rates"&&!/LOW|NONE/.test(String(e.volatility||"").toUpperCase()));
+    if(!important)continue;
+    const delta=(t-now.getTime())/60000;
+    if(delta>=-5&&delta<=2)return{mode:"release-burst",cacheSeconds:4,clientPollSeconds:5,nearestMinutes:Math.round(delta*10)/10};
+    nearest=Math.min(nearest,Math.abs(delta));
+  }
+  if(nearest<=15)return{mode:"release-watch",cacheSeconds:8,clientPollSeconds:10,nearestMinutes:Math.round(nearest*10)/10};
+  if(nearest<=60)return{mode:"pre-release",cacheSeconds:15,clientPollSeconds:20,nearestMinutes:Math.round(nearest*10)/10};
+  if(nearest<=180)return{mode:"near-event",cacheSeconds:30,clientPollSeconds:30,nearestMinutes:Math.round(nearest*10)/10};
+  return{mode:"normal",cacheSeconds:60,clientPollSeconds:60,nearestMinutes:null};
 }
 
 async function fetchCalendar(now){
-  const start=new Date(now.getTime()-2*86400000);
-  const end=new Date(now.getTime()+8*86400000);
+  const start=new Date(now.getTime()-2*DAY),end=new Date(now.getTime()+8*DAY);
   const qs=new URLSearchParams();
   ["NONE","LOW","MEDIUM","HIGH"].forEach(v=>qs.append("volatilities",v));
   qs.append("countries","US");
@@ -67,70 +82,25 @@ async function fetchCalendar(now){
   if(!Array.isArray(raw))throw new Error("FXStreet response was not an array");
   return raw.filter(e=>String(e.countryCode||"").toUpperCase()==="US").map(e=>{
     const name=e.name||"US economic event";
-    return {
-      id:String(e.id||e.eventId||`${name}-${e.dateUtc||""}`).slice(0,180),
-      dateUtc:e.dateUtc||null,
-      periodDateUtc:e.periodDateUtc||null,
-      name,
-      actual:e.actual??null,
-      revised:e.revised??null,
-      consensus:e.consensus??null,
-      previous:e.previous??null,
-      unit:e.unit??null,
-      volatility:String(e.volatility||"NONE").toUpperCase(),
-      isSpeech:Boolean(e.isSpeech),
-      isTentative:Boolean(e.isTentative),
-      category:categoryFor(name),
-      source:"FXStreet public calendar"
-    };
+    return {id:String(e.id||e.eventId||`${name}-${e.dateUtc||""}`).slice(0,180),dateUtc:e.dateUtc||null,periodDateUtc:e.periodDateUtc||null,name,actual:e.actual??null,revised:e.revised??null,consensus:e.consensus??null,previous:e.previous??null,unit:e.unit??null,volatility:String(e.volatility||"NONE").toUpperCase(),isSpeech:Boolean(e.isSpeech),isTentative:Boolean(e.isTentative),category:categoryFor(name),source:"FXStreet public calendar"};
   }).sort((a,b)=>String(a.dateUtc||"").localeCompare(String(b.dateUtc||"")));
 }
 
-function decodeXml(s){
-  return String(s||"")
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
-    .replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">")
-    .replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'")
-    .replace(/<[^>]+>/g,"")
-    .replace(/\s+/g," ").trim();
-}
-
-function xmlTag(block,tag){
-  const m=block.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`,`i`));
-  return m?decodeXml(m[1]):"";
-}
-
+function decodeXml(s){return String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/<[^>]+>/g,"").replace(/\s+/g," ").trim();}
+function xmlTag(block,tag){const m=block.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`,`i`));return m?decodeXml(m[1]):"";}
 function parseRss(xml,source,category,limit=12){
-  const items=[];
-  const blocks=String(xml||"").match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>/gi)||[];
+  const items=[];const blocks=String(xml||"").match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>/gi)||[];
   for(const block of blocks.slice(0,limit)){
-    const title=xmlTag(block,"title");
-    if(!title)continue;
-    const link=xmlTag(block,"link");
-    const pub=xmlTag(block,"pubDate")||xmlTag(block,"date");
-    const parsed=pub?Date.parse(pub):NaN;
-    items.push({
-      title,
-      url:link,
-      publishedUtc:Number.isNaN(parsed)?null:isoNoMs(new Date(parsed)),
-      source,
-      category:category==="auto"?categoryFor(title):category
-    });
+    const title=xmlTag(block,"title");if(!title)continue;
+    const link=xmlTag(block,"link"),pub=xmlTag(block,"pubDate")||xmlTag(block,"date"),parsed=pub?Date.parse(pub):NaN;
+    items.push({title,url:link,publishedUtc:Number.isNaN(parsed)?null:isoNoMs(new Date(parsed)),source,category:category==="auto"?categoryFor(title):category});
   }
   return items;
 }
+async function rssItems(url,source,category,limit=12){return parseRss(await fetchText(url),source,category,limit);}
+function googleNewsUrl(query){return `https://news.google.com/rss/search?${new URLSearchParams({q:query,hl:"en-US",gl:"US",ceid:"US:en"})}`;}
 
-async function rssItems(url,source,category,limit=12){
-  const xml=await fetchText(url);
-  return parseRss(xml,source,category,limit);
-}
-
-function googleNewsUrl(query){
-  const p=new URLSearchParams({q:query,hl:"en-US",gl:"US",ceid:"US:en"});
-  return `https://news.google.com/rss/search?${p}`;
-}
-
-async function fetchHeadlines(){
+async function fetchHeadlinesRaw(){
   const feeds=[
     ["https://www.federalreserve.gov/feeds/press_monetary.xml","Federal Reserve","rates",12],
     ["https://www.federalreserve.gov/feeds/speeches_and_testimony.xml","Federal Reserve","rates",12],
@@ -140,110 +110,110 @@ async function fetchHeadlines(){
     [googleNewsUrl('(\"White House\" OR Trump OR \"US Treasury\") (tariff OR sanctions OR trade OR oil OR debt OR deficit) when:2d'),"Google News aggregation","other",10],
     [googleNewsUrl('(gold OR XAUUSD OR \"US dollar\" OR DXY) (tariff OR war OR attack OR sanctions OR geopolitics OR recession OR crisis OR oil) when:2d'),"Google News aggregation","other",12]
   ];
-  const settled=await Promise.allSettled(feeds.map(f=>rssItems(...f)));
-  const items=[];
-  const errors=[];
-  settled.forEach((r,i)=>{
-    if(r.status==="fulfilled")items.push(...r.value);
-    else errors.push(`Headline feed ${i+1}: ${String(r.reason?.message||r.reason)}`);
-  });
-  const seen=new Set();
-  const unique=[];
-  for(const h of items){
-    const key=h.title.toLowerCase().replace(/\W+/g,"").slice(0,140);
-    if(!key||seen.has(key))continue;
-    seen.add(key);
-    unique.push(h);
-  }
+  const settled=await Promise.allSettled(feeds.map(f=>rssItems(...f))),items=[],errors=[];
+  settled.forEach((r,i)=>r.status==="fulfilled"?items.push(...r.value):errors.push(`Headline feed ${i+1}: ${String(r.reason?.message||r.reason)}`));
+  const seen=new Set(),unique=[];
+  for(const h of items){const key=h.title.toLowerCase().replace(/\W+/g,"").slice(0,140);if(!key||seen.has(key))continue;seen.add(key);unique.push(h);}
   unique.sort((a,b)=>String(b.publishedUtc||"").localeCompare(String(a.publishedUtc||"")));
-  return {items:unique.slice(0,36),errors};
+  return{items:unique.slice(0,36),errors,queriedAt:isoNoMs(new Date())};
 }
 
-async function baselineSnapshot(){
+async function fetchHeadlinesCached(cache){
+  const key=new Request(HEADLINE_CACHE_KEY);const hit=await cache.match(key);
+  if(hit){try{return await hit.json();}catch{}}
+  const value=await fetchHeadlinesRaw();
+  await cache.put(key,jsonResponse(value,200,{"Cache-Control":"public, max-age=60"}));
+  return value;
+}
+
+async function baselineSnapshot(cache){
+  const key=new Request(BASELINE_CACHE_KEY);const hit=await cache.match(key);
+  if(hit){try{return await hit.json();}catch{}}
   try{
-    const baseline=await fetchJson(`${GITHUB_SNAPSHOT}?worker=${Date.now()}`,{headers:{"Cache-Control":"no-cache"}});
-    return baseline&&typeof baseline==="object"?baseline:{};
-  }catch{
-    return {};
-  }
+    const value=await fetchJson(`${GITHUB_SNAPSHOT}?worker=${Date.now()}`,{headers:{"Cache-Control":"no-cache"}});
+    const baseline=value&&typeof value==="object"?value:{};
+    await cache.put(key,jsonResponse(baseline,200,{"Cache-Control":"public, max-age=60"}));
+    return baseline;
+  }catch{return{};}
 }
 
-async function buildLiveData(){
+function mergeEventMetadata(events,baseline){
+  const map=new Map((baseline?.events||[]).map(e=>[`${e.id}|${e.dateUtc}`,e]));
+  return (events||[]).map(e=>{const old=map.get(`${e.id}|${e.dateUtc}`);if(!old)return e;const keep={};for(const k of ["officialVerification","actualSource"]){if(old[k]!==undefined)keep[k]=old[k];}return{...e,...keep};});
+}
+function headlineKey(h){return String(h?.url||h?.title||"").trim().toLowerCase();}
+function mergeHeadlineMetadata(headlines,baseline){
+  const map=new Map((baseline?.headlines||[]).map(h=>[headlineKey(h),h]));
+  return (headlines||[]).map(h=>{const old=map.get(headlineKey(h));if(!old)return h;const keep={};for(const k of ["primarySource","officialText","officialTextSource","officialDocumentUrl"]){if(old[k]!==undefined)keep[k]=old[k];}return{...h,...keep};});
+}
+
+function midPrice(p){
+  const bid=num(p?.closeoutBid??p?.bids?.[0]?.price),ask=num(p?.closeoutAsk??p?.asks?.[0]?.price);
+  return bid!==null&&ask!==null?(bid+ask)/2:null;
+}
+function pctChange(current,previous){return current!==null&&previous?((current-previous)/previous)*100:null;}
+function dxyFrom(prices){
+  const e=prices.EUR_USD,j=prices.USD_JPY,g=prices.GBP_USD,c=prices.USD_CAD,s=prices.USD_SEK,f=prices.USD_CHF;
+  if([e,j,g,c,s,f].some(v=>!Number.isFinite(v)||v<=0))return null;
+  return 50.14348112*Math.pow(e,-0.576)*Math.pow(j,0.136)*Math.pow(g,-0.119)*Math.pow(c,0.091)*Math.pow(s,0.042)*Math.pow(f,0.036);
+}
+
+async function fetchOandaMarket(env,previousMarket={}){
+  if(!env?.OANDA_API_TOKEN||!env?.OANDA_ACCOUNT_ID)return{market:{},status:"not-configured"};
+  const host=String(env.OANDA_ENV||"practice").toLowerCase()==="live"?"https://api-fxtrade.oanda.com":"https://api-fxpractice.oanda.com";
+  const instruments=["XAU_USD","EUR_USD","USD_JPY","GBP_USD","USD_CAD","USD_SEK","USD_CHF"];
+  const url=`${host}/v3/accounts/${encodeURIComponent(env.OANDA_ACCOUNT_ID)}/pricing?instruments=${instruments.join("%2C")}`;
+  const doc=await fetchJson(url,{headers:{Authorization:`Bearer ${env.OANDA_API_TOKEN}`,Accept:"application/json"}},6000);
+  const prices={};for(const p of doc?.prices||[]){const m=midPrice(p);if(m!==null)prices[p.instrument]=m;}
+  const observedAt=isoNoMs(new Date());const market={};
+  if(Number.isFinite(prices.XAU_USD)){
+    const previous=num(previousMarket?.xau?.price),changePct=pctChange(prices.XAU_USD,previous);
+    market.xau={label:"Gold / XAUUSD",symbol:"XAU_USD",name:"Gold / XAUUSD",price:Number(prices.XAU_USD.toFixed(4)),previous,changePct:changePct===null?null:Number(changePct.toFixed(4)),deltaBps:null,date:observedAt.slice(0,10),time:observedAt.slice(11,19),kind:"gold",source:"OANDA v20 account pricing",live:true,observedAt,comparisonLabel:previous?"since prior Worker sample":"live price"};
+  }
+  const dxy=dxyFrom(prices);
+  if(Number.isFinite(dxy)){
+    const previous=num(previousMarket?.dxy?.price),changePct=pctChange(dxy,previous);
+    market.dxy={label:"Synthetic US Dollar Index",symbol:"DXY-synthetic",name:"Synthetic DXY from 6 FX pairs",price:Number(dxy.toFixed(4)),previous,changePct:changePct===null?null:Number(changePct.toFixed(4)),deltaBps:null,date:observedAt.slice(0,10),time:observedAt.slice(11,19),kind:"index",source:"OANDA v20 FX pricing · DXY formula",live:true,observedAt,comparisonLabel:previous?"since prior Worker sample":"live synthetic index"};
+  }
+  return{market,status:Object.keys(market).length?"live":"connected-no-supported-quotes"};
+}
+
+async function cachedLivePayload(cache){const hit=await cache.match(new Request(LIVE_CACHE_KEY));if(!hit)return null;try{return await hit.json();}catch{return null;}}
+
+async function buildLiveData(env,cache,previousPayload=null){
   const now=new Date();
-  const baselinePromise=baselineSnapshot();
-  const calendarPromise=fetchCalendar(now);
-  const headlinesPromise=fetchHeadlines();
+  const baselinePromise=baselineSnapshot(cache),calendarPromise=fetchCalendar(now),headlinesPromise=fetchHeadlinesCached(cache);
   const [baseline,calendarResult,headlineResult]=await Promise.all([
     baselinePromise,
     calendarPromise.then(value=>({ok:true,value})).catch(error=>({ok:false,error})),
     headlinesPromise.then(value=>({ok:true,value})).catch(error=>({ok:false,error}))
   ]);
+  const errors=[];let events=Array.isArray(baseline.events)?baseline.events:[],headlines=Array.isArray(baseline.headlines)?baseline.headlines:[];
+  let calendarStatus=baseline.calendarStatus||"fallback",headlineStatus=headlines.length?"snapshot":"unavailable",directSuccess=false;
+  if(calendarResult.ok&&calendarResult.value.length){events=mergeEventMetadata(calendarResult.value,baseline);calendarStatus="live";directSuccess=true;}else if(!calendarResult.ok)errors.push(`FXStreet calendar: ${String(calendarResult.error?.message||calendarResult.error)}`);
+  if(headlineResult.ok&&headlineResult.value.items.length){headlines=mergeHeadlineMetadata(headlineResult.value.items,baseline);headlineStatus="live-cached-60s";directSuccess=true;errors.push(...(headlineResult.value.errors||[]));}
+  else if(!headlineResult.ok)errors.push(`Headlines: ${String(headlineResult.error?.message||headlineResult.error)}`);
 
-  const errors=[];
-  let events=Array.isArray(baseline.events)?baseline.events:[];
-  let headlines=Array.isArray(baseline.headlines)?baseline.headlines:[];
-  let calendarStatus=baseline.calendarStatus||"fallback";
-  let headlineStatus=headlines.length?"snapshot":"unavailable";
-  let directSuccess=false;
+  let market=baseline.market&&typeof baseline.market==="object"?{...baseline.market}:{};let oandaStatus="not-configured";
+  try{
+    const oanda=await fetchOandaMarket(env,previousPayload?.market||{});oandaStatus=oanda.status;market={...market,...oanda.market};if(Object.keys(oanda.market).length)directSuccess=true;
+  }catch(error){oandaStatus="error";errors.push(`OANDA pricing: ${String(error?.message||error)}`);}
 
-  if(calendarResult.ok&&calendarResult.value.length){
-    events=calendarResult.value;
-    calendarStatus="live";
-    directSuccess=true;
-  }else if(!calendarResult.ok){
-    errors.push(`FXStreet calendar: ${String(calendarResult.error?.message||calendarResult.error)}`);
-  }
-
-  if(headlineResult.ok){
-    if(headlineResult.value.items.length){
-      headlines=headlineResult.value.items;
-      headlineStatus="live";
-      directSuccess=true;
-    }
-    errors.push(...headlineResult.value.errors);
-  }else{
-    errors.push(`Headlines: ${String(headlineResult.error?.message||headlineResult.error)}`);
-  }
-
-  const market=baseline.market&&typeof baseline.market==="object"?baseline.market:{};
-  const marketCount=Object.values(market).filter(Boolean).length;
-  const generatedAt=directSuccess?isoNoMs(now):(baseline.generatedAt||isoNoMs(now));
-
-  return {
-    ...baseline,
-    generatedAt,
-    sourceQueriedAt:isoNoMs(now),
-    collectorMode:"cloudflare-on-demand",
-    calendarStatus,
-    counts:{events:events.length,headlines:headlines.length,marketFeeds:marketCount},
-    sourceStatus:{
-      ...(baseline.sourceStatus||{}),
-      calendar:calendarStatus==="live"?"live":"snapshot-fallback",
-      headlines:headlineStatus,
-      market:marketCount?"github-snapshot":"unavailable"
-    },
-    events,
-    headlines,
-    market,
-    errors:[...(Array.isArray(baseline.errors)?baseline.errors:[]),...errors].slice(0,12),
-    isFallback:!directSuccess
-  };
+  const cadence=releaseCadence(events,now),marketCount=Object.values(market).filter(Boolean).length;
+  return {...baseline,generatedAt:directSuccess?isoNoMs(now):(baseline.generatedAt||isoNoMs(now)),sourceQueriedAt:isoNoMs(now),collectorMode:"cloudflare-adaptive-realtime",calendarStatus,counts:{events:events.length,headlines:headlines.length,marketFeeds:marketCount},sourceStatus:{...(baseline.sourceStatus||{}),calendar:calendarStatus==="live"?"live":"snapshot-fallback",headlines:headlineStatus,market:Object.keys(market).length?"live-or-fallback":"unavailable",oanda:oandaStatus,worker:"live"},worker:{mode:cadence.mode,cacheSeconds:cadence.cacheSeconds,recommendedClientPollSeconds:cadence.clientPollSeconds,nearestImportantEventMinutes:cadence.nearestMinutes,oanda:oandaStatus},events,headlines,market,errors:[...(Array.isArray(baseline.errors)?baseline.errors:[]),...errors].slice(0,14),isFallback:!directSuccess};
 }
 
-async function liveResponse(request,ctx){
-  const url=new URL(request.url);
-  const force=url.searchParams.get("fresh")==="1";
-  const cache=caches.default;
-  const key=new Request(CACHE_KEY,{method:"GET"});
-
-  if(!force){
-    const cached=await cache.match(key);
-    if(cached)return cached;
+async function liveResponse(request,env,ctx){
+  const url=new URL(request.url),force=url.searchParams.get("fresh")==="1",cache=caches.default,key=new Request(LIVE_CACHE_KEY);
+  const cached=await cachedLivePayload(cache);
+  if(!force&&cached){
+    const queried=Date.parse(cached.sourceQueriedAt||cached.generatedAt||"");
+    const ttl=Number(cached?.worker?.cacheSeconds)||60;
+    if(Number.isFinite(queried)&&Date.now()-queried<ttl*1000)return jsonResponse(cached,200,{"Cache-Control":"no-store","X-Gold-Mine-Cache":"hit"});
   }
-
-  const payload=await buildLiveData();
-  const response=jsonResponse(payload,200,{"Cache-Control":`public, max-age=${CACHE_SECONDS}`});
-  ctx.waitUntil(cache.put(key,response.clone()));
+  const payload=await buildLiveData(env,cache,cached);
+  const response=jsonResponse(payload,200,{"Cache-Control":"no-store","X-Gold-Mine-Cache":"miss"});
+  ctx.waitUntil(cache.put(key,jsonResponse(payload,200,{"Cache-Control":"public, max-age=120"})));
   return response;
 }
 
@@ -252,24 +222,11 @@ export default {
     if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders()});
     if(request.method!=="GET")return jsonResponse({error:"Method not allowed"},405);
     const url=new URL(request.url);
-    if(url.pathname==="/health")return jsonResponse({ok:true,service:"gold-mine-live",time:isoNoMs(new Date())});
+    if(url.pathname==="/health")return jsonResponse({ok:true,service:"gold-mine-live",mode:"adaptive-realtime",oandaConfigured:Boolean(env?.OANDA_API_TOKEN&&env?.OANDA_ACCOUNT_ID),time:isoNoMs(new Date())});
     if(url.pathname!=="/"&&url.pathname!=="/live")return jsonResponse({error:"Not found"},404);
-    try{
-      return await liveResponse(request,ctx);
-    }catch(error){
-      return jsonResponse({error:"Live refresh failed",detail:String(error?.message||error)},502,{"Cache-Control":"no-store"});
-    }
+    try{return await liveResponse(request,env,ctx);}catch(error){return jsonResponse({error:"Live refresh failed",detail:String(error?.message||error)},502,{"Cache-Control":"no-store"});}
   },
-
   async scheduled(event,env,ctx){
-    ctx.waitUntil((async()=>{
-      try{
-        const payload=await buildLiveData();
-        const response=jsonResponse(payload,200,{"Cache-Control":`public, max-age=${CACHE_SECONDS}`});
-        await caches.default.put(new Request(CACHE_KEY,{method:"GET"}),response);
-      }catch(error){
-        console.error("Scheduled Gold Mine refresh failed",error);
-      }
-    })());
+    ctx.waitUntil((async()=>{try{const cache=caches.default,previous=await cachedLivePayload(cache),payload=await buildLiveData(env,cache,previous);await cache.put(new Request(LIVE_CACHE_KEY),jsonResponse(payload,200,{"Cache-Control":"public, max-age=120"}));}catch(error){console.error("Scheduled Gold Mine refresh failed",error);}})());
   }
 };

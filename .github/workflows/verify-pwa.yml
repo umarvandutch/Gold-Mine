@@ -11,6 +11,7 @@ on:
       - 'config.js'
       - 'refresh-fix.js'
       - 'pull-refresh.js'
+      - 'adaptive-refresh.js'
       - 'gold-direction-labels.js'
       - 'official-signal-layer.js'
       - 'accuracy-engine.js'
@@ -22,6 +23,7 @@ on:
       - 'worker/**'
       - '.github/workflows/verify-pwa.yml'
       - '.github/workflows/refresh-live-data.yml'
+      - '.github/workflows/deploy-worker.yml'
 
 permissions:
   contents: read
@@ -38,6 +40,7 @@ jobs:
           node --check config.js
           node --check refresh-fix.js
           node --check pull-refresh.js
+          node --check adaptive-refresh.js
           node --check gold-direction-labels.js
           node --check official-signal-layer.js
           node --check accuracy-engine.js
@@ -73,4 +76,4 @@ jobs:
           node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
           node -e "const h=JSON.parse(require('fs').readFileSync('data/signal-history.json','utf8')); if(!Array.isArray(h.events)||!h.events.length) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f data/signal-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f data/signal-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
