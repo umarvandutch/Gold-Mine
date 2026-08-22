@@ -9,7 +9,7 @@ on:
       - '.github/workflows/deploy-worker.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: gold-mine-worker-deploy
@@ -24,9 +24,37 @@ jobs:
       - name: Validate Worker syntax
         run: node --input-type=module --check < worker/src/index.js
       - name: Deploy to Cloudflare Workers
+        id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           command: deploy
+      - name: Wire Worker URL into Gold Mine
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          if [ -z "$DEPLOYMENT_URL" ]; then
+            echo "Wrangler did not return a deployment URL."
+            exit 1
+          fi
+          LIVE_URL="${DEPLOYMENT_URL%/}/live"
+          cat > config.js <<EOF
+          // Gold Mine runtime configuration.
+          // Auto-generated after a successful Cloudflare Worker deployment.
+          // The app still falls back to the GitHub snapshot if this Worker is unavailable.
+          window.GOLD_MINE_CONFIG={
+            liveWorkerUrl:"$LIVE_URL"
+          };
+          EOF
+          echo "Gold Mine Worker: $LIVE_URL"
+          if git diff --quiet -- config.js; then
+            echo "config.js already points to this Worker."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add config.js
+          git commit -m "Connect Gold Mine live Worker"
+          git push origin main
