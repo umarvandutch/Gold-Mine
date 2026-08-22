@@ -16,6 +16,7 @@ on:
       - 'official-signal-layer.js'
       - 'accuracy-engine.js'
       - 'trader-gold-view.js'
+      - 'trade-plan-stability.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
@@ -46,6 +47,7 @@ jobs:
           node --check official-signal-layer.js
           node --check accuracy-engine.js
           node --check trader-gold-view.js
+          node --check trade-plan-stability.js
           node --input-type=module --check < worker/src/index.js
       - name: Validate data refresh, enrichment and calibration scripts
         run: |
@@ -78,4 +80,4 @@ jobs:
           node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
           node -e "const h=JSON.parse(require('fs').readFileSync('data/signal-history.json','utf8')); if(!Array.isArray(h.events)||!h.events.length) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f trader-gold-view.js && test -f data/signal-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f trader-gold-view.js && test -f trade-plan-stability.js && test -f data/signal-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
