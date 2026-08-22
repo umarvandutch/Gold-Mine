@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-22T21:54:45Z",
+  "updatedAt": "2026-08-22T21:58:28Z",
   "events": [
     {
       "key": "41bbcccb-31f3-4372-b33e-fbdc51593153|2026-08-21T13:45:00Z",
@@ -17,7 +17,7 @@
       "previous": 53.9,
       "revised": null,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-22T21:54:22Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
       "model": {
         "bias": "bullish",
         "score": 32.86,
@@ -48,7 +48,7 @@
       "previous": 54.6,
       "revised": null,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-22T21:54:22Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
       "model": {
         "bias": "bearish",
         "score": -87.75,
@@ -110,7 +110,7 @@
       "previous": 209.0,
       "revised": 212.0,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-22T12:29:49Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
       "model": {
         "bias": "bearish",
         "score": -12.89,
@@ -172,11 +172,166 @@
       "previous": 41.4,
       "revised": null,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-22T12:29:49Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
       "model": {
         "bias": "bearish",
         "score": -100.0,
         "surpriseZ": 22.4,
+        "revisionZ": null,
+        "importance": 6.2,
+        "family": "business"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "d262f39b-0083-4a86-b993-dea7c5101afb|2026-08-18T14:00:00Z",
+      "id": "d262f39b-0083-4a86-b993-dea7c5101afb",
+      "dateUtc": "2026-08-18T14:00:00Z",
+      "name": "Pending Home Sales (MoM)",
+      "family": "Housing",
+      "category": "housing",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": -2.3,
+      "consensus": 0.3,
+      "previous": -5.4,
+      "revised": -4.8,
+      "firstObservedAt": "2026-08-22T21:58:02Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
+      "model": {
+        "bias": "bullish",
+        "score": 69.22,
+        "surpriseZ": -21.667,
+        "revisionZ": 0.6,
+        "importance": 3.57,
+        "family": "Housing"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "1d2d13c6-4bf2-430f-985d-bf0d9f3a9e33|2026-08-18T13:15:00Z",
+      "id": "1d2d13c6-4bf2-430f-985d-bf0d9f3a9e33",
+      "dateUtc": "2026-08-18T13:15:00Z",
+      "name": "Industrial Production (MoM)",
+      "family": "Industrial production",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.2,
+      "consensus": 0.3,
+      "previous": 0.1,
+      "revised": 0.3,
+      "firstObservedAt": "2026-08-22T21:58:02Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
+      "model": {
+        "bias": "mixed",
+        "score": 6.64,
+        "surpriseZ": -0.222,
+        "revisionZ": 0.444,
+        "importance": 5.08,
+        "family": "Industrial production"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "9ef853ce-13ad-4d4f-b862-e158529d129f|2026-08-18T12:30:00Z",
+      "id": "9ef853ce-13ad-4d4f-b862-e158529d129f",
+      "dateUtc": "2026-08-18T12:30:00Z",
+      "name": "Building Permits (MoM)",
+      "family": "Housing",
+      "category": "housing",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 1.443,
+      "consensus": 1.37,
+      "previous": 1.367,
+      "revised": 1.374,
+      "firstObservedAt": "2026-08-22T21:58:02Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
+      "model": {
+        "bias": "bearish",
+        "score": -35.44,
+        "surpriseZ": 0.608,
+        "revisionZ": 0.058,
+        "importance": 3.57,
+        "family": "Housing"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "4d7a0143-e7ac-4a05-b63a-21bff2cab4d7|2026-08-18T12:30:00Z",
+      "id": "4d7a0143-e7ac-4a05-b63a-21bff2cab4d7",
+      "dateUtc": "2026-08-18T12:30:00Z",
+      "name": "Housing Starts (MoM)",
+      "family": "Housing",
+      "category": "housing",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 1.239,
+      "consensus": 1.35,
+      "previous": 1.427,
+      "revised": 1.415,
+      "firstObservedAt": "2026-08-22T21:58:02Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
+      "model": {
+        "bias": "bullish",
+        "score": 49.84,
+        "surpriseZ": -0.925,
+        "revisionZ": -0.1,
+        "importance": 3.57,
+        "family": "Housing"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "f278d9eb-2cb5-44bc-bfd7-fe1f5fd94ff6|2026-08-17T12:30:00Z",
+      "id": "f278d9eb-2cb5-44bc-bfd7-fe1f5fd94ff6",
+      "dateUtc": "2026-08-17T12:30:00Z",
+      "name": "NY Empire State Manufacturing Index",
+      "family": "business",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 20.6,
+      "consensus": 11.0,
+      "previous": 15.6,
+      "revised": null,
+      "firstObservedAt": "2026-08-22T21:58:02Z",
+      "lastObservedAt": "2026-08-22T21:58:02Z",
+      "model": {
+        "bias": "bearish",
+        "score": -100.0,
+        "surpriseZ": 9.6,
         "revisionZ": null,
         "importance": 6.2,
         "family": "business"
