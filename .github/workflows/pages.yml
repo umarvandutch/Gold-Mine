@@ -11,6 +11,7 @@ on:
       - 'config.js'
       - 'refresh-fix.js'
       - 'pull-refresh.js'
+      - 'adaptive-refresh.js'
       - 'gold-direction-labels.js'
       - 'official-signal-layer.js'
       - 'accuracy-engine.js'
@@ -45,6 +46,7 @@ jobs:
           node --check config.js
           node --check refresh-fix.js
           node --check pull-refresh.js
+          node --check adaptive-refresh.js
           node --check gold-direction-labels.js
           node --check official-signal-layer.js
           node --check accuracy-engine.js
@@ -54,7 +56,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/icons
-          cp index.html styles.css live.css app.js config.js refresh-fix.js pull-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js manifest.webmanifest sw.js .nojekyll _site/
+          cp index.html styles.css live.css app.js config.js refresh-fix.js pull-refresh.js adaptive-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js manifest.webmanifest sw.js .nojekyll _site/
           cp icons/icon-192.png icons/icon-512.png _site/icons/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
