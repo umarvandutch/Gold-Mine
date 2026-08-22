@@ -4,6 +4,8 @@
   const SNAPSHOT_URL="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
   const VIEW_KEY="goldmine-refresh-view";
   const STATUS_KEY="goldmine-refresh-status";
+  const CHECK_KEY="goldmine-last-check-at";
+  const SNAPSHOT_KEY="goldmine-last-snapshot-at";
 
   function restoreGoldView(){
     if(sessionStorage.getItem(VIEW_KEY)!=="predictions")return;
@@ -44,10 +46,11 @@
     const button=oldButton.cloneNode(true);
     oldButton.replaceWith(button);
 
-    if(sessionStorage.getItem(STATUS_KEY)==="updated"){
+    const priorState=sessionStorage.getItem(STATUS_KEY);
+    if(priorState){
       sessionStorage.removeItem(STATUS_KEY);
-      button.textContent="Updated ✓";
-      setTimeout(()=>{button.textContent="Refresh view";},1600);
+      button.textContent=priorState==="updated"?"New data ✓":"Checked ✓";
+      setTimeout(()=>{button.textContent="Check latest";},1800);
     }
 
     let busy=false;
@@ -56,21 +59,27 @@
       busy=true;
       button.disabled=true;
       button.setAttribute("aria-busy","true");
-      button.textContent=workerUrl()?"Querying live sources…":"Refreshing…";
+      button.textContent=workerUrl()?"Checking live sources…":"Checking latest…";
 
       try{
-        await fetchLatest(true);
+        const before=sessionStorage.getItem(SNAPSHOT_KEY)||"";
+        const latest=await fetchLatest(true);
+        const snapshot=String(latest?.sourceQueriedAt||latest?.generatedAt||"");
+        const checkedAt=new Date().toISOString();
+        sessionStorage.setItem(CHECK_KEY,checkedAt);
+        if(snapshot)sessionStorage.setItem(SNAPSHOT_KEY,snapshot);
+        const changed=!!snapshot&&!!before&&snapshot!==before;
         sessionStorage.setItem(VIEW_KEY,"predictions");
-        sessionStorage.setItem(STATUS_KEY,"updated");
-        button.textContent="Updating…";
-        setTimeout(()=>window.location.reload(),150);
+        sessionStorage.setItem(STATUS_KEY,changed?"updated":"checked");
+        button.textContent=changed?"New data found…":"Checked — same snapshot";
+        setTimeout(()=>window.location.reload(),260);
       }catch(error){
         console.warn("Gold view manual refresh failed",error);
-        button.textContent="Refresh failed — retry";
+        button.textContent="Check failed — retry";
         button.disabled=false;
         button.removeAttribute("aria-busy");
         busy=false;
-        setTimeout(()=>{if(!busy)button.textContent="Refresh view";},2500);
+        setTimeout(()=>{if(!busy)button.textContent="Check latest";},2500);
       }
     });
   }
@@ -97,6 +106,7 @@
     await loadScript("./gold-direction-labels.js","goldmine-gold-direction-labels");
     await loadScript("./accuracy-engine.js","goldmine-accuracy-engine");
     await loadScript("./adaptive-refresh.js","goldmine-adaptive-refresh");
+    await loadScript("./trader-gold-view.js","goldmine-trader-gold-view");
   }
 
   boot();
