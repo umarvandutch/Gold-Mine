@@ -42,7 +42,6 @@
   function installRefreshButton(){
     const oldButton=document.getElementById("recalcButton");
     if(!oldButton)return;
-
     const button=oldButton.cloneNode(true);
     oldButton.replaceWith(button);
 
@@ -60,7 +59,6 @@
       button.disabled=true;
       button.setAttribute("aria-busy","true");
       button.textContent=workerUrl()?"Checking live sources…":"Checking latest…";
-
       try{
         const before=sessionStorage.getItem(SNAPSHOT_KEY)||"";
         const latest=await fetchLatest(true);
@@ -106,7 +104,6 @@
     await loadScript("./gold-direction-labels.js","goldmine-gold-direction-labels");
     await loadScript("./accuracy-engine.js","goldmine-accuracy-engine");
     await loadScript("./adaptive-refresh.js","goldmine-adaptive-refresh");
-    await loadScript("./trader-gold-view.js","goldmine-trader-gold-view");
     await loadScript("./trade-plan-stability.js","goldmine-trade-plan-stability");
   }
 

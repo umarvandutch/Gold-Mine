@@ -11,7 +11,9 @@ on:
       - 'scripts/merge_headline_continuity.py'
       - 'scripts/enrich_official_data.py'
       - 'scripts/enrich_fed_minutes.py'
+      - 'scripts/apply_signal_policy.py'
       - 'scripts/record_signal_history.py'
+      - 'data/policy-history.json'
       - '.github/workflows/refresh-live-data.yml'
 
 permissions:
@@ -40,16 +42,18 @@ jobs:
         run: python3 scripts/enrich_official_data.py
       - name: Follow underlying FOMC minutes document
         run: python3 scripts/enrich_fed_minutes.py
+      - name: Apply impact and historical signal policy
+        run: python3 scripts/apply_signal_policy.py
       - name: Record model calibration history
         run: python3 scripts/record_signal_history.py
       - name: Commit data only when it changed
         run: |
-          if git diff --quiet -- live-data.json data/signal-history.json; then
-            echo "No material live-data or calibration-history change."
+          if git diff --quiet -- live-data.json data/signal-history.json data/policy-history.json; then
+            echo "No material live-data or signal-history change."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add live-data.json data/signal-history.json
-          git commit -m "Refresh Gold Mine live data and calibration history"
+          git add live-data.json data/signal-history.json data/policy-history.json
+          git commit -m "Refresh Gold Mine live data and signal history"
           git push origin main
