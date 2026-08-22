@@ -107,6 +107,7 @@
     await loadScript("./accuracy-engine.js","goldmine-accuracy-engine");
     await loadScript("./adaptive-refresh.js","goldmine-adaptive-refresh");
     await loadScript("./trader-gold-view.js","goldmine-trader-gold-view");
+    await loadScript("./trade-plan-stability.js","goldmine-trade-plan-stability");
   }
 
   boot();
