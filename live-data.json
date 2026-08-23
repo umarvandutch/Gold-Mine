@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T10:08:49Z",
+  "generatedAt": "2026-08-23T10:40:46Z",
   "calendarStatus": "live",
   "counts": {
     "events": 141,
@@ -2662,7 +2662,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Dalio Warns Imminent U.S. Debt Crisis, Urges Gold and Bitcoin - \uc870\uc120\uc77c\ubcf4",
@@ -2778,25 +2779,6 @@
       "impact": "medium",
       "memoryWindowDays": 7,
       "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Canada to impose retaliatory tariffs on US steel, electronics, other products, Carney says - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQ2ZPTUg0NjVrWlY5aVBzbS1ucUhqc014UGZYMkhlX3R1bkpDMnlXMmZyT2hCVEs1dXZNbkE4Nlc1aXZQemtvNUJFWFVyLWJBb1BWelBfVmJBRVlUMk4tR2lNVWw5NW11NG5SOUtGZVZNZ0lIXzJYVlJsNFE0Vlh3TExaMnJmOGhJNmNWSkd1MkE1QmpjeHl1TXQwYUkydWRkSUVxU21UV3VBdHVJZUV2U05NaGI2d1RuNUJvMg?oc=5",
-      "publishedUtc": "2026-08-22T20:03:10Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Carney bucks Trump as trade war escalates - Politico",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOdWNublp4d2psb2VxeGttWF9JZ204M0lYZENTNEh6Um1Hd2ptQWVXU1Z1YnZjcEo3STBmX3k0MWJFYk1XTlJGVV9aLV94TGlOaHhtaDRnVlpXRUk2V1hBd2lObHdEOXgyem4wcnh5TERWWWFvd2I3M21ES0JWY1FKMFR3MFpPUQ?oc=5",
-      "publishedUtc": "2026-08-22T19:20:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
     },
     {
       "title": "Ray Dalio Warns of US Debt Crisis, Recommends Gold and Bitcoin - Bitbo",
@@ -3109,6 +3091,24 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Gold prices up around 1% as traders pare Fed rate hike bets after in-line July CPI - Investing.com Nigeria",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOelp4STdrVVVDc3hDSnh5dWtlR2dKYjZXZ2owWkNEQmduTjJsSEJCUUdzZXRRdmROUHUtMXFPcnJFOVQ3LWtGX2pvb29rVG1LTG9GbWZKTm9fUng5bUFaa1dKM1RtYnZVYXV3NHNLR2VGdy15Q2Q1aURBU0o0Z05SR1NmaDlZNHpRWEdIYi1hWTN3ZzdWVlBCSXJ3VGtsaElrSWZ2MTdScGJCVFRkTUdPck8weGRpXzl6QWo0?oc=5",
+      "publishedUtc": "2026-08-19T09:46:09Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Drain Lake Powell - The American Prospect",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5lWUdWclNGU2E0MkRzb3VXU0JLcWx2dUY1R0VNWEdNbnZwYkZ0QWZFZ2d5ampMMlM3aWFfTVBCUlBPTnVWR256Z3ZwZlNPZnpnbWE0MW1IbTBhSTN0VldVUUxpNFJkdUppZWozUWNOVVQ4TzVqVWYtTkRn?oc=5",
+      "publishedUtc": "2026-08-19T09:30:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "The CPI and Inflation, Explained - WSJ",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNc3NRSVFSR3ZmbTkxOF9BbEpuZndkblJxMGFKbHJyWnBFbEZYUjgxRExNeG1UN1VPNDBRUTE0V1A4SnlKRnBQdUR4MXRraW5ZbmpWZm5zUzdHYkxjak9ZdG1DWHlPd1VnM1NWeElteE5IRDJzWEVsNkladTNnVll6OWJoMFJXa01aUkJxOGtfZm1fLU0yanBQbQ?oc=5",
       "publishedUtc": "2026-08-12T07:00:00Z",
@@ -3344,7 +3344,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 35,
+    "retainedRecentCount": 36,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3381,6 +3381,6 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-08-23T10:09:13Z"
+    "updatedAt": "2026-08-23T10:41:09Z"
   }
 }
