@@ -15,9 +15,7 @@ on:
       - 'gold-direction-labels.js'
       - 'official-signal-layer.js'
       - 'accuracy-engine.js'
-      - 'trader-gold-view.js'
-      - 'trade-plan-stability.js'
-      - 'decision-engine-v3.js'
+      - 'decision-engine-v4.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
@@ -47,9 +45,7 @@ jobs:
           node --check gold-direction-labels.js
           node --check official-signal-layer.js
           node --check accuracy-engine.js
-          node --check trader-gold-view.js
-          node --check trade-plan-stability.js
-          node --check decision-engine-v3.js
+          node --check decision-engine-v4.js
           node --input-type=module --check < worker/src/index.js
       - name: Validate data refresh, enrichment and policy scripts
         run: |
@@ -58,13 +54,16 @@ jobs:
           python3 -m py_compile scripts/enrich_official_data.py
           python3 -m py_compile scripts/enrich_fed_minutes.py
           python3 -m py_compile scripts/apply_signal_policy.py
+          python3 -m py_compile scripts/enrich_xau_technicals.py
           python3 -m py_compile scripts/record_signal_history.py
+          python3 -m py_compile scripts/record_trade_setup_history.py
           python3 - <<'PY'
           from datetime import datetime, timedelta, timezone
           from scripts.enrich_official_data import shift_month, pct_change
           from scripts.enrich_fed_minutes import find_minutes_html_url, extract_policy_text
           from scripts.merge_headline_continuity import merge_headlines
           from scripts.apply_signal_policy import is_long_memory, headline_impact, within_policy
+          from scripts.enrich_xau_technicals import detect_order_blocks, atr_series
           assert shift_month(2026, 1, -1) == (2025, 12)
           assert shift_month(2026, 12, 1) == (2027, 1)
           assert round(pct_change(101, 100), 6) == 1.0
@@ -87,12 +86,31 @@ jobs:
           assert not within_policy(now - timedelta(days=8), now, False)
           assert within_policy(now - timedelta(days=89), now, True)
           assert not within_policy(now - timedelta(days=91), now, True)
+
+          # Deterministic synthetic 4H sequence: bearish candle followed by a
+          # large bullish displacement/BOS must produce a bullish candidate.
+          candles=[]
+          p=1900.0
+          for i in range(80):
+              o=p; c=o+(0.8 if i%3 else -0.5); h=max(o,c)+1; l=min(o,c)-1
+              candles.append({'time':f'2026-01-{(i%28)+1:02d}T00:00:00Z','open':o,'high':h,'low':l,'close':c,'volume':1})
+              p=c
+          candles[70]={'time':'2026-04-01T00:00:00Z','open':1920,'high':1922,'low':1915,'close':1917,'volume':1}
+          candles[71]={'time':'2026-04-01T04:00:00Z','open':1917,'high':1942,'low':1916,'close':1940,'volume':1}
+          for i in range(72,80):
+              candles[i]={'time':f'2026-04-{i-70:02d}T00:00:00Z','open':1940+(i-72)*2,'high':1943+(i-72)*2,'low':1939+(i-72)*2,'close':1942+(i-72)*2,'volume':1}
+          obs=detect_order_blocks(candles)
+          assert obs and obs[0]['side']=='bullish'
+          assert obs[0]['zoneLow'] < obs[0]['zoneHigh']
+          assert atr_series(candles)[-1] > 0
           PY
           python3 scripts/record_signal_history.py
+          python3 scripts/record_trade_setup_history.py
       - name: Validate JSON and manifest
         run: |
           node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
           node -e "const h=JSON.parse(require('fs').readFileSync('data/signal-history.json','utf8')); if(!Array.isArray(h.events)||!h.events.length) process.exit(1)"
           node -e "const p=JSON.parse(require('fs').readFileSync('data/policy-history.json','utf8')); if(!Array.isArray(p.events)||!Array.isArray(p.headlines)) process.exit(1)"
+          node -e "const t=JSON.parse(require('fs').readFileSync('data/trade-setup-history.json','utf8')); if(!Array.isArray(t.setups)||!t.calibration) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f trader-gold-view.js && test -f trade-plan-stability.js && test -f decision-engine-v3.js && test -f data/signal-history.json && test -f data/policy-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/apply_signal_policy.py && test -f scripts/record_signal_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f decision-engine-v4.js && test -f data/signal-history.json && test -f data/policy-history.json && test -f data/trade-setup-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/apply_signal_policy.py && test -f scripts/enrich_xau_technicals.py && test -f scripts/record_signal_history.py && test -f scripts/record_trade_setup_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png

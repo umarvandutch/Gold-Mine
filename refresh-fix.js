@@ -104,7 +104,7 @@
     await loadScript("./gold-direction-labels.js","goldmine-gold-direction-labels");
     await loadScript("./accuracy-engine.js","goldmine-accuracy-engine");
     await loadScript("./adaptive-refresh.js","goldmine-adaptive-refresh");
-    await loadScript("./decision-engine-v3.js","goldmine-decision-engine-v3");
+    await loadScript("./decision-engine-v4.js","goldmine-decision-engine-v4");
   }
 
   boot();
