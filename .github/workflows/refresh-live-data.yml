@@ -14,7 +14,9 @@ on:
       - 'scripts/apply_signal_policy.py'
       - 'scripts/enrich_xau_technicals.py'
       - 'scripts/record_signal_history.py'
+      - 'scripts/record_trade_setup_history.py'
       - 'data/policy-history.json'
+      - 'data/trade-setup-history.json'
       - '.github/workflows/refresh-live-data.yml'
 
 permissions:
@@ -53,16 +55,18 @@ jobs:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
           ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
         run: python3 scripts/enrich_xau_technicals.py
-      - name: Record model calibration history
+      - name: Record macro release calibration history
         run: python3 scripts/record_signal_history.py
+      - name: Record 4H order-block setup outcomes
+        run: python3 scripts/record_trade_setup_history.py
       - name: Commit data only when it changed
         run: |
-          if git diff --quiet -- live-data.json data/signal-history.json data/policy-history.json; then
+          if git diff --quiet -- live-data.json data/signal-history.json data/policy-history.json data/trade-setup-history.json; then
             echo "No material live-data or signal-history change."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add live-data.json data/signal-history.json data/policy-history.json
+          git add live-data.json data/signal-history.json data/policy-history.json data/trade-setup-history.json
           git commit -m "Refresh Gold Mine live data and signal history"
           git push origin main
