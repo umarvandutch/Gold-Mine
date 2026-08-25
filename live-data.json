@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-25T19:44:10Z",
+  "generatedAt": "2026-08-25T20:10:44Z",
   "calendarStatus": "live",
   "counts": {
-    "events": 140,
+    "events": 139,
     "headlines": 80,
     "marketFeeds": 3
   },
@@ -16,24 +16,6 @@
     "technical4h": "not-configured"
   },
   "events": [
-    {
-      "id": "e3e379f0-5a93-408b-b00b-447a57e33250",
-      "dateUtc": "2026-05-27T19:55:00Z",
-      "periodDateUtc": null,
-      "name": "Fed's Cook speech",
-      "actual": null,
-      "revised": null,
-      "consensus": null,
-      "previous": null,
-      "unit": null,
-      "volatility": "MEDIUM",
-      "isSpeech": true,
-      "isTentative": false,
-      "category": "rates",
-      "source": "FXStreet public calendar",
-      "memoryWindowDays": 90,
-      "impactPolicy": "high-or-medium-only"
-    },
     {
       "id": "3b95c215-34e3-460a-8763-562c4f5f2f60",
       "dateUtc": "2026-05-28T00:00:00Z",
@@ -2544,11 +2526,11 @@
       "label": "US 2Y Treasury yield",
       "symbol": "BC_2YEAR",
       "name": "US 2Y Treasury yield",
-      "price": 4.24,
+      "price": 4.17,
       "previous": 4.24,
       "changePct": null,
-      "deltaBps": 0.0,
-      "date": "2026-08-24",
+      "deltaBps": -7.0,
+      "date": "2026-08-25",
       "time": null,
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
@@ -2557,11 +2539,11 @@
       "label": "US 10Y Treasury yield",
       "symbol": "BC_10YEAR",
       "name": "US 10Y Treasury yield",
-      "price": 4.7,
-      "previous": 4.74,
+      "price": 4.64,
+      "previous": 4.7,
       "changePct": null,
-      "deltaBps": -4.0,
-      "date": "2026-08-24",
+      "deltaBps": -6.0,
+      "date": "2026-08-25",
       "time": null,
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
@@ -2570,11 +2552,11 @@
       "label": "US 10Y real yield",
       "symbol": "TC_10YEAR",
       "name": "US 10Y real yield",
-      "price": 2.38,
-      "previous": 2.4,
+      "price": 2.32,
+      "previous": 2.38,
       "changePct": null,
-      "deltaBps": -2.0,
-      "date": "2026-08-24",
+      "deltaBps": -6.0,
+      "date": "2026-08-25",
       "time": null,
       "kind": "real-yield",
       "source": "U.S. Treasury official daily rate"
@@ -2665,7 +2647,8 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Lake America? Trump mulls renaming Lake Ontario, expresses love for French Canadians amid trade war - Reuters",
@@ -2755,16 +2738,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Op-Ed: Trump\u2019s Trade War Hurts NH People, Economy, Businesses - InDepthNH.org",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNYWRfSG5JMlhieF9fUVFMRmVmZF90NlpXUzhoUmFuMm8weFdLaVY0Xy1XTkQydFViWklGZWRjVUpaOFJ4bkFYN25DelZrX2U3akNIU1BZY1JacnJYaG0wd25HeDF6b3doYUVucDhGdTRWQ29vWXpkdjVOcnZORkgtbUhiSDBvREh4VUdhM1VDblY0RzJ1Y1E?oc=5",
-      "publishedUtc": "2026-08-25T14:56:50Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
       "title": "Micro Minutes: Tracking the FOMC's Reduced Verbosity - Federal Reserve Bank of Richmond",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOcHp1LUFpVnhvZkhiSFFEVDJqaGtZOVVvaUxMOU1wdkwydEZ1MGlKcHJnU29BTzFmQ3c0QzJ6RDFNMGdJUFNMd0FTTlZRWmM5Q1FlTmh6aTBBOFBMODEzeVZISHR6SHlvanJhZWxlRURTTmlMN0pnV2dkZU1RMTIwbzBzcTZGdU9LUk9fbDdONnNzVTY3bWlIMmNja2FNaXpqYk1lUExiamRGbVBKa1lLdTd4SjJkTmUySFE?oc=5",
       "publishedUtc": "2026-08-25T14:47:07Z",
@@ -2772,6 +2745,15 @@
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
+    },
+    {
+      "title": "US widens Iran crypto sanctions as dollar threat revives Bitcoin and gold debate - CryptoSlate",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZ2dpR0lzOS1UbXJCNEVBRzdkVEVpdGplbXVmZElLZ1RzUzVMWmdaVFplZ1RwRDE3YU12Um5FR2hoM2lwUnJWOHY5MF9GdDd3dXBqTDZkLXVVX2E5MFF2dFZVSDZzUk1EVW9QOWFIZy1iVlZ1MHlzQXZYUkEyUFV4ZWVrdFJvYzNPcnl3QVVldEZqZnF1NGNfTUdaTEVZSm9qaVo0TUw3NVA?oc=5",
+      "publishedUtc": "2026-08-25T14:30:33Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
     },
     {
       "title": "Gold: Tariff conflict fuels safe haven bid \u2013 Commerzbank - FXStreet",
@@ -2795,15 +2777,6 @@
       "title": "Trump\u2019s new attempt to seize control of the Federal Reserve, explained - vox.com",
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNamljNUxaUDZzT2gzSXRWRHFKNHYyN185Y1c4cDYxQldlcUFSeDhxd2lSWlJ3dVJyckdXemlLVVc1OVNydnBwU2FVb1l0UnNyRHNKWmZXUWVHcUZVVWlIWkxTdjNyWjZqNi1ZMGxoaC1UbFdTYllLREpsY0FzZk5qTFhmTXdQT2Vj?oc=5",
       "publishedUtc": "2026-08-25T10:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Man dead after stabbing in front of Federal Reserve Bank building - FOX13 Memphis",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOaktQdDBGQjQxU0UyTGRsVFlNaXh3emVuWnY1TmNzemMwSDZsNExXZ01URGtBYU1XdnEta1BNdTl0eFZMQ3BKWEhESEprRUlBUEFLUVhHNURvalBtLURRUkVZYkxsWElhZEFlVU1RVWpKUF9BSjhnSXEtVUJIdWdwRFF0M1pPT2dxZUN2UDZldXhXR29XMlhzUHdfRTc4Ti1Od3U1TWUyS0psR2F5OGZfTVMyS0hpYjBfYkNvSFRYRGRDOTdIWWRGS2Vpc1k4U2ZZWHY3RU5MTUQ0MEtxdjZFNTNGYw?oc=5",
-      "publishedUtc": "2026-08-25T09:26:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -2954,7 +2927,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Rupee climbs to 95.64 against US dollar; Iran sanctions, crude prices in focus - The Times of India",
+      "title": "Rupee climbs to 95.64 against US dollar; Iran sanctions, crude prices in focus - timesofindia.indiatimes.com",
       "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNOEhiRUhNNXVJaTc1X3VENUExTVJ2U2ZTU0Z5SUVad0tmUFFtY2F4Smhyeno4QzZhY0RMUTdwY2NLSEo2MzRTVF82V0JZT09wdHRFb2g5WlBqNWZ0NGxMRVNmQTVjZFFKRkFOOHlQU0lvMnFxMDcwYnB0WTNWWWs3LVFCVkZQTG1Tcmx3MWNZQnpJRU5vSjREdVpDZ0ZzcXhEbWpwSjV3WExURkRHeTd0S3dLTy04Wm5qQVhITFZyeXY2NjNVRElwQU1pYTJibEMtc2JYdEt0WTI2eVNQdjUxNVI4SldSMHVNbVdXQnVKSjl2ZWkw0gH6AUFVX3lxTE1ET2ZxZFVRSkg2dGRTME51WkQ4aE83ak9DOUdfUTIxZ1BpQnYtcUwteFZxRkcwd21zM3hudGMzY09Dakp0OEhTb0hzT1hKS1Bmd3VaamtzTmdXQ3l2ZlJFY0F1b2N0ejFac0gwRndBemVnVXAwbGt3QjNvSmFPY3RCSEdnS0dXNlhqWUtIVnc2emdadXFsMWotODRmRWh5a1ppQ1h0bGIxNTJMMVJ1M2p2VG9hNXUtU0xsV2VndWRsek81Sk9NUTc5b3dKQkxnWS0yaE5NbjZzVVNESlN1QUFzRHBlMzBHU0diY3F4ZmZOSlBjQ1NTWENKeFE?oc=5",
       "publishedUtc": "2026-08-24T04:30:00Z",
       "source": "Google News aggregation",
@@ -3002,6 +2975,15 @@
       "title": "Air quality in Powell - IQAir",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5YT2dCcC1aTTBabWEtSnA1NnNEU195akx6QzU0eFM0dGc3UU5fTFVFOTlfVGhyQnBJaWxpM2JWX29SdFMzb2xPcmFtNmp3MVlja014U2lZbmVNUU9pRGhlQllR?oc=5",
       "publishedUtc": "2026-08-23T01:22:35Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Caden Powell homers (16) on a fly ball to right center field. - MLB.com",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNUmFScUtfUWFzODl4QzJ1aU55bWVfRzRRaURsUGhDM1pPa29YUVFubGFuY1FrUFBrQXpIZlJmZm12aTRRX05oVkRBZTQzc094R3RCWE9NX1Voc250aWlOMGx1UkRHZ19NUHVmM2pLbzBOdzN6Mi1va0FjQ3FUanpJWWVKRHJjMzZJbW50dkkxdjQ1SHlDaVl6THhJM0thY3FJQVBsaGl5c2JtZXlMUTFpTUkyNEM?oc=5",
+      "publishedUtc": "2026-08-23T01:18:41Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3361,7 +3343,7 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-08-25T19:44:55Z"
+    "updatedAt": "2026-08-25T20:11:28Z"
   },
   "technical": {
     "status": "not-configured",
