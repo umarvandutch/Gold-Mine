@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-25T14:00:08Z",
+  "generatedAt": "2026-08-25T14:57:35Z",
   "calendarStatus": "live",
   "counts": {
     "events": 139,
     "headlines": 80,
-    "marketFeeds": 2
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
@@ -1912,7 +1912,7 @@
       "periodDateUtc": "2026-07-01T00:00:00Z",
       "name": "New Home Sales Change (MoM)",
       "actual": -10.5,
-      "revised": null,
+      "revised": 7.6,
       "consensus": null,
       "previous": 1.6,
       "unit": "%",
@@ -2548,15 +2548,73 @@
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
     },
-    "real10y": null
+    "real10y": {
+      "label": "US 10Y real yield",
+      "symbol": "TC_10YEAR",
+      "name": "US 10Y real yield",
+      "price": 2.38,
+      "previous": 2.4,
+      "changePct": null,
+      "deltaBps": -2.0,
+      "date": "2026-08-24",
+      "time": null,
+      "kind": "real-yield",
+      "source": "U.S. Treasury official daily rate"
+    }
   },
   "headlines": [
+    {
+      "title": "Micro Minutes: Tracking the FOMC's Reduced Verbosity - Federal Reserve Bank of Richmond",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOcHp1LUFpVnhvZkhiSFFEVDJqaGtZOVVvaUxMOU1wdkwydEZ1MGlKcHJnU29BTzFmQ3c0QzJ6RDFNMGdJUFNMd0FTTlZRWmM5Q1FlTmh6aTBBOFBMODEzeVZISHR6SHlvanJhZWxlRURTTmlMN0pnV2dkZU1RMTIwbzBzcTZGdU9LUk9fbDdONnNzVTY3bWlIMmNja2FNaXpqYk1lUExiamRGbVBKa1lLdTd4SjJkTmUySFE?oc=5",
+      "publishedUtc": "2026-08-25T14:47:07Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Trump\u2019s latest wave of Iran sanctions: Which 60 entities are targeted? - Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOYXI4THplUTN1UEpyNUFld2ttOTBMcjZrWTEtbTlobmRzTEphcUZYZFVfUHdHeTVZTFM3TmJRaVZFMlY2Nkd0MFNWQzBRQnRDSHZmQ2NBOHZQWV9IUi1KRTN1WXpHbENQNnFLYmNaSksyTjVRa2lJVHVBYWFoSlc0LTBlbUJhbzFKUElKY2V4dEhNUVRPMERpeXNNWFF2NG03UEk4R0RrR1dSQnlDc01raC130gG3AUFVX3lxTE5KOHVJQ0xUSzZlVlRQT0dfTFFtT2E3QnI0SmZDelFsZU9OSzFhN0p0MW5wcWsxdkV1T3BxX2VLRklhczdYNmtJQXkyUVNwejlkVUVJM191X1dNS29NRjYydDBfMzEySjhFeFltZXFkbktDUC0xbldBNFJUSVdKa0R5S1o2bTZxVnpqY1RCT1RJLVNsLXJCSmFrZVNHcktqRDIwNW5PR2ZvZFdiUnlJSnNabXo3RGNLUQ?oc=5",
+      "publishedUtc": "2026-08-25T14:27:05Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Canada Commodities: Oil and Gold Prices Weaken as US Moves to Economic Sanctions Against Iran - marketscreener.com",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOTGVJOG1wSUl5YW5nWnNEbzRKU2thYVljZVJJUkJ1dm1tNGNYS0F1enNhOHRSdjJtRWpzMEZUZWtESnNFNm1wRzdCRUowTVE1a25SbG16WEVpd0JsQ2c4czhXQ3o1MW9GZnNhZV8zUWhSOUVDaFItQ2V3dWlzVVdSV3ZobzllRVc5QXNaVlFvb0FYeDNIWV9uWHh2Tm11OWJpM2xiQzM4aExNOXE1VWVKZWxzQmFIOTEtZDRpX2VNeFZBdFBRVnhlUkQ3TDJKX1k4dHk2ajVSNGsxVjFldmc?oc=5",
+      "publishedUtc": "2026-08-25T13:54:20Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
     {
       "title": "Gold retreats as upward momentum hits pause ahead of US inflation data - marketscreener.com",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUm50UHRZZEpLamRhV2ZnRkFrd3pXalhHVWFhaTNORTlydTliQXVIUk4wcDk4c2c0MXUzYXBJSUdnTVNrTDhlOGNackJLYUpURnZNUkMza3R5bDRIaHhGRjM0X0xFMGJNU2JJYlhvRVFUMEY2ZW1HV1g1a3pBeGdOSHd6QklYX0VGaXp4eUxLYWluTGloNGc5ZHV0d1FlX3dTUWRfbHFjN3ZXcE5YRXFMVEVMYmZSVWQzSndrQlRYT2I?oc=5",
       "publishedUtc": "2026-08-25T13:51:25Z",
       "source": "Google News aggregation",
       "category": "inflation",
+      "impact": "medium",
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
+    },
+    {
+      "title": "Gold retreats as upward momentum hits pause ahead of US inflation data - TradingView",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPNGY3U3lMZlFMUVUxVWotUnUwRGVtS3FMMXotTDkxaGhYdVZXVGZhS2Nkd0RFYlc0ajR6M1VIYnZKTHlxUVp2TXFQSVBGNU1lYW1KTm5GdG9IN21nVC1MN0V4ZEVTWnJ3UjJMN2lnNnhzX2xJT3hmV1VIV193VjNqUFdZSC1fWlRlSlhIUXljdGIwMDlscnJhRVBvZVhRd2dqODM0anZwc2NUeFo5bFpuYkU5dFg4MEtIczYwRlVmZm1qS1VyZ2tzOXJNX2FLbExsRW84RDNVNA?oc=5",
+      "publishedUtc": "2026-08-25T13:50:06Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Canada to unveil retaliatory measures against Trump\u2019s latest tariffs - NBC News",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNMmFYWUFvT2x3RVJSdWxXY2JZYzRlUzgxQUVEZHNOVUxYNHExSFN1OXJWRzZIMVVwUkN2S2hsbTg5Z21heWIzV0o5cml0Q2tKY3E2YlZpUTYwM1hld1hkUC00UzgzVXlidnQwZ0JDM3MtUm41cUltbG1TVXJlVHVTX1pGNEVfb0pKZnVQQklYcmxvOEhSX3Yw?oc=5",
+      "publishedUtc": "2026-08-25T13:18:23Z",
+      "source": "Google News aggregation",
+      "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
     },
@@ -2582,6 +2640,15 @@
       "title": "US dollar fragile as investors weigh Iran sanctions, Treasury buybacks - The Business Times",
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOMHlQcHpNNldWNGR3MEsyRWwtclhUcVFIMkxFUk5sMWFScEFBZjZDbS1YcHljakVSU1ROSkY5MnNvbnd5LWpfMXdYZHloWUhlcTRscUdONDBIakxmQTN4LWFaSWYxX3ljVDdhUGpTSE1wS0VBUUhJSlhnVzhKaFY3Skc5OFZ3U1JwdUZDZV9ITGpKV1BsMmxlZVN3bThxV1gzbjhEek1zMHdfcHoxeUF6Rmx3al9Rdy1KTUtDa0hIRDFQZXBldWNJclNtUnNkUQ?oc=5",
       "publishedUtc": "2026-08-25T12:44:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Trump may hope sanctions will pressure Iran's regime, its leaders are betting otherwise - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9ZUGxwWFltMkZ6enZWb3huRkY2eFh1UXo3bXdFWXYzckZ4bmF3Q0oxYUxadUU3YjVOcjdRRWNGUDE5V2RsZHZQd3lwSk9ubkpTTTBCckRMQk1LUQ?oc=5",
+      "publishedUtc": "2026-08-25T12:37:53Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -2659,34 +2726,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Gold Prices Slip as Market Awaits U.S. Inflation Data and Fed Chair Warsh's Speech - StockInvest.us",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOd0c3blRNdUxpVWF2T2dSUmduckc2NThzQjRQVi15MjdZYkdNWHdhdFBNWEJNYTduclJPano5SnZwQThrejRCZ3dVMGJ6SGNDWk9vRFpWUEtxZlVuYk5NLThQRUoyZVh4d0tpUHppbUNXX0dyclhXQjI4WncwUG1maHlhZnlJN1BPV2R6b1V6b25BQUpXbDdxSkg0cW9mTXJfcXhKTlFLQVdhcmc4UWc?oc=5",
-      "publishedUtc": "2026-08-25T11:23:49Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "US Treasury Put New Sanctions on Iran Adding Crypto, Gold and Tech - TradingView",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUGxNdTB2SWJPMjFKWHhxZHNKT2JvV21oVnNZT2pyQWtvZmxORnhFbUpIZzNqb1ZXTUV1eXFDWTUydVlUTkxsenFVaHo0dXZqUmo3WXZnTDh6UjBmZUhONVg0VVU2bWpoaUhvYmJHSnA1SXBQcDg2WEVDdlRCcGVtWVNqLXZTOHZDcFlSUjYyVlBQNUE5ejg2Ni1ITlIyT0p4MlZzWVlTVzN1V29fNloxZWFqWmc0TXh0NFZGaUhVUnFjRms?oc=5",
-      "publishedUtc": "2026-08-25T10:55:45Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Gold wavers as investors await U.S. inflation, Warsh speech By Investing.com - Investing.com",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPandaT1N6NVlKZTN3b3Q1bmlaMWx4OUtCbDVDYVJuWS1IVnBfdmZhaWUwdDdEM29odmJfc2RPRWxaQktfN1NPSGRsUnBsTjRyZDFWdDVZaWZIVm1JX2hGNDZzY3dJVFB4SGtBekNvTWk5SFFpUWVTZU1pamNYYkpOMm1VT09COTU3M0dVUXp0R0h3TEJyOS1Sdi13dC13alNxaUprRWR3ek13cUtfMk1JSV9KRmJUR0x5aW5WR04wZl9ULS02dEFVdU5uSVd4Q2s?oc=5",
-      "publishedUtc": "2026-08-25T10:08:33Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Trump\u2019s new attempt to seize control of the Federal Reserve, explained - vox.com",
@@ -2698,47 +2739,27 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Trump's Iran \"D-Day\" leaves sanctions hammer hanging - Axios",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tZGRndDR0cWE4YXJHVl9tV3k1YmhtbHl3RkdXWkRvUURnRHJTX25xMlFmLW1ncmJTOXhicFV4emJCVUEzSVJhbENwTk91dW1xU1VqM3pGdHZET2Vybzk3WnBDbUptN0N0VWlGZTRJbjRYN200bGxHSzBUXzhEZWc?oc=5",
-      "publishedUtc": "2026-08-25T09:39:49Z",
+      "title": "Man dead after stabbing in front of Federal Reserve Bank building - FOX13 Memphis",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOaktQdDBGQjQxU0UyTGRsVFlNaXh3emVuWnY1TmNzemMwSDZsNExXZ01URGtBYU1XdnEta1BNdTl0eFZMQ3BKWEhESEprRUlBUEFLUVhHNURvalBtLURRUkVZYkxsWElhZEFlVU1RVWpKUF9BSjhnSXEtVUJIdWdwRFF0M1pPT2dxZUN2UDZldXhXR29XMlhzUHdfRTc4Ti1Od3U1TWUyS0psR2F5OGZfTVMyS0hpYjBfYkNvSFRYRGRDOTdIWWRGS2Vpc1k4U2ZZWHY3RU5MTUQ0MEtxdjZFNTNGYw?oc=5",
+      "publishedUtc": "2026-08-25T09:26:00Z",
       "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Gold Pulls Back From Three-Month High Ahead of U.S. Inflation Data and Warsh Speech - Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPMk5JWDQtaHFqT2UyYk5FVzZrWjJxanRmT2pNR1ptU1hZaXEtMDBqTWNGRVRicmN4R2I5dEtVZzFZeWstMkRaRV85SVBOQXpKUHJhTExJaFAtNFgzbWo4LUQyWlNJUlp2WlNCejBrUlpMQmVtVGNScXRQMGI5MmxVUm9TTVFGWXFHSmxyWGtnWGlzeS1HWndHQ042ZzU0dw?oc=5",
-      "publishedUtc": "2026-08-25T09:33:55Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Can Trump's economic war against Iran do what airstrikes and negotiations couldn't? - NPR",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5HMGs0bllsTEY2UjB0aXFHZl93a1RqdE5zaXJab05Cc1l0RFVyel9iaXlhdWZFS1NURDhzWk44SEtQZ2pjZXBNc0VxTnpuTS1ZbERHYUY1aFlPd2EwMUxrOFlYMzNzdm5MNVZWb0tkeVB2bEk?oc=5",
-      "publishedUtc": "2026-08-25T09:07:09Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Canada has one important edge in the North American trade war - Politico",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVlVObkZuNDFaLTNsRHBVQnk0Y2Q4cndZaXlHbFNYME16SDJXWWRvQVJFOTZxZjh5WlBUZGZnOVo5ZVNXckpudFJKSlhYWmlfUWpaRlVybzZYV3VaSkxDMDRiVGFXNUFhWGNtNlhzT2lFMVJUaWFFOHAzdGhMX3p6eWJMVHpVc1RUYjFpQ2w3UQ?oc=5",
-      "publishedUtc": "2026-08-25T09:00:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "U.S. Dollar Rises As U.S. Widens Iran Sanctions - RTTNews",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPTlB2ZWlFRmc3QXZod1lhcUEzM01WbXJUdjdjUl9IN0Ywa2RGQlVjZDRLUnRYSXJFUmlaUU9sMm5pSXpwdXR5Rlg2ZE1IWDVGTnBGeDRQV0Z2UnNxbWRUeW45N3RaX1lweF85MlFtTmlSU2c1OHkydVpUbnRidFdkVTY3Ukg0a3V3aXNfS2ZKTQ?oc=5",
       "publishedUtc": "2026-08-25T08:29:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "With Cuba in Its Sights, the US Is Resurrecting Cold War Demons - Inkstick Media",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNanhpOUFZUXlVa2t5Y1ROb2Zzc2dzVUpNUGVfMnFTVGl5UzRYOFk0VHdsdlJGUHZLd2YxSGhzMUxCaW5SWFZ4ZG1PaUdWRmtwUE85aGdmZnlQMHZvQ3VXTmJYMUN2WDdQazZuMVQwMDdGeFlwdnhzNzJzcHdIcjZUWm5TRGpZbzFFZUx3YnJrbEhZM1k?oc=5",
+      "publishedUtc": "2026-08-25T08:08:12Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -2835,15 +2856,6 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Washington Prepares New Sanctions as Iran\u2019s Rial Hits Record Low Against U.S. Dollar: how 10 outlets framed it - NewsCord",
-      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOV0dRWUd3MTdCMi15Q3pWeVFEZGduWEJxTHh2VXBsQ2h3SHU2OVNGR0o4NWNQdVVtbEg1QjRiekpDYjJ2Nk5CTG5BMmU2S05jOVUtSG9KNDhBTmFvMUV4NnMxaUVDMWltWm0ybEEyeFlHZ0s0X293UTRQZWlXZF9Za1BxSG1wVmJ1NWRoSzNseE5oLThmN1Y3QTFubThvRFFFdktSRmYtV0w3RGVJQ2sxMXNzeHBVdmU4RFdLNm1LeGJLVzlfRlFKcDBWdnNiYm9veFpSRW5oYmJJNk1UU1ZBUDBwR3Fqd1Jna0E?oc=5",
-      "publishedUtc": "2026-08-24T17:13:15Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
       "title": "Euro holds ground as US Dollar steadies, markets brace for Iran sanctions - FXStreet",
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQb25SWXdFOHFyYXVhSWdyaGhwVXlGMGRfVmJmaXJWTVA5b3Z6bDB2TVlhZ0dVWFdDckZTYVFJNU8tWlJDME1LWXlUbC1GeEJ5eFVoY0paZUUxcnItYnhQVG1KajRNVXV1VjlGbFJRdjhpS3g3SXpIQ3ByMElSbnMzUGUzaFVwaDhrTjRkM0RQNi1jN3k5anZTRGdPek1nSXFpMWc1MHZzdlYxRnlsWjZJM0tEa3ZERmZubi1j?oc=5",
       "publishedUtc": "2026-08-24T13:30:14Z",
@@ -2862,6 +2874,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Cold War missile site in Baltimore County draws new attention - Baltimore Sun",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNcXpsWjUya0ZGWmJTLUcyWlFSVjFVOE03Rk5CNEY0MW9YQlA0RGpWVEdGQ1NCUV80cnZVZkgwaTViTWpzc053SnJkODFpb3NQMl83Y3RrTUZnSEJqWW0tSkhzbWhNTjRwaFZfODVFX1oybWFYSHZzc0pvaTBaNHNwb2toRXNqWURmaXBv?oc=5",
+      "publishedUtc": "2026-08-24T07:47:56Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
       "title": "Rupee climbs to 95.64 against US dollar; Iran sanctions, crude prices in focus - The Times of India",
       "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNOEhiRUhNNXVJaTc1X3VENUExTVJ2U2ZTU0Z5SUVad0tmUFFtY2F4Smhyeno4QzZhY0RMUTdwY2NLSEo2MzRTVF82V0JZT09wdHRFb2g5WlBqNWZ0NGxMRVNmQTVjZFFKRkFOOHlQU0lvMnFxMDcwYnB0WTNWWWs3LVFCVkZQTG1Tcmx3MWNZQnpJRU5vSjREdVpDZ0ZzcXhEbWpwSjV3WExURkRHeTd0S3dLTy04Wm5qQVhITFZyeXY2NjNVRElwQU1pYTJibEMtc2JYdEt0WTI2eVNQdjUxNVI4SldSMHVNbVdXQnVKSjl2ZWkw0gH6AUFVX3lxTE1ET2ZxZFVRSkg2dGRTME51WkQ4aE83ak9DOUdfUTIxZ1BpQnYtcUwteFZxRkcwd21zM3hudGMzY09Dakp0OEhTb0hzT1hKS1Bmd3VaamtzTmdXQ3l2ZlJFY0F1b2N0ejFac0gwRndBemVnVXAwbGt3QjNvSmFPY3RCSEdnS0dXNlhqWUtIVnc2emdadXFsMWotODRmRWh5a1ppQ1h0bGIxNTJMMVJ1M2p2VG9hNXUtU0xsV2VndWRsek81Sk9NUTc5b3dKQkxnWS0yaE5NbjZzVVNESlN1QUFzRHBlMzBHU0diY3F4ZmZOSlBjQ1NTWENKeFE?oc=5",
       "publishedUtc": "2026-08-24T04:30:00Z",
@@ -2869,6 +2890,15 @@
       "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
+    },
+    {
+      "title": "XAU/USD Outlook: Gold Rally Faces Reversal Test Ahead of CPI - FOREX.com",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPTzRYNGlLdE5jeFNpcE1fMDBPOUFXX1hYNjhaSHdCQzZUSWZWbDQ1QndhNkI4TDhfeFQwNEwyUnpuMlQxNlNiZURVY3c1eEFPLXhRazhPRDMwMERoQWZXZVQwUXczMmxMa0JZMmk2MHNuRkVIQUVPN3FqNEpDNTVFZFhyUFYwVHJBdGtLZ0hOOW41a1lkUDJ2b2kzemx3VS1PWkhFSFlR?oc=5",
+      "publishedUtc": "2026-08-24T03:20:02Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "Dollar higher after Iran sanctions, loonie drops after US announces tariff increases - Reuters",
@@ -2889,13 +2919,13 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Ray Dalio Warns of U.S. Debt Crisis Within Three Years - \uc870\uc120\uc77c\ubcf4",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObmNWcUdHNlFGeW1TTTVZV3djV2NsTXpTR1d1Z25VdVoxb3BMM0VITWZSS3EzcmNrQlVtQjNJLXU0bGRxZmRJVEVVSng5dGVBZWZ6bnZJajN1bGxUdHJpbWtRajctOHVIN1lHUUZpQThPeWl5Qk9TbE5vcnBVdjEyRkxyQUZJelN0b0J4THRR?oc=5",
-      "publishedUtc": "2026-08-23T07:52:13Z",
+      "title": "Gold outlook: XAU/USD enters key resistance zone ahead of CPI - FOREX.com",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQcldleHp1UUNpOFpKckZtQklRb0dzMERLRXV4YWpkUkR5UkdtX2x3OG1OZGo3Mk1teURDMHIyd0ZoeDlGbE1vMTdycXZOX1NZczNXQXFkOGxWVDV1NDNEb0tVX0xPUkFpOU5pLXo2WkNQMjBBVk0xRDh2VGNCcmIzWXR0YTVvMzNFWnJzaTFhd0FuZGtIQ1FSZS1HREJhTWgxWDFGSDYzUQ?oc=5",
+      "publishedUtc": "2026-08-23T09:03:09Z",
       "source": "Google News aggregation",
       "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "How Mikhail Gorbachev Helped End the Cold War & Unite Europe - Encyclopedia Britannica",
@@ -2916,15 +2946,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Caden Powell homers (16) on a fly ball to right center field. - MLB.com",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObzQzYS1IclZLam16Q0M1Y1cwY2VJSzByS0xtNVNUU0Z0OEpKSktMVWRCYVZycDctTmZBa0ZlWGVqU2lLRmNKeDB3TEVFaGZiWE15WUlzZUhNbXBiWWxXUHFteE44eW8taGsxMnlJTUx2QVdlLTJfcGoybURPbVlMa3EzZFRFd0p5MEQ4SmgzSzdnWENDdGd4RWVPUQ?oc=5",
-      "publishedUtc": "2026-08-23T01:18:41Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "Ray Dalio Warns of US Debt Crisis, Recommends Gold and Bitcoin - Bitbo",
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBYOXB3WjZPakZTZnNMOHgyOEhoX1RFUHNoNXJldDdudnlCcVZDVWZXTXN1anBwVk9qSUs4QVNTVEUxdGJrNG1jcHB2RnpxZTQtZWJDZWRIM2hPNXVYT2l0T3RRQQ?oc=5",
       "publishedUtc": "2026-08-22T18:20:00Z",
@@ -2939,6 +2960,15 @@
       "publishedUtc": "2026-08-22T17:18:44Z",
       "source": "Google News aggregation",
       "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Gold tests the weekly high as the CPI report cools the rate hike talk - investingLive",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOU2xpRUw3U3h3OUJGUkpQMDZSM09sV1VtS2QtRDNRNklmVFgtLTEtNmFhcXNJVTUzZl9TRjlqTDEzTFVBaUxwOWt3ekJaemVKa0RiRFliYjNPV1BpTHFlNC1LMXZQY0lKR3dyOWk4S3cxVVVBcGxFUGU4OFZCMldzeHRoUkFZM1F4V0FoNmgwT1c2R3NTbDBhM3lKNE9RXzJRM3A2UmozNEszQkZx?oc=5",
+      "publishedUtc": "2026-08-22T03:14:23Z",
+      "source": "Google News aggregation",
+      "category": "other",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3031,24 +3061,6 @@
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
-    },
-    {
-      "title": "Fed minutes show September rate hike still on the table - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSVRUSV8yamU0TV9KS0l6VjdObHdFelZjd2QxY2ZhWXBJTjN5b3hRbzZGekxuNWVQUHFVSXNHdFFscG1LTTVMX2xKZkx2Nk1GNzRBY3E4RGlGcXpUSkVxUnRaQllXeFlrT2lFd0UycUpVV1Q2MHpYQzU2TFBaM3JYTW50dHFKTlJtd2Y3QzViUWpRRklDSU13VzlHUjRHMmRrSlFibHM3Rzlsa0NNcHh1Tm9XdG1qRTdZ?oc=5",
-      "publishedUtc": "2026-08-20T23:31:30Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Trump Declared Economic War on Iran. Gold Barely Blinked. Here\u2019s Why. - GoldSilver",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZzB1V056azdEdTJWMUdqX3J6Z3ZWQkItemJfVnk0TnAxOTg1SDgyV0s0aEdvQjdJUHZfT19kUkJjRlVaLVo0RzdaUllVM3lPU2lTT0FnU1d1anBSc0NUZkY0Wjh4YWNVVzV2TmhEX1M5VEhxY3QzT1dqblRmWGtvRXJxVU5FSzQ1OHpzZW1oaWNSRWFhNzF3dg?oc=5",
-      "publishedUtc": "2026-08-20T17:32:06Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
     },
     {
       "title": "The CPI and Inflation, Explained - WSJ",
@@ -3286,7 +3298,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 30,
+    "retainedRecentCount": 29,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3323,7 +3335,7 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-08-25T14:00:51Z"
+    "updatedAt": "2026-08-25T14:58:17Z"
   },
   "technical": {
     "status": "not-configured",
