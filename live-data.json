@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-24T23:53:28Z",
+  "generatedAt": "2026-08-25T01:12:47Z",
   "calendarStatus": "live",
   "counts": {
-    "events": 144,
+    "events": 143,
     "headlines": 80,
-    "marketFeeds": 2
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
@@ -16,24 +16,6 @@
     "technical4h": "not-configured"
   },
   "events": [
-    {
-      "id": "13f723e6-2818-4895-8dd5-268ab2bd1a9d",
-      "dateUtc": "2026-05-27T00:20:00Z",
-      "periodDateUtc": null,
-      "name": "Fed's Kashkari speech",
-      "actual": null,
-      "revised": null,
-      "consensus": null,
-      "previous": null,
-      "unit": null,
-      "volatility": "MEDIUM",
-      "isSpeech": true,
-      "isTentative": false,
-      "category": "rates",
-      "source": "FXStreet public calendar",
-      "memoryWindowDays": 90,
-      "impactPolicy": "high-or-medium-only"
-    },
     {
       "id": "20fd35e2-64cd-43ec-ac38-7b210bb32d9d",
       "dateUtc": "2026-05-27T06:45:00Z",
@@ -2638,9 +2620,48 @@
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
     },
-    "real10y": null
+    "real10y": {
+      "label": "US 10Y real yield",
+      "symbol": "TC_10YEAR",
+      "name": "US 10Y real yield",
+      "price": 2.38,
+      "previous": 2.4,
+      "changePct": null,
+      "deltaBps": -2.0,
+      "date": "2026-08-24",
+      "time": null,
+      "kind": "real-yield",
+      "source": "U.S. Treasury official daily rate"
+    }
   },
   "headlines": [
+    {
+      "title": "3 Things You Need to Know This Week | Jackson Hole, US Inflation, Q2 US GDP - Fisher Investments",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY2gzVWd3ZE42UW1sbTBZUkVObUh4MjVXNzhaYWNGajRDWFFoVjFtc3JqeFROQktxWlhDMk1OXzlWTVlkV2JpeGZmVzZmLUo1ZndCc3U2YzFsZ05TSHBYOUxvdVNZTm92MlpHWnFhaXN3MWlnMG5MVFBiS3ZiVVhSTFVnOUJkREY0NERhSE1WZ1RXaEgwdkxQNjgtaGFOZzBrejloYTB0NHVBdmhYOHppcVRkcFI?oc=5",
+      "publishedUtc": "2026-08-25T01:05:55Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Gold hits three-month high as Iran sanctions spur haven buying and ETF inflows - VT Markets",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNUXN5MzdhOVlGUzdGNmdyVHBjT2todTZtS3hsc2w5b2dNWkNqbFBNS0VwR3NLamZVajloZDlLcThLZkRtNHZRU3E3RUViSTAwajFtTUluNzRQQWFoSnNSd09GSzJPekVwUElISEFjTzhKWTlsbnNqRmozRFFna29kbU8waFpmYUV2Mno3NG5UMGpVQ0t5N1NwSDl1X3lIRGo1NFB2RkF2SGh3NXNrNlBqaFhFN2pMUmJPNlUwUlMwOGFzQQ?oc=5",
+      "publishedUtc": "2026-08-25T00:40:30Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Gold hits over 3-month high ahead of US inflation data, Fed chair\u2019s speech - The Business Times",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNQjVUODNoOG9zQktDQjR2bHVFU195cnJrb0V1eGJmTnZvdE5rd0NrVkcxbFotZDFfc1lhSk5lb3E2NHdFelZSdFhWd0d4aVZWdFpJZXdET3RieU44VUNETlczV1RscmxqdUlRN3ZTcmpXd0ZCeFc2Q0lPeEs4QmRJaVViOG5LNlZiXzFnQUJNSkNGTG1FZWcwRVlmbEF6OTJLUGcwVnA4b3AwQjAyZ2FsQ0JTS0E0RDRZUXU0ZF9tVDRROHEyTWVqdWpDYmU1SkswVXFvLThB?oc=5",
+      "publishedUtc": "2026-08-25T00:02:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
     {
       "title": "Canada to announce retaliatory tariffs as Trump tells its leaders to \u2018fall in line\u2019 - AP News",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQZE5jV3dUNWhXajlyc1J1cnhRNzZEQWR3cnV3dWNLTEdWZVlWYTZyakpWR1lPVzdUZE0tMWhMd1Z4c0J5OHpBbHh0cjhFNU1aTnlucERJSVlXMlR0Xzl1UW1zNlhVRzY0RFBaRVAwYzFkV2tBbk5ORUl2cTJnVHpjaE4xbFBtMlF5aFRITE1PVQ?oc=5",
@@ -2648,7 +2669,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "How Trump\u2019s 50% auto tariff would put Canadian, U.S. jobs and profits at risk - Automotive News",
@@ -2684,7 +2706,8 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Bessent threatens new Iran secondary sanctions, says Trump asking world leaders to cooperate - NBC News",
@@ -2722,7 +2745,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Bond market anxiety raises stakes for Warsh's debut Jackson Hole speech - Reuters",
@@ -2832,54 +2856,7 @@
       "source": "Google News aggregation",
       "category": "growth",
       "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Trump Threatens New 50% Tariffs on Cars, Trucks and Steel as U.S.-Canada Trade War Unfolds - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPZHFnOTNLUVh4eHVUc3F4aC1lZFNDbGhSQzZfWVpZcDdWWEY1WE5OUldLRmFTV1hzOHFhZ3NaUFBmSlZSUDBKSjFFZzN2dGtzdmhIQXdHM1FlYXN1X21DcnlVZHM3ZHo2OEl1cWUxRnl1Q01kVm9vcVFndU9LR3BrbWNLZw?oc=5",
-      "publishedUtc": "2026-08-24T18:37:48Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
       "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Trump\u2019s oil and gas stocks gained up to $15.5 million amid Iran war, congressional Democrats say - CNBC",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVnk0dk1CZnV3SHdna29hNGpmQUI3azFrd2FSNnctTy1wY1BxSS16Vk5lbzFkOVh0LUotRjhhSW1xRFdNWjZiaUs1R1NSdE1kaWNIalA2MW81M1EtNXFtRzVreFpRb2F5bGhrbkVuNzRFb1FYdFlJVzY0NEZjU2g4Q1FxNnJrNk1mU3Nvb19fVURTd9IBlwFBVV95cUxOXzdNN0N5Zzd5NHluZG1ZeThwNGFJX3h3XzJPZS1GNE5FRDFna05yTDJkcFpobmdNV0p5TU1Uakt4Q3RNYUZJbC1FZUNmTm41TVJDb05jU1BrZWFIeFJSdU1xUnhSTVQzWU5sUUxWQ2JuWm9tbmcxU2s0d3A4bFBnaU9xa0dZWF91V1Q5ZmFTZkMtX0pzenJj?oc=5",
-      "publishedUtc": "2026-08-24T18:34:34Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "US targets Iran\u2019s gold, shipping and aviation sectors in major sanctions push - Latest news from Azerbaijan",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxORE96U2hkdTFBekhjY0NHVVBSRWIzcE9zNFRQV0pFWGEyRW8xVWgtYzlpRmxxNzRmN3BIM2xlZTFDRGFucHpsYjVxak16WHRDYnUyazh0RThJMWdYQ3JNTWpFZWxZR3pDUVdqNFNJLXk0YmxiRXQ3Um5peHRmSTF6X3IteHFKQ1pPVDZNWDg1X1V5bTBFcDFpcWFIXzU?oc=5",
-      "publishedUtc": "2026-08-24T18:24:13Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Gold rallies as Iran sanctions stoke haven demand - FXStreet",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNRTJmVk1CbzUyckd2NVNuTklpZnJVZ1JERm9fYlRZTWNPUW9ISG54OWVHbW9YSUJhRHRDRVREcVk1bC1IM1RfV2tZR3BYZURlRjhKTG50THRFclhzNElKVXh6c3NrZlV0VVFLYVRLMWRiSnpMQ0tydDVTMTdKNWJRdjZTdG1MT3ZTTkhWenhXYUZWMk41d2NN?oc=5",
-      "publishedUtc": "2026-08-24T18:20:57Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Gold rally gains momentum ahead of US inflation data, Jackson Hole event - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNUkZtQVBPdjlyb21JaVBxeFRicDFEeHVNQ21pZzdGQnlSMUpFYV80MEl3RjJUbF9tYWxmdkZqY2NpaXh5S0NPd1lhbFZxUHZMVVFkTHNyNktCX2hrUU5KN3hjcWRUVTlaQ0hwcmVoMV9VZjBmUkFjMGtTUUY5MXBwRDRFWXBwQnhZTzU1dV81LThOaTNZR1BLVDRGU1JtbDczRjVweFByWkVQbWhhX3VwYTlJZ0VYblU?oc=5",
-      "publishedUtc": "2026-08-24T18:04:57Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
       "retainedFromPreviousSnapshot": true
     },
     {
@@ -2917,15 +2894,6 @@
       "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
-    },
-    {
-      "title": "XAU/USD Outlook: Gold Rally Faces Reversal Test Ahead of CPI - FOREX.com",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPTzRYNGlLdE5jeFNpcE1fMDBPOUFXX1hYNjhaSHdCQzZUSWZWbDQ1QndhNkI4TDhfeFQwNEwyUnpuMlQxNlNiZURVY3c1eEFPLXhRazhPRDMwMERoQWZXZVQwUXczMmxMa0JZMmk2MHNuRkVIQUVPN3FqNEpDNTVFZFhyUFYwVHJBdGtLZ0hOOW41a1lkUDJ2b2kzemx3VS1PWkhFSFlR?oc=5",
-      "publishedUtc": "2026-08-24T03:20:02Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "high",
-      "memoryWindowDays": 90
     },
     {
       "title": "Dollar higher after Iran sanctions, loonie drops after US announces tariff increases - Reuters",
@@ -2982,13 +2950,13 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Gold tests the weekly high as the CPI report cools the rate hike talk - investingLive",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOU2xpRUw3U3h3OUJGUkpQMDZSM09sV1VtS2QtRDNRNklmVFgtLTEtNmFhcXNJVTUzZl9TRjlqTDEzTFVBaUxwOWt3ekJaemVKa0RiRFliYjNPV1BpTHFlNC1LMXZQY0lKR3dyOWk4S3cxVVVBcGxFUGU4OFZCMldzeHRoUkFZM1F4V0FoNmgwT1c2R3NTbDBhM3lKNE9RXzJRM3A2UmozNEszQkZx?oc=5",
-      "publishedUtc": "2026-08-22T03:14:23Z",
+      "title": "Gold Tops $4,600 as Jackson Hole, US-Iran Sanctions, and PCE Data Loom Next Week - finance.biggo.com",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1Va0dJaHFYX3hoNmNKQ20xNlZ3OG40T3F2NEpvXy04QWJia1hjSi1OcmNHRHh6dEJuMVR2X3d3cF9JdEFGbHRHVExWdFhrTV9GNXRTTHBnNm0wNjJPTkZ0NnlVcG0tb1NweGRmUjdISTlKS2NibFE?oc=5",
+      "publishedUtc": "2026-08-22T07:55:00Z",
       "source": "Google News aggregation",
       "category": "other",
-      "impact": "high",
-      "memoryWindowDays": 90
+      "impact": "medium",
+      "memoryWindowDays": 7
     },
     {
       "title": "Ray Dalio Warns U.S. Debt Crisis, Urges Investors to Buy Gold and Bitcoin: how 11 outlets framed it - NewsCord",
@@ -3142,6 +3110,33 @@
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
+    },
+    {
+      "title": "Trump Declared Economic War on Iran. Gold Barely Blinked. Here\u2019s Why. - GoldSilver",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZzB1V056azdEdTJWMUdqX3J6Z3ZWQkItemJfVnk0TnAxOTg1SDgyV0s0aEdvQjdJUHZfT19kUkJjRlVaLVo0RzdaUllVM3lPU2lTT0FnU1d1anBSc0NUZkY0Wjh4YWNVVzV2TmhEX1M5VEhxY3QzT1dqblRmWGtvRXJxVU5FSzQ1OHpzZW1oaWNSRWFhNzF3dg?oc=5",
+      "publishedUtc": "2026-08-20T17:32:06Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Lake Powell\u2019s falling water levels could sink Utah\u2019s ferry service for good - The Salt Lake Tribune",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOaXgxUUxSRFdGblc1VE0zTHZ3NlZWRGRQaGFRaE9DN2N0ZnJYazlnTC13T2dfQmRUNFFfZHo0c0doTTNWSnc3Nld0VzlhalhXWXJMNW5DZFJQNVFER3JCcWRVcjBNTTEzWUlid1BYSzBoUFBVM0NfWG9xNThLMXlSbTZjNkR5cVItbHc?oc=5",
+      "publishedUtc": "2026-08-20T12:04:07Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "6 Cold War-Era Jets Still Training US Military Pilots In 2026 - Simple Flying",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOeDJZTXZVNjNhZ1hxRHU5ZTlkelBxT1pfcVkwVGxySG1MVFpsQVdEX05Jazl3TDNsdUprWmNBenYweHdrTFlNdzl0Z0lOeTlCLVBCVG9sU0pWaWtkZUxzZHlfRXVrYXRDYjlBSkdhRFN0UTVNNVpEWEdMMmJnSTkzanJTeURzNUoyc3c?oc=5",
+      "publishedUtc": "2026-08-20T11:00:14Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
     },
     {
       "title": "The CPI and Inflation, Explained - WSJ",
@@ -3379,7 +3374,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 20,
+    "retainedRecentCount": 22,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3416,7 +3411,7 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-08-24T23:54:14Z"
+    "updatedAt": "2026-08-25T01:13:29Z"
   },
   "technical": {
     "status": "not-configured",
