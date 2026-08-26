@@ -16,6 +16,7 @@ on:
       - 'official-signal-layer.js'
       - 'accuracy-engine.js'
       - 'decision-engine-v4.js'
+      - 'app-fixes-v1.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
@@ -46,6 +47,7 @@ jobs:
           node --check official-signal-layer.js
           node --check accuracy-engine.js
           node --check decision-engine-v4.js
+          node --check app-fixes-v1.js
           node --input-type=module --check < worker/src/index.js
       - name: Validate data refresh, enrichment and policy scripts
         run: |
@@ -113,4 +115,4 @@ jobs:
           node -e "const p=JSON.parse(require('fs').readFileSync('data/policy-history.json','utf8')); if(!Array.isArray(p.events)||!Array.isArray(p.headlines)) process.exit(1)"
           node -e "const t=JSON.parse(require('fs').readFileSync('data/trade-setup-history.json','utf8')); if(!Array.isArray(t.setups)||!t.calibration) process.exit(1)"
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f decision-engine-v4.js && test -f data/signal-history.json && test -f data/policy-history.json && test -f data/trade-setup-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/apply_signal_policy.py && test -f scripts/enrich_xau_technicals.py && test -f scripts/record_signal_history.py && test -f scripts/record_trade_setup_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f decision-engine-v4.js && test -f app-fixes-v1.js && test -f data/signal-history.json && test -f data/policy-history.json && test -f data/trade-setup-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/apply_signal_policy.py && test -f scripts/enrich_xau_technicals.py && test -f scripts/record_signal_history.py && test -f scripts/record_trade_setup_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
