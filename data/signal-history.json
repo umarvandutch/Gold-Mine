@@ -1,7 +1,441 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-26T12:03:17Z",
+  "updatedAt": "2026-08-26T13:13:13Z",
   "events": [
+    {
+      "key": "82803e88-0e44-47f8-915f-b8caeeb11b1d|2026-08-26T12:30:00Z",
+      "id": "82803e88-0e44-47f8-915f-b8caeeb11b1d",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Core Personal Consumption Expenditures - Price Index (MoM)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.2,
+      "consensus": 0.2,
+      "previous": 0.1,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 32.48,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "4141f68c-7e2c-48ba-97ab-dded377cf59c|2026-08-26T12:30:00Z",
+      "id": "4141f68c-7e2c-48ba-97ab-dded377cf59c",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Core Personal Consumption Expenditures - Price Index (YoY)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.3,
+      "consensus": 3.3,
+      "previous": 3.3,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 32.48,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "9fa8561b-1d7b-47c6-b72e-a62e234666c1|2026-08-26T12:30:00Z",
+      "id": "9fa8561b-1d7b-47c6-b72e-a62e234666c1",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Core Personal Consumption Expenditures (QoQ)",
+      "family": "other",
+      "category": "other",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.7,
+      "consensus": 3.4,
+      "previous": 3.4,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -22.98,
+        "surpriseZ": 0.3,
+        "revisionZ": null,
+        "importance": 3.1,
+        "family": "other"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "c310c633-d818-448f-982c-d865da1eb950|2026-08-26T12:30:00Z",
+      "id": "c310c633-d818-448f-982c-d865da1eb950",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Durable Goods Orders",
+      "family": "Durable goods",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 1.1,
+      "consensus": 0.7,
+      "previous": 0.3,
+      "revised": 0.5,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -95.5,
+        "surpriseZ": 3.333,
+        "revisionZ": 1.667,
+        "importance": 5.21,
+        "family": "Durable goods"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "f62de9f0-771f-49c0-aee3-8793d758a197|2026-08-26T12:30:00Z",
+      "id": "f62de9f0-771f-49c0-aee3-8793d758a197",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Durable Goods Orders ex Defense",
+      "family": "Durable goods",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 1.3,
+      "consensus": null,
+      "previous": 0.3,
+      "revised": 0.5,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -83.37,
+        "surpriseZ": null,
+        "revisionZ": 1.667,
+        "importance": 5.21,
+        "family": "Durable goods"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "ae80a45e-17f8-4737-bf4a-04bfc3a20be3|2026-08-26T12:30:00Z",
+      "id": "ae80a45e-17f8-4737-bf4a-04bfc3a20be3",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Durable Goods Orders ex Transportation",
+      "family": "Durable goods",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.4,
+      "consensus": 0.5,
+      "previous": 0.6,
+      "revised": 0.7,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bullish",
+        "score": 32.91,
+        "surpriseZ": -0.833,
+        "revisionZ": 0.833,
+        "importance": 5.21,
+        "family": "Durable goods"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "ef89ba75-a9f5-4e42-856e-0dc1216eb2b2|2026-08-26T12:30:00Z",
+      "id": "ef89ba75-a9f5-4e42-856e-0dc1216eb2b2",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Gross Domestic Product Annualized",
+      "family": "GDP",
+      "category": "growth",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 1.5,
+      "consensus": 1.5,
+      "previous": 1.5,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 11.83,
+        "family": "GDP"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "a54e7f24-ffd4-4ce5-91ce-ce9e0c01ffa7|2026-08-26T12:30:00Z",
+      "id": "a54e7f24-ffd4-4ce5-91ce-ce9e0c01ffa7",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Gross Domestic Product Price Index",
+      "family": "GDP",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 6.4,
+      "consensus": 6.3,
+      "previous": 6.3,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -15.47,
+        "surpriseZ": 0.2,
+        "revisionZ": null,
+        "importance": 18.4,
+        "family": "GDP"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "c4b5f77a-5711-4654-8f37-fa9a7b09536c|2026-08-26T12:30:00Z",
+      "id": "c4b5f77a-5711-4654-8f37-fa9a7b09536c",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Nondefense Capital Goods Orders ex Aircraft",
+      "family": "other",
+      "category": "other",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.2,
+      "consensus": null,
+      "previous": 0.9,
+      "revised": 1.2,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -94.68,
+        "surpriseZ": null,
+        "revisionZ": 2.5,
+        "importance": 3.1,
+        "family": "other"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "01a3c5ac-f46c-4463-8735-e59115c05a43|2026-08-26T12:30:00Z",
+      "id": "01a3c5ac-f46c-4463-8735-e59115c05a43",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Personal Consumption Expenditures - Price Index (MoM)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.2,
+      "consensus": 0.1,
+      "previous": -0.1,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -40.81,
+        "surpriseZ": 0.556,
+        "revisionZ": null,
+        "importance": 20.14,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "364a748f-9e7c-4ae6-a9c4-390310e7f341|2026-08-26T12:30:00Z",
+      "id": "364a748f-9e7c-4ae6-a9c4-390310e7f341",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Personal Consumption Expenditures - Price Index (YoY)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.7,
+      "consensus": 3.6,
+      "previous": 3.7,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -40.81,
+        "surpriseZ": 0.556,
+        "revisionZ": null,
+        "importance": 20.14,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "fa77eaba-9d87-441d-a05d-fb72525d9d76|2026-08-26T12:30:00Z",
+      "id": "fa77eaba-9d87-441d-a05d-fb72525d9d76",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Personal Consumption Expenditures Prices (QoQ)",
+      "family": "PCE inflation",
+      "category": "other",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 5.3,
+      "consensus": 5.1,
+      "previous": 5.1,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -69.97,
+        "surpriseZ": 1.111,
+        "revisionZ": null,
+        "importance": 3.6,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "c87f5ce3-48ba-44c9-affa-35c29d1ed307|2026-08-26T12:30:00Z",
+      "id": "c87f5ce3-48ba-44c9-affa-35c29d1ed307",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Personal Income (MoM)",
+      "family": "consumer",
+      "category": "consumer",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.4,
+      "consensus": 0.3,
+      "previous": 0.2,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "bearish",
+        "score": -57.17,
+        "surpriseZ": 0.833,
+        "revisionZ": null,
+        "importance": 7.44,
+        "family": "consumer"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "465d3586-10d4-450e-9b0b-1c8e59f70a42|2026-08-26T12:30:00Z",
+      "id": "465d3586-10d4-450e-9b0b-1c8e59f70a42",
+      "dateUtc": "2026-08-26T12:30:00Z",
+      "name": "Personal Spending",
+      "family": "consumer",
+      "category": "consumer",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.2,
+      "consensus": 0.2,
+      "previous": 0.3,
+      "revised": null,
+      "firstObservedAt": "2026-08-26T13:12:28Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 7.44,
+        "family": "consumer"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "75002e73-b682-4de0-b012-4dc84515e707|2026-08-25T14:00:00Z",
       "id": "75002e73-b682-4de0-b012-4dc84515e707",
@@ -17,7 +451,7 @@
       "previous": 1.6,
       "revised": 7.6,
       "firstObservedAt": "2026-08-25T14:57:35Z",
-      "lastObservedAt": "2026-08-26T12:02:32Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
       "model": {
         "bias": "bearish",
         "score": -100,
@@ -48,7 +482,7 @@
       "previous": 0.3,
       "revised": null,
       "firstObservedAt": "2026-08-25T13:03:43Z",
-      "lastObservedAt": "2026-08-26T12:02:32Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
       "model": {
         "bias": "bullish",
         "score": 86.17,
@@ -79,7 +513,7 @@
       "previous": 53.9,
       "revised": null,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-26T12:02:32Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
       "model": {
         "bias": "bullish",
         "score": 32.86,
@@ -110,7 +544,7 @@
       "previous": 54.6,
       "revised": null,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-26T12:02:32Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
       "model": {
         "bias": "bearish",
         "score": -87.75,
@@ -172,7 +606,7 @@
       "previous": 209.0,
       "revised": 212.0,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-26T12:02:32Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
       "model": {
         "bias": "bearish",
         "score": -12.89,
@@ -234,7 +668,7 @@
       "previous": 41.4,
       "revised": null,
       "firstObservedAt": "2026-08-21T17:42:55Z",
-      "lastObservedAt": "2026-08-26T12:02:32Z",
+      "lastObservedAt": "2026-08-26T13:12:28Z",
       "model": {
         "bias": "bearish",
         "score": -100.0,
