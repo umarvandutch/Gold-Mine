@@ -105,6 +105,7 @@
     await loadScript("./accuracy-engine.js","goldmine-accuracy-engine");
     await loadScript("./adaptive-refresh.js","goldmine-adaptive-refresh");
     await loadScript("./decision-engine-v4.js","goldmine-decision-engine-v4");
+    await loadScript("./app-fixes-v1.js","goldmine-app-fixes-v1");
   }
 
   boot();
