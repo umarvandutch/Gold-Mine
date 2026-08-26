@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-26T18:28:33Z",
+  "generatedAt": "2026-08-26T21:01:55Z",
   "calendarStatus": "live",
   "counts": {
     "events": 143,
     "headlines": 80,
-    "marketFeeds": 2
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
@@ -2596,41 +2596,41 @@
       "label": "Gold / XAUUSD",
       "symbol": "XAU_USD",
       "name": "Gold / XAUUSD",
-      "price": 4593.66,
+      "price": 4594.675,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-08-26",
-      "time": "18:29:21",
+      "time": "20:59:05",
       "kind": "gold",
       "source": "OANDA v20 practice",
       "live": true,
-      "observedAt": "2026-08-26T18:29:21.963321023Z"
+      "observedAt": "2026-08-26T20:59:05.130679482Z"
     },
     "dxy": {
       "label": "Synthetic US Dollar Index",
       "symbol": "DXY-synthetic",
       "name": "Synthetic DXY from six FX pairs",
-      "price": 99.158,
+      "price": 99.1404,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-08-26",
-      "time": "18:29:21",
+      "time": "20:59:05",
       "kind": "index",
       "source": "OANDA v20 practice \u00b7 DXY formula",
       "live": true,
-      "observedAt": "2026-08-26T18:29:21.963321023Z"
+      "observedAt": "2026-08-26T20:59:05.130679482Z"
     },
     "us2y": {
       "label": "US 2Y Treasury yield",
       "symbol": "BC_2YEAR",
       "name": "US 2Y Treasury yield",
-      "price": 4.17,
-      "previous": 4.24,
+      "price": 4.19,
+      "previous": 4.17,
       "changePct": null,
-      "deltaBps": -7.0,
-      "date": "2026-08-25",
+      "deltaBps": 2.0,
+      "date": "2026-08-26",
       "time": null,
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
@@ -2639,18 +2639,93 @@
       "label": "US 10Y Treasury yield",
       "symbol": "BC_10YEAR",
       "name": "US 10Y Treasury yield",
-      "price": 4.64,
-      "previous": 4.7,
+      "price": 4.66,
+      "previous": 4.64,
       "changePct": null,
-      "deltaBps": -6.0,
-      "date": "2026-08-25",
+      "deltaBps": 2.0,
+      "date": "2026-08-26",
       "time": null,
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
     },
-    "real10y": null
+    "real10y": {
+      "label": "US 10Y real yield",
+      "symbol": "TC_10YEAR",
+      "name": "US 10Y real yield",
+      "price": 2.34,
+      "previous": 2.32,
+      "changePct": null,
+      "deltaBps": 2.0,
+      "date": "2026-08-26",
+      "time": null,
+      "kind": "real-yield",
+      "source": "U.S. Treasury official daily rate"
+    }
   },
   "headlines": [
+    {
+      "title": "Price and Inflation Expectations Survey (PIES) - 2026 Q3 Report - Philadelphia Federal Reserve Bank",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNU2xWYnNYOHlOS191NHc4R2FYb3pjT01ucnFOVkRsblZfcU5laUZmS0JYTUJhLWtMZHV1NUI0UkZyYk9Rd3Rwd01FYnQwZWFYcm54aTRsSUl2THNXUzRiT283S0ZHZEhtN2tFdjBzVTlVbWxmbHlWeWhjRTJ4eDRGaENtTnpUNFZmclNzcVNMNkttdw?oc=5",
+      "publishedUtc": "2026-08-26T20:15:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Key U.S. inflation gauge remains elevated during Iran war, ongoing trade fights - Investment Executive",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPekhiQmp4RW9FNVpFX0ZLZTl5WHN3YV9CcEV1c3hORnVYQVBGYnFXLUdqS01LVmR3SUFlQzJVTzBmRUtuWkpXUVg3M3YzbXV5d2Y1TkV6ek96OHJXd3BCSk01bnZXcFBnbGdpekdVR21weldPRTZhcF9EWHdKQ1NQVUcwWkZULVZhUkZMUlNfY2t1X1c5d2JkLWVUaTdzQ1piMXE5emZpSEU4ZWNCSU1WczdxQU55eExOUjZKaWxFblNPRjVydmc?oc=5",
+      "publishedUtc": "2026-08-26T19:07:08Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "US says Chinese hackers broke into Justice Department, NASA, Federal Reserve, Senate - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPNWZiUFZqM2pSUlNEQmtJVEllRGF1a04tVG43Q0s2ZDYzME5GRlNsVEdaaW9ScDFDZFhyWElFbEVtQ1JGamZsMDRoaDhtRTJaQUNKaVh0VlpLYTBCVVRHUGtiWEZMdFBTTzBMdU5lV2tVUU11SUxubVVPcTNZVzRDM0Z4TGdDVVp4M085bXdmT1ZiV0Jvcjg3OC1QY0tYT1MtT0pxX3hIa0RZMFRLTTVuMElMY1I0VmFSY2c?oc=5",
+      "publishedUtc": "2026-08-26T19:00:13Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Financial Survival or Stability? Workers and the Job Market Weigh In - Atlanta - Federal Reserve Bank",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQb2xsS2RsZ1hTbm5OZXpEWmxJcHM4U2ZYTENnLWJFbmstQmJKcWY0NUFJRGZOWGN6ZjBBSWwyZ0VJY19fY1lxZjNCV3JtWVpYRFo5c1FPSUcyYy13TXpKY2l5SUZaclIyMU9jOVE1dkQ0cXFaa1JqODd6YXlIdlBEU210Z3BCbDlPVmZlZjA3R1hzR0YxNHVFU0pzYXZqUF9lZHZ3LVYyQmd1TG0yLVVoajhmZVlKbjAtajNzZ0o0NVNVdWg1cV9MVGtxSUlxUQ?oc=5",
+      "publishedUtc": "2026-08-26T18:59:40Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "How to lose Trump\u2019s trade war: test Canada\u2019s resolve with threats to hockey sticks - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5UMS0xZS1nb0lSVm16Y1JWeWlaTlBQRE04Y1IxNDNYVF9GTHV0THBvQ3B4OWhfRjkteFVRbU5GQ2RJemRWZnVjZHYzUjlDUmZUb0NqVG50TmRzVGRZWk43aFpFZUs4dE1wUnI4V2ppOGF5cGNrWmxXSUVB?oc=5",
+      "publishedUtc": "2026-08-26T18:49:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "US-Canada animosity could impede an end to a trade war neither country wants - AP News",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOcDFBLTNoRzBfUklOeE5RZDVndmoxRDN1aTFDT0JTX2JxZEVURnZJVHVpcUpYcUFubDdmTDhKamdRbnM2TW9xQ3pTOHh6MUVGelpfc1hwN05ERjNaMko3X3RQTVhnWmNZRVZ3R0doaS1NWGEyQWZGNEhQZV9iM1RuVFpOZjdEZmRRZVZkS25JWDFyYXpzTTNfLWhvcDB0dw?oc=5",
+      "publishedUtc": "2026-08-26T18:21:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Gold and Silver Edge Higher on MCX as Oil Slumps and Dollar Weakens Before PCE Data - finance.biggo.com",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE85RUxGLTRvc0RzbkZOVHB3Nk84WjR2a1pJMzhsbS1RWlJ5eTNUVmR0eDBqeUR6NnBDTlhfRThuaTJFWlZiNlE0ME9zY2hIS0hxZHNmMGhwdUhCUW9oRzdxMjRKZkszZFV2bFBlVUlqSGFrNklvcnc?oc=5",
+      "publishedUtc": "2026-08-26T18:19:12Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
     {
       "title": "Canadian Dollar: Tariff headlines but range intact against US Dollar \u2013 Scotiabank - FXStreet",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQQlp3emU0cFZteDN5b1hLQzc4WEpGVlRLTmc1aWhyb0NKZ3J3dGplcng0dVBZYS05OUl5QlNZUGhJeXFsNnZsV08waU5aRnI4MmF4eFRyZHlZNWRhanVSSExzTUJ1eGdaOUxnWk9YcDlWTHdWU2pTd1RUNXNhMmRMWEI3SlhreU9fNVZRVEc5bGFuamU3SnVzcUgxd05BYVZSUFZmZXdWUkp1THlTYkMydUZLWG5VbzQ4ek12dHlR?oc=5",
@@ -2661,9 +2736,18 @@
       "memoryWindowDays": 7
     },
     {
+      "title": "Trump calls Canada 'one of the worst countries' to deal with amid ongoing trade war - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPLXZUWUFvemlEUEVXeWo4NGZPZHpWZWJsdE4tVUktcktVQS1ZMzhiVFVkTV9QTmM2OUh5Tm5ia1Z6ZjlTQnhQN3ZjcVd6M0tpc2xibkZ0R3VYN1pEdG9hR0xBel9XTk5LNURIMnEyb21oR3ZVUnhyWmI5cTFsQmlwSkpLM2kzQ0Fsa0tvaWlqVGhLaWJsZTgyTE1KZmRaT2tieWfSAacBQVVfeXFMUFNrcWRzamxmMW9pMXJUcC1CWDgyUVdiWkRuSE5ZdjFudVROS0lLOGp3Z1NuQUZkZFRXR0lKQjlNMW9kbXdsUEQ4MjR5UEE5SHNNVlYyTkoyZ2pKaEJFUXlFM0dfaWM5Nmw5RHNITmMxUXFIOXBUbER3QURYT3ROTUV0TVkwWXVmUGZGX0owc21GMi16QW1FaXd1eV9WNW4wQVdoc3N3SXM?oc=5",
+      "publishedUtc": "2026-08-26T17:41:21Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
       "title": "U.S. GDP Q2 2026 second estimate: spending revised up - qz.com",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPQURvTzl0bElJUjJaemxWd0ptekVNSHFhWU5VT2hTQXBoMWxOSEZ5U2toZ01zaWRwdHF0b28zbGVDS0hEQWRnM1F0U2kxWnh0ay00cElKWGpycWNTRTlQNFFuOTM3NUwyQ2JmVHlidDVnQjNLN3JWQ0c0a1BsUE52dlQ2ZUxnMTFYYmc?oc=5",
-      "publishedUtc": "2026-08-26T17:26:15Z",
+      "publishedUtc": "2026-08-26T17:27:16Z",
       "source": "Google News aggregation",
       "category": "growth",
       "impact": "medium",
@@ -2676,7 +2760,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "U.S. Treasury Secretary Scott Bessent's Plan to Calm the Bond Market Could Have Unintended Consequences for Fed Chair Kevin Warsh - The Motley Fool",
@@ -2780,45 +2865,6 @@
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
-    },
-    {
-      "title": "Warsh faces yields, a Treasury rescue and inflation at Jackson Hole - Euronews.com",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQREozbGh1LTgwLVlqVGNmX3ZMZ1FZZE1QUWlORzdEMEUzLXluTmQ4bmpvU3Q5TG5WR0swOXUzOWtOVWI4bndRUTJMYWdQclBXa0lsTzlEQ055bmZOLVpVVVhaUTBFWFBXUGlfLUNEQXZXZmhDcmtYUmRTMzRaZ2UzM0RtSVVvQTRQTWFtb0ZKbl9XX3ZPVDAzcjN3R1RfUjloSEZJenZzZGxUTmNobnUzZEpPVXkxZDhZd2Jzbi1pVS1pbi1PdTNkNWZ0Y2JJbGcz?oc=5",
-      "publishedUtc": "2026-08-26T14:13:11Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Gold, Silver Slip as Surprise US Inflation Boosts Dollar, Fed Rate Forecasts - BullionVault",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOa2tjVHRibG5kMXJyR1VhSnQ0cVljakxXMTVTSFZsdHdMVUJvQUYwMzZGRVMyOTVIeEM3Wjg2bkJmVE1hZGI2Q2VoWUJ2US1TNFFqRVZVcXh1SjkzemxnTjRVdm1CdWc4anRXRjc2OFhmNVNIR3paZGthdVlBeGxJcnlHaU52dDR6bjN3WFJUT21EOFRzYnUtQg?oc=5",
-      "publishedUtc": "2026-08-26T14:08:33Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "US inflation remains sticky in July; second-quarter GDP growth unrevised at 1.5% - The Lufkin Daily News",
-      "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOeEM2d2ljcmlaQjY1bkIzOEt6ZmNUVkdJVFUtRkV6amZpNWJvRWJEUlctTEJlVHVYRmxvZUdDS0RUVTBUTVV4REgzNF9qQUdNQTZiVEVwbXgwYlpzRS1na3ZtX3FaRFdSOTYtU2RiMnVpU2t6SFdkbnI3OGNNNWhrYmp1YXJkMUhLQUZWRmJvdEpHeFdEVFdSWWFQdTRnT0hIZm8zMm0zMWRXUEdfcWhvWXNZdUZnTHJ6Ump4UlU4VENCeHIyaE1kaVd4YVZNUHZzZ1RQeW5KTEMtdXh1N3ZnemZPUkNnOWlGTWpvYWdyVnZfcWZQZS1SZkZxbjhHWUI1OUZiUUNFQ2UwUQ?oc=5",
-      "publishedUtc": "2026-08-26T14:00:04Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "US inflation remains sticky in July; second-quarter GDP growth unrevised at 1.5% - TradingView",
-      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQb01jR1NyV05wZmpwcUtSWVBCdV9aYmE4ZTVhYUNPWUpscjkyaGFLd3RET1U5YW9ScFREblRXc21maGFGQTVkNkNpaUZ4VERPc25CRFdhWEdBbTlmUHB4bTNWSExZMVJhaVgtczd1UjZzbG9SN0NFTWtzU2tPa0lpMWc3T0tOTmtPN21DNFVITWlyUkZ3UmEzNFh2Q0FKZ2NsNlp6ZTlBZXBuVF9QY09XYXphd0xDLWRnT3pXTDJmc2Rla0NCUTJnZDBKNHVZakVCVTBWcjRHTFU0Wlh3QkxVMWFR?oc=5",
-      "publishedUtc": "2026-08-26T13:59:58Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Gold Star father honors fallen son five years after Kabul airport attack - Fox News",
@@ -2986,15 +3032,6 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "US dollar rises as US places new economic sanctions on Iran - TorFX News",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQVV2U05zdGFNTDNlRTJ1ZXVvbnk2dlVFSV9ITlZJTEhTYUZ6Q0pOVHI4MUFhX1dha3JfRkw2Ml9NUk9YOEV0eldjWnp6Rm85bGVUdndCN2N4NzdtaUgwQkdVa1J6aHQ5clJEbWptQU5qbmhwLS1uYUpVR3ZBQ3FHZURyc0dBTFZHcVplMmRMaVNLZEppbTdQZ3RIbUZrZ1ox?oc=5",
-      "publishedUtc": "2026-08-25T07:58:12Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
       "title": "Bessent\u2019s Iran offensive, Gold\u2019s three-month high and Aussie CPI ahead - FXStreet",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOUDNzZzdld1RfaDYyZXJySEdiZVUtMDBiRUs0VFI1ZkFkOGZwYXlGQ1NWN25fbWRpYW10Vl9XM2huTFI3UV9hRzFqSmppQlJIVmxMZ2VpdDhWUU0wUTFNR0dLRFR3M1podnJ0MnMyeWRNOWtoZGhrZ1dSNDE4enFPUUFQQTlmbW1RUGlhWXJabWdqaDBpbEUycDR6d0RLUDVtbzFjLUkwUHhuVGhoeXlNN0EyRTE?oc=5",
       "publishedUtc": "2026-08-25T07:03:06Z",
@@ -3002,6 +3039,15 @@
       "category": "other",
       "impact": "high",
       "memoryWindowDays": 90
+    },
+    {
+      "title": "August 2026 US Retail Sales Outlook: Forecasting Retail Sales Growth Above 4% Through Year-End - Coresight Research",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOZEVucG5md200dkxjWXhDMF9COGhVSTBVQ0t3RV9qUDRTUFFGeWN4akhWQVp4SDlMeGoyTktlRS1JbGtBZlAyQzBuU1JNY1l0RHE3U01LUnlRZlRiVEVwN0h4TUZUWEpid2hjWGdEd0VBTWtzZDlJUFNDa3gtVHB4OUROaVFJY3FMQzhwclppVjRkMV9qeXAtbzdXSFB3UVpsZFduSHNjSHo1Znp3UGt2RzVTdGYwZGFGVVQzaU5YRE5Xdw?oc=5",
+      "publishedUtc": "2026-08-25T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "consumer",
+      "impact": "medium",
+      "memoryWindowDays": 7
     },
     {
       "title": "Dollar edges lower as Iran sanctions, Treasury buybacks weighed - Reuters",
@@ -3013,7 +3059,7 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Watch Market Looking For Powell-Type Guidance: Henry Allen - Bloomberg",
+      "title": "Watch Market Looking For Powell-Type Guidance: Henry Allen - Bloomberg.com",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVVRzWDBIRG1UenAzZ3otT2VpMUxHeDFhVUZUM0NhYkZ1VVFESkVfMTEwbGlUWWtOeEtyV212OWNCZTJ2UVNVdUNnbWhqV3JFMzl0VGViYjg0Mml1dE1uYUlxVTh1SU53bkRwaFVzeFQ0SWlndWZJYjNvX1I0MHF5d3BvYTBpM05QUFFwVW0wU09rR243X0dxd3Nua0hlNEtDUmVMT2dtblg2UQ?oc=5",
       "publishedUtc": "2026-08-25T00:00:00Z",
       "source": "Google News aggregation",
@@ -3085,13 +3131,13 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Washington Prepares New Sanctions as Iran\u2019s Rial Hits Record Low Against U.S. Dollar: how 10 outlets framed it - NewsCord",
-      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOV0dRWUd3MTdCMi15Q3pWeVFEZGduWEJxTHh2VXBsQ2h3SHU2OVNGR0o4NWNQdVVtbEg1QjRiekpDYjJ2Nk5CTG5BMmU2S05jOVUtSG9KNDhBTmFvMUV4NnMxaUVDMWltWm0ybEEyeFlHZ0s0X293UTRQZWlXZF9Za1BxSG1wVmJ1NWRoSzNseE5oLThmN1Y3QTFubThvRFFFdktSRmYtV0w3RGVJQ2sxMXNzeHBVdmU4RFdLNm1LeGJLVzlfRlFKcDBWdnNiYm9veFpSRW5oYmJJNk1UU1ZBUDBwR3Fqd1Jna0E?oc=5",
-      "publishedUtc": "2026-08-24T17:13:15Z",
+      "title": "Tri-axle dump truck crash closes highway lane in Powell County - WKYT",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOcWhjV2tidU9hdmpRdW9WZEpoU2EyeGhqMGNJVzVBNmRfVV9XQ2dpa3d0aHdCSjY2RE9maldUZHRqRTRuMXktaGNNWDRLejVVOFg0YVJoN2dyYzM5dWhCN1RiQ2tZMVd3VGg2am5Pd1B2SWNBdmRsbXBucUdxZzB6MER2eFpmTkM1Nzln?oc=5",
+      "publishedUtc": "2026-08-24T16:27:00Z",
       "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "Dollar higher after Iran sanctions, loonie drops after US announces tariff increases - Reuters",
@@ -3103,6 +3149,15 @@
       "memoryWindowDays": 7
     },
     {
+      "title": "Denise Powell is running for Congress on a promise she first taught her kids: be brave, tell the truth, and never give up - Motherly",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5kRWlMRjhXNmhDVjlyb05LeHY5NmZMYmp4dmd5emdfaU0xZ0R1TDFCWGc5anMtaGZ5NmVVTnM5QUNOeTNzT002U0hDZ1hfRlhqUWtXbWJxMHBtdzg4d3BYVmtXcXpGcHVESk1BQ2ZYWHI5Q0U?oc=5",
+      "publishedUtc": "2026-08-24T15:12:09Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Euro holds ground as US Dollar steadies, markets brace for Iran sanctions - FXStreet",
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQb25SWXdFOHFyYXVhSWdyaGhwVXlGMGRfVmJmaXJWTVA5b3Z6bDB2TVlhZ0dVWFdDckZTYVFJNU8tWlJDME1LWXlUbC1GeEJ5eFVoY0paZUUxcnItYnhQVG1KajRNVXV1VjlGbFJRdjhpS3g3SXpIQ3ByMElSbnMzUGUzaFVwaDhrTjRkM0RQNi1jN3k5anZTRGdPek1nSXFpMWc1MHZzdlYxRnlsWjZJM0tEa3ZERmZubi1j?oc=5",
       "publishedUtc": "2026-08-24T13:30:14Z",
@@ -3110,51 +3165,6 @@
       "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
-    },
-    {
-      "title": "Bond market anxiety raises stakes for Warsh's debut Jackson Hole speech - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcnNlclhfMG4yZE9OTExTUEQ4Zi1sUml5RFdoUVZiU2tXd3EtaTJSc0E4YlRBQUp4T1hvSzdmVHRBeFhobTMxV1hodmhsRl80Zm4zSldlTzBWTGJMeTNEd0RnekpmLV9RaVprUWp4SlBCQXJheXc1ZUt4NEx2T3pON0NQQTVlQTlldVA0SWRWdmN6OWVwc25jUlRBeGFTUFIzaC1YNlRQSzFrREtrQ3FXWQ?oc=5",
-      "publishedUtc": "2026-08-24T10:02:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Ninth District businesses continue to grapple with high costs - Federal Reserve Bank of Minneapolis",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQeWd4WUs0SXZVSkpZRi1LaTlhbXBHODQzLVRieXpnTEl6cDR4VTEzZ0lTcHVJY1BLdkJqQ0ZLbWhUOVpDS1RFSlBOTGFKTFlfbjlrZ3loZ0Z4cjlDTXZIQVBVUm5wV0prR2VzN05vOUlUMzE1bU9kZ3g0b3g3VVM2cDJaU3l4VFVaSnNTZXpzSnJnZDEwU2RvaGZVRTBxT3Y2X1puLVNKc04?oc=5",
-      "publishedUtc": "2026-08-24T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Powell, Carol Ann (nee Hildebrand) - Kutis Funeral Home Inc",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBhZ0d3RkctdXJGV2FHT1lOY05Sak5Tcm1uTU1DaG9pMGNoMEJDZXFGbTBNNHFseWVzZVlURU43ZjFwcnNTX1FrajVuU2IxUjF5bjRfcDg2TFpCSzQwRG5vS0gySzV1dHE5T25EOWZqOA?oc=5",
-      "publishedUtc": "2026-08-24T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Rupee climbs to 95.64 against US dollar; Iran sanctions, crude prices in focus - The Times of India",
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNOEhiRUhNNXVJaTc1X3VENUExTVJ2U2ZTU0Z5SUVad0tmUFFtY2F4Smhyeno4QzZhY0RMUTdwY2NLSEo2MzRTVF82V0JZT09wdHRFb2g5WlBqNWZ0NGxMRVNmQTVjZFFKRkFOOHlQU0lvMnFxMDcwYnB0WTNWWWs3LVFCVkZQTG1Tcmx3MWNZQnpJRU5vSjREdVpDZ0ZzcXhEbWpwSjV3WExURkRHeTd0S3dLTy04Wm5qQVhITFZyeXY2NjNVRElwQU1pYTJibEMtc2JYdEt0WTI2eVNQdjUxNVI4SldSMHVNbVdXQnVKSjl2ZWkw0gH6AUFVX3lxTE1ET2ZxZFVRSkg2dGRTME51WkQ4aE83ak9DOUdfUTIxZ1BpQnYtcUwteFZxRkcwd21zM3hudGMzY09Dakp0OEhTb0hzT1hKS1Bmd3VaamtzTmdXQ3l2ZlJFY0F1b2N0ejFac0gwRndBemVnVXAwbGt3QjNvSmFPY3RCSEdnS0dXNlhqWUtIVnc2emdadXFsMWotODRmRWh5a1ppQ1h0bGIxNTJMMVJ1M2p2VG9hNXUtU0xsV2VndWRsek81Sk9NUTc5b3dKQkxnWS0yaE5NbjZzVVNESlN1QUFzRHBlMzBHU0diY3F4ZmZOSlBjQ1NTWENKeFE?oc=5",
-      "publishedUtc": "2026-08-24T04:30:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "How Long Would It Take To Refill Lake Powell? - WorldAtlas",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPQm91WnM3akdMUjZHLWZFNXJ5ZmdMbGJ3Mzcxa3lRU1VuRDhYY2s3M2dTSDBheXVXNmk0TFBZZndzdEJkMnh0UEp4OGhTbW1RdjVNUnR0WnlJa3hNcERyUXpMZFE1ejN0NkpoMjBVQ0pYZHgwYjF1LUpULTQwdEVEV01jMFRYUjNDbVE?oc=5",
-      "publishedUtc": "2026-08-23T16:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
     },
     {
       "title": "Fed officials saw need for rate hike if inflation doesn't cool, minutes show - CNBC",
@@ -3392,7 +3402,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 42,
+    "retainedRecentCount": 43,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3429,16 +3439,16 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-08-26T18:29:18Z"
+    "updatedAt": "2026-08-26T21:02:37Z"
   },
   "technical": {
     "status": "live",
     "source": "OANDA v20 practice",
-    "observedAt": "2026-08-26T18:29:21.963321023Z",
+    "observedAt": "2026-08-26T20:59:05.130679482Z",
     "symbol": "XAUUSD",
     "executionTimeframe": "4H",
-    "currentPrice": 4593.66,
-    "atr14": 39.369,
+    "currentPrice": 4594.675,
+    "atr14": 38.154,
     "structure4h": {
       "state": "bearish",
       "swingHighs": [
@@ -3628,21 +3638,21 @@
         "fairValueGap": true,
         "liquiditySweep": true,
         "premiumDiscountAligned": true,
-        "distanceATR": 6.34,
+        "distanceATR": 6.62,
         "planning": {
           "limitReference": 4334.618,
-          "invalidationReference": 4320.971,
+          "invalidationReference": 4321.165,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 24.85
+              "rMultiple": 25.21
             },
             {
               "price": 4697.105,
-              "rMultiple": 26.56
+              "rMultiple": 26.95
             }
           ],
-          "bestRMultiple": 26.56,
+          "bestRMultiple": 26.95,
           "passesRewardRiskGate": true
         }
       },
@@ -3660,21 +3670,21 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 12.66,
+        "distanceATR": 13.14,
         "planning": {
           "limitReference": 4084.025,
-          "invalidationReference": 4068.391,
+          "invalidationReference": 4068.585,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 37.72
+              "rMultiple": 38.2
             },
             {
               "price": 4697.105,
-              "rMultiple": 39.21
+              "rMultiple": 39.71
             }
           ],
-          "bestRMultiple": 39.21,
+          "bestRMultiple": 39.71,
           "passesRewardRiskGate": true
         }
       },
@@ -3692,21 +3702,21 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": false,
-        "distanceATR": 9.02,
+        "distanceATR": 9.38,
         "planning": {
           "limitReference": 4233.243,
-          "invalidationReference": 4223.576,
+          "invalidationReference": 4223.77,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 45.57
+              "rMultiple": 46.51
             },
             {
               "price": 4697.105,
-              "rMultiple": 47.99
+              "rMultiple": 48.97
             }
           ],
-          "bestRMultiple": 47.99,
+          "bestRMultiple": 48.97,
           "passesRewardRiskGate": true
         }
       },
@@ -3724,21 +3734,21 @@
         "fairValueGap": false,
         "liquiditySweep": true,
         "premiumDiscountAligned": true,
-        "distanceATR": 15.17,
+        "distanceATR": 15.74,
         "planning": {
           "limitReference": 3979.205,
-          "invalidationReference": 3957.856,
+          "invalidationReference": 3958.05,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 32.53
+              "rMultiple": 32.83
             },
             {
               "price": 4697.105,
-              "rMultiple": 33.63
+              "rMultiple": 33.94
             }
           ],
-          "bestRMultiple": 33.63,
+          "bestRMultiple": 33.94,
           "passesRewardRiskGate": true
         }
       },
@@ -3756,21 +3766,21 @@
         "fairValueGap": false,
         "liquiditySweep": true,
         "premiumDiscountAligned": true,
-        "distanceATR": 14.07,
+        "distanceATR": 14.6,
         "planning": {
           "limitReference": 4023.56,
-          "invalidationReference": 4003.091,
+          "invalidationReference": 4003.285,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 31.77
+              "rMultiple": 32.07
             },
             {
               "price": 4697.105,
-              "rMultiple": 32.91
+              "rMultiple": 33.22
             }
           ],
-          "bestRMultiple": 32.91,
+          "bestRMultiple": 33.22,
           "passesRewardRiskGate": true
         }
       },
@@ -3788,21 +3798,21 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 15.62,
+        "distanceATR": 16.2,
         "planning": {
           "limitReference": 3968.48,
-          "invalidationReference": 3953.976,
+          "invalidationReference": 3954.17,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 48.63
+              "rMultiple": 49.29
             },
             {
               "price": 4697.105,
-              "rMultiple": 50.24
+              "rMultiple": 50.92
             }
           ],
-          "bestRMultiple": 50.24,
+          "bestRMultiple": 50.92,
           "passesRewardRiskGate": true
         }
       },
@@ -3820,21 +3830,21 @@
         "fairValueGap": false,
         "liquiditySweep": true,
         "premiumDiscountAligned": false,
-        "distanceATR": 13.41,
+        "distanceATR": 13.91,
         "planning": {
           "limitReference": 4059.12,
-          "invalidationReference": 4048.156,
+          "invalidationReference": 4048.35,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 56.06
+              "rMultiple": 57.07
             },
             {
               "price": 4697.105,
-              "rMultiple": 58.19
+              "rMultiple": 59.24
             }
           ],
-          "bestRMultiple": 58.19,
+          "bestRMultiple": 59.24,
           "passesRewardRiskGate": true
         }
       },
@@ -3852,21 +3862,21 @@
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": false,
-        "distanceATR": 0.19,
+        "distanceATR": 0.27,
         "planning": {
           "limitReference": 4573.927,
-          "invalidationReference": 4557.271,
+          "invalidationReference": 4557.465,
           "targets": [
             {
               "price": 4673.765,
-              "rMultiple": 5.99
+              "rMultiple": 6.06
             },
             {
               "price": 4697.105,
-              "rMultiple": 7.4
+              "rMultiple": 7.48
             }
           ],
-          "bestRMultiple": 7.4,
+          "bestRMultiple": 7.48,
           "passesRewardRiskGate": true
         }
       }
@@ -3885,34 +3895,26 @@
       "fairValueGap": true,
       "liquiditySweep": true,
       "premiumDiscountAligned": true,
-      "distanceATR": 6.34,
+      "distanceATR": 6.62,
       "planning": {
         "limitReference": 4334.618,
-        "invalidationReference": 4320.971,
+        "invalidationReference": 4321.165,
         "targets": [
           {
             "price": 4673.765,
-            "rMultiple": 24.85
+            "rMultiple": 25.21
           },
           {
             "price": 4697.105,
-            "rMultiple": 26.56
+            "rMultiple": 26.95
           }
         ],
-        "bestRMultiple": 26.56,
+        "bestRMultiple": 26.95,
         "passesRewardRiskGate": true
       }
     },
     "preferredBearishOrderBlock": null,
     "candles4h": [
-      {
-        "time": "2026-07-24T09:00:00.000000000Z",
-        "open": 4057.645,
-        "high": 4064.025,
-        "low": 4051.49,
-        "close": 4056.095,
-        "volume": 71025
-      },
       {
         "time": "2026-07-24T13:00:00.000000000Z",
         "open": 4056.07,
@@ -5024,17 +5026,17 @@
         "low": 4583.065,
         "close": 4591.64,
         "volume": 238311
+      },
+      {
+        "time": "2026-08-26T17:00:00.000000000Z",
+        "open": 4591.685,
+        "high": 4604.735,
+        "low": 4584.19,
+        "close": 4594.675,
+        "volume": 93457
       }
     ],
     "candles1d": [
-      {
-        "time": "2026-05-05T21:00:00.000000000Z",
-        "open": 4552.07,
-        "high": 4723.14,
-        "low": 4546.36,
-        "close": 4690.935,
-        "volume": 702533
-      },
       {
         "time": "2026-05-06T21:00:00.000000000Z",
         "open": 4690.165,
@@ -5666,6 +5668,14 @@
         "low": 4605.29,
         "close": 4659.055,
         "volume": 949729
+      },
+      {
+        "time": "2026-08-25T21:00:00.000000000Z",
+        "open": 4661.445,
+        "high": 4673.765,
+        "low": 4583.065,
+        "close": 4594.675,
+        "volume": 731876
       }
     ],
     "method": "BOS + displacement + last opposing candle; FVG/liquidity/premium-discount confluence; invalidation by 4H close beyond distal edge",
