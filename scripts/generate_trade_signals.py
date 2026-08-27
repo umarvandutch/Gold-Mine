@@ -172,7 +172,7 @@ def nearest_next_event(data,now):
         if d and d>now: rows.append((d,e))
     return min(rows,key=lambda x:x[0]) if rows else None
 
-def signal_for(data, now):
+def macro_context(data, now):
     evidence=[]
     for e in data.get('events') or []:
         x=event_evidence(e,now)
@@ -184,24 +184,57 @@ def signal_for(data, now):
     weekly=layer([x for x in evidence if x['segment']=='weekly'],24)
     regime=layer([x for x in evidence if x['segment']=='regime'],18)
     market,market_used=market_score(data)
-    macro=fresh+weekly+regime+market
-    bullish_layers=sum(1 for v in (fresh,weekly,regime,market) if v>3)
-    bearish_layers=sum(1 for v in (fresh,weekly,regime,market) if v<-3)
-    total_abs=sum(abs(v) for v in (fresh,weekly,regime,market))
+    vals=(fresh,weekly,regime,market)
+    macro=sum(vals)
+    bullish_layers=sum(1 for v in vals if v>3)
+    bearish_layers=sum(1 for v in vals if v<-3)
+    total_abs=sum(abs(v) for v in vals)
     agreement=abs(macro)/total_abs if total_abs else 0
+    return {'fresh':fresh,'weekly':weekly,'regime':regime,'market':market,'macro':macro,'bullishLayers':bullish_layers,'bearishLayers':bearish_layers,'agreement':agreement,'marketInputs':market_used}
+
+def structural_targets(t, side, entry, stop):
+    if entry is None or stop is None: return []
+    if side=='buy':
+        risk=entry-stop
+        if risk<=0: return []
+        rows=[]
+        for s in (t.get('structure4h') or {}).get('swingHighs') or []:
+            p=num(s.get('price')) or num(s.get('value')) or num(s.get('high'))
+            if p is not None and p>entry:
+                rr=(p-entry)/risk
+                if 1.8<=rr<=6.0: rows.append((p,rr))
+        return sorted(set(rows),key=lambda x:x[0])[:2]
+    risk=stop-entry
+    if risk<=0: return []
+    rows=[]
+    for s in (t.get('structure4h') or {}).get('swingLows') or []:
+        p=num(s.get('price')) or num(s.get('value')) or num(s.get('low'))
+        if p is not None and p<entry:
+            rr=(entry-p)/risk
+            if 1.8<=rr<=6.0: rows.append((p,rr))
+    return sorted(set(rows),key=lambda x:x[0],reverse=True)[:2]
+
+def signal_for(data, now, side='buy', macro_ctx=None):
+    if side not in ('buy','sell'): raise ValueError('side must be buy or sell')
+    ctx=macro_ctx or macro_context(data,now)
+    fresh,weekly,regime,market=ctx['fresh'],ctx['weekly'],ctx['regime'],ctx['market']
+    macro=ctx['macro']; bullish_layers=ctx['bullishLayers']; bearish_layers=ctx['bearishLayers']
+    agreement=ctx['agreement']; market_used=ctx['marketInputs']
+    is_buy=side=='buy'; direction_word='bullish' if is_buy else 'bearish'; opposite_word='bearish' if is_buy else 'bullish'
+    candidate_action='BUY LIMIT CANDIDATE' if is_buy else 'SELL LIMIT CANDIDATE'; no_action='NO BUY LIMIT SIGNAL' if is_buy else 'NO SELL LIMIT SIGNAL'
 
     t=data.get('technical') or {}; blockers=[]; reasons=[]
-    observed=parse_dt(t.get('observedAt'))
-    market_age_min=(now-observed).total_seconds()/60 if observed else 9999
+    observed=parse_dt(t.get('observedAt')); market_age_min=(now-observed).total_seconds()/60 if observed else 9999
     if t.get('status')!='live': blockers.append('OANDA 4H technical feed is not live.')
     if market_age_min>15: blockers.append(f'OANDA market snapshot is {int(market_age_min)} minutes old.')
-    h4=((t.get('structure4h') or {}).get('state') or 'unavailable').lower()
-    d1=((t.get('structure1d') or {}).get('state') or 'unavailable').lower()
-    if h4!='bullish': blockers.append(f'4H structure is {h4}, not bullish.')
-    if d1=='bearish': blockers.append('Daily structure is bearish.')
-    if macro<10: blockers.append(f'Macro gold score is not bullish enough ({macro:+.1f}).')
-    if bullish_layers<2: blockers.append('Fewer than two independent macro layers are bullish.')
-    if bearish_layers>0 and agreement<.65: blockers.append('A meaningful macro layer still conflicts with the bullish case.')
+    h4=((t.get('structure4h') or {}).get('state') or 'unavailable').lower(); d1=((t.get('structure1d') or {}).get('state') or 'unavailable').lower()
+    if h4!=direction_word: blockers.append(f'4H structure is {h4}, not {direction_word}.')
+    if d1==opposite_word: blockers.append(f'Daily structure is {opposite_word}.')
+
+    directional_macro=macro if is_buy else -macro; aligned_layers=bullish_layers if is_buy else bearish_layers; opposing_layers=bearish_layers if is_buy else bullish_layers
+    if directional_macro<10: blockers.append(f'Macro gold score is not {direction_word} enough ({macro:+.1f}).')
+    if aligned_layers<2: blockers.append(f'Fewer than two independent macro layers are {direction_word}.')
+    if opposing_layers>0 and agreement<.65: blockers.append(f'A meaningful macro layer still conflicts with the {direction_word} case.')
     if agreement<.52: blockers.append(f'Macro agreement is too low ({agreement*100:.0f}%).')
 
     nxt=nearest_next_event(data,now); next_minutes=None
@@ -209,59 +242,41 @@ def signal_for(data, now):
         next_minutes=(nxt[0]-now).total_seconds()/60
         if next_minutes<=90: blockers.append(f'{nxt[1].get("name","US event")} is due in {max(0,int(next_minutes))} minutes.')
 
-    px=num(t.get('currentPrice')) or num(((data.get('market') or {}).get('xau') or {}).get('price'))
-    atr=num(t.get('atr14')); ob=t.get('preferredBullishOrderBlock') or None
-    if not ob: blockers.append('No preferred bullish 4H order block is available.')
-    zone_low=zone_high=entry=stop=target1=target2=rr1=rr2=None; quality=0; conf=0
+    px=num(t.get('currentPrice')) or num(((data.get('market') or {}).get('xau') or {}).get('price')); atr=num(t.get('atr14'))
+    ob=t.get('preferredBullishOrderBlock') if is_buy else t.get('preferredBearishOrderBlock')
+    if not ob: blockers.append(f'No preferred {direction_word} 4H order block is available.')
+    zone_low=zone_high=entry=stop=target1=target2=rr1=rr2=None; quality=0; conf=0; confluence=0
     if ob:
         zone_low=num(ob.get('zoneLow')); zone_high=num(ob.get('zoneHigh')); quality=int(num(ob.get('quality')) or 0)
         if zone_low is not None and zone_high is not None: entry=num((ob.get('planning') or {}).get('limitReference')) or (zone_low+zone_high)/2
-        stop=num((ob.get('planning') or {}).get('invalidationReference'))
-        status=str(ob.get('status') or '').lower()
+        stop=num((ob.get('planning') or {}).get('invalidationReference')); status=str(ob.get('status') or '').lower()
         if status not in ('untouched','fresh'): blockers.append(f'Order block is {status or "not fresh"}, not untouched.')
         if quality<75: blockers.append(f'Order-block quality is only {quality}/100 (75 required).')
         confluence=sum(bool(ob.get(k)) for k in ('fairValueGap','liquiditySweep','premiumDiscountAligned'))
         if confluence<2: blockers.append('Order block has fewer than two technical confluences (FVG / sweep / premium-discount).')
         if px is None: blockers.append('Current XAUUSD price is unavailable.')
-        elif zone_high is not None and px<=zone_high: blockers.append('Price is already at/through the buy zone; no fresh pending buy limit is promoted.')
+        elif is_buy and zone_high is not None and px<=zone_high: blockers.append('Price is already at/through the buy zone; no fresh pending buy limit is promoted.')
+        elif not is_buy and zone_low is not None and px>=zone_low: blockers.append('Price is already at/through the sell zone; no fresh pending sell limit is promoted.')
         if px is not None and entry is not None and atr:
-            dist=(px-entry)/atr
-            if dist>2.0: blockers.append(f'Buy zone is {dist:.1f} ATR below current price; too far away for an up-to-date pending signal.')
-        if stop is None or entry is None or stop>=entry: blockers.append('A valid structural stop reference is unavailable.')
+            dist=((px-entry) if is_buy else (entry-px))/atr
+            if dist>2.0: blockers.append(f'{"Buy" if is_buy else "Sell"} zone is {dist:.1f} ATR {"below" if is_buy else "above"} current price; too far away for an up-to-date pending signal.')
+        if stop is None or entry is None or (is_buy and stop>=entry) or ((not is_buy) and stop<=entry): blockers.append('A valid structural stop reference is unavailable.')
         else:
-            risk=entry-stop; highs=[]
-            for s in (t.get('structure4h') or {}).get('swingHighs') or []:
-                p=num(s.get('price')) or num(s.get('value')) or num(s.get('high'))
-                if p is not None and p>entry: highs.append(p)
-            candidates=[]
-            for p in sorted(set(highs)):
-                rr=(p-entry)/risk
-                if 1.8<=rr<=6.0: candidates.append((p,rr))
-            if candidates:
-                target1,rr1=candidates[0]; target2,rr2=(candidates[1] if len(candidates)>1 else candidates[0])
+            targets=structural_targets(t,side,entry,stop)
+            if targets: target1,rr1=targets[0]; target2,rr2=(targets[1] if len(targets)>1 else targets[0])
             else: blockers.append('No nearby 4H structural target offers a realistic 1.8R–6R reward/risk window.')
-        conf=clamp(45 + macro*.9 + (quality-75)*.7 + min(12,bullish_layers*4) + max(0,(agreement-.5)*25),0,95)
-        reasons=[f'Macro score {macro:+.1f} with {bullish_layers} bullish layers',f'4H structure bullish; daily structure {d1}',f'Bullish order block quality {quality}/100']
+        conf=clamp(45 + directional_macro*.9 + (quality-75)*.7 + min(12,aligned_layers*4) + max(0,(agreement-.5)*25),0,95)
+        reasons=[f'Macro score {macro:+.1f} with {aligned_layers} {direction_word} layers',f'4H structure {h4}; daily structure {d1}',f'{direction_word.title()} order block quality {quality}/100']
 
     active=not blockers and all(v is not None for v in (entry,stop,target1,rr1))
-    return {
-        'status':'candidate' if active else 'no-signal','action':'BUY LIMIT CANDIDATE' if active else 'NO BUY LIMIT SIGNAL',
-        'generatedAt':iso(now),'marketObservedAt':t.get('observedAt'),'validUntil':iso(now+timedelta(minutes=15)),
-        'currentPrice':round(px,3) if px is not None else None,'entryZoneLow':round(zone_low,3) if zone_low is not None else None,'entryZoneHigh':round(zone_high,3) if zone_high is not None else None,
-        'limitPrice':round(entry,3) if entry is not None else None,'stopLossReference':round(stop,3) if stop is not None else None,
-        'tp1Reference':round(target1,3) if target1 is not None else None,'tp2Reference':round(target2,3) if target2 is not None else None,
-        'rrTp1':round(rr1,2) if rr1 is not None else None,'rrTp2':round(rr2,2) if rr2 is not None else None,
-        'orderBlockQuality':quality or None,'confidenceScore':round(conf) if ob else 0,'macroScore':round(macro,2),'macroAgreementPct':round(agreement*100),
-        'layers':{'fresh':round(fresh,2),'weekly':round(weekly,2),'regime':round(regime,2),'market':round(market,2),'bullishCount':bullish_layers,'bearishCount':bearish_layers,'marketInputs':market_used},
-        'nextEvent':({'name':nxt[1].get('name'),'dateUtc':iso(nxt[0]),'minutesAway':round(next_minutes)} if nxt else None),
-        'reasons':reasons,'blockers':blockers,'rulesVersion':'buy-limit-v1',
-        'notice':'Planning signal only. It does not guarantee a safe or profitable trade; refresh immediately before using a pending order.'
-    }
+    if not active: conf=0
+    return {'side':side,'status':'candidate' if active else 'no-signal','action':candidate_action if active else no_action,'generatedAt':iso(now),'marketObservedAt':t.get('observedAt'),'validUntil':iso(now+timedelta(minutes=15)),'currentPrice':round(px,3) if px is not None else None,'entryZoneLow':round(zone_low,3) if zone_low is not None else None,'entryZoneHigh':round(zone_high,3) if zone_high is not None else None,'limitPrice':round(entry,3) if entry is not None else None,'stopLossReference':round(stop,3) if stop is not None else None,'tp1Reference':round(target1,3) if target1 is not None else None,'tp2Reference':round(target2,3) if target2 is not None else None,'rrTp1':round(rr1,2) if rr1 is not None else None,'rrTp2':round(rr2,2) if rr2 is not None else None,'orderBlockQuality':quality or None,'confluenceCount':confluence,'confidenceScore':round(conf),'macroScore':round(macro,2),'macroAgreementPct':round(agreement*100),'layers':{'fresh':round(fresh,2),'weekly':round(weekly,2),'regime':round(regime,2),'market':round(market,2),'bullishCount':bullish_layers,'bearishCount':bearish_layers,'marketInputs':market_used},'nextEvent':({'name':nxt[1].get('name'),'dateUtc':iso(nxt[0]),'minutesAway':round(next_minutes)} if nxt else None),'reasons':reasons,'blockers':blockers,'rulesVersion':f'{side}-limit-v2' if is_buy else 'sell-limit-v1','notice':'Planning signal only. It does not guarantee a safe or profitable trade; refresh immediately before using a pending order.'}
 
 def main():
-    data=json.loads(LIVE.read_text()); now=now_utc()
-    data['signals']={'status':'live' if (data.get('technical') or {}).get('status')=='live' else 'limited','generatedAt':iso(now),'buyLimit':signal_for(data,now),'policy':'Strict 4H buy-limit gating: fresh data + bullish macro agreement + bullish structure + untouched high-quality order block + event-risk and realistic R:R gates.'}
+    data=json.loads(LIVE.read_text()); now=now_utc(); ctx=macro_context(data,now)
+    buy=signal_for(data,now,'buy',ctx); sell=signal_for(data,now,'sell',ctx)
+    data['signals']={'status':'live' if (data.get('technical') or {}).get('status')=='live' else 'limited','generatedAt':iso(now),'buyLimit':buy,'sellLimit':sell,'policy':'Strict 4H limit gating: fresh data + aligned macro agreement + matching 4H structure + untouched high-quality order block + event-risk and realistic R:R gates.'}
     LIVE.write_text(json.dumps(data,indent=2)+"\n")
-    s=data['signals']['buyLimit']; print(f"Signal: {s['action']} | macro {s['macroScore']:+.1f} | blockers {len(s['blockers'])}")
+    print(f"Buy: {buy['action']} | blockers {len(buy['blockers'])} | Sell: {sell['action']} | blockers {len(sell['blockers'])} | macro {ctx['macro']:+.1f}")
 
 if __name__=='__main__': main()
