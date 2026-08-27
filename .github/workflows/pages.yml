@@ -18,6 +18,8 @@ on:
       - 'decision-engine-v4.js'
       - 'app-fixes-v1.js'
       - 'chart-resume-fix.js'
+      - 'live-refresh-v2.js'
+      - 'signals-engine.js'
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
@@ -56,13 +58,15 @@ jobs:
           node --check decision-engine-v4.js
           node --check app-fixes-v1.js
           node --check chart-resume-fix.js
+          node --check live-refresh-v2.js
+          node --check signals-engine.js
           node -e "JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'))"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/icons
-          cp index.html styles.css live.css app.js config.js refresh-fix.js pull-refresh.js adaptive-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js decision-engine-v4.js app-fixes-v1.js chart-resume-fix.js manifest.webmanifest sw.js .nojekyll _site/
+          cp index.html styles.css live.css app.js config.js refresh-fix.js pull-refresh.js adaptive-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js decision-engine-v4.js app-fixes-v1.js chart-resume-fix.js live-refresh-v2.js signals-engine.js manifest.webmanifest sw.js .nojekyll _site/
           cp icons/icon-192.png icons/icon-512.png _site/icons/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
