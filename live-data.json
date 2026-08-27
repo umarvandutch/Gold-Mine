@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-27T19:46:17Z",
+  "generatedAt": "2026-08-27T20:09:23Z",
   "calendarStatus": "live",
   "counts": {
     "events": 145,
     "headlines": 80,
-    "marketFeeds": 3
+    "marketFeeds": 2
   },
   "sourceStatus": {
     "calendar": "live",
@@ -2632,41 +2632,41 @@
       "label": "Gold / XAUUSD",
       "symbol": "XAU_USD",
       "name": "Gold / XAUUSD",
-      "price": 4611.76,
+      "price": 4604.97,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-08-27",
-      "time": "19:46:48",
+      "time": "20:09:27",
       "kind": "gold",
       "source": "OANDA v20 practice",
       "live": true,
-      "observedAt": "2026-08-27T19:46:48.758227577Z"
+      "observedAt": "2026-08-27T20:09:27.878912025Z"
     },
     "dxy": {
       "label": "Synthetic US Dollar Index",
       "symbol": "DXY-synthetic",
       "name": "Synthetic DXY from six FX pairs",
-      "price": 99.1544,
+      "price": 99.1388,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-08-27",
-      "time": "19:46:48",
+      "time": "20:09:27",
       "kind": "index",
       "source": "OANDA v20 practice \u00b7 DXY formula",
       "live": true,
-      "observedAt": "2026-08-27T19:46:48.758227577Z"
+      "observedAt": "2026-08-27T20:09:27.878912025Z"
     },
     "us2y": {
       "label": "US 2Y Treasury yield",
       "symbol": "BC_2YEAR",
       "name": "US 2Y Treasury yield",
-      "price": 4.19,
-      "previous": 4.17,
+      "price": 4.2,
+      "previous": 4.19,
       "changePct": null,
-      "deltaBps": 2.0,
-      "date": "2026-08-26",
+      "deltaBps": 1.0,
+      "date": "2026-08-27",
       "time": null,
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
@@ -2675,28 +2675,16 @@
       "label": "US 10Y Treasury yield",
       "symbol": "BC_10YEAR",
       "name": "US 10Y Treasury yield",
-      "price": 4.66,
-      "previous": 4.64,
+      "price": 4.67,
+      "previous": 4.66,
       "changePct": null,
-      "deltaBps": 2.0,
-      "date": "2026-08-26",
+      "deltaBps": 1.0,
+      "date": "2026-08-27",
       "time": null,
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
     },
-    "real10y": {
-      "label": "US 10Y real yield",
-      "symbol": "TC_10YEAR",
-      "name": "US 10Y real yield",
-      "price": 2.34,
-      "previous": 2.32,
-      "changePct": null,
-      "deltaBps": 2.0,
-      "date": "2026-08-26",
-      "time": null,
-      "kind": "real-yield",
-      "source": "U.S. Treasury official daily rate"
-    }
+    "real10y": null
   },
   "headlines": [
     {
@@ -2725,7 +2713,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Fed's Collins says latest US inflation readings are 'mixed' - Yahoo Finance",
@@ -2784,15 +2773,6 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Treasury Yields Rise as Investors Shift Focus to Jackson Hole - Bloomberg",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYmt3c1BCeXpyTFdVS0hJZTNiRTZob0ZtT1dHQUl0b3gwRi1QX3lkZ2F4SXVuOHZINnZiR0V0NllmbG9zVmh2Nm5qOXFYaW1vdUt2NU0yMTFFN0dmM0NFMFUwdTdoZTNsX05JWGdKTDUyOFVObUFkMjVQbXR3amQ5bGRPNmpZVXJtSmxmeHlCYW91Zk40ZVZLQ2QtYkk1eWhSOXlnYXpkQVRxZl8xV092WWZ3?oc=5",
-      "publishedUtc": "2026-08-27T17:16:09Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "Forex Today: Jackson Hole and US jobs in the limelight - FXStreet",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQR0cxZTVqeG9ocFBiX0FtamFJR1o3dzlUdWpBenhTdVAzem1OcURScFhUcU93dVBOa0d6ellvV3UwdWNJcVp5dXNiT2VXcHVxN3VmekpBaDktU2liMnFYS09CTU9MZ0lVMmREb2Q5U0tXaHE2UTJ3aGl0WmVYNVdKbWJzVi1SbTR1UnJTODJjajZyQ1VUM0pnREZKOHc?oc=5",
       "publishedUtc": "2026-08-27T17:05:10Z",
@@ -2817,7 +2797,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Mr. Eli Powell Obituary (1951 - 2026) - Monroe, LA - AN17 - Denver Gazette",
@@ -2866,6 +2847,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Treasury Yields Rise as Investors Shift Focus to Jackson Hole - Bloomberg",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYmt3c1BCeXpyTFdVS0hJZTNiRTZob0ZtT1dHQUl0b3gwRi1QX3lkZ2F4SXVuOHZINnZiR0V0NllmbG9zVmh2Nm5qOXFYaW1vdUt2NU0yMTFFN0dmM0NFMFUwdTdoZTNsX05JWGdKTDUyOFVObUFkMjVQbXR3amQ5bGRPNmpZVXJtSmxmeHlCYW91Zk40ZVZLQ2QtYkk1eWhSOXlnYXpkQVRxZl8xV092WWZ3?oc=5",
+      "publishedUtc": "2026-08-27T14:02:34Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Cantor: While Long Islanders struggle with inflation, the Federal Reserve fiddles - Long Island Business News",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPM1NUU3V1QTVGWXgzOXlEYjZ3Skp0VWdUUzdkM1Q3cWlTeHFwYVlrSFZmclpZVnNqQVpheXFwS1ZzTE5aT19XeVVfUXFSZUhpMENLWG1yNVJETFZOaV9WVUZzOGZ3bGNsZlFadDRUVDNwa3VveVg1TjRIdDVLRHhuT2MxNjdvakg3SkR3?oc=5",
       "publishedUtc": "2026-08-27T13:45:35Z",
@@ -2904,24 +2894,13 @@
       "retainedFromPreviousSnapshot": true
     },
     {
-      "title": "US inflation lifts Dollar before Jackson Hole - Convera",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPbnVXVUZmaUV6SUFXM3VFOVlOamptYjFiUzUzYVU3a1VQek54M2lDWUl6YVRBQzNBNEVtTS10N2hkbzdoaVNNaDNrUFljODVKRHVIZ3NCcTctU0JiZFNCM3pPU21SMDVwT2pQdXg4Tk0zOTdNa0JjNlhJcUJFQlpDUEF5bGg4bmFXMW5SRmYtcWswakNzQVdWeEpFX1FXZ0pBS04yeHdvcUxEemJ0TE1LdUlnYWtKS1lIODl4RA?oc=5",
-      "publishedUtc": "2026-08-27T11:14:41Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
       "title": "In Gaza, gold becomes a financial refuge as war erodes savings - The New Arab",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNRHQ1MHNiRzAxM19PeDk4elIwUDM3TWYwMi1kRmVMbXJwRFp4eWJmcWw5NTZiLUJ2WTFtT3h0NEh5OUFvNm5TZUwyOURVWHdVcGxpUFFnSld1clFqdnJZOF8tTFhfS3Q5Unpjd2NFRDFiMm5RQjdOeGIyQTk1NUM3cGVKTWcwWlo4RUHSAY8BQVVfeXFMTWtnTXFteHQ4OGxmalFBQ0tkOHhKNm5JODNlLXV3XzBEUlMyVVQ0dXZKa21XM0UwOHNSQzE3bU9oNEw2ak1WSVVqQVh3ckNWbHdlU2VCeVFlVHpnbFUzRlVOb1ZvdVV3ZF83MnZXME5zMDByd3hMTXI4VkUwU2QyQ2Vla0MtU2NGalJjLUpXNEk?oc=5",
       "publishedUtc": "2026-08-27T11:10:48Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
+      "memoryWindowDays": 7
     },
     {
       "title": "Fed Chair Warsh faces Jackson Hole spotlight with inflation, rate path in focus - Fox Business",
@@ -3206,6 +3185,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Bruce G. Powell Obituary August 24, 2026 - Bozell Funeral Homes",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA5R1Rrd2VCYUU4N2NzVlRTd0o3VmNpclJDUF9tNzBrVjYtT09QQWlfQWo2WVg4d1pWSXh1Yy1oanp5bTk5cll3RUptbEtJdEFNNVJBM3V3RTY2b1M1REw1ZUl5NTJ1UmpZdmc?oc=5",
+      "publishedUtc": "2026-08-24T21:49:36Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "What to watch for in the next Fed minutes - marketplace.org",
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNMF9adjlpRlYzb2pmUEh0YnEtX3FHTjBFOWZHM1F0cGVadEtkYlUxNEE5X0ZCTkxmaE1rbzVMOEo3Wk56dFhMSUFUUHZxeVE3a0lQUW0xMUtsLXpiRnJkOWZObHJKWHFnODl5UXpPYlFaVExwM2tYc3hhNzlJc2hUVFZQOUpGMGZrYmZHWkpB?oc=5",
       "publishedUtc": "2026-08-19T12:12:00Z",
@@ -3441,7 +3429,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 36,
+    "retainedRecentCount": 39,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3478,15 +3466,15 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-08-27T19:47:00Z"
+    "updatedAt": "2026-08-27T20:10:08Z"
   },
   "technical": {
     "status": "live",
     "source": "OANDA v20 practice",
-    "observedAt": "2026-08-27T19:46:48.758227577Z",
+    "observedAt": "2026-08-27T20:09:27.878912025Z",
     "symbol": "XAUUSD",
     "executionTimeframe": "4H",
-    "currentPrice": 4611.76,
+    "currentPrice": 4604.97,
     "atr14": 35.63,
     "structure4h": {
       "state": "bearish",
@@ -5739,14 +5727,15 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-08-27T19:47:02.619776Z",
+    "generatedAt": "2026-08-27T20:10:12.729070Z",
     "buyLimit": {
+      "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-08-27T19:47:02.619776Z",
-      "marketObservedAt": "2026-08-27T19:46:48.758227577Z",
-      "validUntil": "2026-08-27T20:02:02.619776Z",
-      "currentPrice": 4611.76,
+      "generatedAt": "2026-08-27T20:10:12.729070Z",
+      "marketObservedAt": "2026-08-27T20:09:27.878912025Z",
+      "validUntil": "2026-08-27T20:25:12.729070Z",
+      "currentPrice": 4604.97,
       "entryZoneLow": 4327.27,
       "entryZoneHigh": 4341.965,
       "limitPrice": 4334.618,
@@ -5756,35 +5745,85 @@
       "rrTp1": 5.54,
       "rrTp2": 5.54,
       "orderBlockQuality": 91,
+      "confluenceCount": 3,
       "confidenceScore": 0,
-      "macroScore": 21.2,
-      "macroAgreementPct": 80,
+      "macroScore": 23.28,
+      "macroAgreementPct": 95,
       "layers": {
-        "fresh": 11.69,
-        "weekly": 9.0,
-        "regime": 3.11,
-        "market": -2.61,
+        "fresh": 11.83,
+        "weekly": 8.97,
+        "regime": 3.12,
+        "market": -0.64,
         "bullishCount": 3,
         "bearishCount": 0,
-        "marketInputs": 3
+        "marketInputs": 2
       },
       "nextEvent": {
         "name": "Chicago PMI",
         "dateUtc": "2026-08-28T13:45:00Z",
-        "minutesAway": 1078
+        "minutesAway": 1055
       },
       "reasons": [
-        "Macro score +21.2 with 3 bullish layers",
+        "Macro score +23.3 with 3 bullish layers",
         "4H structure bearish; daily structure bullish",
         "Bullish order block quality 91/100"
       ],
       "blockers": [
         "4H structure is bearish, not bullish.",
-        "Buy zone is 7.8 ATR below current price; too far away for an up-to-date pending signal."
+        "Buy zone is 7.6 ATR below current price; too far away for an up-to-date pending signal."
       ],
-      "rulesVersion": "buy-limit-v1",
+      "rulesVersion": "buy-limit-v2",
       "notice": "Planning signal only. It does not guarantee a safe or profitable trade; refresh immediately before using a pending order."
     },
-    "policy": "Strict 4H buy-limit gating: fresh data + bullish macro agreement + bullish structure + untouched high-quality order block + event-risk and realistic R:R gates."
+    "sellLimit": {
+      "side": "sell",
+      "status": "no-signal",
+      "action": "NO SELL LIMIT SIGNAL",
+      "generatedAt": "2026-08-27T20:10:12.729070Z",
+      "marketObservedAt": "2026-08-27T20:09:27.878912025Z",
+      "validUntil": "2026-08-27T20:25:12.729070Z",
+      "currentPrice": 4604.97,
+      "entryZoneLow": null,
+      "entryZoneHigh": null,
+      "limitPrice": null,
+      "stopLossReference": null,
+      "tp1Reference": null,
+      "tp2Reference": null,
+      "rrTp1": null,
+      "rrTp2": null,
+      "orderBlockQuality": null,
+      "confluenceCount": 0,
+      "confidenceScore": 0,
+      "macroScore": 23.28,
+      "macroAgreementPct": 95,
+      "layers": {
+        "fresh": 11.83,
+        "weekly": 8.97,
+        "regime": 3.12,
+        "market": -0.64,
+        "bullishCount": 3,
+        "bearishCount": 0,
+        "marketInputs": 2
+      },
+      "nextEvent": {
+        "name": "Chicago PMI",
+        "dateUtc": "2026-08-28T13:45:00Z",
+        "minutesAway": 1055
+      },
+      "reasons": [
+        "Macro score +23.3 with 0 bearish layers",
+        "4H structure bearish; daily structure bullish",
+        "Bearish order block quality 0/100"
+      ],
+      "blockers": [
+        "Daily structure is bullish.",
+        "Macro gold score is not bearish enough (+23.3).",
+        "Fewer than two independent macro layers are bearish.",
+        "No preferred bearish 4H order block is available."
+      ],
+      "rulesVersion": "sell-limit-v1",
+      "notice": "Planning signal only. It does not guarantee a safe or profitable trade; refresh immediately before using a pending order."
+    },
+    "policy": "Strict 4H limit gating: fresh data + aligned macro agreement + matching 4H structure + untouched high-quality order block + event-risk and realistic R:R gates."
   }
 }
