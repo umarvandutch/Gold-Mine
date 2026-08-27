@@ -1,0 +1,48 @@
+(()=>{
+  "use strict";
+  const SNAPSHOT="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
+  let data=null,busy=false,timer=null;
+  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const ageMin=v=>{if(!v)return 99999;const n=new Date(v).getTime();return Number.isFinite(n)?Math.max(0,(Date.now()-n)/60000):99999};
+  const fmt=v=>{if(!v)return"—";const d=new Date(v);return Number.isNaN(d.getTime())?"—":d.toLocaleString()};
+  const active=()=>document.getElementById("view-signals")?.classList.contains("active");
+
+  function installUI(){
+    if(!document.getElementById("view-signals")){
+      const settings=document.getElementById("view-settings"),section=document.createElement("section");
+      section.id="view-signals";section.className="view";section.setAttribute("aria-labelledby","signals-title");
+      section.innerHTML='<div class="section-heading"><div><span class="eyebrow">STRICT 4H EXECUTION FILTER</span><h2 id="signals-title">Buy limit signals</h2></div><button id="signalsRefresh" class="text-button">Check live now</button></div><div id="signalsPanel"></div>';
+      settings?.parentElement?.insertBefore(section,settings);
+    }
+    if(!document.querySelector('.nav-item[data-view="signals"]')){
+      const settingsBtn=document.querySelector('.nav-item[data-view="settings"]'),btn=document.createElement("button");
+      btn.className="nav-item";btn.dataset.view="signals";btn.setAttribute("aria-label","Signals");
+      btn.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17l5-5 4 3 7-8M17 7h3v3"/></svg><span>Signals</span>';
+      settingsBtn?.parentElement?.insertBefore(btn,settingsBtn);btn.addEventListener("click",()=>show("signals"));
+    }
+    const nav=document.querySelector(".bottom-nav");if(nav)nav.style.gridTemplateColumns="repeat(5,1fr)";
+    const rb=document.getElementById("signalsRefresh");if(rb&&!rb.dataset.bound){rb.dataset.bound="1";rb.addEventListener("click",()=>refresh(true));}
+  }
+  function show(name){
+    document.querySelectorAll(".nav-item").forEach(x=>x.classList.toggle("active",x.dataset.view===name));
+    document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===`view-${name}`));
+    window.scrollTo({top:0,behavior:"auto"});if(name==="signals")refresh(false);
+  }
+  function effectiveSignal(){
+    const s=data?.signals?.buyLimit;if(!s)return{status:"no-signal",action:"NO BUY LIMIT SIGNAL",blockers:["Signal engine has not produced a current snapshot yet."]};
+    const blockers=[...(s.blockers||[])],marketAge=ageMin(s.marketObservedAt||data?.technical?.observedAt),signalAge=ageMin(s.generatedAt||data?.signals?.generatedAt);
+    if(marketAge>15)blockers.unshift(`Market data is ${Math.floor(marketAge)} minutes old — refresh required.`);
+    if(signalAge>15)blockers.unshift(`Signal snapshot is ${Math.floor(signalAge)} minutes old — no pending order should be treated as current.`);
+    if(s.validUntil&&Date.now()>new Date(s.validUntil).getTime())blockers.unshift("This signal has expired and must be recalculated.");
+    const live=s.status==="candidate"&&blockers.length===0;return{...s,status:live?"candidate":"no-signal",action:live?"BUY LIMIT CANDIDATE":"NO BUY LIMIT SIGNAL",blockers};
+  }
+  function render(){
+    installUI();const panel=document.getElementById("signalsPanel");if(!panel)return;const s=effectiveSignal(),ok=s.status==="candidate",layers=s.layers||{},next=s.nextEvent;
+    panel.innerHTML=`<section class="gms-hero ${ok?"go":"stop"}"><span class="eyebrow">CURRENT SIGNAL</span><h2>${esc(s.action)}</h2><p>${ok?"All strict gates currently pass. Re-check the 4H chart and refresh immediately before placing any pending order.":"Gold Mine is refusing to promote a buy limit because one or more safety/freshness gates fail."}</p><div class="gms-grid"><div><span>XAUUSD</span><strong>${s.currentPrice??"—"}</strong></div><div><span>Model conviction</span><strong>${s.confidenceScore??0}/100</strong></div><div><span>Macro score</span><strong>${Number(s.macroScore||0)>=0?"+":""}${s.macroScore??0}</strong></div><div><span>Agreement</span><strong>${s.macroAgreementPct??0}%</strong></div></div></section>${ok?`<section class="gms-card gms-order"><span class="eyebrow">BUY LIMIT PLAN</span><h3>${s.entryZoneLow} – ${s.entryZoneHigh}</h3><div class="gms-levels"><div><span>Buy limit</span><strong>${s.limitPrice}</strong></div><div><span>SL reference</span><strong>${s.stopLossReference}</strong></div><div><span>TP1</span><strong>${s.tp1Reference}</strong><small>${s.rrTp1}R</small></div><div><span>TP2</span><strong>${s.tp2Reference}</strong><small>${s.rrTp2}R</small></div></div><p>Zone quality ${s.orderBlockQuality}/100. The limit is a planning reference inside the qualified 4H order block; SL/TP are structure-derived references, not guaranteed fills or outcomes.</p></section>`:""}<section class="gms-card"><span class="eyebrow">FRESHNESS</span><h3>Is this signal current?</h3><div class="gms-fresh"><div><span>App checked</span><strong id="gmsChecked">${fmt(sessionStorage.getItem("goldmine-last-check-at"))}</strong></div><div><span>OANDA observed</span><strong>${fmt(s.marketObservedAt||data?.technical?.observedAt)}</strong><small>${Math.floor(ageMin(s.marketObservedAt||data?.technical?.observedAt))} min old</small></div><div><span>Signal calculated</span><strong>${fmt(s.generatedAt)}</strong><small>${Math.floor(ageMin(s.generatedAt))} min old</small></div></div></section><section class="gms-card"><span class="eyebrow">GATES</span><h3>What must agree</h3><div class="gms-layergrid"><div><span>Fresh 48h</span><strong>${Number(layers.fresh||0)>=0?"+":""}${layers.fresh??0}</strong></div><div><span>7-day macro</span><strong>${Number(layers.weekly||0)>=0?"+":""}${layers.weekly??0}</strong></div><div><span>90-day CPI/Fed</span><strong>${Number(layers.regime||0)>=0?"+":""}${layers.regime??0}</strong></div><div><span>USD/yields/XAU</span><strong>${Number(layers.market||0)>=0?"+":""}${layers.market??0}</strong></div></div></section>${s.blockers?.length?`<section class="gms-card gms-block"><span class="eyebrow">WHY THERE IS NO SIGNAL</span><h3>${s.blockers.length} blocker${s.blockers.length===1?"":"s"}</h3><ul>${s.blockers.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>`:""}<section class="gms-card"><span class="eyebrow">NEXT NEWS RISK</span><h3>${next?esc(next.name):"No upcoming medium/high-impact event loaded"}</h3><p>${next?`${fmt(next.dateUtc)} · about ${next.minutesAway} min away`:"The signal engine will still block stale data and technical invalidation."}</p></section><p class="gms-disclaimer">No trading setup can be made “safe” or guaranteed profitable. Gold Mine only promotes a candidate when its strict data, macro, structure, order-block, event-risk and reward/risk rules pass. Refresh immediately before using it.</p>`;
+  }
+  async function fetchData(){const r=await fetch(`${SNAPSHOT}?signals=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json()}
+  async function refresh(force){if(busy)return;busy=true;installUI();const b=document.getElementById("signalsRefresh");if(b){b.disabled=true;b.textContent="Checking…";}try{data=await fetchData();sessionStorage.setItem("goldmine-last-check-at",new Date().toISOString());render();if(b)b.textContent=effectiveSignal().status==="candidate"?"Signal current ✓":"Checked ✓";window.dispatchEvent(new CustomEvent("goldmine-signals-updated",{detail:data}));}catch(e){console.warn("Signals refresh failed",e);if(b)b.textContent="Check failed";}finally{busy=false;if(b){b.disabled=false;setTimeout(()=>{if(!busy)b.textContent="Check live now";},1800)}}}
+  function style(){if(document.getElementById("gms-style"))return;const s=document.createElement("style");s.id="gms-style";s.textContent=`.gms-hero,.gms-card{background:#fff;border:1px solid #e5e1d8;border-radius:18px;padding:15px;margin-bottom:12px}.gms-hero{border-left:6px solid #9e4842}.gms-hero.go{border-left-color:#247a52}.gms-hero h2{margin:5px 0;font-size:28px}.gms-hero.go h2{color:#247a52}.gms-hero.stop h2{color:#b43a3a}.gms-hero p,.gms-card p{font-size:11px;color:#666d76;line-height:1.45}.gms-grid,.gms-levels,.gms-fresh,.gms-layergrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.gms-grid>div,.gms-levels>div,.gms-fresh>div,.gms-layergrid>div{background:#f7f6f2;border-radius:11px;padding:10px}.gms-grid span,.gms-levels span,.gms-fresh span,.gms-layergrid span{display:block;font-size:9px;color:#777;text-transform:uppercase}.gms-grid strong,.gms-levels strong,.gms-fresh strong,.gms-layergrid strong{display:block;margin-top:4px;font-size:13px}.gms-levels small,.gms-fresh small{display:block;font-size:9px;color:#777;margin-top:2px}.gms-order{border-left:4px solid #247a52}.gms-order h3{font-size:22px;margin:5px 0}.gms-block{background:#fff9f8;border-color:#efd4d1}.gms-block li{font-size:11px;line-height:1.45;margin:6px 0;color:#684a48}.gms-disclaimer{font-size:9px;color:#7c828a;line-height:1.45;margin:8px 2px 0}.bottom-nav .nav-item span{font-size:8px}@media(max-width:700px){.gms-grid,.gms-levels,.gms-fresh,.gms-layergrid{grid-template-columns:1fr 1fr}}`;document.head.appendChild(s)}
+  function boot(){style();installUI();document.addEventListener("visibilitychange",()=>{if(!document.hidden&&active())refresh(false)});window.addEventListener("goldmine-snapshot-updated",e=>{if(e.detail){data=e.detail;render()}});setTimeout(()=>refresh(false),250);clearInterval(timer);timer=setInterval(()=>{if(!document.hidden&&active())refresh(false)},15000)}
+  boot();
+})();
