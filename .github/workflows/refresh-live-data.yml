@@ -14,6 +14,7 @@ on:
       - 'scripts/apply_signal_policy.py'
       - 'scripts/enrich_xau_technicals.py'
       - 'scripts/generate_trade_signals.py'
+      - 'scripts/normalize_trade_signal.py'
       - 'scripts/record_signal_history.py'
       - 'scripts/record_trade_setup_history.py'
       - 'data/policy-history.json'
@@ -58,6 +59,8 @@ jobs:
         run: python3 scripts/enrich_xau_technicals.py
       - name: Generate strict buy-limit signals
         run: python3 scripts/generate_trade_signals.py
+      - name: Normalize blocked-signal copy
+        run: python3 scripts/normalize_trade_signal.py
       - name: Record macro release calibration history
         run: python3 scripts/record_signal_history.py
       - name: Record 4H order-block setup outcomes
