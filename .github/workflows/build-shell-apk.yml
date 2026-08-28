@@ -19,26 +19,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Prepare launcher icon for Android AAPT
+      - name: Validate launcher icon
         run: |
           set -e
-          SRC="android-shell/app/src/main/res/drawable/app_icon.b64"
-          PNG="/tmp/gold_mine_launcher.png"
-          JPG="android-shell/app/src/main/res/drawable/app_icon.jpg"
-          test -s "$SRC"
-          base64 -d "$SRC" > "$PNG"
-          python3 - <<'PY'
-          from pathlib import Path
-          p=Path('/tmp/gold_mine_launcher.png').read_bytes()
-          assert p[:8] == b'\x89PNG\r\n\x1a\n'
-          print('source icon PNG signature OK')
-          PY
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq imagemagick
-          convert "$PNG" -background black -alpha remove -alpha off -strip -quality 96 "$JPG"
-          rm -f "$SRC" android-shell/app/src/main/res/drawable/app_icon.png "$PNG"
-          file "$JPG"
-          test -s "$JPG"
+          ICON="android-shell/app/src/main/res/drawable/app_icon.jpg"
+          test -s "$ICON"
+          file "$ICON" | grep -q 'JPEG image data'
       - name: Setup Java 17
         uses: actions/setup-java@v5
         with:
