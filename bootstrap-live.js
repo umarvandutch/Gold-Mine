@@ -6,6 +6,7 @@
 
   function workerUrl(){return String(window.GOLD_MINE_CONFIG?.liveWorkerUrl||"").trim();}
   function asUrl(input){try{return new URL(typeof input==="string"?input:String(input?.url||""),location.href)}catch{return null}}
+  // Only app.js's legacy ?t= read is redirected. Named reads such as official, worker diagnostics and backupOnly remain true GitHub requests.
   function isLegacyBaseRead(url){
     if(!url||!url.href.startsWith(GITHUB_LIVE)||!url.searchParams.has("t"))return false;
     return Array.from(url.searchParams.keys()).every(k=>k==="t");
