@@ -9,6 +9,7 @@ on:
       - 'live.css'
       - 'app.js'
       - 'config.js'
+      - 'bootstrap-live.js'
       - 'refresh-fix.js'
       - 'pull-refresh.js'
       - 'adaptive-refresh.js'
@@ -23,6 +24,7 @@ on:
       - 'manifest.webmanifest'
       - 'sw.js'
       - 'icons/**'
+      - 'android-shell/**'
       - 'scripts/**'
       - 'data/**'
       - 'worker/**'
@@ -43,6 +45,7 @@ jobs:
         run: |
           node --check app.js
           node --check config.js
+          node --check bootstrap-live.js
           node --check refresh-fix.js
           node --check pull-refresh.js
           node --check adaptive-refresh.js
@@ -55,6 +58,14 @@ jobs:
           node --check live-refresh-v2.js
           node --check signals-engine.js
           node --input-type=module --check < worker/src/index.js
+          node - <<'NODE'
+          const fs=require('fs');
+          const html=fs.readFileSync('index.html','utf8');
+          const config=html.indexOf('./config.js'),boot=html.indexOf('./bootstrap-live.js'),app=html.indexOf('./app.js');
+          if(config<0||boot<0||app<0||!(config<boot&&boot<app)) throw new Error('config/bootstrap/app script order is wrong');
+          const b=fs.readFileSync('bootstrap-live.js','utf8');
+          if(!b.includes('liveWorkerUrl')||!b.includes('backupOnly')||!b.includes('official')) throw new Error('live bootstrap guards missing');
+          NODE
       - name: Validate data refresh, enrichment and policy scripts
         run: |
           python3 -m py_compile scripts/refresh_live_data.py
@@ -114,11 +125,14 @@ jobs:
           PY
           python3 scripts/record_signal_history.py
           python3 scripts/record_trade_setup_history.py
-      - name: Validate JSON and manifest
+      - name: Validate JSON, manifest and icon assets
         run: |
           node -e "const m=JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8')); if(!m.name||!m.start_url||!m.icons?.length) process.exit(1)"
           node -e "const h=JSON.parse(require('fs').readFileSync('data/signal-history.json','utf8')); if(!Array.isArray(h.events)||!h.events.length) process.exit(1)"
           node -e "const p=JSON.parse(require('fs').readFileSync('data/policy-history.json','utf8')); if(!Array.isArray(p.events)||!Array.isArray(p.headlines)) process.exit(1)"
           node -e "const t=JSON.parse(require('fs').readFileSync('data/trade-setup-history.json','utf8')); if(!Array.isArray(t.setups)||!t.calibration) process.exit(1)"
+          test $(wc -c < icons/icon-192.png) -gt 10000
+          test $(wc -c < icons/icon-512.png) -gt 50000
+          cmp -s icons/icon-512.png android-shell/app/src/main/res/drawable/app_icon.png
       - name: Verify required files
-        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f decision-engine-v4.js && test -f app-fixes-v1.js && test -f chart-resume-fix.js && test -f live-refresh-v2.js && test -f signals-engine.js && test -f data/signal-history.json && test -f data/policy-history.json && test -f data/trade-setup-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/apply_signal_policy.py && test -f scripts/enrich_xau_technicals.py && test -f scripts/generate_trade_signals.py && test -f scripts/record_signal_history.py && test -f scripts/record_trade_setup_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png
+        run: test -f index.html && test -f styles.css && test -f live.css && test -f app.js && test -f config.js && test -f bootstrap-live.js && test -f refresh-fix.js && test -f pull-refresh.js && test -f adaptive-refresh.js && test -f gold-direction-labels.js && test -f official-signal-layer.js && test -f accuracy-engine.js && test -f decision-engine-v4.js && test -f app-fixes-v1.js && test -f chart-resume-fix.js && test -f live-refresh-v2.js && test -f signals-engine.js && test -f data/signal-history.json && test -f data/policy-history.json && test -f data/trade-setup-history.json && test -f scripts/merge_headline_continuity.py && test -f scripts/enrich_official_data.py && test -f scripts/enrich_fed_minutes.py && test -f scripts/apply_signal_policy.py && test -f scripts/enrich_xau_technicals.py && test -f scripts/generate_trade_signals.py && test -f scripts/record_signal_history.py && test -f scripts/record_trade_setup_history.py && test -f sw.js && test -f worker/src/index.js && test -f worker/wrangler.toml && test -f icons/icon-192.png && test -f icons/icon-512.png && test -f android-shell/app/src/main/res/drawable/app_icon.png
