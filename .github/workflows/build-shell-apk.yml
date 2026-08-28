@@ -19,16 +19,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Normalize launcher icon for Android AAPT
+      - name: Prepare launcher icon for Android AAPT
         run: |
           set -e
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq imagemagick
-          ICON="android-shell/app/src/main/res/drawable/app_icon.png"
-          # Preserve the supplied artwork while stripping PNG profiles/chunks that AAPT2 rejects.
-          convert "$ICON" -strip -define png:color-type=2 PNG24:/tmp/app_icon.png
-          mv /tmp/app_icon.png "$ICON"
-          identify "$ICON"
+          SRC="android-shell/app/src/main/res/drawable/app_icon.b64"
+          DST="android-shell/app/src/main/res/drawable/app_icon.png"
+          test -s "$SRC"
+          base64 -d "$SRC" > "$DST"
+          rm "$SRC"
+          file "$DST"
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('android-shell/app/src/main/res/drawable/app_icon.png').read_bytes()
+          assert p[:8] == b'\x89PNG\r\n\x1a\n'
+          print('launcher PNG signature OK')
+          PY
       - name: Setup Java 17
         uses: actions/setup-java@v5
         with:
