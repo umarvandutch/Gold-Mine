@@ -1,232 +1,66 @@
 const GITHUB_SNAPSHOT="https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json";
-const LIVE_CACHE_KEY="https://gold-mine-cache.internal/live";
-const BASELINE_CACHE_KEY="https://gold-mine-cache.internal/baseline";
-const HEADLINE_CACHE_KEY="https://gold-mine-cache.internal/headlines";
-const UA="GoldMineMacro/3.0 (+https://github.com/umarvandutch/Gold-Mine)";
+const LIVE_CACHE_KEY="https://gold-mine-cache.internal/live-v4";
+const UA="GoldMineLive/4.0 (+https://github.com/umarvandutch/Gold-Mine)";
 const DAY=86400000;
+const HOUR=3600000;
 
-function corsHeaders(){
-  return {
-    "Access-Control-Allow-Origin":"*",
-    "Access-Control-Allow-Methods":"GET,OPTIONS",
-    "Access-Control-Allow-Headers":"Content-Type",
-    "Content-Type":"application/json; charset=utf-8"
-  };
-}
+function corsHeaders(){return{"Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"GET,OPTIONS","Access-Control-Allow-Headers":"Content-Type","Content-Type":"application/json; charset=utf-8"};}
+function jsonResponse(body,status=200,extra={}){return new Response(JSON.stringify(body),{status,headers:{...corsHeaders(),...extra}});}
+async function fetchWithTimeout(url,options={},timeoutMs=9000){const c=new AbortController(),t=setTimeout(()=>c.abort(),timeoutMs);try{return await fetch(url,{...options,signal:c.signal,headers:{"User-Agent":UA,"Accept":"*/*",...(options.headers||{})}});}finally{clearTimeout(t);}}
+async function fetchJson(url,options={},timeoutMs=9000){const r=await fetchWithTimeout(url,options,timeoutMs);if(!r.ok)throw new Error(`HTTP ${r.status} for ${url}`);return r.json();}
+async function fetchText(url,options={},timeoutMs=9000){const r=await fetchWithTimeout(url,options,timeoutMs);if(!r.ok)throw new Error(`HTTP ${r.status} for ${url}`);return r.text();}
+const iso=d=>new Date(d).toISOString();
+const num=v=>{const n=Number(v);return Number.isFinite(n)?n:null;};
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const parseTime=v=>{const n=Date.parse(v||"");return Number.isFinite(n)?n:null;};
 
-function jsonResponse(body,status=200,extra={}){
-  return new Response(JSON.stringify(body),{status,headers:{...corsHeaders(),...extra}});
-}
+function categoryFor(name){const s=String(name||"").toLowerCase();if(/fomc|interest rate|fed funds|federal reserve|powell|beige book|jackson hole|fed chair|fed governor|fed president|fed official|fed policymaker|fed minutes|fed meeting|fed rate|fed's /.test(s))return"rates";if(/cpi|pce|ppi|inflation|price index|prices paid|prices received|personal consumption expenditures price/.test(s))return"inflation";if(/payroll|employment|unemployment|jobless|jolts|job openings|labor|labour|wage|earnings|employment cost/.test(s))return"labour";if(/gdp|growth rate|gross domestic product/.test(s))return"growth";if(/retail|consumer confidence|consumer sentiment|consumer expectations|personal spending|personal income|consumer spending/.test(s))return"consumer";if(/housing|home sales|building permits|mortgage|construction|housing starts/.test(s))return"housing";if(/pmi|ism|industrial production|factory|durable|capital goods|business|manufacturing|services|philadelphia fed|dallas fed|richmond fed|kansas city fed|empire state/.test(s))return"business";if(/trade|export|import|current account/.test(s))return"trade";if(/treasury|auction|budget|government/.test(s))return"government";return"other";}
+function isLongMemory(text,cat){return cat==="rates"||/\bcpi\b|consumer price index|\bpce\b|inflation/.test(String(text||"").toLowerCase());}
+function headlineImpact(h){const s=`${h.title||""} ${h.officialText||""}`.toLowerCase();if(isLongMemory(s,categoryFor(s)))return"high";if(/non.?farm|payroll|unemployment|average hourly earnings|\bppi\b|\bgdp\b|retail sales|\bism\b|\bpmi\b|jobless claims|jolts|tariff|sanction|war|attack|geopolit|recession|financial stress|banking stress|treasury yields?|dollar index|dxy/.test(s))return"medium";return"low";}
+function releaseCadence(events,now=Date.now()){let nearest=Infinity;for(const e of events||[]){const t=parseTime(e.dateUtc);if(t===null||!["MEDIUM","HIGH"].includes(String(e.volatility||"").toUpperCase()))continue;const d=(t-now)/60000;if(d>=-5&&d<=2)return{mode:"release-burst",cacheSeconds:3,clientPollSeconds:5,nearestMinutes:+d.toFixed(1)};if(d>=0)nearest=Math.min(nearest,d);}if(nearest<=15)return{mode:"release-watch",cacheSeconds:6,clientPollSeconds:8,nearestMinutes:+nearest.toFixed(1)};if(nearest<=60)return{mode:"pre-release",cacheSeconds:12,clientPollSeconds:15,nearestMinutes:+nearest.toFixed(1)};if(nearest<=180)return{mode:"near-event",cacheSeconds:20,clientPollSeconds:20,nearestMinutes:+nearest.toFixed(1)};return{mode:"normal",cacheSeconds:30,clientPollSeconds:30,nearestMinutes:null};}
 
-async function fetchWithTimeout(url,options={},timeoutMs=8000){
-  const controller=new AbortController();
-  const timer=setTimeout(()=>controller.abort(),timeoutMs);
-  try{
-    return await fetch(url,{...options,signal:controller.signal,headers:{"User-Agent":UA,"Accept":"*/*",...(options.headers||{})}});
-  }finally{clearTimeout(timer);}
-}
-
-async function fetchJson(url,options={}){
-  const r=await fetchWithTimeout(url,options);
-  if(!r.ok)throw new Error(`HTTP ${r.status} for ${url}`);
-  return r.json();
-}
-
-async function fetchText(url,options={}){
-  const r=await fetchWithTimeout(url,options);
-  if(!r.ok)throw new Error(`HTTP ${r.status} for ${url}`);
-  return r.text();
-}
-
-function isoNoMs(d){return new Date(d).toISOString().replace(/\.\d{3}Z$/,"Z");}
-function num(v){const n=Number(v);return Number.isFinite(n)?n:null;}
-
-function categoryFor(name){
-  const s=String(name||"").toLowerCase();
-  if(/fomc|interest rate|fed funds|federal reserve|powell|beige book|jackson hole|fed chair|fed governor|fed president|fed official|fed policymaker|fed minutes|fed meeting|fed rate|fed's /.test(s))return"rates";
-  if(/cpi|pce|ppi|inflation|price index|prices paid|prices received|personal consumption expenditures price/.test(s))return"inflation";
-  if(/payroll|employment|unemployment|jobless|jolts|job openings|labor|labour|wage|earnings|employment cost/.test(s))return"labour";
-  if(/gdp|growth rate|gross domestic product/.test(s))return"growth";
-  if(/retail|consumer confidence|consumer sentiment|consumer expectations|personal spending|personal income|consumer spending/.test(s))return"consumer";
-  if(/housing|home sales|building permits|mortgage|construction|housing starts/.test(s))return"housing";
-  if(/pmi|ism|industrial production|factory|durable|capital goods|business|manufacturing|services|philadelphia fed|dallas fed|richmond fed|kansas city fed|empire state/.test(s))return"business";
-  if(/trade|export|import|current account/.test(s))return"trade";
-  if(/treasury|auction|budget|government/.test(s))return"government";
-  return"other";
-}
-
-function releaseCadence(events,now=new Date()){
-  let nearest=Infinity;
-  for(const e of events||[]){
-    const t=Date.parse(e.dateUtc||"");
-    if(!Number.isFinite(t))continue;
-    const important=String(e.volatility||"").toUpperCase()==="HIGH"||(e.category==="rates"&&!/LOW|NONE/.test(String(e.volatility||"").toUpperCase()));
-    if(!important)continue;
-    const delta=(t-now.getTime())/60000;
-    if(delta>=-5&&delta<=2)return{mode:"release-burst",cacheSeconds:4,clientPollSeconds:5,nearestMinutes:Math.round(delta*10)/10};
-    nearest=Math.min(nearest,Math.abs(delta));
-  }
-  if(nearest<=15)return{mode:"release-watch",cacheSeconds:8,clientPollSeconds:10,nearestMinutes:Math.round(nearest*10)/10};
-  if(nearest<=60)return{mode:"pre-release",cacheSeconds:15,clientPollSeconds:20,nearestMinutes:Math.round(nearest*10)/10};
-  if(nearest<=180)return{mode:"near-event",cacheSeconds:30,clientPollSeconds:30,nearestMinutes:Math.round(nearest*10)/10};
-  return{mode:"normal",cacheSeconds:60,clientPollSeconds:60,nearestMinutes:null};
-}
-
-async function fetchCalendar(now){
-  const start=new Date(now.getTime()-2*DAY),end=new Date(now.getTime()+8*DAY);
-  const qs=new URLSearchParams();
-  ["NONE","LOW","MEDIUM","HIGH"].forEach(v=>qs.append("volatilities",v));
-  qs.append("countries","US");
-  const url=`https://calendar-api.fxstreet.com/en/api/v1/eventDates/${isoNoMs(start)}/${isoNoMs(end)}?${qs}`;
-  const raw=await fetchJson(url,{headers:{Accept:"application/json",Origin:"https://www.fxstreet.com",Referer:"https://www.fxstreet.com/"}});
-  if(!Array.isArray(raw))throw new Error("FXStreet response was not an array");
-  return raw.filter(e=>String(e.countryCode||"").toUpperCase()==="US").map(e=>{
-    const name=e.name||"US economic event";
-    return {id:String(e.id||e.eventId||`${name}-${e.dateUtc||""}`).slice(0,180),dateUtc:e.dateUtc||null,periodDateUtc:e.periodDateUtc||null,name,actual:e.actual??null,revised:e.revised??null,consensus:e.consensus??null,previous:e.previous??null,unit:e.unit??null,volatility:String(e.volatility||"NONE").toUpperCase(),isSpeech:Boolean(e.isSpeech),isTentative:Boolean(e.isTentative),category:categoryFor(name),source:"FXStreet public calendar"};
-  }).sort((a,b)=>String(a.dateUtc||"").localeCompare(String(b.dateUtc||"")));
-}
+async function fetchCalendar(nowMs){const start=new Date(nowMs-90*DAY),end=new Date(nowMs+8*DAY),qs=new URLSearchParams();["MEDIUM","HIGH"].forEach(v=>qs.append("volatilities",v));qs.append("countries","US");const url=`https://calendar-api.fxstreet.com/en/api/v1/eventDates/${iso(start)}/${iso(end)}?${qs}`;const raw=await fetchJson(url,{headers:{Accept:"application/json",Origin:"https://www.fxstreet.com",Referer:"https://www.fxstreet.com/"}});if(!Array.isArray(raw))throw new Error("FXStreet response was not an array");return raw.filter(e=>String(e.countryCode||"").toUpperCase()==="US").map(e=>{const name=e.name||"US economic event",cat=categoryFor(name);return{id:String(e.id||e.eventId||`${name}-${e.dateUtc||""}`).slice(0,180),dateUtc:e.dateUtc||null,periodDateUtc:e.periodDateUtc||null,name,actual:e.actual??null,revised:e.revised??null,consensus:e.consensus??null,previous:e.previous??null,unit:e.unit??null,volatility:String(e.volatility||"MEDIUM").toUpperCase(),isSpeech:Boolean(e.isSpeech),isTentative:Boolean(e.isTentative),category:cat,source:"FXStreet public calendar",memoryWindowDays:isLongMemory(name,cat)?90:7,impactPolicy:"high-or-medium-only"};}).filter(e=>{const t=parseTime(e.dateUtc);if(t===null)return false;const age=(nowMs-t)/DAY;return age<=7||isLongMemory(e.name,e.category)||t>nowMs;}).sort((a,b)=>String(a.dateUtc||"").localeCompare(String(b.dateUtc||"")));}
 
 function decodeXml(s){return String(s||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/<[^>]+>/g,"").replace(/\s+/g," ").trim();}
-function xmlTag(block,tag){const m=block.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`,`i`));return m?decodeXml(m[1]):"";}
-function parseRss(xml,source,category,limit=12){
-  const items=[];const blocks=String(xml||"").match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>/gi)||[];
-  for(const block of blocks.slice(0,limit)){
-    const title=xmlTag(block,"title");if(!title)continue;
-    const link=xmlTag(block,"link"),pub=xmlTag(block,"pubDate")||xmlTag(block,"date"),parsed=pub?Date.parse(pub):NaN;
-    items.push({title,url:link,publishedUtc:Number.isNaN(parsed)?null:isoNoMs(new Date(parsed)),source,category:category==="auto"?categoryFor(title):category});
-  }
-  return items;
-}
-async function rssItems(url,source,category,limit=12){return parseRss(await fetchText(url),source,category,limit);}
+function xmlTag(block,tag){const m=block.match(new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`,"i"));return m?decodeXml(m[1]):"";}
+function parseRss(xml,source,category,limit=30){const out=[],blocks=String(xml||"").match(/<item(?:\s[^>]*)?>[\s\S]*?<\/item>/gi)||[];for(const block of blocks.slice(0,limit)){const title=xmlTag(block,"title");if(!title)continue;const link=xmlTag(block,"link"),pub=xmlTag(block,"pubDate")||xmlTag(block,"date"),pt=parseTime(pub);out.push({title,url:link,publishedUtc:pt===null?null:iso(pt),source,category:category==="auto"?categoryFor(title):category});}return out;}
+async function rssItems(url,source,category,limit=30){return parseRss(await fetchText(url),source,category,limit);}
 function googleNewsUrl(query){return `https://news.google.com/rss/search?${new URLSearchParams({q:query,hl:"en-US",gl:"US",ceid:"US:en"})}`;}
+async function fetchHeadlines(nowMs){const feeds=[["https://www.federalreserve.gov/feeds/press_monetary.xml","Federal Reserve","rates",30],["https://www.federalreserve.gov/feeds/speeches_and_testimony.xml","Federal Reserve","rates",30],["https://www.bls.gov/feed/bls_latest.rss","U.S. Bureau of Labor Statistics","auto",30],[googleNewsUrl("(Federal Reserve OR FOMC OR Powell OR US Treasury) (rates OR inflation OR jobs OR yields OR dollar) when:7d"),"Google News aggregation","auto",30],[googleNewsUrl("(US inflation OR US jobs OR US GDP OR US retail sales OR US PMI OR US ISM OR jobless claims OR JOLTS) when:7d"),"Google News aggregation","auto",30],[googleNewsUrl("(gold OR XAUUSD OR US dollar OR DXY OR Treasury yields) (tariff OR war OR attack OR sanctions OR geopolitics OR recession OR crisis OR oil OR inflation OR Fed) when:7d"),"Google News aggregation","auto",30],[googleNewsUrl("(Federal Reserve OR FOMC OR CPI OR inflation) when:90d"),"Google News aggregation","auto",30]];const settled=await Promise.allSettled(feeds.map(f=>rssItems(...f))),items=[],errors=[];settled.forEach((r,i)=>r.status==="fulfilled"?items.push(...r.value):errors.push(`Headline feed ${i+1}: ${String(r.reason?.message||r.reason)}`));const seen=new Set(),out=[];for(const h of items){const key=(h.url||h.title||"").toLowerCase().replace(/\W+/g,"").slice(0,180);if(!key||seen.has(key))continue;seen.add(key);h.category=h.category||categoryFor(h.title);h.impact=headlineImpact(h);if(h.impact==="low")continue;const t=parseTime(h.publishedUtc),age=t===null?999:(nowMs-t)/DAY;if(age>7&&!isLongMemory(h.title,h.category))continue;if(age>90)continue;out.push(h);}out.sort((a,b)=>String(b.publishedUtc||"").localeCompare(String(a.publishedUtc||"")));return{items:out.slice(0,80),errors};}
 
-async function fetchHeadlinesRaw(){
-  const feeds=[
-    ["https://www.federalreserve.gov/feeds/press_monetary.xml","Federal Reserve","rates",12],
-    ["https://www.federalreserve.gov/feeds/speeches_and_testimony.xml","Federal Reserve","rates",12],
-    ["https://www.bls.gov/feed/bls_latest.rss","U.S. Bureau of Labor Statistics","auto",12],
-    [googleNewsUrl('(\"Federal Reserve\" OR FOMC OR Powell OR \"US Treasury\") (rates OR inflation OR jobs OR debt OR deficit OR yields) when:2d'),"Google News aggregation","auto",12],
-    [googleNewsUrl('(\"US inflation\" OR \"US jobs\" OR \"US GDP\" OR \"US retail sales\" OR \"US PMI\" OR \"US ISM\" OR \"US consumer confidence\" OR \"US housing market\" OR \"US home sales\") when:2d'),"Google News aggregation","auto",14],
-    [googleNewsUrl('(\"White House\" OR Trump OR \"US Treasury\") (tariff OR sanctions OR trade OR oil OR debt OR deficit) when:2d'),"Google News aggregation","other",10],
-    [googleNewsUrl('(gold OR XAUUSD OR \"US dollar\" OR DXY) (tariff OR war OR attack OR sanctions OR geopolitics OR recession OR crisis OR oil) when:2d'),"Google News aggregation","other",12]
-  ];
-  const settled=await Promise.allSettled(feeds.map(f=>rssItems(...f))),items=[],errors=[];
-  settled.forEach((r,i)=>r.status==="fulfilled"?items.push(...r.value):errors.push(`Headline feed ${i+1}: ${String(r.reason?.message||r.reason)}`));
-  const seen=new Set(),unique=[];
-  for(const h of items){const key=h.title.toLowerCase().replace(/\W+/g,"").slice(0,140);if(!key||seen.has(key))continue;seen.add(key);unique.push(h);}
-  unique.sort((a,b)=>String(b.publishedUtc||"").localeCompare(String(a.publishedUtc||"")));
-  return{items:unique.slice(0,36),errors,queriedAt:isoNoMs(new Date())};
-}
+async function fetchBaseline(){try{return await fetchJson(`${GITHUB_SNAPSHOT}?worker=${Date.now()}`,{headers:{"Cache-Control":"no-cache"}},7000);}catch{return{};}}
+function mergeMetadata(events,baseline){const map=new Map((baseline.events||[]).map(e=>[`${e.id}|${e.dateUtc}`,e]));return events.map(e=>{const old=map.get(`${e.id}|${e.dateUtc}`);return old?{...e,...(old.officialVerification!==undefined?{officialVerification:old.officialVerification}:{}),...(old.actualSource!==undefined?{actualSource:old.actualSource}:{})}:e;});}
+function mergeHeadlineMetadata(headlines,baseline,nowMs){const map=new Map((baseline.headlines||[]).map(h=>[(h.url||h.title||"").toLowerCase(),h])),seen=new Set(),out=[];for(const h of headlines){const k=(h.url||h.title||"").toLowerCase(),old=map.get(k),v=old?{...h,...(["primarySource","officialText","officialTextSource","officialDocumentUrl"].reduce((a,x)=>(old[x]!==undefined&&(a[x]=old[x]),a),{}))}:h;seen.add(k);out.push(v);}for(const h of baseline.headlines||[]){const k=(h.url||h.title||"").toLowerCase();if(seen.has(k)||headlineImpact(h)==="low")continue;const t=parseTime(h.publishedUtc),age=t===null?999:(nowMs-t)/DAY,cat=h.category||categoryFor(h.title);if(age<=7||(age<=90&&isLongMemory(h.title,cat)))out.push(h);}out.sort((a,b)=>String(b.publishedUtc||"").localeCompare(String(a.publishedUtc||"")));return out.slice(0,100);}
 
-async function fetchHeadlinesCached(cache){
-  const key=new Request(HEADLINE_CACHE_KEY);const hit=await cache.match(key);
-  if(hit){try{return await hit.json();}catch{}}
-  const value=await fetchHeadlinesRaw();
-  await cache.put(key,jsonResponse(value,200,{"Cache-Control":"public, max-age=60"}));
-  return value;
-}
+function oandaHost(env){return String(env.OANDA_ENV||"practice").toLowerCase()==="live"?"https://api-fxtrade.oanda.com":"https://api-fxpractice.oanda.com";}
+function authHeaders(env){return{Authorization:`Bearer ${env.OANDA_API_TOKEN}`,Accept:"application/json"};}
+function midPrice(p){const bid=num(p?.closeoutBid??p?.bids?.[0]?.price),ask=num(p?.closeoutAsk??p?.asks?.[0]?.price);return bid!==null&&ask!==null?(bid+ask)/2:null;}
+function dxyFrom(p){const e=p.EUR_USD,j=p.USD_JPY,g=p.GBP_USD,c=p.USD_CAD,s=p.USD_SEK,f=p.USD_CHF;if([e,j,g,c,s,f].some(v=>!Number.isFinite(v)||v<=0))return null;return 50.14348112*Math.pow(e,-.576)*Math.pow(j,.136)*Math.pow(g,-.119)*Math.pow(c,.091)*Math.pow(s,.042)*Math.pow(f,.036);}
+async function fetchOandaPricing(env,previous={}){if(!env.OANDA_API_TOKEN||!env.OANDA_ACCOUNT_ID)throw new Error("OANDA secrets not configured");const instruments=["XAU_USD","EUR_USD","USD_JPY","GBP_USD","USD_CAD","USD_SEK","USD_CHF"],url=`${oandaHost(env)}/v3/accounts/${encodeURIComponent(env.OANDA_ACCOUNT_ID)}/pricing?instruments=${instruments.join("%2C")}`,doc=await fetchJson(url,{headers:authHeaders(env)},6500),prices={};for(const p of doc.prices||[]){const m=midPrice(p);if(m!==null)prices[p.instrument]=m;}const observedAt=iso(Date.now()),market={};if(Number.isFinite(prices.XAU_USD)){const prev=num(previous?.xau?.price),ch=prev?((prices.XAU_USD-prev)/prev)*100:null;market.xau={label:"Gold / XAUUSD",symbol:"XAU_USD",name:"Gold / XAUUSD",price:+prices.XAU_USD.toFixed(3),previous:prev,changePct:ch===null?null:+ch.toFixed(4),date:observedAt.slice(0,10),time:observedAt.slice(11,19),kind:"gold",source:"OANDA v20 live pricing",live:true,observedAt};}const dxy=dxyFrom(prices);if(Number.isFinite(dxy)){const prev=num(previous?.dxy?.price),ch=prev?((dxy-prev)/prev)*100:null;market.dxy={label:"Synthetic US Dollar Index",symbol:"DXY-synthetic",name:"Synthetic DXY from OANDA FX pairs",price:+dxy.toFixed(4),previous:prev,changePct:ch===null?null:+ch.toFixed(4),kind:"index",source:"OANDA v20 live FX pricing",live:true,observedAt};}return{market,prices,observedAt};}
+function parseCandle(c){const m=c?.mid;if(!m||c.complete===false)return null;const o=num(m.o),h=num(m.h),l=num(m.l),cl=num(m.c);if([o,h,l,cl].some(v=>v===null))return null;return{time:c.time,open:o,high:h,low:l,close:cl,volume:num(c.volume)||0};}
+async function fetchCandles(env,granularity,count){const url=`${oandaHost(env)}/v3/instruments/XAU_USD/candles?price=M&granularity=${granularity}&count=${count}`;const doc=await fetchJson(url,{headers:authHeaders(env)},7500);return (doc.candles||[]).map(parseCandle).filter(Boolean);}
+function atr(candles,n=14){if(candles.length<2)return null;const trs=[];for(let i=1;i<candles.length;i++){const c=candles[i],p=candles[i-1];trs.push(Math.max(c.high-c.low,Math.abs(c.high-p.close),Math.abs(c.low-p.close)));}const a=trs.slice(-n);return a.length?a.reduce((x,y)=>x+y,0)/a.length:null;}
+function swings(c,span=2){const highs=[],lows=[];for(let i=span;i<c.length-span;i++){let hi=true,lo=true;for(let j=i-span;j<=i+span;j++){if(j===i)continue;if(c[j].high>=c[i].high)hi=false;if(c[j].low<=c[i].low)lo=false;}if(hi)highs.push({index:i,time:c[i].time,price:c[i].high});if(lo)lows.push({index:i,time:c[i].time,price:c[i].low});}return{highs,lows};}
+function structure(c){const s=swings(c),hs=s.highs.slice(-3),ls=s.lows.slice(-3);let state="mixed";if(hs.length>=2&&ls.length>=2){const hh=hs.at(-1).price>hs.at(-2).price,hl=ls.at(-1).price>ls.at(-2).price,lh=hs.at(-1).price<hs.at(-2).price,ll=ls.at(-1).price<ls.at(-2).price;if(hh&&hl)state="bullish";else if(lh&&ll)state="bearish";}return{state,swingHighs:hs,swingLows:ls,lastClose:c.at(-1)?.close??null};}
+function detectOrderBlocks(c){const A=atr(c),out=[];if(!A||c.length<30)return out;const start=Math.max(12,c.length-140);for(let i=start;i<c.length-1;i++){const x=c[i],body=Math.abs(x.close-x.open),prior=c.slice(i-10,i),priorHigh=Math.max(...prior.map(z=>z.high)),priorLow=Math.min(...prior.map(z=>z.low));let side=null;if(x.close>priorHigh&&x.close>x.open&&body>=A*.9)side="bullish";else if(x.close<priorLow&&x.close<x.open&&body>=A*.9)side="bearish";if(!side)continue;let j=null;for(let k=i-1;k>=Math.max(0,i-5);k--){if(side==="bullish"&&c[k].close<c[k].open){j=k;break;}if(side==="bearish"&&c[k].close>c[k].open){j=k;break;}}if(j===null)continue;const ob=c[j],zoneLow=ob.low,zoneHigh=ob.high,mid=(zoneLow+zoneHigh)/2;let touches=0,invalid=false;for(let k=i+1;k<c.length;k++){const q=c[k];if(side==="bullish"&&q.close<zoneLow){invalid=true;break;}if(side==="bearish"&&q.close>zoneHigh){invalid=true;break;}if(q.low<=zoneHigh&&q.high>=zoneLow)touches++;}if(invalid)continue;const fvg=side==="bullish"&&i>=2?c[i].low>c[i-2].high:side==="bearish"&&i>=2?c[i].high<c[i-2].low:false;const sweep=side==="bullish"?ob.low<Math.min(...c.slice(Math.max(0,j-6),j).map(z=>z.low)):ob.high>Math.max(...c.slice(Math.max(0,j-6),j).map(z=>z.high));const range=c.slice(Math.max(0,j-50),j+1),rh=Math.max(...range.map(z=>z.high)),rl=Math.min(...range.map(z=>z.low)),discount=mid<=(rl+rh)/2,pd=side==="bullish"?discount:!discount;const displacement=Math.min(20,Math.max(0,(body/A-.9)*12)),fresh=Math.max(0,18-touches*8),quality=Math.round(clamp(48+displacement+(fvg?12:0)+(sweep?10:0)+(pd?8:0)+fresh,0,100));out.push({side,time:ob.time,zoneLow:+zoneLow.toFixed(3),zoneHigh:+zoneHigh.toFixed(3),midpoint:+mid.toFixed(3),status:touches===0?"untouched":"tested",touches,quality,fairValueGap:fvg,liquiditySweep:sweep,premiumDiscountAligned:pd,displacementAtr:+(body/A).toFixed(2),planning:{limitReference:+mid.toFixed(3),invalidationReference:+((side==="bullish"?zoneLow-A*.15:zoneHigh+A*.15)).toFixed(3)}});}return out.sort((a,b)=>b.quality-a.quality||String(b.time).localeCompare(String(a.time)));}
+function addTargets(ob,side,st){if(!ob)return null;const entry=ob.planning.limitReference,stop=ob.planning.invalidationReference,risk=Math.abs(entry-stop),pool=side==="bullish"?st.swingHighs:st.swingLows,targets=(pool||[]).map(x=>x.price).filter(p=>side==="bullish"?p>entry:p<entry).map(p=>({price:p,rr:Math.abs(p-entry)/risk})).filter(x=>x.rr>=1.8&&x.rr<=6).sort((a,b)=>a.rr-b.rr);return{...ob,planning:{...ob.planning,tp1Reference:targets[0]?.price??null,tp2Reference:targets[1]?.price??targets[0]?.price??null,rrTp1:targets[0]?+targets[0].rr.toFixed(2):null,rrTp2:(targets[1]||targets[0])?+(targets[1]||targets[0]).rr.toFixed(2):null}};}
+async function buildTechnical(env,pricing){const [h4,d1]=await Promise.all([fetchCandles(env,"H4",340),fetchCandles(env,"D",180)]),s4=structure(h4),sd=structure(d1),A=atr(h4),obs=detectOrderBlocks(h4),bull=addTargets(obs.find(x=>x.side==="bullish"&&x.quality>=75&&x.status==="untouched")||null,"bullish",s4),bear=addTargets(obs.find(x=>x.side==="bearish"&&x.quality>=75&&x.status==="untouched")||null,"bearish",s4);return{status:"live",source:"OANDA v20 live candles",observedAt:pricing.observedAt,currentPrice:pricing.market.xau?.price??null,atr14:A?+A.toFixed(3):null,structure4h:s4,structure1d:sd,preferredBullishOrderBlock:bull,preferredBearishOrderBlock:bear,orderBlocks:obs.slice(0,12),candles4h:h4.slice(-160),candles1d:d1.slice(-100)};}
 
-async function baselineSnapshot(cache){
-  const key=new Request(BASELINE_CACHE_KEY);const hit=await cache.match(key);
-  if(hit){try{return await hit.json();}catch{}}
-  try{
-    const value=await fetchJson(`${GITHUB_SNAPSHOT}?worker=${Date.now()}`,{headers:{"Cache-Control":"no-cache"}});
-    const baseline=value&&typeof value==="object"?value:{};
-    await cache.put(key,jsonResponse(baseline,200,{"Cache-Control":"public, max-age=60"}));
-    return baseline;
-  }catch{return{};}
-}
+const W={rates:45,inflation:30,labour:24,growth:18,consumer:12,business:10,trade:8,housing:7,government:6,other:5};
+function profile(name,cons){const s=name.toLowerCase();if(/core.*cpi|cpi.*core/.test(s))return[.15,1.22,false];if(/\bcpi\b|consumer price index/.test(s))return[.2,1.18,false];if(/core.*pce|pce.*core/.test(s))return[.15,1.18,false];if(/\bpce\b.*price/.test(s))return[.18,1.14,false];if(/non.?farm payroll|payrolls/.test(s))return[75,1.18,false];if(/unemployment rate/.test(s))return[.15,1.14,true];if(/average hourly earnings|wage growth/.test(s))return[.18,1.08,false];if(/jobless claims/.test(s))return[15,.92,true];if(/\bgdp\b/.test(s))return[.5,1.06,false];if(/retail sales/.test(s))return[.4,1.02,false];if(/\bism\b/.test(s))return[1.5,1.06,false];if(/\bpmi\b/.test(s))return[1.6,.94,false];return[Math.max(Math.abs(cons||0)*.05,(Math.abs(cons||0)<2?.15:1)),1,/unemployment|jobless|trade deficit/.test(s)];}
+function decay(ageH,seg){if(seg==="fresh")return .5**(ageH/24);if(seg==="weekly")return .72*.5**((ageH-48)/72);if(seg==="regime")return .28*.5**(((ageH-168)/24)/28);return 0;}
+function segment(ageH,long){if(ageH<=48)return"fresh";if(ageH<=168)return"weekly";if(long&&ageH<=2160)return"regime";return null;}
+function eventEvidence(e,nowMs){if(e.isSpeech||!["MEDIUM","HIGH"].includes(String(e.volatility||"").toUpperCase()))return null;const a=num(e.actual),c=num(e.consensus),t=parseTime(e.dateUtc);if(a===null||c===null||t===null||t>nowMs)return null;const age=(nowMs-t)/HOUR,cat=e.category||categoryFor(e.name),seg=segment(age,isLongMemory(e.name,cat));if(!seg)return null;const [scale,mult,inv]=profile(String(e.name||""),c);let z=(a-c)/scale;if(inv)z*=-1;let usd=Math.tanh(z*.78);const p=num(e.previous),r=num(e.revised);if(p!==null&&r!==null&&p!==r){let rz=(r-p)/scale;if(inv)rz*=-1;usd=(usd+.28*Math.tanh(rz*.72))/1.28;}const score=-usd*(W[cat]||5)*(String(e.volatility).toUpperCase()==="HIGH"?1:.62)*mult*decay(age,seg);return Math.abs(score)>=.12?{segment:seg,category:cat,score}:null;}
+function headlineDirection(h){const s=`${h.title||""} ${h.officialText||""}`.toLowerCase();if(/higher for longer|hawkish|rate hike|rates?.*higher|no rush.*cut|delay.*rate cut|inflation.*stubborn|inflation.*elevated|inflation.*hot|inflation.*accelerat/.test(s))return[-1,1.15];if(/dovish|rate cut|cut rates|easing|lower rates|disinflation|inflation.*cool|inflation.*ease|inflation.*slower/.test(s))return[1,1.1];if(/payroll|jobs|employment/.test(s)&&/weak|slow|fall|miss|cool|declin/.test(s))return[1,.78];if(/payroll|jobs|employment/.test(s)&&/strong|surge|beat|accelerat|robust/.test(s))return[-1,.78];if(/war|attack|missile|military escalation|geopolit|sanctions escalation|crisis|recession|banking stress/.test(s))return[1,.65];return null;}
+function headlineEvidence(h,nowMs){if(headlineImpact(h)==="low")return null;const d=headlineDirection(h),t=parseTime(h.publishedUtc);if(!d||t===null||t>nowMs)return null;const age=(nowMs-t)/HOUR,cat=h.category||categoryFor(h.title),seg=segment(age,isLongMemory(h.title,cat));if(!seg)return null;const official=/Federal Reserve|Bureau of Labor Statistics|BLS|BEA|Census|Department of Labor|Treasury/.test(String(h.source||""))||h.primarySource,score=d[0]*Math.min(13,(W[cat]||5)*.34)*d[1]*(official?1:.46)*(headlineImpact(h)==="high"?1:.68)*decay(age,seg);return Math.abs(score)>=.08?{segment:seg,category:cat,score}:null;}
+function layerScore(items,cap){const by={};for(const x of items)(by[x.category]??=[]).push(x);let total=0;for(const g of Object.values(by)){const pos=g.filter(x=>x.score>0).reduce((a,x)=>a+x.score,0),neg=g.filter(x=>x.score<0).reduce((a,x)=>a+Math.abs(x.score),0),sum=pos+neg,net=pos-neg,agr=sum?Math.abs(net)/sum:0;total+=clamp(net*(.52+.48*agr),-cap*.58,cap*.58);}return clamp(total,-cap,cap);}
+function marketScore(m){let s=0,u=0;const add=(v,scale,w,invert=true)=>{const x=num(v);if(x===null)return;u++;s+=(invert?-1:1)*clamp(x/scale,-1,1)*w;};add(m.dxy?.changePct,.55,7,true);add(m.real10y?.deltaBps,9,6,true);add(m.us2y?.deltaBps,11,4,true);add(m.us10y?.deltaBps,11,3,true);add(m.xau?.changePct,.7,5,false);return[clamp(s,-18,18),u];}
+function macroState(events,headlines,market,nowMs){const ev=[];for(const e of events||[]){const x=eventEvidence(e,nowMs);if(x)ev.push(x);}for(const h of headlines||[]){const x=headlineEvidence(h,nowMs);if(x)ev.push(x);}const fresh=layerScore(ev.filter(x=>x.segment==="fresh"),42),weekly=layerScore(ev.filter(x=>x.segment==="weekly"),24),regime=layerScore(ev.filter(x=>x.segment==="regime"),18),[mk,used]=marketScore(market),macro=fresh+weekly+regime+mk,vals=[fresh,weekly,regime,mk],bull=vals.filter(v=>v>3).length,bear=vals.filter(v=>v<-3).length,den=vals.reduce((a,v)=>a+Math.abs(v),0),agreement=den?Math.abs(macro)/den:0;return{macro,fresh,weekly,regime,market:mk,marketInputs:used,bull,bear,agreement};}
+function nextEvent(events,nowMs){const a=(events||[]).map(e=>[parseTime(e.dateUtc),e]).filter(x=>x[0]!==null&&x[0]>nowMs&&["MEDIUM","HIGH"].includes(String(x[1].volatility||"").toUpperCase())).sort((a,b)=>a[0]-b[0]);return a[0]||null;}
+function makeSignal(side,data,nowMs){const m=macroState(data.events,data.headlines,data.market,nowMs),t=data.technical||{},h4=String(t.structure4h?.state||"unavailable").toLowerCase(),d1=String(t.structure1d?.state||"unavailable").toLowerCase(),bull=side==="buy",blockers=[],observed=parseTime(t.observedAt),age=observed===null?9999:(nowMs-observed)/60000;if(t.status!=="live")blockers.push("OANDA 4H technical feed is not live.");if(age>10)blockers.push(`OANDA market snapshot is ${Math.floor(age)} minutes old.`);if(h4!==(bull?"bullish":"bearish"))blockers.push(`4H structure is ${h4}, not ${bull?"bullish":"bearish"}.`);if(d1===(bull?"bearish":"bullish"))blockers.push(`Daily structure is ${d1}.`);if(bull?m.macro<10:m.macro>-10)blockers.push(`Macro gold score is not ${bull?"bullish":"bearish"} enough (${m.macro>=0?"+":""}${m.macro.toFixed(1)}).`);if((bull?m.bull:m.bear)<2)blockers.push(`Fewer than two independent macro layers are ${bull?"bullish":"bearish"}.`);if(m.agreement<.52)blockers.push(`Macro agreement is too low (${Math.round(m.agreement*100)}%).`);const nxt=nextEvent(data.events,nowMs),mins=nxt?(nxt[0]-nowMs)/60000:null;if(mins!==null&&mins<=90)blockers.push(`${nxt[1].name||"US event"} is due in ${Math.max(0,Math.floor(mins))} minutes.`);const ob=bull?t.preferredBullishOrderBlock:t.preferredBearishOrderBlock,px=num(t.currentPrice),A=num(t.atr14);if(!ob)blockers.push(`No preferred ${bull?"bullish":"bearish"} 4H order block is available.`);let entry=null,stop=null,tp1=null,tp2=null,rr1=null,rr2=null,q=0;if(ob){entry=num(ob.planning?.limitReference??ob.midpoint);stop=num(ob.planning?.invalidationReference);tp1=num(ob.planning?.tp1Reference);tp2=num(ob.planning?.tp2Reference);rr1=num(ob.planning?.rrTp1);rr2=num(ob.planning?.rrTp2);q=num(ob.quality)||0;if(!["untouched","fresh"].includes(String(ob.status||"").toLowerCase()))blockers.push(`Order block is ${ob.status||"not fresh"}.`);if(q<75)blockers.push(`Order-block quality is only ${q}/100.`);const conf=[ob.fairValueGap,ob.liquiditySweep,ob.premiumDiscountAligned].filter(Boolean).length;if(conf<2)blockers.push("Order block has fewer than two technical confluences.");if(px===null)blockers.push("Current XAUUSD price is unavailable.");else if(entry!==null&&A){const dist=bull?(px-entry)/A:(entry-px)/A;if(dist<0)blockers.push(`Price is already beyond the ${bull?"buy":"sell"} zone.`);if(dist>2)blockers.push(`${bull?"Buy":"Sell"} zone is ${dist.toFixed(1)} ATR from current price; too far away.`);}if(entry===null||stop===null||(bull?stop>=entry:stop<=entry))blockers.push("A valid structural stop reference is unavailable.");if(tp1===null||rr1===null||rr1<1.8||rr1>6)blockers.push("No nearby 4H structural target offers a realistic 1.8R–6R window.");}const active=blockers.length===0,confidence=active?Math.round(clamp(45+Math.abs(m.macro)*.9+(q-75)*.7+Math.max(0,(m.agreement-.5)*25),0,95)):0;return{side,status:active?"candidate":"no-signal",action:active?(bull?"BUY LIMIT CANDIDATE":"SELL LIMIT CANDIDATE"):(bull?"NO BUY LIMIT SIGNAL":"NO SELL LIMIT SIGNAL"),generatedAt:iso(nowMs),marketObservedAt:t.observedAt||null,validUntil:iso(nowMs+10*60000),currentPrice:px,entryZoneLow:ob?.zoneLow??null,entryZoneHigh:ob?.zoneHigh??null,limitPrice:entry,stopLossReference:stop,tp1Reference:tp1,tp2Reference:tp2,rrTp1:rr1,rrTp2:rr2,orderBlockQuality:q||null,confidenceScore:confidence,macroScore:+m.macro.toFixed(2),macroAgreementPct:Math.round(m.agreement*100),layers:{fresh:+m.fresh.toFixed(2),weekly:+m.weekly.toFixed(2),regime:+m.regime.toFixed(2),market:+m.market.toFixed(2),bullishCount:m.bull,bearishCount:m.bear,marketInputs:m.marketInputs},nextEvent:nxt?{name:nxt[1].name,dateUtc:iso(nxt[0]),minutesAway:Math.round(mins)}:null,blockers,rulesVersion:`${side}-limit-live-v1`,notice:"Planning signal only. Refresh immediately before using a pending order."};}
 
-function mergeEventMetadata(events,baseline){
-  const map=new Map((baseline?.events||[]).map(e=>[`${e.id}|${e.dateUtc}`,e]));
-  return (events||[]).map(e=>{const old=map.get(`${e.id}|${e.dateUtc}`);if(!old)return e;const keep={};for(const k of ["officialVerification","actualSource"]){if(old[k]!==undefined)keep[k]=old[k];}return{...e,...keep};});
-}
-function headlineKey(h){return String(h?.url||h?.title||"").trim().toLowerCase();}
-function mergeHeadlineMetadata(headlines,baseline){
-  const map=new Map((baseline?.headlines||[]).map(h=>[headlineKey(h),h]));
-  return (headlines||[]).map(h=>{const old=map.get(headlineKey(h));if(!old)return h;const keep={};for(const k of ["primarySource","officialText","officialTextSource","officialDocumentUrl"]){if(old[k]!==undefined)keep[k]=old[k];}return{...h,...keep};});
-}
+async function buildLiveData(env,previous=null){const nowMs=Date.now(),baselineP=fetchBaseline(),calendarP=fetchCalendar(nowMs),headlinesP=fetchHeadlines(nowMs);const [baseline,calR,headR]=await Promise.all([baselineP,calendarP.then(value=>({ok:true,value})).catch(error=>({ok:false,error})),headlinesP.then(value=>({ok:true,value})).catch(error=>({ok:false,error}))]);const errors=[];let events=Array.isArray(baseline.events)?baseline.events:[],headlines=Array.isArray(baseline.headlines)?baseline.headlines:[];if(calR.ok)events=mergeMetadata(calR.value,baseline);else errors.push(`Calendar: ${calR.error?.message||calR.error}`);if(headR.ok){headlines=mergeHeadlineMetadata(headR.value.items,baseline,nowMs);errors.push(...headR.value.errors);}else errors.push(`Headlines: ${headR.error?.message||headR.error}`);let market={...(baseline.market||{})},technical=baseline.technical||{},oandaStatus="not-configured";try{const pricing=await fetchOandaPricing(env,previous?.market||baseline.market||{});market={...market,...pricing.market};technical=await buildTechnical(env,pricing);oandaStatus="live";}catch(e){oandaStatus="error";errors.push(`OANDA: ${e.message||e}`);}const liveBase={...baseline,generatedAt:iso(nowMs),sourceQueriedAt:iso(nowMs),collectorMode:"cloudflare-true-live",calendarStatus:calR.ok?"live":"snapshot-fallback",sourceStatus:{...(baseline.sourceStatus||{}),calendar:calR.ok?"live":"snapshot-fallback",headlines:headR.ok?"live":"snapshot-fallback",market:oandaStatus==="live"?"live":"fallback",xauProgrammatic:oandaStatus==="live"?"oanda-live":"fallback",technical4h:technical.status==="live"?"live":"fallback",worker:"true-live"},events,headlines,market,technical,errors:[...(baseline.errors||[]),...errors].slice(-15),isFallback:!(calR.ok&&headR.ok&&oandaStatus==="live")};liveBase.signals={status:technical.status==="live"?"live":"limited",generatedAt:iso(nowMs),buyLimit:makeSignal("buy",liveBase,nowMs),sellLimit:makeSignal("sell",liveBase,nowMs),policy:"Strict live 4H limit gating using fresh OANDA, current medium/high US macro/news, order blocks, event risk and realistic R:R."};const cadence=releaseCadence(events,nowMs);liveBase.worker={mode:cadence.mode,cacheSeconds:cadence.cacheSeconds,recommendedClientPollSeconds:cadence.clientPollSeconds,nearestImportantEventMinutes:cadence.nearestMinutes,oanda:oandaStatus,manualFreshSupported:true};liveBase.counts={events:events.length,headlines:headlines.length,marketFeeds:Object.keys(market).length};return liveBase;}
+async function cached(cache){const r=await cache.match(new Request(LIVE_CACHE_KEY));if(!r)return null;try{return await r.json();}catch{return null;}}
+async function liveResponse(request,env,ctx){const u=new URL(request.url),force=u.searchParams.get("fresh")==="1",cache=caches.default,old=await cached(cache);if(!force&&old){const q=parseTime(old.sourceQueriedAt||old.generatedAt),ttl=Number(old.worker?.cacheSeconds)||30;if(q!==null&&Date.now()-q<ttl*1000)return jsonResponse(old,200,{"Cache-Control":"no-store","X-Gold-Mine-Cache":"hit"});}const payload=await buildLiveData(env,old);ctx.waitUntil(cache.put(new Request(LIVE_CACHE_KEY),jsonResponse(payload,200,{"Cache-Control":"public, max-age=60"})));return jsonResponse(payload,200,{"Cache-Control":"no-store","X-Gold-Mine-Cache":"miss"});}
 
-function midPrice(p){
-  const bid=num(p?.closeoutBid??p?.bids?.[0]?.price),ask=num(p?.closeoutAsk??p?.asks?.[0]?.price);
-  return bid!==null&&ask!==null?(bid+ask)/2:null;
-}
-function pctChange(current,previous){return current!==null&&previous?((current-previous)/previous)*100:null;}
-function dxyFrom(prices){
-  const e=prices.EUR_USD,j=prices.USD_JPY,g=prices.GBP_USD,c=prices.USD_CAD,s=prices.USD_SEK,f=prices.USD_CHF;
-  if([e,j,g,c,s,f].some(v=>!Number.isFinite(v)||v<=0))return null;
-  return 50.14348112*Math.pow(e,-0.576)*Math.pow(j,0.136)*Math.pow(g,-0.119)*Math.pow(c,0.091)*Math.pow(s,0.042)*Math.pow(f,0.036);
-}
-
-async function fetchOandaMarket(env,previousMarket={}){
-  if(!env?.OANDA_API_TOKEN||!env?.OANDA_ACCOUNT_ID)return{market:{},status:"not-configured"};
-  const host=String(env.OANDA_ENV||"practice").toLowerCase()==="live"?"https://api-fxtrade.oanda.com":"https://api-fxpractice.oanda.com";
-  const instruments=["XAU_USD","EUR_USD","USD_JPY","GBP_USD","USD_CAD","USD_SEK","USD_CHF"];
-  const url=`${host}/v3/accounts/${encodeURIComponent(env.OANDA_ACCOUNT_ID)}/pricing?instruments=${instruments.join("%2C")}`;
-  const doc=await fetchJson(url,{headers:{Authorization:`Bearer ${env.OANDA_API_TOKEN}`,Accept:"application/json"}},6000);
-  const prices={};for(const p of doc?.prices||[]){const m=midPrice(p);if(m!==null)prices[p.instrument]=m;}
-  const observedAt=isoNoMs(new Date());const market={};
-  if(Number.isFinite(prices.XAU_USD)){
-    const previous=num(previousMarket?.xau?.price),changePct=pctChange(prices.XAU_USD,previous);
-    market.xau={label:"Gold / XAUUSD",symbol:"XAU_USD",name:"Gold / XAUUSD",price:Number(prices.XAU_USD.toFixed(4)),previous,changePct:changePct===null?null:Number(changePct.toFixed(4)),deltaBps:null,date:observedAt.slice(0,10),time:observedAt.slice(11,19),kind:"gold",source:"OANDA v20 account pricing",live:true,observedAt,comparisonLabel:previous?"since prior Worker sample":"live price"};
-  }
-  const dxy=dxyFrom(prices);
-  if(Number.isFinite(dxy)){
-    const previous=num(previousMarket?.dxy?.price),changePct=pctChange(dxy,previous);
-    market.dxy={label:"Synthetic US Dollar Index",symbol:"DXY-synthetic",name:"Synthetic DXY from 6 FX pairs",price:Number(dxy.toFixed(4)),previous,changePct:changePct===null?null:Number(changePct.toFixed(4)),deltaBps:null,date:observedAt.slice(0,10),time:observedAt.slice(11,19),kind:"index",source:"OANDA v20 FX pricing · DXY formula",live:true,observedAt,comparisonLabel:previous?"since prior Worker sample":"live synthetic index"};
-  }
-  return{market,status:Object.keys(market).length?"live":"connected-no-supported-quotes"};
-}
-
-async function cachedLivePayload(cache){const hit=await cache.match(new Request(LIVE_CACHE_KEY));if(!hit)return null;try{return await hit.json();}catch{return null;}}
-
-async function buildLiveData(env,cache,previousPayload=null){
-  const now=new Date();
-  const baselinePromise=baselineSnapshot(cache),calendarPromise=fetchCalendar(now),headlinesPromise=fetchHeadlinesCached(cache);
-  const [baseline,calendarResult,headlineResult]=await Promise.all([
-    baselinePromise,
-    calendarPromise.then(value=>({ok:true,value})).catch(error=>({ok:false,error})),
-    headlinesPromise.then(value=>({ok:true,value})).catch(error=>({ok:false,error}))
-  ]);
-  const errors=[];let events=Array.isArray(baseline.events)?baseline.events:[],headlines=Array.isArray(baseline.headlines)?baseline.headlines:[];
-  let calendarStatus=baseline.calendarStatus||"fallback",headlineStatus=headlines.length?"snapshot":"unavailable",directSuccess=false;
-  if(calendarResult.ok&&calendarResult.value.length){events=mergeEventMetadata(calendarResult.value,baseline);calendarStatus="live";directSuccess=true;}else if(!calendarResult.ok)errors.push(`FXStreet calendar: ${String(calendarResult.error?.message||calendarResult.error)}`);
-  if(headlineResult.ok&&headlineResult.value.items.length){headlines=mergeHeadlineMetadata(headlineResult.value.items,baseline);headlineStatus="live-cached-60s";directSuccess=true;errors.push(...(headlineResult.value.errors||[]));}
-  else if(!headlineResult.ok)errors.push(`Headlines: ${String(headlineResult.error?.message||headlineResult.error)}`);
-
-  let market=baseline.market&&typeof baseline.market==="object"?{...baseline.market}:{};let oandaStatus="not-configured";
-  try{
-    const oanda=await fetchOandaMarket(env,previousPayload?.market||{});oandaStatus=oanda.status;market={...market,...oanda.market};if(Object.keys(oanda.market).length)directSuccess=true;
-  }catch(error){oandaStatus="error";errors.push(`OANDA pricing: ${String(error?.message||error)}`);}
-
-  const cadence=releaseCadence(events,now),marketCount=Object.values(market).filter(Boolean).length;
-  return {...baseline,generatedAt:directSuccess?isoNoMs(now):(baseline.generatedAt||isoNoMs(now)),sourceQueriedAt:isoNoMs(now),collectorMode:"cloudflare-adaptive-realtime",calendarStatus,counts:{events:events.length,headlines:headlines.length,marketFeeds:marketCount},sourceStatus:{...(baseline.sourceStatus||{}),calendar:calendarStatus==="live"?"live":"snapshot-fallback",headlines:headlineStatus,market:Object.keys(market).length?"live-or-fallback":"unavailable",oanda:oandaStatus,worker:"live"},worker:{mode:cadence.mode,cacheSeconds:cadence.cacheSeconds,recommendedClientPollSeconds:cadence.clientPollSeconds,nearestImportantEventMinutes:cadence.nearestMinutes,oanda:oandaStatus},events,headlines,market,errors:[...(Array.isArray(baseline.errors)?baseline.errors:[]),...errors].slice(0,14),isFallback:!directSuccess};
-}
-
-async function liveResponse(request,env,ctx){
-  const url=new URL(request.url),force=url.searchParams.get("fresh")==="1",cache=caches.default,key=new Request(LIVE_CACHE_KEY);
-  const cached=await cachedLivePayload(cache);
-  if(!force&&cached){
-    const queried=Date.parse(cached.sourceQueriedAt||cached.generatedAt||"");
-    const ttl=Number(cached?.worker?.cacheSeconds)||60;
-    if(Number.isFinite(queried)&&Date.now()-queried<ttl*1000)return jsonResponse(cached,200,{"Cache-Control":"no-store","X-Gold-Mine-Cache":"hit"});
-  }
-  const payload=await buildLiveData(env,cache,cached);
-  const response=jsonResponse(payload,200,{"Cache-Control":"no-store","X-Gold-Mine-Cache":"miss"});
-  ctx.waitUntil(cache.put(key,jsonResponse(payload,200,{"Cache-Control":"public, max-age=120"})));
-  return response;
-}
-
-export default {
-  async fetch(request,env,ctx){
-    if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders()});
-    if(request.method!=="GET")return jsonResponse({error:"Method not allowed"},405);
-    const url=new URL(request.url);
-    if(url.pathname==="/health")return jsonResponse({ok:true,service:"gold-mine-live",mode:"adaptive-realtime",oandaConfigured:Boolean(env?.OANDA_API_TOKEN&&env?.OANDA_ACCOUNT_ID),time:isoNoMs(new Date())});
-    if(url.pathname!=="/"&&url.pathname!=="/live")return jsonResponse({error:"Not found"},404);
-    try{return await liveResponse(request,env,ctx);}catch(error){return jsonResponse({error:"Live refresh failed",detail:String(error?.message||error)},502,{"Cache-Control":"no-store"});}
-  },
-  async scheduled(event,env,ctx){
-    ctx.waitUntil((async()=>{try{const cache=caches.default,previous=await cachedLivePayload(cache),payload=await buildLiveData(env,cache,previous);await cache.put(new Request(LIVE_CACHE_KEY),jsonResponse(payload,200,{"Cache-Control":"public, max-age=120"}));}catch(error){console.error("Scheduled Gold Mine refresh failed",error);}})());
-  }
-};
+export default{async fetch(request,env,ctx){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders()});if(request.method!=="GET")return jsonResponse({error:"Method not allowed"},405);const u=new URL(request.url);if(u.pathname==="/health")return jsonResponse({ok:true,service:"gold-mine-live",mode:"true-live",oandaConfigured:Boolean(env.OANDA_API_TOKEN&&env.OANDA_ACCOUNT_ID),manualFreshSupported:true,time:iso(Date.now())});if(u.pathname!=="/"&&u.pathname!=="/live")return jsonResponse({error:"Not found"},404);try{return await liveResponse(request,env,ctx);}catch(e){return jsonResponse({error:"Live refresh failed",detail:String(e?.message||e)},502,{"Cache-Control":"no-store"});}},async scheduled(event,env,ctx){ctx.waitUntil((async()=>{try{const cache=caches.default,old=await cached(cache),payload=await buildLiveData(env,old);await cache.put(new Request(LIVE_CACHE_KEY),jsonResponse(payload,200,{"Cache-Control":"public, max-age=60"}));}catch(e){console.error("Scheduled Gold Mine refresh failed",e);}})());}};
