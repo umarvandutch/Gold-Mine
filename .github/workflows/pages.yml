@@ -9,6 +9,7 @@ on:
       - 'live.css'
       - 'app.js'
       - 'config.js'
+      - 'bootstrap-live.js'
       - 'refresh-fix.js'
       - 'pull-refresh.js'
       - 'adaptive-refresh.js'
@@ -49,6 +50,7 @@ jobs:
         run: |
           node --check app.js
           node --check config.js
+          node --check bootstrap-live.js
           node --check refresh-fix.js
           node --check pull-refresh.js
           node --check adaptive-refresh.js
@@ -66,7 +68,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/icons
-          cp index.html styles.css live.css app.js config.js refresh-fix.js pull-refresh.js adaptive-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js decision-engine-v4.js app-fixes-v1.js chart-resume-fix.js live-refresh-v2.js signals-engine.js manifest.webmanifest sw.js .nojekyll _site/
+          cp index.html styles.css live.css app.js config.js bootstrap-live.js refresh-fix.js pull-refresh.js adaptive-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js decision-engine-v4.js app-fixes-v1.js chart-resume-fix.js live-refresh-v2.js signals-engine.js manifest.webmanifest sw.js .nojekyll _site/
           cp icons/icon-192.png icons/icon-512.png _site/icons/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
