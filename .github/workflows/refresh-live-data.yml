@@ -3,7 +3,7 @@ name: Refresh Gold Mine live data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '2-57/5 * * * *'
+    - cron: '*/5 * * * *'
   push:
     branches: [main]
     paths:
@@ -57,7 +57,7 @@ jobs:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
           ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
         run: python3 scripts/enrich_xau_technicals.py
-      - name: Generate strict buy-limit signals
+      - name: Generate strict buy/sell limit signals
         run: python3 scripts/generate_trade_signals.py
       - name: Normalize blocked-signal copy
         run: python3 scripts/normalize_trade_signal.py
