@@ -22,8 +22,10 @@ jobs:
       - name: Normalize launcher icon for Android AAPT
         run: |
           set -e
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick
           ICON="android-shell/app/src/main/res/drawable/app_icon.png"
-          # Preserve the supplied artwork, but strip PNG profiles/chunks that AAPT2 rejects.
+          # Preserve the supplied artwork while stripping PNG profiles/chunks that AAPT2 rejects.
           convert "$ICON" -strip -define png:color-type=2 PNG24:/tmp/app_icon.png
           mv /tmp/app_icon.png "$ICON"
           identify "$ICON"
