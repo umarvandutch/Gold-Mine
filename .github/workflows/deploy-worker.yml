@@ -54,7 +54,35 @@ jobs:
           test -n "$DEPLOYMENT_URL"
           sleep 3
           curl -fsS "${DEPLOYMENT_URL%/}/health" | tee /tmp/worker-health.json
-          node -e 'const j=require("/tmp/worker-health.json"); if(!j.ok||j.mode!=="true-live"||!j.oandaConfigured) process.exit(1)'
+          node -e 'const j=require("/tmp/worker-health.json"); if(!j.ok||j.mode!=="true-live"||!j.oandaConfigured||!j.manualFreshSupported) process.exit(1)'
+      - name: Smoke test fresh calendar, news, OANDA, technicals and Signals
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          set -e
+          curl --retry 2 --retry-delay 2 --max-time 45 -fsS "${DEPLOYMENT_URL%/}/live?fresh=1&smoke=$(date +%s)" -o /tmp/worker-live.json
+          node <<'NODE'
+          const fs=require('fs');
+          const j=JSON.parse(fs.readFileSync('/tmp/worker-live.json','utf8'));
+          const fail=(m)=>{console.error(`SMOKE FAIL: ${m}`);process.exit(1)};
+          if(j.collectorMode!=="cloudflare-true-live"||j.sourceStatus?.worker!=="true-live") fail("not true-live");
+          if(j.sourceStatus?.calendar!=="live") fail(`calendar ${j.sourceStatus?.calendar}`);
+          if(j.sourceStatus?.headlines!=="live") fail(`headlines ${j.sourceStatus?.headlines}`);
+          if(!Array.isArray(j.events)||!j.events.length) fail("no calendar events");
+          if(j.events.some(e=>!["MEDIUM","HIGH"].includes(String(e.volatility||"").toUpperCase()))) fail("low-impact calendar item leaked through");
+          if(!Array.isArray(j.headlines)||!j.headlines.length) fail("no macro/news headlines");
+          if(!Number.isFinite(Number(j.market?.xau?.price))) fail("no live XAUUSD price");
+          if(j.market?.xau?.source!=="OANDA v20 live pricing") fail("XAUUSD not sourced from OANDA live pricing");
+          if(!Number.isFinite(Number(j.market?.dxy?.price))) fail("no synthetic DXY");
+          if(j.technical?.status!=="live") fail("technical feed not live");
+          if(!Array.isArray(j.technical?.candles4h)||j.technical.candles4h.length<100) fail("insufficient H4 candles");
+          if(!Array.isArray(j.technical?.candles1d)||j.technical.candles1d.length<50) fail("insufficient daily candles");
+          if(!j.technical?.structure4h?.state||!j.technical?.structure1d?.state) fail("structure missing");
+          if(!j.signals?.buyLimit||!j.signals?.sellLimit) fail("buy/sell Signals missing");
+          const age=(Date.now()-Date.parse(j.sourceQueriedAt||j.generatedAt))/60000;
+          if(!Number.isFinite(age)||age>2) fail(`fresh response is ${age.toFixed(1)} min old`);
+          console.log(`SMOKE OK: ${j.events.length} events · ${j.headlines.length} headlines · XAU ${j.market.xau.price} · H4 ${j.technical.candles4h.length} · D ${j.technical.candles1d.length} · buy ${j.signals.buyLimit.status} · sell ${j.signals.sellLimit.status}`);
+          NODE
       - name: Wire Worker URL into Gold Mine
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}

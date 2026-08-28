@@ -23,11 +23,11 @@
         const r=await fetch(`${worker}${join}${forceSource?"fresh=1&":""}t=${Date.now()}`,{cache:"no-store"});
         if(!r.ok)throw new Error(`HTTP ${r.status}`);
         const j=await r.json();if(!j||!Array.isArray(j.events))throw new Error("Invalid live worker data");return j;
-      }catch(error){console.warn("Gold view live Worker unavailable; using GitHub snapshot",error);}
+      }catch(error){console.warn("Gold view live Worker unavailable; using GitHub backup",error);}
     }
-    const response=await fetch(`${SNAPSHOT_URL}?manual=${Date.now()}`,{cache:"no-store"});
+    const response=await fetch(`${SNAPSHOT_URL}?backupOnly=1&manual=${Date.now()}`,{cache:"no-store"});
     if(!response.ok)throw new Error(`HTTP ${response.status}`);
-    const latest=await response.json();if(!latest||!Array.isArray(latest.events))throw new Error("Invalid live data");return latest;
+    const latest=await response.json();if(!latest||!Array.isArray(latest.events))throw new Error("Invalid backup data");return latest;
   }
 
   function installRefreshButton(){
@@ -50,7 +50,7 @@
 
   async function boot(){
     restoreGoldView();
-    await loadScript("./config.js","goldmine-config");
+    if(!window.GOLD_MINE_CONFIG)await loadScript("./config.js","goldmine-config");
     await loadScript("./official-signal-layer.js","goldmine-official-signal-layer");
     installRefreshButton();
     await loadScript("./pull-refresh.js","goldmine-pull-refresh");

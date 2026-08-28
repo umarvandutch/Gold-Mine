@@ -65,15 +65,15 @@
       <section id="view-settings" class="view" aria-labelledby="settings-title">
         <div class="section-heading"><div><span class="eyebrow">SYSTEM</span><h2 id="settings-title">Data &amp; methodology</h2></div></div>
         <div class="settings-card">
-          <div class="settings-row"><div><strong>Live app updates</strong><span>Web-first deployment from GitHub</span></div><span class="state-badge success">On</span></div>
-          <div class="settings-row"><div><strong>US economic calendar</strong><span>FXStreet public calendar feed, refreshed free via GitHub</span></div><span id="calendarState" class="state-badge warning">Checking</span></div>
-          <div class="settings-row"><div><strong>Macro news context</strong><span>Fed + BLS official feeds and broader public news aggregation</span></div><span id="newsState" class="state-badge warning">Checking</span></div>
-          <div class="settings-row"><div><strong>Market confirmation</strong><span>Gold · DXY · US2Y · US10Y free quote snapshots</span></div><span id="marketState" class="state-badge warning">Checking</span></div>
+          <div class="settings-row"><div><strong>Live app updates</strong><span>Web-first deployment with Cloudflare live backend</span></div><span class="state-badge success">On</span></div>
+          <div class="settings-row"><div><strong>US economic calendar</strong><span>FXStreet public medium/high-impact US calendar queried by the free live Worker</span></div><span id="calendarState" class="state-badge warning">Checking</span></div>
+          <div class="settings-row"><div><strong>Macro news context</strong><span>Fed + BLS official feeds and broader public macro/news aggregation queried live</span></div><span id="newsState" class="state-badge warning">Checking</span></div>
+          <div class="settings-row"><div><strong>Market confirmation</strong><span>OANDA XAUUSD + synthetic DXY live; official Treasury yields are daily context</span></div><span id="marketState" class="state-badge warning">Checking</span></div>
         </div>
 
         <div class="method-card"><span class="eyebrow">EVIDENCE MODEL</span><h3>What Gold Mine considers</h3><p>No single headline automatically becomes a buy or sell. The model looks at all recent US releases it receives, then adds market and headline context where the evidence is clear.</p><div class="weight-list"><div><span>Fed / rates / guidance</span><strong>45</strong></div><div><span>Inflation (CPI, PCE, PPI)</span><strong>28</strong></div><div><span>Labour (NFP, unemployment, claims, JOLTS)</span><strong>22</strong></div><div><span>GDP / growth</span><strong>18</strong></div><div><span>Consumer / retail / sentiment</span><strong>12</strong></div><div><span>Business / PMIs / production</span><strong>10</strong></div><div><span>Trade / housing / government / other</span><strong>5–9</strong></div></div><p class="fine-print">The weights show relative macro importance, not a promised price move. “Evidence strength” measures agreement among available inputs; it is not a win probability.</p></div>
 
-        <div class="method-card"><span class="eyebrow">FREE DATA LIMITS</span><h3>What “live” means on this free setup</h3><p>The calendar/news collector runs automatically on GitHub roughly every 10 minutes. GitHub can occasionally delay scheduled jobs, and free market quotes may be delayed. For institutional-style instant feeds we would eventually need a paid or dedicated realtime backend.</p><div class="build-info"><span>Last data refresh</span><strong id="lastRefresh">—</strong></div><div class="build-info"><span>Web build</span><strong id="buildId">—</strong></div></div>
+        <div class="method-card"><span class="eyebrow">FREE LIVE DATA</span><h3>What “live” means on this free setup</h3><p>Gold Mine's free Cloudflare Worker is the primary live backend. A manual refresh bypasses its cache and directly re-queries the refreshable calendar, news and OANDA sources, then recalculates 4H/D technicals and Signals. The Worker also keeps a one-minute warm cache. GitHub is retained only as backup/history. U.S. Treasury yield data is official daily context rather than tick-by-tick.</p><div class="build-info"><span>Last data refresh</span><strong id="lastRefresh">—</strong></div><div class="build-info"><span>Web build</span><strong id="buildId">—</strong></div></div>
       </section>
     </main>
 
@@ -86,6 +86,8 @@
   </div>
 
   <div id="detailOverlay" class="overlay" hidden><div class="overlay-backdrop" data-close-detail></div><article class="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><div class="sheet-handle"></div><button class="close-button" data-close-detail aria-label="Close">×</button><div id="detailContent"></div></article></div>
+  <script src="./config.js"></script>
+  <script src="./bootstrap-live.js"></script>
   <script src="./app.js"></script>
   <script src="./refresh-fix.js"></script>
 </body>
