@@ -2,6 +2,7 @@ name: Refresh Gold Mine live data
 
 on:
   workflow_dispatch:
+  # Backup/history only. Cloudflare Worker is the primary true-live source.
   schedule:
     - cron: '*/5 * * * *'
   push:
@@ -38,16 +39,16 @@ jobs:
         with:
           ref: main
       - name: Preserve previous snapshot for continuity
-        run: cp live-data.json /tmp/gold-mine-previous-live-data.json || true
-      - name: Refresh free calendar, news and market data
+        run: cp live-data.json /tmp/previous-live-data.json 2>/dev/null || true
+      - name: Refresh calendar, market and headline snapshot
         run: python3 scripts/refresh_live_data.py
-      - name: Preserve recent macro headlines if a feed temporarily thins out
-        run: python3 scripts/merge_headline_continuity.py /tmp/gold-mine-previous-live-data.json
-      - name: Cross-check official BLS data and enrich Fed text
+      - name: Preserve recent headlines if public feeds temporarily thin
+        run: python3 scripts/merge_headline_continuity.py /tmp/previous-live-data.json live-data.json
+      - name: Enrich major releases from official BLS/Fed sources
         run: python3 scripts/enrich_official_data.py
-      - name: Follow underlying FOMC minutes document
+      - name: Follow official Fed minutes documents
         run: python3 scripts/enrich_fed_minutes.py
-      - name: Apply impact and historical signal policy
+      - name: Apply medium-high and historical signal policy
         run: python3 scripts/apply_signal_policy.py
       - name: Enrich free XAUUSD price, structure and order blocks
         env:
@@ -57,22 +58,20 @@ jobs:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
           ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
         run: python3 scripts/enrich_xau_technicals.py
-      - name: Generate strict buy/sell limit signals
+      - name: Generate strict buy/sell limit Signals
         run: python3 scripts/generate_trade_signals.py
-      - name: Normalize blocked-signal copy
-        run: python3 scripts/normalize_trade_signal.py
-      - name: Record macro release calibration history
+      - name: Record macro signal outcomes
         run: python3 scripts/record_signal_history.py
-      - name: Record 4H order-block setup outcomes
+      - name: Record technical setup outcomes
         run: python3 scripts/record_trade_setup_history.py
-      - name: Commit data only when it changed
+      - name: Commit changed live data
         run: |
           if git diff --quiet -- live-data.json data/signal-history.json data/policy-history.json data/trade-setup-history.json; then
-            echo "No material live-data or signal-history change."
+            echo "No material live-data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add live-data.json data/signal-history.json data/policy-history.json data/trade-setup-history.json
-          git commit -m "Refresh Gold Mine live data and signal history"
+          git commit -m "Refresh Gold Mine live data"
           git push origin main
