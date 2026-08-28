@@ -31,6 +31,30 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           command: deploy
+      - name: Securely copy existing OANDA secrets into Worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          OANDA_API_TOKEN: ${{ secrets.OANDA_API_TOKEN }}
+          OANDA_ACCOUNT_ID: ${{ secrets.OANDA_ACCOUNT_ID }}
+          OANDA_ENV: ${{ secrets.OANDA_ENV }}
+        run: |
+          set -e
+          cd worker
+          test -n "$OANDA_API_TOKEN"
+          test -n "$OANDA_ACCOUNT_ID"
+          printf '%s' "$OANDA_API_TOKEN" | npx wrangler secret put OANDA_API_TOKEN
+          printf '%s' "$OANDA_ACCOUNT_ID" | npx wrangler secret put OANDA_ACCOUNT_ID
+          printf '%s' "${OANDA_ENV:-practice}" | npx wrangler secret put OANDA_ENV
+      - name: Verify Worker health and true-live mode
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          set -e
+          test -n "$DEPLOYMENT_URL"
+          sleep 3
+          curl -fsS "${DEPLOYMENT_URL%/}/health" | tee /tmp/worker-health.json
+          node -e 'const j=require("/tmp/worker-health.json"); if(!j.ok||j.mode!=="true-live"||!j.oandaConfigured) process.exit(1)'
       - name: Wire Worker URL into Gold Mine
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
@@ -42,13 +66,13 @@ jobs:
           LIVE_URL="${DEPLOYMENT_URL%/}/live"
           cat > config.js <<EOF
           // Gold Mine runtime configuration.
-          // Auto-generated after a successful Cloudflare Worker deployment.
-          // The app still falls back to the GitHub snapshot if this Worker is unavailable.
+          // Auto-generated after a successful free Cloudflare Worker deployment.
+          // GitHub remains the backup only; manual refresh uses Worker /live?fresh=1.
           window.GOLD_MINE_CONFIG={
             liveWorkerUrl:"$LIVE_URL"
           };
           EOF
-          echo "Gold Mine Worker: $LIVE_URL"
+          echo "Gold Mine Worker connected."
           if git diff --quiet -- config.js; then
             echo "config.js already points to this Worker."
             exit 0
@@ -56,5 +80,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add config.js
-          git commit -m "Connect Gold Mine live Worker"
+          git commit -m "Connect Gold Mine true-live Worker"
           git push origin main
