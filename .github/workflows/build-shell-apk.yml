@@ -19,6 +19,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Normalize launcher icon for Android AAPT
+        run: |
+          set -e
+          ICON="android-shell/app/src/main/res/drawable/app_icon.png"
+          # Preserve the supplied artwork, but strip PNG profiles/chunks that AAPT2 rejects.
+          convert "$ICON" -strip -define png:color-type=2 PNG24:/tmp/app_icon.png
+          mv /tmp/app_icon.png "$ICON"
+          identify "$ICON"
       - name: Setup Java 17
         uses: actions/setup-java@v5
         with:
