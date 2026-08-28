@@ -1,8 +1,6 @@
 // Gold Mine runtime configuration.
-// The app remains fully functional with an empty liveWorkerUrl and falls back
-// to the free GitHub live-data snapshot. Once the Cloudflare Worker is deployed,
-// set this to its /live endpoint, for example:
-// https://gold-mine-live.<account>.workers.dev/live
+// Auto-generated after a successful free Cloudflare Worker deployment.
+// GitHub remains the backup only; manual refresh uses Worker /live?fresh=1.
 window.GOLD_MINE_CONFIG={
-  liveWorkerUrl:""
+  liveWorkerUrl:"https://gold-mine-live.goldmineapp.workers.dev/live"
 };
