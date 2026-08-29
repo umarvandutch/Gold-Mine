@@ -1,21 +1,10 @@
 (()=>{
 "use strict";
-let busy=false;
-function repair(){
- if(busy)return;busy=true;
- try{
-   const root=document.getElementById("tradeDecisionV4"),host=document.getElementById("gmv4Chart");
-   if(root){root.querySelectorAll("strong,small,span,p,li").forEach(el=>{if(/\bNaN\b/.test(el.textContent||""))el.textContent=(el.textContent||"").replace(/\bNaN\b/g,"—")});}
-   if(host){
-     const legacy=host.querySelector("iframe,.tradingview-widget-container,script[src*='tradingview']");
-     const native=host.querySelector(".gm-native-wrap");
-     if(legacy&&!native){host.dataset.nativeChart="";host.innerHTML="";}
-   }
- }finally{busy=false}
-}
-const o=new MutationObserver(()=>setTimeout(repair,0));
-o.observe(document.body,{childList:true,subtree:true});
-window.addEventListener("goldmine-snapshot-updated",()=>setTimeout(repair,20));
-document.addEventListener("visibilitychange",()=>{if(!document.hidden)setTimeout(repair,20)});
-setTimeout(repair,300);
+let busy=false,lastData=null;
+const num=v=>{const n=Number(v);return Number.isFinite(n)?n:null};
+const worker=()=>String(window.GOLD_MINE_CONFIG?.liveWorkerUrl||"").trim();
+async function getLive(){if(lastData)return lastData;const w=worker();if(w){try{const r=await fetch(`${w}${w.includes("?")?"&":"?"}chartfix=${Date.now()}`,{cache:"no-store"});if(r.ok){const j=await r.json();if(Array.isArray(j?.technical?.candles4h)){lastData=j;return j;}}}catch(e){console.warn("Trade Plan worker chart fetch failed",e)}}const r=await fetch(`https://raw.githubusercontent.com/umarvandutch/Gold-Mine/main/live-data.json?chartfix=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw new Error(`HTTP ${r.status}`);const j=await r.json();lastData=j;return j;}
+function svgChart(data){const all=Array.isArray(data?.technical?.candles4h)?data.technical.candles4h:[];const c=all.slice(-72).map(x=>({o:num(x.open),h:num(x.high),l:num(x.low),cl:num(x.close),time:x.time})).filter(x=>[x.o,x.h,x.l,x.cl].every(Number.isFinite));if(c.length<12)return '<div class="gmv4-chartmsg"><strong>4H chart data unavailable</strong><span>Gold Mine could not load enough live OANDA candles yet. Tap Check latest and retry.</span></div>';const W=900,H=390,L=14,R=66,T=18,B=26,PW=W-L-R,PH=H-T-B;let lo=Math.min(...c.map(x=>x.l)),hi=Math.max(...c.map(x=>x.h));const span=Math.max(.01,hi-lo);lo-=span*.05;hi+=span*.05;const y=v=>T+(hi-v)/(hi-lo)*PH,step=PW/c.length,x=i=>L+step*(i+.5),body=Math.max(2,Math.min(8,step*.56));let grid="",bars="";for(let i=0;i<=5;i++){const v=hi-(hi-lo)*i/5,yy=y(v);grid+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#dedbd2" stroke-width="1"/><text x="${W-R+7}" y="${yy+4}" font-size="10" fill="#777">${v.toFixed(0)}</text>`}c.forEach((q,i)=>{const xx=x(i),up=q.cl>=q.o,top=Math.min(y(q.o),y(q.cl)),bh=Math.max(1.5,Math.abs(y(q.cl)-y(q.o))),col=up?"#2d7452":"#a34d46";bars+=`<line x1="${xx}" x2="${xx}" y1="${y(q.h)}" y2="${y(q.l)}" stroke="${col}" stroke-width="1.3"/><rect x="${xx-body/2}" y="${top}" width="${body}" height="${bh}" rx="1" fill="${col}"/>`});const px=num(data?.technical?.currentPrice)??num(data?.market?.xau?.price)??c[c.length-1].cl,py=y(px);return `<div class="gm-native-wrap" data-chart-source="goldmine-oanda"><div class="gm-native-top"><div><strong>${px.toFixed(2)}</strong><span>Live XAUUSD · 4H</span></div><div><span>${c.length} OANDA candles</span><small>Native chart</small></div></div><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="XAUUSD four hour candlestick chart">${grid}${bars}<line x1="${L}" x2="${W-R}" y1="${py}" y2="${py}" stroke="#8e763a" stroke-width="1.2" stroke-dasharray="5 4"/><text x="${W-R+7}" y="${py+4}" font-size="10" fill="#725b25" font-weight="700">${px.toFixed(2)}</text></svg><div class="gm-native-foot"><span>Direct from Gold Mine technical feed</span><span>No TradingView embed required</span></div></div>`;}
+async function repair(){if(busy)return;const root=document.getElementById("tradeDecisionV4"),host=document.getElementById("gmv4Chart");if(!root&&!host)return;busy=true;try{if(root)root.querySelectorAll("strong,small,span,p,li").forEach(el=>{if(/\bNaN\b/.test(el.textContent||""))el.textContent=(el.textContent||"").replace(/\bNaN\b/g,"—")});if(host&&!host.querySelector('[data-chart-source="goldmine-oanda"]')){host.dataset.nativeChart="loading";host.innerHTML='<div class="gmv4-chartmsg">Loading live 4H candles…</div>';try{const d=await getLive();host.innerHTML=svgChart(d);host.dataset.nativeChart="ready";}catch(e){console.warn("Native Trade Plan chart failed",e);host.innerHTML='<div class="gmv4-chartmsg"><strong>Unable to load the 4H chart.</strong><span>Check your connection and tap Check latest.</span><button id="gmChartRetry" type="button">Retry chart</button></div>';host.dataset.nativeChart="failed";document.getElementById("gmChartRetry")?.addEventListener("click",()=>{lastData=null;host.dataset.nativeChart="";repair()},{once:true});}}}finally{busy=false}}
+const o=new MutationObserver(()=>setTimeout(repair,30));o.observe(document.body,{childList:true,subtree:true});window.addEventListener("goldmine-snapshot-updated",e=>{if(e.detail)lastData=e.detail;setTimeout(repair,20)});document.addEventListener("visibilitychange",()=>{if(!document.hidden){lastData=null;setTimeout(repair,40)}});document.querySelector('.nav-item[data-view="predictions"]')?.addEventListener("click",()=>{lastData=null;setTimeout(repair,50)});setTimeout(repair,300);
 })();
