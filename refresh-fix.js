@@ -63,6 +63,7 @@
     await loadScript("./chart-resume-fix.js","goldmine-chart-resume-fix");
     await loadScript("./live-refresh-v2.js","goldmine-live-refresh-v2");
     await loadScript("./signals-engine-v2.js","goldmine-signals-engine-v2");
+    await loadScript("./notification-test.js","goldmine-notification-test");
   }
   boot();
 })();
