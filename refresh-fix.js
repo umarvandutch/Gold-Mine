@@ -59,9 +59,10 @@
     await loadScript("./adaptive-refresh.js","goldmine-adaptive-refresh");
     await loadScript("./decision-engine-v4.js","goldmine-decision-engine-v4");
     await loadScript("./app-fixes-v1.js","goldmine-app-fixes-v1");
+    await loadScript("./trade-plan-fixes.js","goldmine-trade-plan-fixes");
     await loadScript("./chart-resume-fix.js","goldmine-chart-resume-fix");
     await loadScript("./live-refresh-v2.js","goldmine-live-refresh-v2");
-    await loadScript("./signals-engine.js","goldmine-signals-engine");
+    await loadScript("./signals-engine-v2.js","goldmine-signals-engine-v2");
   }
   boot();
 })();
