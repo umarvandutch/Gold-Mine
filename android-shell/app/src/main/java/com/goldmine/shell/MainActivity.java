@@ -2,12 +2,14 @@ package com.goldmine.shell;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
@@ -28,14 +30,46 @@ public class MainActivity extends Activity {
       if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED)return "permission-required";
       return "ready";
     }
+    @JavascriptInterface public String exactAlarmStatus(){
+      return BackgroundAlertManager.canScheduleExact(getApplicationContext())?"ready":"permission-required";
+    }
+    @JavascriptInterface public String diagnostics(){
+      boolean notifications=Build.VERSION.SDK_INT<33||checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)==PackageManager.PERMISSION_GRANTED;
+      boolean exact=BackgroundAlertManager.canScheduleExact(getApplicationContext());
+      return "notifications="+(notifications?"ready":"blocked")+";exactAlarms="+(exact?"ready":"blocked")+";sdk="+Build.VERSION.SDK_INT;
+    }
+    @JavascriptInterface public String requestExactAlarmAccess(){
+      if(Build.VERSION.SDK_INT<31)return "ready";
+      if(BackgroundAlertManager.canScheduleExact(getApplicationContext()))return "ready";
+      try{
+        runOnUiThread(()->{
+          Intent i=new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,Uri.parse("package:"+getPackageName()));
+          startActivity(i);
+        });
+        return "opened-settings";
+      }catch(Exception e){return "unavailable";}
+    }
+    @JavascriptInterface public String openNotificationSettings(){
+      try{
+        runOnUiThread(()->{
+          Intent i=new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE,getPackageName());
+          startActivity(i);
+        });
+        return "opened-settings";
+      }catch(Exception e){return "unavailable";}
+    }
+    @JavascriptInterface public String runBackgroundCheckNow(){
+      BackgroundAlertManager.runNow(getApplicationContext());
+      return "queued";
+    }
     @JavascriptInterface public String scheduleTestNotification(){
       if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED){
         runOnUiThread(()->requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},NOTIFICATION_REQUEST));
         return "permission-required";
       }
+      if(Build.VERSION.SDK_INT>=31&&!BackgroundAlertManager.canScheduleExact(getApplicationContext()))return "exact-permission-required";
       String key="test:"+System.currentTimeMillis();
-      BackgroundAlertManager.schedule(getApplicationContext(),System.currentTimeMillis()+60000L,key,"Gold Mine test alert","Background alerts are working. You can receive Gold Mine notifications while the app is closed.");
-      return "scheduled";
+      return BackgroundAlertManager.schedule(getApplicationContext(),System.currentTimeMillis()+60000L,key,"Gold Mine test alert","Background alerts are working. You can receive Gold Mine notifications while the app is closed.");
     }
     @JavascriptInterface public String sendTestNotificationNow(){
       if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!=PackageManager.PERMISSION_GRANTED){
