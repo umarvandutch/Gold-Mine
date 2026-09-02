@@ -41,7 +41,7 @@
       try{
         const before=sessionStorage.getItem(SNAPSHOT_KEY)||"",latest=await fetchLatest(true),snapshot=String(latest?.sourceQueriedAt||latest?.generatedAt||""),checkedAt=new Date().toISOString();
         sessionStorage.setItem(CHECK_KEY,checkedAt);if(snapshot)sessionStorage.setItem(SNAPSHOT_KEY,snapshot);
-        const changed=!!snapshot&&!!before&&snapshot!==before;sessionStorage.setItem(VIEW_KEY,"predictions");sessionStorage.setItem(STATUS_KEY,changed?"updated":"checked");button.textContent=changed?"New data found…":"Checked — same snapshot";setTimeout(()=>window.location.reload(),260);
+        const changed=!!snapshot&&!!before&&snapshot!==before;button.textContent=changed?"New data found ✓":"Checked — same snapshot";
       }catch(error){console.warn("Gold view manual refresh failed",error);button.textContent="Check failed — retry";button.disabled=false;button.removeAttribute("aria-busy");busy=false;setTimeout(()=>{if(!busy)button.textContent="Check latest";},2500);}
     });
   }
@@ -61,6 +61,7 @@
     await loadScript("./app-fixes-v1.js","goldmine-app-fixes-v1");
     await loadScript("./trade-plan-fixes.js","goldmine-trade-plan-fixes");
     await loadScript("./chart-resume-fix.js","goldmine-chart-resume-fix");
+    await loadScript("./live-ui-v3.js","goldmine-live-ui-v3");
     await loadScript("./live-refresh-v2.js","goldmine-live-refresh-v2");
     await loadScript("./signals-engine-v2.js","goldmine-signals-engine-v2");
     await loadScript("./notification-test.js","goldmine-notification-test");
