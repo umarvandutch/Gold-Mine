@@ -41,8 +41,9 @@
       try{
         const before=sessionStorage.getItem(SNAPSHOT_KEY)||"",latest=await fetchLatest(true),snapshot=String(latest?.sourceQueriedAt||latest?.generatedAt||""),checkedAt=new Date().toISOString();
         sessionStorage.setItem(CHECK_KEY,checkedAt);if(snapshot)sessionStorage.setItem(SNAPSHOT_KEY,snapshot);
-        const changed=!!snapshot&&!!before&&snapshot!==before;button.textContent=changed?"New data found ✓":"Checked — same snapshot";
-      }catch(error){console.warn("Gold view manual refresh failed",error);button.textContent="Check failed — retry";button.disabled=false;button.removeAttribute("aria-busy");busy=false;setTimeout(()=>{if(!busy)button.textContent="Check latest";},2500);}
+        const changed=!!snapshot&&!!before&&snapshot!==before;window.GoldMineLiveSnapshot=latest;window.dispatchEvent(new CustomEvent("goldmine-snapshot-updated",{detail:latest}));button.textContent=changed?"New data found ✓":"Live sources checked ✓";
+      }catch(error){console.warn("Gold view manual refresh failed",error);button.textContent="Check failed — retry";button.disabled=false;button.removeAttribute("aria-busy");busy=false;setTimeout(()=>{if(!busy)button.textContent="Check latest";},2500);return;
+      }finally{button.disabled=false;button.removeAttribute("aria-busy");busy=false;setTimeout(()=>{if(!busy)button.textContent="Refresh all live";},2200);}
     });
   }
 
@@ -63,7 +64,7 @@
     await loadScript("./chart-resume-fix.js","goldmine-chart-resume-fix");
     await loadScript("./live-ui-v3.js","goldmine-live-ui-v3");
     await loadScript("./live-refresh-v2.js","goldmine-live-refresh-v2");
-    await loadScript("./signals-engine-v2.js","goldmine-signals-engine-v2");
+    await loadScript("./signals-engine-v3.js","goldmine-signals-engine-v3");
     await loadScript("./notification-test.js","goldmine-notification-test");
   }
   boot();
