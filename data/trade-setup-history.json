@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-04T09:58:15Z",
+  "updatedAt": "2026-09-04T14:11:33Z",
   "calibration": {
-    "completed": 7,
+    "completed": 8,
     "wins": 4,
-    "winRate": 0.5714,
-    "averageR": 14.521,
+    "winRate": 0.5,
+    "averageR": 12.581,
     "factor": 1.0,
     "minimumSamplesForAdjustment": 30
   },
@@ -41,12 +41,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-09-03T14:34:03Z",
-      "status": "triggered",
+      "status": "stopped",
       "triggerIndex": 0,
       "triggeredAt": "2026-09-03T09:00:00.000000000Z",
-      "completedAt": null,
+      "completedAt": "2026-09-04T09:00:00.000000000Z",
       "bestR": 0.0,
-      "outcomeR": null
+      "outcomeR": -1.0
     },
     {
       "key": "bearish|2026-08-31T17:00:00.000000000Z|4433.36|4455.925",
@@ -269,12 +269,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-08-26T14:10:50Z",
-      "status": "waiting",
+      "status": "expired",
       "triggerIndex": null,
       "triggeredAt": null,
-      "completedAt": null,
+      "completedAt": "2026-09-04T09:00:00.000000000Z",
       "bestR": 0.0,
-      "outcomeR": null
+      "outcomeR": 0.0
     },
     {
       "key": "bullish|2026-08-04T05:00:00.000000000Z|4054.455|4063.785",

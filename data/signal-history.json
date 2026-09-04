@@ -1,7 +1,167 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-04T09:59:00Z",
+  "updatedAt": "2026-09-04T14:12:22Z",
   "events": [
+    {
+      "key": "6d68c541-24aa-45d8-b7c7-ec7451dce531|2026-09-04T12:30:00Z",
+      "id": "6d68c541-24aa-45d8-b7c7-ec7451dce531",
+      "dateUtc": "2026-09-04T12:30:00Z",
+      "name": "Average Hourly Earnings (MoM)",
+      "family": "Wages",
+      "category": "labour",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.3,
+      "consensus": 0.3,
+      "previous": 0.1,
+      "revised": 0.2,
+      "firstObservedAt": "2026-09-04T14:11:33Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
+      "model": {
+        "bias": "mixed",
+        "score": -8.31,
+        "surpriseZ": 0.0,
+        "revisionZ": 0.556,
+        "importance": 23.76,
+        "family": "Wages"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-09-04T14:11:33Z",
+          "xau": 4422.095,
+          "dxy": 99.174,
+          "us2y": 4.34,
+          "us10y": 4.77,
+          "real10y": 2.42
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "61e0e764-c044-44c7-8d33-71281e4a48b0|2026-09-04T12:30:00Z",
+      "id": "61e0e764-c044-44c7-8d33-71281e4a48b0",
+      "dateUtc": "2026-09-04T12:30:00Z",
+      "name": "Average Hourly Earnings (YoY)",
+      "family": "Wages",
+      "category": "labour",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.1,
+      "consensus": 3.0,
+      "previous": 3.2,
+      "revised": null,
+      "firstObservedAt": "2026-09-04T14:11:33Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
+      "model": {
+        "bias": "bearish",
+        "score": -40.81,
+        "surpriseZ": 0.556,
+        "revisionZ": null,
+        "importance": 23.76,
+        "family": "Wages"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-09-04T14:11:33Z",
+          "xau": 4422.095,
+          "dxy": 99.174,
+          "us2y": 4.34,
+          "us10y": 4.77,
+          "real10y": 2.42
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "77b633f6-431b-4da0-a9e1-05ab3a57033d|2026-09-04T12:30:00Z",
+      "id": "77b633f6-431b-4da0-a9e1-05ab3a57033d",
+      "dateUtc": "2026-09-04T12:30:00Z",
+      "name": "Nonfarm Payrolls",
+      "family": "Payrolls",
+      "category": "labour",
+      "volatility": "HIGH",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 162.0,
+      "consensus": 56.0,
+      "previous": -23.0,
+      "revised": 21.0,
+      "firstObservedAt": "2026-09-04T14:11:33Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
+      "model": {
+        "bias": "bearish",
+        "score": -71.33,
+        "surpriseZ": 1.413,
+        "revisionZ": 0.587,
+        "importance": 25.96,
+        "family": "Payrolls"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-09-04T14:11:33Z",
+          "xau": 4422.095,
+          "dxy": 99.174,
+          "us2y": 4.34,
+          "us10y": 4.77,
+          "real10y": 2.42
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "366cbc4c-58e4-42a8-aae0-c920c46c5d96|2026-09-04T12:30:00Z",
+      "id": "366cbc4c-58e4-42a8-aae0-c920c46c5d96",
+      "dateUtc": "2026-09-04T12:30:00Z",
+      "name": "Unemployment Rate",
+      "family": "Unemployment",
+      "category": "labour",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 4.1,
+      "consensus": 4.1,
+      "previous": 4.1,
+      "revised": null,
+      "firstObservedAt": "2026-09-04T14:11:33Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": -0.0,
+        "revisionZ": null,
+        "importance": 15.28,
+        "family": "Unemployment"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-09-04T14:11:33Z",
+          "xau": 4422.095,
+          "dxy": 99.174,
+          "us2y": 4.34,
+          "us10y": 4.77,
+          "real10y": 2.42
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "a41fb50c-f9c4-490b-8e84-2d2e1dd86ffd|2026-09-03T14:00:00Z",
       "id": "a41fb50c-f9c4-490b-8e84-2d2e1dd86ffd",
@@ -17,7 +177,7 @@
       "previous": 54.1,
       "revised": null,
       "firstObservedAt": "2026-09-03T14:34:03Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "bearish",
         "score": -51.68,
@@ -65,7 +225,7 @@
       "previous": 56.0,
       "revised": null,
       "firstObservedAt": "2026-09-03T14:34:03Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -113,7 +273,7 @@
       "previous": 203.0,
       "revised": 204.0,
       "firstObservedAt": "2026-09-03T14:34:03Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "mixed",
         "score": 5.11,
@@ -153,7 +313,7 @@
       "previous": 1.4,
       "revised": null,
       "firstObservedAt": "2026-09-03T14:34:03Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -193,7 +353,7 @@
       "previous": 1.3,
       "revised": null,
       "firstObservedAt": "2026-09-03T14:34:03Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "bullish",
         "score": 57.17,
@@ -233,7 +393,7 @@
       "previous": -0.3,
       "revised": -0.2,
       "firstObservedAt": "2026-09-02T14:29:54Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "bearish",
         "score": -86.77,
@@ -281,7 +441,7 @@
       "previous": 44.0,
       "revised": 46.0,
       "firstObservedAt": "2026-09-02T14:29:54Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "bullish",
         "score": 63.29,
@@ -321,7 +481,7 @@
       "previous": 55.6,
       "revised": null,
       "firstObservedAt": "2026-09-01T15:06:38Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "bullish",
         "score": 30.23,
@@ -369,7 +529,7 @@
       "previous": 71.1,
       "revised": null,
       "firstObservedAt": "2026-09-01T15:06:38Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "bullish",
         "score": 43.66,
@@ -417,7 +577,7 @@
       "previous": 7.359,
       "revised": 7.182,
       "firstObservedAt": "2026-09-01T15:06:38Z",
-      "lastObservedAt": "2026-09-04T09:58:15Z",
+      "lastObservedAt": "2026-09-04T14:11:33Z",
       "model": {
         "bias": "mixed",
         "score": 4.54,
