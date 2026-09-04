@@ -63,6 +63,7 @@
     await loadScript("./trade-plan-fixes.js","goldmine-trade-plan-fixes");
     await loadScript("./chart-resume-fix.js","goldmine-chart-resume-fix");
     await loadScript("./live-ui-v3.js","goldmine-live-ui-v3");
+    await loadScript("./ui-sync-v1.js","goldmine-ui-sync-v1");
     await loadScript("./live-refresh-v2.js","goldmine-live-refresh-v2");
     await loadScript("./signals-engine-v3.js","goldmine-signals-engine-v3");
     await loadScript("./notification-test.js","goldmine-notification-test");
