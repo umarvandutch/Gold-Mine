@@ -24,6 +24,7 @@ on:
       - 'live-refresh-v2.js'
       - 'signals-engine.js'
       - 'signals-engine-v2.js'
+      - 'signals-engine-v3.js'
       - 'notification-test.js'
       - 'manifest.webmanifest'
       - 'sw.js'
@@ -69,6 +70,7 @@ jobs:
           node --check live-refresh-v2.js
           node --check signals-engine.js
           node --check signals-engine-v2.js
+          node --check signals-engine-v3.js
           node --check notification-test.js
           node -e "JSON.parse(require('fs').readFileSync('manifest.webmanifest','utf8'))"
       - name: Setup Pages
@@ -76,7 +78,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/icons
-          cp index.html styles.css live.css app.js config.js bootstrap-live.js refresh-fix.js pull-refresh.js adaptive-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js decision-engine-v4.js app-fixes-v1.js trade-plan-fixes.js chart-resume-fix.js live-ui-v3.js live-refresh-v2.js signals-engine.js signals-engine-v2.js notification-test.js manifest.webmanifest sw.js .nojekyll _site/
+          cp index.html styles.css live.css app.js config.js bootstrap-live.js refresh-fix.js pull-refresh.js adaptive-refresh.js gold-direction-labels.js official-signal-layer.js accuracy-engine.js decision-engine-v4.js app-fixes-v1.js trade-plan-fixes.js chart-resume-fix.js live-ui-v3.js live-refresh-v2.js signals-engine.js signals-engine-v2.js signals-engine-v3.js notification-test.js manifest.webmanifest sw.js .nojekyll _site/
           cp icons/icon-192.png icons/icon-512.png _site/icons/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
