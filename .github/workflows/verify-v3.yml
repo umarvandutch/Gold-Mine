@@ -1,0 +1,98 @@
+name: Verify Gold Mine v3 release
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'live-ui-v3.js'
+      - 'ui-sync-v1.js'
+      - 'signals-engine-v3.js'
+      - 'refresh-fix.js'
+      - 'sw.js'
+      - 'worker/**'
+      - 'android-shell/**'
+      - '.github/workflows/pages.yml'
+      - '.github/workflows/verify-v3.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'live-ui-v3.js'
+      - 'ui-sync-v1.js'
+      - 'signals-engine-v3.js'
+      - 'refresh-fix.js'
+      - 'sw.js'
+      - 'worker/**'
+      - 'android-shell/**'
+      - '.github/workflows/pages.yml'
+      - '.github/workflows/verify-v3.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-v3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Validate browser scripts
+        run: |
+          node --check live-ui-v3.js
+          node --check ui-sync-v1.js
+          node --check signals-engine-v3.js
+          node --check refresh-fix.js
+          node --check live-refresh-v2.js
+          node --check sw.js
+      - name: Validate Worker v3 modules
+        run: |
+          node --input-type=module --check < worker/src/index.js
+          node --input-type=module --check < worker/src/signal-engine-v3.js
+          node --input-type=module --check < worker/src/index-v5.js
+          grep -q 'main = "src/index-v5.js"' worker/wrangler.toml
+      - name: Exercise ensemble signal model
+        run: |
+          cp worker/src/signal-engine-v3.js /tmp/signal-engine-v3.mjs
+          node --input-type=module <<'NODE'
+          import {buildSignalsV3} from 'file:///tmp/signal-engine-v3.mjs';
+          const now=Date.now();
+          const h4=[]; let p=4400;
+          for(let i=0;i<180;i++){const o=p,c=o+2.4+(i%5===0?-1.2:0),h=Math.max(o,c)+4,l=Math.min(o,c)-4;h4.push({time:new Date(now-(180-i)*4*3600000).toISOString(),open:o,high:h,low:l,close:c,volume:100+i});p=c;}
+          const d1=[]; p=4100;
+          for(let i=0;i<120;i++){const o=p,c=o+4,h=c+8,l=o-8;d1.push({time:new Date(now-(120-i)*86400000).toISOString(),open:o,high:h,low:l,close:c,volume:1000+i});p=c;}
+          const current=h4.at(-1).close;
+          const data={
+            events:[{id:'later',name:'US CPI',dateUtc:new Date(now+2*3600000).toISOString(),volatility:'HIGH'}],
+            headlines:[],
+            market:{xau:{price:current,observedAt:new Date(now).toISOString()},dxy:{changePct:-0.25},real10y:{deltaBps:-3},us2y:{deltaBps:-2},us10y:{deltaBps:-2}},
+            technical:{status:'live',observedAt:new Date(now).toISOString(),currentPrice:current,atr14:12,structure4h:{state:'bullish'},structure1d:{state:'bullish'},candles4h:h4,candles1d:d1,preferredBullishOrderBlock:{side:'bullish',zoneLow:current-16,zoneHigh:current-8,midpoint:current-12,status:'untouched',touches:0,quality:90,planning:{limitReference:current-12,invalidationReference:current-24,tp1Reference:current+18,tp2Reference:current+36,rrTp1:2.5,rrTp2:4}},orderBlocks:[]},
+            signals:{buyLimit:{macroScore:20,macroAgreementPct:72},sellLimit:{macroScore:20,macroAgreementPct:72}}
+          };
+          const s=buildSignalsV3(data,now);
+          if(s.modelVersion!=='ensemble-v3.0')throw new Error('wrong model version');
+          if(!s.buyLimit||!s.sellLimit)throw new Error('missing sides');
+          if(!Number.isFinite(s.buyLimit.sideScore)||!Number.isFinite(s.sellLimit.sideScore))throw new Error('missing side scores');
+          if(Object.keys(s.buyLimit.modelComponents||{}).length!==6)throw new Error('missing components');
+          if(!Number.isFinite(s.buyLimit.indicators?.rsi14)||!Number.isFinite(s.buyLimit.indicators?.adx14))throw new Error('missing RSI/ADX');
+          if(!Array.isArray(s.buyLimit.blockers)||!Array.isArray(s.sellLimit.blockers))throw new Error('blockers schema broken');
+          if(s.buyLimit.sideScore<=s.sellLimit.sideScore)throw new Error('bullish synthetic case not ranked correctly');
+          console.log('Signal v3 synthetic model OK',s.buyLimit.sideScore,s.buyLimit.status);
+          NODE
+      - name: Verify UK and US presentation
+        run: |
+          grep -q 'Europe/London' live-ui-v3.js
+          grep -q 'America/New_York' live-ui-v3.js
+          grep -q 'News in the calendar' live-ui-v3.js
+          grep -q 'Tap for a simple explanation' live-ui-v3.js
+      - name: Verify 15-minute native news alerts
+        run: |
+          grep -q '15\*60000L' android-shell/app/src/main/java/com/goldmine/shell/AlertWorker.java
+          grep -q 'Europe/London' android-shell/app/src/main/java/com/goldmine/shell/AlertWorker.java
+          grep -q 'America/New_York' android-shell/app/src/main/java/com/goldmine/shell/AlertWorker.java
+          grep -q 'scheduled-event-keys-v2' android-shell/app/src/main/java/com/goldmine/shell/AlertWorker.java
+      - name: Verify shipped files
+        run: |
+          grep -q 'signals-engine-v3.js' refresh-fix.js
+          grep -q 'ui-sync-v1.js' refresh-fix.js
+          grep -q 'signals-engine-v3.js' .github/workflows/pages.yml
+          grep -q 'ui-sync-v1.js' .github/workflows/pages.yml
+          grep -q 'signals-engine-v3.js' sw.js
