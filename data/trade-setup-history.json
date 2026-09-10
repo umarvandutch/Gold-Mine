@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-10T20:58:18Z",
+  "updatedAt": "2026-09-10T23:04:00Z",
   "calibration": {
     "completed": 9,
     "wins": 4,
@@ -10,6 +10,44 @@
     "minimumSamplesForAdjustment": 30
   },
   "setups": [
+    {
+      "key": "bearish|2026-09-10T13:00:00.000000000Z|4340.2|4376.45",
+      "side": "bearish",
+      "createdAt": "2026-09-10T17:00:00.000000000Z",
+      "blockCandleAt": "2026-09-10T13:00:00.000000000Z",
+      "zoneLow": 4340.2,
+      "zoneHigh": 4376.45,
+      "quality": 67,
+      "confluence": {
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": false
+      },
+      "planning": {
+        "limitReference": 4358.325,
+        "invalidationReference": 4382.641,
+        "targets": [
+          {
+            "price": 4316.675,
+            "rMultiple": 1.71
+          },
+          {
+            "price": 4313.43,
+            "rMultiple": 1.85
+          }
+        ],
+        "bestRMultiple": 1.85,
+        "passesRewardRiskGate": true
+      },
+      "source": "OANDA v20 practice",
+      "firstObservedAt": "2026-09-10T23:04:00Z",
+      "status": "tp1",
+      "triggerIndex": 0,
+      "triggeredAt": "2026-09-10T17:00:00.000000000Z",
+      "completedAt": null,
+      "bestR": 1.71,
+      "outcomeR": null
+    },
     {
       "key": "bearish|2026-09-10T01:00:00.000000000Z|4401.05|4421.17",
       "side": "bearish",
