@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-10T06:00:04Z",
+  "generatedAt": "2026-09-10T11:08:38Z",
   "calendarStatus": "live",
   "counts": {
-    "events": 136,
+    "events": 135,
     "headlines": 80,
     "marketFeeds": 3
   },
@@ -12,8 +12,8 @@
     "market": "live-or-delayed",
     "headlineContinuity": "recent-snapshot-fallback",
     "signalPolicy": "medium-high-only; 7d ordinary; 90d CPI-rates",
-    "xauProgrammatic": "not-configured",
-    "technical4h": "not-configured"
+    "xauProgrammatic": "oanda-live",
+    "technical4h": "live"
   },
   "events": [
     {
@@ -1511,24 +1511,6 @@
       "impactPolicy": "high-or-medium-only"
     },
     {
-      "id": "b610dda1-0cbf-4fd1-a030-819ad17bb1b3",
-      "dateUtc": "2026-09-03T09:30:00Z",
-      "periodDateUtc": "2026-08-01T00:00:00Z",
-      "name": "Challenger Job Cuts",
-      "actual": 52.881,
-      "revised": null,
-      "consensus": null,
-      "previous": 33.429,
-      "unit": null,
-      "volatility": "MEDIUM",
-      "isSpeech": false,
-      "isTentative": false,
-      "category": "other",
-      "source": "FXStreet public calendar",
-      "memoryWindowDays": 7,
-      "impactPolicy": "high-or-medium-only"
-    },
-    {
       "id": "cb243d49-82a9-4789-b19a-2365399fcd76",
       "dateUtc": "2026-09-03T12:30:00Z",
       "periodDateUtc": null,
@@ -2466,8 +2448,36 @@
     }
   ],
   "market": {
-    "xau": null,
-    "dxy": null,
+    "xau": {
+      "label": "Gold / XAUUSD",
+      "symbol": "XAU_USD",
+      "name": "Gold / XAUUSD",
+      "price": 4382.35,
+      "previous": null,
+      "changePct": null,
+      "deltaBps": null,
+      "date": "2026-09-10",
+      "time": "11:09:28",
+      "kind": "gold",
+      "source": "OANDA v20 practice",
+      "live": true,
+      "observedAt": "2026-09-10T11:09:28.320951199Z"
+    },
+    "dxy": {
+      "label": "Synthetic US Dollar Index",
+      "symbol": "DXY-synthetic",
+      "name": "Synthetic DXY from six FX pairs",
+      "price": 98.9094,
+      "previous": null,
+      "changePct": null,
+      "deltaBps": null,
+      "date": "2026-09-10",
+      "time": "11:09:28",
+      "kind": "index",
+      "source": "OANDA v20 practice \u00b7 DXY formula",
+      "live": true,
+      "observedAt": "2026-09-10T11:09:28.320951199Z"
+    },
     "us2y": {
       "label": "US 2Y Treasury yield",
       "symbol": "BC_2YEAR",
@@ -2510,13 +2520,86 @@
   },
   "headlines": [
     {
+      "title": "Nervy markets await ECB rate hike, US inflation data - The Lufkin Daily News",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPcmRjWmFFaEs2MkwzVENJSFVQcjBpTFBXM0s1ZTBBMFE1UTNHakdqN3l3MnN3LUl2OFktWHlEX1VjdElfazBwSlY2VGFYN2hMZS1PblZfQ0Rtd0dQU3RjZnJEcDdqZWlLZFc4VzkxbENBR3RYQ0hLUTNsVVF4eWw1Y2EtR0MwWGg5VHM0US1IZzRYTE0wM29SZmNSUXRybTBFVGtfb2FlRVZxdkNkcjJaLUIxU1lzQ25rUkJpVERmdVpnZllPamVRc2V0ZVdkRDFkdG9EM2tiUmNxX1Fzck9GU1h6TWZDQQ?oc=5",
+      "publishedUtc": "2026-09-10T09:42:44Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Bond Yields Edge Up as Investors Await ECB Rate Hike, U.S. Treasury Buybacks - WSJ",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxON1Q0ZHk2YTA0UENwZWU0d1l1U2FJeFJ6SUlVeGVQZmVnWVVNdFlJWG8tMDMyX2RLbXN0SERabUQzNWZtV2t6cTJDMjhjR196bmhaUjFLMUNyOEFMWVFYRkZiRHRUV3FYSU1uUGVDR19RM2V6ZnRyeDc4a0NCU2VHcW5EckJ2VUR0cnpSTjFFeDZtajh5V2tYdlUteVhuR1pvWVFQNThxOGJnejBPU3Y5ZkNiYy1SeWtGWVREUDNR?oc=5",
+      "publishedUtc": "2026-09-10T09:39:00Z",
+      "source": "Google News aggregation",
+      "category": "government",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Gold Price Moves Higher as Markets Await U.S. PPI and CPI Data - Yahoo Finance UK",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRnFWeWpxcUxqemEwWEc1VEQ3NmJFT0RJRDdpbThDRVYwblBOQVFTMWkxVGQzek1vMkpWcm9MX01pVUtqNXp0ZEN1Wjh6cF8wYjhHcFUyYmRYXzg5VzFXMjNCOUtNT08yTzdNM010blRNVTlGUFRMendxY1A5Q1hWWi1tWUJyeWc?oc=5",
+      "publishedUtc": "2026-09-10T09:38:16Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Gold Rises Toward $4,420 as Dollar Weakens Ahead of U.S. Inflation Data - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNS1pnTXRNXzJLRlR2b3F1OTdRMjd3ZXJldmVxUVFsa0NjdWlmTDJQV2YyYmloRC1qZlJieThlc2xDeHN4VWQ3VXhZaURDMFRxWDZYSkdkQlN0MGM5ampUZDROU2ltaWZEeXpWd1dFanJEdEloWmtpV2NsT3JyZW5RR2NRVVk3Nm9qbm9rel84UjVpb0hwWEU1bw?oc=5",
+      "publishedUtc": "2026-09-10T09:36:29Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "From pony fur to bamboo furniture, Trump\u2019s trade war with Canada is getting even weirder - CNN",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB1UExoRWktTGxvbzJMLUZDN2VGVHlvNGt2Wi14aWVOTzA2UE5XR2VPeEtZTnpOejE2VmVmUHZ5cHdBUU9tcmIwUzhYaGpiWk11WHRxU3RMaVpNaXUzRDdSbW0zMFZDSW1pQUQ0SFV0NmlQMHRrV3c?oc=5",
+      "publishedUtc": "2026-09-10T09:00:30Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Uncover the hidden history inside the DC area\u2019s Cold War Museum - WTOP News",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNRGJZNVlWR2JSeG1nYkV4UWR5VjctRGFRUkNWN2gycGZ1a09BQWxiUUxaRk1pUGlGRXFsRHh2Qm85cmhHc2F3MjBQY25CZHdtRTlXU3VWT0VqNzRwNmxwNjVpbHN3dGRYaUNVanUxUF9oUld4MWJBSkN5dXV3cDdHX3RSeVhlTXJjX0FocjJPeXJnemtNVE83THRPRk55ampJcTZfaFZtRQ?oc=5",
+      "publishedUtc": "2026-09-10T08:22:53Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Commentary: Trump's dumb trade war with Canada threatens U.S. jobs and security - Yakima Herald-Republic",
+      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQR0xYbVpPbXpfUHZZczZaWGxyZFM2MTZVWFhSX1VmVHVXTjFwZGI1bXlVZG16N3FQTnhjTVNqWkxIZ3BBN25jNFZwNXEwSW1HTmRSVk56YklzTjJna0VEZy16SlNjX2pHSnBWZmdkSmRFcWlWaXBJYzBoeTJmbXlFSmFlNjBxZXY0VmlwNFN1YVpfRWZlN3RZNVEtOHVybGRsYTg5OWNxYmdacVBmOVJvZjJST2pYN004RGFya2NMeFZvYjBQdU1XTXdDUzBhTHJ4Wndmem9SR09QUW4tM0s5Wk01Q1lnb2hER2ZxWXVkRHB4dC1EOHfSAfsBQVVfeXFMTTlOd2xHd1hBZU5yUzlqOV8zTzVXWEdhMVhFazB4T2NqOVVwZjZBcWkzNWk2ZDdOVWNuSlliejI3TmVVUUVsbmJrMkFsLVBDb0JJSzBFeWQzR29HQ1hvVlJuSGpmR0FtRFJTXzM5MGdVZVlGMlBTVXFNOW8yVVRTOWpSZHFjTGF4Nm9CNGdfNXhRR3huX005blhMVVlqZHZSN01XTk01UWEwOHFlYjB1aks0LURWdVZWWEdzS0t5QV9XZXI2alllbVlidExlRFZSYTk0UjktQWduN21QQ2dqQVl5c2pmNEJsM2U2TU9rUVNQTGQyWWVab3ZaNTQ?oc=5",
+      "publishedUtc": "2026-09-10T08:20:42Z",
+      "source": "Google News aggregation",
+      "category": "trade",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "US Dollar Outlook: Technical Case for USD Bounce as PPI and CPI Loom - stonex.com",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxORHl5OXdzaV9Fb1JGQ3JaSHRhbFlPUzJTNV9EVmljenlIaWt4Ri10MlZuaHNhSHNfVFY3eWZFa0pnUjJ6S2c1eVFNUTh0U3FNdUFZTzNOalNzNFFsX2RPMTJXbHFERDNSSDhrdmJ3TGJtWkhPanJmRk93XzdzVjFEZE85OFhnLVVuX2x0dFJJNUd0SGh2WFV0NjFyVDVTRmR5Q1FPLUUwb3NPLWU3Nmp0VDJvMmtxbDEwdlFGWVM5Q2d6NHp0?oc=5",
+      "publishedUtc": "2026-09-10T05:38:43Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "AI Could Boost US Economy but Squeeze Jobs and Wages, Anthropic Warns - Open Magazine",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPV3B0TUExbEpZV3VDVS10ZWV4NXpKWFBhVnYxWGU2QlNheGRuSzdwdWpRamhYQ0Nvb0hTZHNRNjlzYkl0UUt1UG5tQlNHZEpLRGExbnUxQ19LSW01b1dPaGtBY2FhZ1VqazRjOVBpSjVaSHRUSUlEb0JGc09PMUdwME16elNZaGVuNVBCYnFFVXAyOTlxSkZHNVA0S09jYVZqX0JZRllidHg5TWM?oc=5",
       "publishedUtc": "2026-09-10T04:09:46Z",
       "source": "Google News aggregation",
       "category": "labour",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Anthropic Estimates U.S. GDP Could Reach $44.4 Trillion by 2030 with Widespread AI Adoption - finance.biggo.com",
@@ -2525,7 +2608,8 @@
       "source": "Google News aggregation",
       "category": "growth",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "IMF ditched top candidate for chief economist job over Trump tariff remarks - Financial Times",
@@ -2534,7 +2618,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Lewis Powell \u2018fired up\u2019 for defensive ends to continue momentum against Oklahoma - michigandaily.com",
@@ -2543,49 +2628,22 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Trump says oil prices that spiked because of Iran war likely won't come down until after midterms - AP News",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQMXltZEtoQUhXVTQ1bWJMekROZWpIeXVtZmljZlVNejktRWE0TlZEdWY3X1hGMnNQRXVUUm9mTGN1RUFYOGh5SlF0LWRnWnZCaV9sYllTLVoyekU3TWlxNTYxenMteGVNSEw2d1ZmMnhOVXdoRGFmS2I5R2ljdTdkN3JwamRjbFJlb2JST2Q5YUgtXzRw?oc=5",
-      "publishedUtc": "2026-09-10T02:27:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Gold Trading Alert: Oil Surges Past $100, Dollar Under Pressure, Gold Rebounds 1%; PPI Data Due Tonight - Moomoo",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVlVzejRPaVhCeDI1bXZjYkNRdlhWZjRpX3UwV18tVlppZzBNXzEwNUJUUVFJem13eWVBUTUwSFNpVG1qUEVMcFpxQnhzNXdVanR4Mi0ybHo3M1VwY0J6RDN4TVVGN0VMTG91UGRWMjV1cjhLYmk1WHFyU3VvbU1wT0U3V2dORi1ZOEVLUUtCdExzTlpRMUN2Q0RfT3RzZXBlZDBCWg?oc=5",
-      "publishedUtc": "2026-09-10T00:51:06Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Gold Holds Near $4,400 as Traders Eye U.S. Inflation Data for Possible Fed Rate Hike - bloomingbit",
-      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1uUktsWkw1SzFuSm41bTNqTWZpVUgtcmctVjZpVmFqdzloOXB4Q1I2eldGODRfaEJHMUFxcnlURVNsTVJwck16MzB2Z1V6Z3hpLUM2bw?oc=5",
-      "publishedUtc": "2026-09-10T00:40:37Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
       "memoryWindowDays": 90,
       "retainedFromPreviousSnapshot": true
     },
     {
-      "title": "USD/JPY forecast: All eyes on US jobs with CPI next week \u2013 FOREX Friday - FOREX.com",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUl9uc1dUem14Y1gwcGFvNnlkTkhmYlFnZUNhOGhGVXZBUC1ka1BUT3REZTZRZXVqU2FUM1lLNUxQb0J3Z1NPN0FyUE5mQWpOVXM3blhYbXhtbjZoRHJOVFJuc2pKM2w0VEZQUmc0XzhMN3RBSncyTk5qSGYyZW40TFdtWXoxc1FWOGdFZFVlS0pFR052dXI3azRHSG5lQjVNcjdzZ3NxbW1La01FNVdNTEtwbFgxdw?oc=5",
-      "publishedUtc": "2026-09-10T00:21:13Z",
+      "title": "Lewis Powell \u2018fired up\u2019 for defensive ends to continue momentum against Oklahoma - The Michigan Daily",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxORFdkc0NpM1hXcG5SeHo0dnBaZVRqSVVEcUZqaXFvcmhDajhrNV9yQWJidjJWdW9VYVNzYVc3dXQxSENmdWw3ZFlFVEpSZ1JZUXVUSVNtVE9Ua0tzdHh3T2pydUNqTlh3SFFjaFVsZlVZcUp5VzV4ekxKdzJ0RW1GRWRTWGhJTllfSXJRelo4ekQwVEVPaHJ2aUx6NmRnZ0x2Sjc3QVMxMU9kbjNwTjlNMGZRdjRQQWVOSV8zcU9nWHhBdUE?oc=5",
+      "publishedUtc": "2026-09-10T03:53:00Z",
       "source": "Google News aggregation",
-      "category": "inflation",
+      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
     {
-      "title": "Trump Takes No Position on Allies\u2019 Sanctions Against Israeli Settlements - nytimes.com",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQZjJiLTVfMllEMFlqaDdYOWwtaGJ6SDIzZUExcUMxYTJjbDNwR09zQkdIeTdkY1NkVTB0eWo1Skc4SW5WU3pBTzdIazZsNExnSTJhNTYzbEJ6TUltUVMwbmdXWExPMVA4bWc0OXphUUxaS3ROc3RHdTN0Wm1oa0lFRmdmTmRINzRIdnNJdlpPaEVfbHpkRWJvdndjdGtiU3BX?oc=5",
-      "publishedUtc": "2026-09-09T23:48:45Z",
+      "title": "The Critical Minerals Linking Myanmar\u2019s Civil War to the World - International Crisis Group",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBRM0JpYTZ6TGZ6WnBCQnRLOHFFRWhneEJJYi1OSFpVVlR2MDBWYjNpN1dETTBwMG1fZkl4eEoxRm93RGpEUVV1Zm1ZZWo2VmxhNVhpX3BDSjJ6RnkyamxuQlRxNWZocTgyN0dkQnNlXzZ4Sk9lY0R3?oc=5",
+      "publishedUtc": "2026-09-10T01:50:39Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -2593,32 +2651,12 @@
     },
     {
       "title": "US Dollar Outlook: Technical Case for USD Bounce as PPI and CPI Loom - FOREX.com",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcGl4cHlKZUxYWkJ0ZnRKT3BoN1BHRk9MRWU1N3lQY2MwRU9LQVh6cDNMaTVDeDNWU0JFaTkxNEdmdnNnYmk2TVFrbDQ5cmZFdEZ6UDJBdmZmWU44WDBORUkwYkRMNXNYbUVlc0VJbWo4RnU3RUFfMVZPdXhHUWNoZE9PbmRYZlc2UEpkWThsZXpkQUYzT1pLV1ZlLUpUSWZpN0VaYVpsbVBQbWZzUGlKTGJFOFLSAcABQVVfeXFMT2Y1OVNwSVRxc2VGLUdRX2FEdm9RUUNfZEtYSTBWNE0yZDZ2YW9xX2RfNHB1QXJFeW80U0RFekFsV2Z1bWIxUExTNUpaMGMtNFZJWEZ6UmxMQmJJSlVxV1JnTnZyelAyYlZHaXZZRGJrYXB6TUNLX3l3djdUSGlQZWU2WmRYbzBmcDc1b1ZlemVNREVsNGRnUEVyQ01WMVVHSWFWTExUVzZPLVR6WkdrdVVwMERLNHJKeUFfMjd3OGpN?oc=5",
-      "publishedUtc": "2026-09-09T23:33:09Z",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPYk5ldGFEMkhaVzlOQVlKRUJPMFdoSGYydkVaNHRNOW1ZVEJadnVDdURWamV5eUk0VGhna3AybVZyNU5Ob2NUS0ItNmp1YlNUV2RKWG11TUVpWU1kS21PYWFvRnJhVm5WVzJOWEJvU3h3ZzF1Q0xlUUJ0a09odmYtMUtuXzlmVTZTWGN2WUF6T2RRUzdSVUx5YlBicHdITjhoNnU4WEdJSTQtMmhTaTM1bVEyRmdScEVmRUFxUVZJa1rSAcABQVVfeXFMT2JOZXRhRDJIWlc5TkFZSkVCTzBXaEhmMnZFWjR0TTltWVRCWnZ1Q3VEVmpleXlJNFRoZ2twMm1WcjVOTm9jVEtCLTZqdWJTVFdkSlhtdU1FaVlNZEttT2Fhb0ZyYVZuVlcyTlhCb1N4d2cxdUNMZVFCdGtPaHZmLTFLbl85ZlU2U1hjdllBek9kUVM3UlVMeWJQYnB3SE44aDZ1OFhHSUk0LTJoU2kzNW1RMkZnUnBFZkVBcVFWSWta?oc=5",
+      "publishedUtc": "2026-09-09T23:19:28Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "US jobs report puts September Fed rate hike odds in focus - equiti.com",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNc2x0cGZCencteHdRSjNOdHNtNUtHYjh6cC1la3M4a1lWZjkwWVZCd3BsX1gwZnZYRXNhek81b3FyYl9VNEt4NE9YYWtmUW5BVzgxZ0Iwb3Q2UDUtVjZSd1RJM1JkVjN5NjRrUDk5RjNNNjVVQUI3VDg1ZjIzQkp2ZFhiTENsQ2xodWt1bDZqS05UdkY0VUpV?oc=5",
-      "publishedUtc": "2026-09-09T23:17:24Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Slotkin Signs Joint Statement with Colleagues on the High Cost of Trump\u2019s Trade War with Canada - U.S. Senate (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNZ012Unk0MDExcm9JMWMwY1Blem9Palp4RFlXeXJkQlBxR0RzV1BfeHEySjRodjFZdWhBQ2RvSnRzVkxvMUdjcEdLVEZieTR0MkFNV29vQ2hMcFd2NmRXVlFQaWJQYUtoTi1kVE1ubndERFY0YU03VGhRQ1Ita01vUnVUXzgwM2xwTE5ObnNrTXdVMzJHVDJOdEhPMkpnVmw2RVBMM3lHUmpIVVhxZFRpalhvcDdRRC1wUV9rNE9KekhBRlFpN0tOQ2ZPUXRGVGpTSXJn?oc=5",
-      "publishedUtc": "2026-09-09T22:07:43Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 90
     },
     {
       "title": "Asian Stock Markets Mixed, Investors Await U.S. CPI Data - WSJ",
@@ -2633,15 +2671,6 @@
       "title": "Former Fed Chair Jerome Powell Sells Gibson Island Mansion for $7.2 Million - Realtor.com",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMno1LUdZWWV3RllGVXpYdkhKVHhFRkNHdEtZZEl5SjJFRUxocC1sYlo2cW0tSTQwUy11cmFKQWxZYUtfdjRNOUVqNFV5aGl6Qlh1V1BwQkZMcVZBMXdENHRUQktlNkRMQUR6X19CTVg0ZklTWVh0QUgzVzgtSUFJYmludGQycjZVaW1JVVdlMEx2eUdhVXVOZ0gzSEdvOE1xb0pQUmNCSQ?oc=5",
       "publishedUtc": "2026-09-09T21:23:11Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Obituary: Powell Jr., William \u201cWill\u201d Nelson - WTAP",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9xcEpRdldzX3NpV0hGeGhmU3QwRk9LSEpXLTZQeHhzVUVPVktHRV9OcFlZeWxoZ3NiTG9WaVc5SlZGRVlsa21xRHZGdGlNZ0U0d2o5c0xUM2t4ZXV0UHVEMVdKbXJuOElVVXZRZEMzYmVMUHc5cVA2cUhlONIBjwFBVV95cUxONnhGNnlFNFFLdVNnci10REdIWTNUbHdWalhsUXVocjZDZDQ5dUpNNHpRYUJoYXppcFNqWlo0bExvcEVVc3VBUHdkTVNzb1JBbi1fbnlYWkhMakp2MUhUWGVwZXpxek1MaFdEYWthQTBlb0UwZ0NpemU3dndrNnR3Y3pMcDNrSVdhcE9ILTNfRQ?oc=5",
-      "publishedUtc": "2026-09-09T19:59:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -2702,7 +2731,7 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "US Dollar: CPI outcome guides Fed path \u2013 DBS - FXStreet",
+      "title": "US Dollar: CPI outcome guides Fed path \u2013 DBS - fxstreet.com",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNY1hjS1plRjhJWHFGcVg4UzhCb1dEU0d3M3NTckdRRUdJMGtfNlRGck5faXZIYW9DS0tKRUxxUUtSUkQyWVMySnA4UzBVR3g5Q1hWQ2pKUnRZREtSX0VxdGgxQWhOckdueFFTM0s0b21zQXB4U1VWc0t3NUhJMGVOcENpTllCVjJ3Ums2Yw?oc=5",
       "publishedUtc": "2026-09-09T08:48:12Z",
       "source": "Google News aggregation",
@@ -2720,8 +2749,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "US Dollar Price Forecast: Dollar Weakens as ECB Hike and U.S. CPI Take Focus - Yahoo Finance Singapore",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPNDk2RktxLUhuNVpOd2V4M0dEb2RsR0tYX3VGNXB0NEJpeFp6MzlFU2J3WVNHRUxBd0ZHd0MwRk10Y1FLQVNOWXBzOGQ2OWhHdUlwVXdsaWVzLWtjLU43ZkRONWNicnRWR25qQl80d1FoMG1wOWtSNHQ1U3ZIVC1oU2g2SzZIQ1E?oc=5",
+      "title": "US Dollar Price Forecast: Dollar Weakens as ECB Hike and U.S. CPI Take Focus - ca.finance.yahoo.com",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPYXNPNmFybWx4VWVWMU5TTkYtWmxPMzlsUGdNWEw1ZmpDMUh5a1dSa1FLbGx4cXBGdVc2ekJTOVBrUWltN1dRS0F3WmlQTF81bGZGeVZQTHlTYk91bHJhZ1hVaHhOYjMzWlQ2SzZ6NXRNRVBhX19NVGZZWm1hcUpxSWJlQkg3ZUE?oc=5",
       "publishedUtc": "2026-09-09T06:00:14Z",
       "source": "Google News aggregation",
       "category": "other",
@@ -2783,7 +2812,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Why the Fed's interest rate call could come down to a few hundredths of a percentage point - CNBC",
+      "title": "Why the Fed's interest rate call could come down to a few hundredths of a percentage point - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQVFlvci1qSTJXOWUzS2UyWDFOYW01ZWpPOFJ2eTdibHE1T0NHbXR3RndadzhfOURid2VHNkY2dmJLeERJSkdZbFZ3TkJxSnk5VHhURm13ZUUtLVZGTEVidW1jUnBmMk1CUEJfZUtYNm5LcUxjUnBia0RDSzVzNTdrbEdJcmNEaXpoTU9zazllWFBNVEhvaHZUcw?oc=5",
       "publishedUtc": "2026-09-08T18:35:32Z",
       "source": "Google News aggregation",
@@ -2792,20 +2821,11 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Caroline Powell Donelan and Howard M. Knee Named Leaders of Influence: Labor & Employment Attorneys by Los Angeles Business Journal - Blank Rome LLP",
+      "title": "Caroline Powell Donelan and Howard M. Knee Named Leaders of Influence: Labor & Employment Attorneys by Los Angeles Business Journal - blankrome.com",
       "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNajRKbGNwbGdHejFFU0EwbG1mSjFRQWwwUVpwMGdEbVF1V3BUX1dYck9jLUdPTnFyRExtZjVBWDF5QWowWFVZS0FtbzlOU3FJbzRpSHFHanc0aW5Oam9jd2oyUjZrTmZMWDVubEZhNzU0VHZDVVJhUDczREtyQlpNSEtSbzdaQ2hZaGJsYVY4NXhjb09aYTdCOXRNallfaFR5ZTM0SkRkMWdWTXg0czd3ZEJmRFJSRFo1b1liLTBFSExKR2hZNUJMQ1p3eERfYlVtRW1wZktaM24xTjlSTEt5Xy1DZmRYQW8zbmNqUE81Y0R5YXFNUER4OTJhbVFlLWc?oc=5",
       "publishedUtc": "2026-09-08T18:11:50Z",
       "source": "Google News aggregation",
       "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Gold price wilts as Oil shock puts CPI in Fed crosshairs - FXStreet",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQcG5EZXZVbHFUY1E1cXVsekdvQ3dGaFVUN1VzSzZnbmswX0otanRPWVByVzU5bnhnSTVMc05kazM2M25Bc2ltcERPQk9LUGVvQzJPdzdMWC1vQll5b053RkdOTU9HU1h4ZUhPSHlXejA2cGU4VndBV3dhSzIzQ3NPX2dZX0hyZDE5aWZWX29Vbl9EWXhwN1VCYlc5enRZM2xR?oc=5",
-      "publishedUtc": "2026-09-08T18:01:43Z",
-      "source": "Google News aggregation",
-      "category": "other",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -2819,7 +2839,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "More water being released from Flaming Gorge to help Lake Powell - ksl.com",
+      "title": "More water being released from Flaming Gorge to help Lake Powell - KSL.com",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNenVsTE8tbVo3dlNnZHpfQ1ZVaFVRZkJHX3FPSk9XTjhRME41cEZHdkVuX201NDdvNFJoRk1aVFpidmE0dHJlU29YU2U0TVVpYlp1cnJGakZEWkotLTh5WV92RDVzTEFIQWtwM29LczdEYUJzd0NqOHVwTWVnS0ppWVZFalVzWmpUc25SUWRjN1RQbEcySkpqRXZEU1RvT2F2bUg0?oc=5",
       "publishedUtc": "2026-09-08T10:13:25Z",
       "source": "Google News aggregation",
@@ -2855,7 +2875,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "US Dollar: CPI outcome to steer Fed path \u2013 BBH - FXStreet",
+      "title": "US Dollar: CPI outcome to steer Fed path \u2013 BBH - fxstreet.com",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPV2VGeGtUM0dkQjRJVk84cU5PcDFHWjJkaXVjdFVabFFCNDNseWFfdlBPaWlGZXRWZnhkQ29ab0VOMC1tWFpMa2t6cTQxSHBsUnktZzF1RXhfUFAxV0kwX0htTDczeHZtbHFFdjdXcmppRnFybnFIaDdGMUc5QndzZk15ZzhfRzZxNGx3LURPNA?oc=5",
       "publishedUtc": "2026-09-07T13:57:14Z",
       "source": "Google News aggregation",
@@ -2882,7 +2902,7 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "US Dollar: CPI holds key after jobs-driven support \u2013 OCBC - FXStreet",
+      "title": "US Dollar: CPI holds key after jobs-driven support \u2013 OCBC - fxstreet.com",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxORXFnU1JaLWllR0ZBaHluaUZhZUdTWmFCeks3cmQ3RUxmUU9mZ2lreXlrUUtwU3RLYm9iWXE1SWozUm9nbHJNNXBFWWh3NlpYUlRmNzQzR29UWnFWYjQ1RnRnRWwxYXZHdkliWWVxMzZpXzBsLVo0a2dLZHRiUDByYUdMT1FfZDlJU0p6NXJ0dDlOUkhYblFYbFZTSTFsZw?oc=5",
       "publishedUtc": "2026-09-07T11:12:29Z",
       "source": "Google News aggregation",
@@ -2905,6 +2925,15 @@
       "publishedUtc": "2026-09-07T03:54:00Z",
       "source": "Google News aggregation",
       "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Upcoming inflation data could determine if the Federal Reserve hikes interest rates soon, leaving Wall Street on edge - Fortune",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNdmdaT3E5TjNKcU53Z0FXbDRKeGl0a2s5ZFFwNUVyaGFCUE1pODBBWU03REFMYzJyR2VhNWxzWDdTU09VdTFWVENmVzZNV2stYW11clZiNTVXRG8yQkVJRTZyZmJodk44Vl96bzd5OFRtck4wQXFWYlRSN29aRG4tZkk4WUlaSURDRUVyWWU4XzNjWUphdlRzNWljYw?oc=5",
+      "publishedUtc": "2026-09-06T15:03:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -2936,7 +2965,7 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Trump turns up the heat on Warsh as Fed rate hike looms - CNBC",
+      "title": "Trump turns up the heat on Warsh as Fed rate hike looms - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5DYTJSa3ZaZFdjOVppNUhHcUgwZUkzNzNkQ2dQbkxfZTV2czZOREZKemRxUDhtSlgyLVQ1eEQyRlVxRWFZNXVQSVdFUTVfc0FqMzFBSXE4Qkl1VWtzdmdQWllkSkl5QjJqZXpSOEVYWUpEU3d1TFNQeVNqX07SAYIBQVVfeXFMTi1HQkxWWlgzN1hYVGt2elQwUUVzcWJIai1VclJVUkNwVDI0ME9ZRjBlSzBtT0xoMTFVMWJfUkdWT0VPZmdrc0RRLXVDd0hkeFBpMEhMNzZhSTZ2SUx1QkQ2RW5UTVk2a3VPVjgwWWdoX1Q3b0I5THlCMHdJWHJGMWFidw?oc=5",
       "publishedUtc": "2026-09-05T18:10:58Z",
       "source": "Google News aggregation",
@@ -2963,18 +2992,9 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "What the War in Iran Has Cost One Gold Star Family - nytimes.com",
+      "title": "What the War in Iran Has Cost One Gold Star Family - The New York Times",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOQmt5U1dhSGFQU1hoR3RCdy1ZeWJSTTdTSlM4X1dwMWlSR1JvTWFWNmxvbkcwaGlwZTRmVUhaNnpMYmREODFQOXdzODVTSjduVVlNREF5RERDM05yVDRNLVB4aW5jaFh1cmJFaXZ2S3dEU0hDOU9GamFOVlBtQkdnXw?oc=5",
       "publishedUtc": "2026-09-05T09:02:54Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Long Island grandmother, 62, with \u2018a heart of gold\u2019 killed in violent attack at home - New York Post",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORWEydlZiYm53RFc2N3RNdkhTdk94RHdfTjJ4UGVFOFU0NG1kWDVqR1lFOHZkTHJQOEVPeUh0Qm1zekJSQ2hFb1p2VFZ4NzBobnBQd2hEMDlQR2txb0RsY3lEYzdGcXpqSWFsS2VLSk1MQUFKeXRPM0gwakJtSUZpRVZqUFJNWGpxRlZMOTlYRDdhUWtOcWQ2aA?oc=5",
-      "publishedUtc": "2026-09-05T00:06:00Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -2990,7 +3010,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Lola Powell Kelley Obituary Sep 4, 2026 - moorefuneral.com",
+      "title": "Lola Powell Kelley Obituary Sep 4, 2026 - Moore Funeral Home | Tulsa, OK",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE0yWUlicGliVkl1SndQX2NySzZpek82eXJMdVNFa1F2SFQwQXBhMFExOERmMUg3QjdoSWMxbHRTY3Y5M0d2ak5feGVJY3VzWGdpd2FmTzdtYVAyLVo3aTd5eg?oc=5",
       "publishedUtc": "2026-09-04T22:01:21Z",
       "source": "Google News aggregation",
@@ -2999,9 +3019,18 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Lawrence Powell Doyle Obituary Sep 4, 2026 - Fair Funeral Home and Cremations",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9ycTV5SkNmZF9wSm94ZFJiS25Na01hQlZqc0lzTWQ0ZDZyTUVidVI5aWkybE9DOUtTMHM0Q1dKcWJzRTJIN3E3RENZZUFGcmlWOHNtNXlhWnJqbnZq?oc=5",
-      "publishedUtc": "2026-09-04T20:29:26Z",
+      "title": "Jackson Hole analyst roundup: Warsh's speech sends hike chances higher, may put Fed 'at odds' with Treasury - cnbc.com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOenZTV1NsMHJpeG9oSThNclEwSlR1SFpHZlNaN0xCMy1jRzNjcC1scTB4V1NpRDNzZnR2VDluZVoyWDRoRU5UYVZna1RvNFRKa0p4YVBCMS1lSGs4TDItQWp1T2pUcTY5NG9pNDJjYkJQMDhHT0I5LTF1UzZ4NXFOQ1Bkb0Y3YnhNclF6UzEyWTk5eHdBZ09UNXl6ZmUtRnp10gGmAUFVX3lxTFB3Nml5V1E2Q3RnT1lZbUpwN21uXzk0T0VoSjIzaVlMSkFCNmhGYXRISm5wYTh5dUlTTjZ5VWltNlhMTExMc1ExTGJ0QTh2c3JIVzhreDZOMGdSQy1MYzhiYnFMcENZRU4xOEhGSFRhQy1mVjZRVFA3X1Fia3FjNkRwbElDY1VfZ191dW80MUlSNi13MUZTQm1uRkgwQ19BaVMyRklaUGc?oc=5",
+      "publishedUtc": "2026-08-30T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Warsh raises stakes for Fed's next meeting, and other takeaways from Jackson Hole conference - PBS",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQU0VoNFJqVUpidzB5X3h6WXlxcDhZdjlpWEt4UXFsMWlyTjNjVS03VjgtRjZoLVg1UWY5Xy01alNUdVZNN1ZmejlnaVZaMElfSkVyenlwcldkWnlXeW9UZXpLWEZ1M3cyZzd1SDBObEZ4Wm1oVXZqLTVkcXRlTzd3QU1HZ2dRVXBKWExTLXVNeGY0aktpSUhzOE5DU2VSbTQ4N0pYQ0o5VGhEdlZUZ3lvYlBUOGY4bU9HQ084aVd0SGR0Yy0wNUHSAcsBQVVfeXFMTzREZzM3d0IyUDgwNTB1ZW1xY0tWaGQ1QjZocmlnckU0NFE2bTgtMmRUalFGeVRUeEJad05mTllhZVVGTjVWcjRSOVFpV2xqLXViM196X0xOTkhETzNhZXRpc1BzTVBlUUlJNVVrYldxQ05EUXdpNTlLRWNFZ2d1cUNWMGFGWHdia2xpdmxRX2ljbnlJNG5XWndQamt5ZmUxaGlpZGQ1ckpwTEF1TE0wYTlGMGxsS2pGTkJPZzY4RzJjbnU4SjBYckIzNkk?oc=5",
+      "publishedUtc": "2026-08-29T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3010,6 +3039,15 @@
     {
       "title": "Fed Chair Warsh signals rate hikes may be needed with US inflation stubbornly elevated - AP News",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNTUFJSHBlaThPY3QxNm1TZEpORnhMam5QQUZTc203emxiY0pKSWJLYWtvaFZNMUd0UGluNzJHVHNhcTZERkpOdmpQR2ZsWC10Q1IxMTFIaDVVRkQ3WjhFWFZsX254RVVJUG9QemZ6ZEtIbndJZk1iYUtuNDEzUGFmejVPZTZlQXl5SEx5WGZPSzh1WHlXalY1dldNR2l3a0RkT0t2M1RZTEdLZw?oc=5",
+      "publishedUtc": "2026-08-28T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Warsh indicates Fed could raise rates to cool inflation - The Hill",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMHoyMlNQSms4ZWpONFBvV2J3X1M0VEFXSGJMejJhTU9Sa0hiUk9YN3hHXzdtMm5CVDBYOEFmWm9Nb0VQSGN5TDRfMVBvOXFUc25hQkxsUUdFVy1qb3gtR0M5eXhPR095bDBjQWY5b1JWaGpZNlg0WXV3WmRSRy01NHdPdjRBcnpJaE5IUDdNTk1kd05LS0x6SU5yS2F5d9IBowFBVV95cUxOTGVBenJqczBCVjYza19scUpyd0dkMGR2Q1AyV0pQNzlWZThDQmN4U1Z2c05LbGhEeHRJZVg4bnh3N3pZNUJhdm8xZ19HNHoweWk2b3R3SDJJQkdXZ0pBU1pOajg2ZTNLdS1MUkYwV2Jnd1gtdGhWREpWQlJMZGJqMFo3c3JkUmVBdlg3MmdOV05kbTlYM3NNakpvb0RPMkZiQ0pV?oc=5",
       "publishedUtc": "2026-08-28T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3026,9 +3064,9 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "September Fed decision is now a coin flip as rate hike odds increase post Warsh - CNBC",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZWlrekRPMjZoeC1sSXNwR29MZy1pT0w2UTVRcC1JdjUzUTZDaTFkWi1DTVEtVlJzU1JHd3ZTMUhQLTBJMjV0cUU2MWdsRGphU0F3UE9NbGUtcFVUcE1FZGZFNjczSVN5WnM2NF9BUFhKUVRMbjhJMXQ1ZjhUMlhLV2xxOE04eEY1Z0F0am5qNXZacFRrQkJ2dDhnY3NNSWFfTUxCd3RR0gGrAUFVX3lxTE1iME12QXVKVkQ4QTJVSHg1WGpwd0cwZEZCQkt2eEdlQy12dldQUmpEZEp0bkFsVEJZTG1GRFRWSmJIbExpS3lSS3lYeHBEbzNKVWYyOU9SeW5pTUZNcGVMOUNFb3hya3lPaVFSVFh5TXp2SXJ2QjBkOS0wY3dvZzl1V21tQ2xXNUQ1R0VUWG9PWWo1M25aNG5ZdHNhSU9kNDVvOVVrOF80SXN3UQ?oc=5",
-      "publishedUtc": "2026-08-28T07:00:00Z",
+      "title": "'Many' Fed officials think higher rates will be needed if inflation stays high - PBS",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQX0hhVDlqaTItMnN5c1RjYVJTYnJNUkNJVmNvUXRqYk95bUtsYVNNanFTVl9jbjNWYWtGRjFGM213RHpBVHE5SDNMdjhDTGNMRkx6Y1FWQ2JoRUxqZGFuQjRDRkNCbGk2a0QtSG81TlRHSHN6aV9SU0xtNkxuVURCcUtJajZQbnlOMlV2a2NRM1VwZ1pLYmpEckZaQS0wYjhGLURSeVVkM0lxU05GaFNqWUZDZ9IBuAFBVV95cUxOcFFEcWZYcVdLMDVPSUFQMFdfaEU4cHB4SnBOY01LQnRub1U2N19rWG1SVGljdTdudVlaRENrT3pEbjNES0F4QzVGa1ZxQWduUDJEckhoY245VVlQdmhhRW0zdWVVYmR1ZFZSQ0cxVl9OaUJlelZzQ2pleTRqRzBBSEhKVmlJTFR6dE1WeXpmZzBtcDUwWkhOVFpVS2htNXIweWVLd0ZBbzlMQ0NzNDc0SkFwOUJLTlY0?oc=5",
+      "publishedUtc": "2026-08-19T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3053,7 +3091,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Here Are the Key Takeaways From the US CPI Report for July - Bloomberg",
+      "title": "Here Are the Key Takeaways From the US CPI Report for July - Bloomberg.com",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdlNNeDVSczk2N2JsQ1cwZFBCa1ZHbEVQWkJycWVUbXpwT0J5VHdrVTcyaWNrYkdvWDFKblRnSnA5dmtuTXdMdW50emR5WlIzUXFILUt1Q2FVSXFrVXc4TjlZdGZFdHdKSmo3NnNuVnJqOExSWXV5LVhqN01YUTdOdmlzbktiWkYzVTVNSkVILVpVT284Nk0xX2pkcFdKTG9udXM3S3phMkdWQnI3SUE2cjZHNW1kVnY3aHh1eEZRSQ?oc=5",
       "publishedUtc": "2026-08-12T07:00:00Z",
       "source": "Google News aggregation",
@@ -3071,7 +3109,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Dollar gains, yen slips as U.S. CPI meets expectations - CNBC",
+      "title": "Dollar gains, yen slips as U.S. CPI meets expectations - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQZlVEMXcyOTNTbzlNMDl1eVFKYW1nNkJScHRRUkZaZ3FaejFOU3BLQndIYzJ3SERpVl83T294NHpTTDdEaUFvYkIyMUdtdXR1eGwxQWRWcXc2SDA5MEE2dDJzUlg1SzRsd3AwSFF6U05PR043UXdZSmc1enlkbGRUSmRsMkdkeHVMeWRJTmhRb3RvWEhvLVHSAZsBQVVfeXFMUDhHeHVVcl9BZnRUenlLaF82azRmVGxvMDBaRjRGODM2Znd2bm1uazNWTEs5NTJmcFFuMllkMmZCMHlhNUtIQ19KSFdaOEZXOS1ERE5lNlVJWlRTMExQYjlnbnAzaDljRVBDY2dJcTNtZ1J6Y3cwa0hZQzZHS3FIb0F3bHBwdHJ0NHJZOXV6T1FJSVgwaHQzQ0hRdzQ?oc=5",
       "publishedUtc": "2026-08-12T07:00:00Z",
       "source": "Google News aggregation",
@@ -3080,7 +3118,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Gold rises to over two-month peak as U.S. inflation data dampens rate hike bets - CNBC",
+      "title": "Gold rises to over two-month peak as U.S. inflation data dampens rate hike bets - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNM1pidmVwSW9INWtyZktCTHFOTTFUX3NUSmF6bzU4OGNXcGxCczJUQ212YlQ5V3JWWDl5eWxLT3lnN3ZGV1hwNGZoeGh1TXJCVmFzcUlNeUNzT1Z6czF2c1JSdmJ4SXc0aFJwMmVTZUJFZ3Y4RXZ4SVQ3bWxER2JDWURGX1NsUklqNkc1Nnd0Vm9nczJQc0lvYy16VWRuV3FaRDhsV0JqY9IBrAFBVV95cUxQdGF4c1BQbW1iYVpGZGhPUGhITV9VdmpZeTNqSlpEbVN1NE5PQ01SYWljd2JfaDluNERMdkN3TnRia2wxbDVwUExyV2pzWThZamFud081eU1wV2c4d29iMUxuOUFfVm15TGY0NktNME9mc0hSWFhjN2xLVXdUWjA4c2E1dVZoM0xkbFJYZlJRRS0yc3MxM2t3Q01UVm1VQ1BITWduRVMxdTctZmNW?oc=5",
       "publishedUtc": "2026-08-12T07:00:00Z",
       "source": "Google News aggregation",
@@ -3089,7 +3127,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Here are five key takeaways from the July CPI inflation report - CNBC",
+      "title": "Here are five key takeaways from the July CPI inflation report - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNdXE0cnRwNDRQX0tybGRZd1hNd2o4bHMxWGZUWTRHcXh5ZzdrcV91Y0s5NXpCV0owM1ViaGdyQkhoei1YUms3LU05X3R4b2RVNGlOTTA4Qnk1My1CNUJubnNDVE9iR09ZbjNoVXZuVUhZUG5Oa015N3FLMHJJU3FTdUcxSUxxR0EyNWFLR0FvMkFpbEdnTzJiZlNNWXdmVzVu0gGmAUFVX3lxTE14eFlRa0t6MUdzOURKanBZWEtKNzBlX2VYNmw5U3l0T2FVcEhHZVRvaGUxUlkyNEtqaHQxRjlRemtjbWE5ZFBkMTNtcFc4eU9zNGVkTDcwLVByZjFCckdIcXprUjUwTjBwVmhFWDRzbVlQTDYwYTA3WGdFcURjN180T3BncWwwbzlnbzdyS2g2aG9hRFZqdmhWa0pZYXU5TTJhRmVhV3c?oc=5",
       "publishedUtc": "2026-08-12T07:00:00Z",
       "source": "Google News aggregation",
@@ -3116,8 +3154,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Dollar gains, yen weakens as markets eye US CPI - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPcUNXbzdKZzN4SWREMXRobGFBNUZTbkhiRERVTXVER0xFMndJbzBGXzRwckk4SWJLTlJtUHNaSDN1Uy1BRUMwZDY2U3dYRVRzeWV1NTNWN3QzazF5NHZuNGUteGpmanpqQnloXzBQWk1oY1FKWWFjUWYyX0ljSF91NXhWQVl0ek5RVWhwakpoZWZTbXJFelRXN3hIZnlfMlk3elZtUEtzbU5DQWZiamc?oc=5",
+      "title": "Dollar gains, yen weakens as markets eye US CPI - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9ONTRuZjlSazBscHo3QWFoUDlPeUJMeEh2OFB0cGdkSHAzZldNOUZMMXl1T1Fqa3BLZy1IQmd3TnpoT2tZdGljYlYtVlIwaUJxWVBnX0VuNEQ1LW92d09TLVFhUUdldXhXd3R3RTZYU1picm9lYzRMcU51VDNYakk?oc=5",
       "publishedUtc": "2026-08-10T07:00:00Z",
       "source": "Google News aggregation",
       "category": "inflation",
@@ -3125,8 +3163,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "July CPI Could Show Further Easing in Inflation - U.S. News & World Report",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOdGgySmYwekhUbkxzRWx6TTBDSmRMZEhyemlyRXdudWhLNWMtbUZjZkM1bExDcUhRVV8yZkhlQm9jaFVZNGJWaGVpalZjWEZlS0FsVURnVEU0YnMtTzZaSnR2Qzl6ZUVuU3RueGZuN3ZEN1RnYTVLX3pjQ1NNeE03RWNkS1dfZDFMR2JfRjlVdllDWTdTeHlUQWUyQVo4UU5EeWtsNVZDbUZhcDZqMlE?oc=5",
+      "title": "July CPI Expected to Bounce Back After Unexpected June Inflation Decline - Morningstar",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVnhOVTU4cWZPcnpOZENxVVlUS29KSHV5LVhpWmNYQXZWbk9STXRjalF0ZTNiZWdkRy02UUE4LUNYZHhOZ3FQYVJKZGZ0RldSU0Vqbnd4eGc4Y01zNHF4U296YVdGQWdrQ2dwNzRRZlFMcE5RY1hyemNJM0tRM3drTURUazdyRmhlOHMtUzRUemtvYXFvd3ZjLXdreEtVSXBDdTVXOHAtaTU?oc=5",
       "publishedUtc": "2026-08-10T07:00:00Z",
       "source": "Google News aggregation",
       "category": "inflation",
@@ -3134,7 +3172,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Interest rates may stay higher for longer. What that means for consumers - CNBC",
+      "title": "Interest rates may stay higher for longer. What that means for consumers - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQTkNHSTlBS0JYay1IMFVsaG5RY0QyVFhWQUdLZERmTVp4UTd6bmRlcGxCN1MzaVEzelFObVNFUFpBR244clJFLWQ4NW12MFpCM1B1MFVsRnZGbFJGNkVLaGhvU0t5N2JJS2l3YTVlU25DWEFSeHNrVE1qUVl5RzJQR3Y1Z0lJelllTGfSAY8BQVVfeXFMTVVRdURXbFB5WmhYLUxkazFEaF81VkpaWkg2M09TcHhZd0FzNnhWODBmTDVhV2JvTS1VejV4WXJkWUlvSVJaVml6UEJoVVUwQlV1aWlMMUxwVk5Ra0FPMC1jaGliNXppY2VRRDRFTEF5N21qVWZMVGFYSzdVMXo0WFROT0RBTGp5SHV0V1lTSmc?oc=5",
       "publishedUtc": "2026-08-10T07:00:00Z",
       "source": "Google News aggregation",
@@ -3143,7 +3181,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Dollar gains, yen weakens as markets eye U.S. CPI - CNBC",
+      "title": "Dollar gains, yen weakens as markets eye U.S. CPI - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQNmljUXE5UDBIb1Z0d1M4MUE0aFVxbkszQ01Gb0NMZC1jWXVxcmp4VDN1a2RiMWVSMldQWm44ZjZHbEo1a2habG9Ib2ZVcE45a2lhbWFVNXNVanRYUHV3anktSS1MWjViSmM5OWdCNVRCMUpSZEtrOTNNT0cxWDdQSENTMHVmalFCci1iUjRVX3VVVGhlUUFNRHZR0gGfAUFVX3lxTFBIdklKQ1ViWmxTcDFaaWxUcGRDUm5Zd0YyVUtSdWo3MnZ6LWtWY2ZCSS0wZUg0cFFFaEhQVUt6b2tpSThVRWVzRlFsU3dfaGsyam9CSkVOQWs1YVN0V3BpbmN5bkJ3VEZXblcyUEktaThtU2FObDVnZTEzeFk4bDZrUXM4WGkwVEJuZ3NOU0J2SHRsbjlPb2llOWtEVzF1WQ?oc=5",
       "publishedUtc": "2026-08-09T07:00:00Z",
       "source": "Google News aggregation",
@@ -3152,7 +3190,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "US CPI to Show Inflationary Pressures Cooling Some - Bloomberg",
+      "title": "US CPI to Show Inflationary Pressures Cooling Some - Bloomberg.com",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNS3UzdExfQkFwSk40MUlYQ1lNYnE5NHRIanI5bjFmLXpTZVNRU3k0dVRsRnU5YVA1RzE3MGdxYWg5b1FMcGVRRS1Bd1o1bzQ4UXpRYVZBNWNrcTVuM2o5c3N6Y0h2LW9vVGo4SXNsLTYzN200ZHZLV1RPRElkN0Fjb3dyN1BFYVBnNlk4NWJHRkIzcWl6T1FNRGNSMkxuR2dlMW0w?oc=5",
       "publishedUtc": "2026-08-09T07:00:00Z",
       "source": "Google News aggregation",
@@ -3170,15 +3208,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Will the Fed hike rates in September? A 25-basis-point move is now expected: Why July\u2019s hold has \u2018lowered the bar\u2019 - Chase Bank",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNRVJsNVoxWEpmUVZNWm9RNDVVRmtKZ2FmR18zWXZ6QVM0ZXdEWmVCX0tvVzRIVVduYkxkNW8xNGdaODhTRUFBRk0zck1TdGNLdGZRdUs3ZWtHNGJ0N2stMnVuTEktd3BmaUhTMVF2b1R1VEFfdkI2dHJ5N3QtaGpranJHS0ZKNWZZOWNpTnY0QXd3LXBhWTFoZFYxWUl6RW9VMlpXTkI4TC1sci1rQ21nSkE5SjFfUzI3cEFIaHhEV2YtYl9TWFR1Uw?oc=5",
-      "publishedUtc": "2026-08-05T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "How is AI influencing interest rates? Investment, productivity, prices, and more - Federal Reserve Bank of Minneapolis",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNZXVOdHZvN1JvVnZ1SU5VQnMtZEFQckFZUDBFV0I5a2l4M1M1aGZfT3BMWkRDRnBhd2RsbFhuZHpkSTdOejVWYjByaUZEaDRNcWZDRm1FNXc1ZTctaXNqeC1KUVlmcXhBcFFZRGJWWkZnaWIyTnEyenRENzBCdXp1aWFKaGpVM3NNZ0dsNkk1QUdnTUF1V0RSTzRLdkVJY0o2Ny10U2ZlWU04N1ZjNV9pbF8wdlZ6djdGOUhmaA?oc=5",
       "publishedUtc": "2026-08-02T07:00:00Z",
@@ -3188,7 +3217,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Analysis: Markets heard a dovish Kevin Warsh. The Fed chairman's own words suggest a rate hike - CNBC",
+      "title": "Analysis: Markets heard a dovish Kevin Warsh. The Fed chairman's own words suggest a rate hike - cnbc.com",
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQVFd4MjJlY3ZBbmtITThJSG1TMFd4SjBXZ1MyLTVtVVRUMDYxaVEyNHhpMDRkZTZaaW9EekNQb18ydWVlSDRjSXB6M1A1amVpZ2tsQ1M0Qk9wWWdQTFY3NFVCRFpVdjRsWGZYZDRWY0ZfZ0JzNjJmeU1INDA3bF90d1pFUGtwQknSAYwBQVVfeXFMUGswaXg3a0FsZ215TXpjVGFva0Q4STVQRnJYX1JYMHFJam5EY0pwekd1RkI0eGhoVTJ3UXNLS2tjNWJxYVhoWlUtTGd6NDRweWt0ZUJ0V0QwTTJCRWlDSEVKZGxKbnVpWnVoWENPWl8tOFc4SmJVUUhDUmhiREZjYnlpU2cyMlNLWU81c0I?oc=5",
       "publishedUtc": "2026-07-31T07:00:00Z",
       "source": "Google News aggregation",
@@ -3197,45 +3226,25 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Markets weigh FOMC rate hike odds and global tension. - CME Group",
+      "title": "Fed Leaves Interest Rates Unchanged, Despite Three Votes for an Increase - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQSjRrRUxlNThOWnExWlRiZTI4V2lnM25iMnA3VWktU3dmclZvc1VTd2M0eEd5Vk1nRkpIYUNuNTJ5VC14YVVIVXotQ3dMbEdtb3NLb2F5Z28tMlpUUDlLYmhXZ1VZcWcxZHdja1dYQUExMlVmVHVuZENWNktvakRjazlLUXM?oc=5",
+      "publishedUtc": "2026-07-30T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Markets weigh FOMC rate hike odds and global tension. - cmegroup.com",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNNm1MTG50QnZCcTVxSDNUdlZrOVVMZDlCWjNpdkg2NDhsenJ0a3Y3SG93aDlCdW4zazk3UXdwa2pDT0oyckttSS1UaDVaV2VKSXN2Z1NYb1ZOc05leU1FbXdiRXBuMWxFODA1M1JjY18xNW5YekhrNl8zZHVCOXozamg5d3NEREVFSjZYZ0RLNDZJTHZUeGM3RkdYUm9ta1lucHdFbG1Ra1hCaUlf?oc=5",
       "publishedUtc": "2026-07-30T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
-    },
-    {
-      "title": "Will the Fed raise interest rates this year? Divided economists weigh in - ABC News - Breaking News, Latest News and Videos",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNX3NMLXhhYU1lOVVLWU9sY0k0SDUyQnEwMG9SZ1RzNHZobTIyYk9KWGJlOGhic3FKdlQ2NXlIVDF6SW1oRlNWZlY2NHlNLWlnNGoybzAwLWlkV3V1Q1ZtM21KS2FLTy02NEF6VjY4UmFNc2hYa21mRURlSkJYZWxtc1R3VmRYZFlKNUU3NzZiMkZGNGJZcG1xZUNCN0RQNkRndEVPb9IBqgFBVV95cUxOU1FSZ3pWOURaQUxBS296TzBtRFFGclJXTnpLYWwzZXU1Q01kcVZUczBxUDAwR3FaYmFZdzlXUWM2T0Q3TDVldm9nSVY4OERYRUtkdm5sdndPSU1ETU1yc3BuMEpXLTd2VFFZRTVQcWdMZFdEZ0EzYjhTS200RFBkZy1jbE01WVhVbEgyX1Z2dXc4MWxmbXd6cl9pSlp2TDRldkdkS2hwOVE0Zw?oc=5",
-      "publishedUtc": "2026-07-30T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "A divided Federal Reserve holds interest rates steady despite high inflation - npr.org",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbXhqTkhuVFhZUVVRaFdXYXp2OTJ2TXJtVEFFNEp6YVFLbUZKS25KT2JDaGdCbjdGWnVqRVN6NVBfMjI5SEwwU2F1VDF0VndmYWE0U1JzQnRwMjJhZjFNWU1vbjJ2WjduQ1F3cFQ1TVBSQllFUVotX2R4MEw2UXBtTWF1eEdUYjRjc1pBSU9n?oc=5",
-      "publishedUtc": "2026-07-29T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "FOMC Decision: Hawkish Rhetoric, No Action: September Hike Odds Decline - The Conference Board",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQcklmM0RmVldPOHlHVmJJQmVIUnVrc1JYNE9tTGpTZ3JUWEkwWGxVQWcyV0tFQUVxTDJaYVliQUNkSHlqRWdoRW5IWEJiMzA0TTlFc1ZONDhqWGdOMEJwVDNLbnRVUnFrclR2V1NGVHlVUVFQSW5CeVAtdFVxaUJTNg?oc=5",
-      "publishedUtc": "2026-07-29T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
     }
   ],
-  "errors": [
-    "OANDA: HTTPError: HTTP Error 401: Unauthorized"
-  ],
+  "errors": [],
   "sourceNotes": [
     "US economic calendar: FXStreet public web calendar feed (best-effort; not the paid official API).",
     "Fed/BLS headlines: official public RSS feeds.",
@@ -3245,7 +3254,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 37,
+    "retainedRecentCount": 39,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3282,14 +3291,2277 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-09-10T06:00:46Z"
+    "updatedAt": "2026-09-10T11:09:23Z"
   },
   "technical": {
-    "status": "not-configured",
-    "source": null,
-    "observedAt": null,
+    "status": "live",
+    "source": "OANDA v20 practice",
+    "observedAt": "2026-09-10T11:09:28.320951199Z",
+    "symbol": "XAUUSD",
     "executionTimeframe": "4H",
-    "reason": "A free programmatic 4H candle feed is required for automatic order-block analysis.",
+    "currentPrice": 4382.35,
+    "atr14": 34.034,
+    "structure4h": {
+      "state": "range",
+      "swingHighs": [
+        {
+          "index": 261,
+          "time": "2026-08-27T17:00:00.000000000Z",
+          "price": 4618.02
+        },
+        {
+          "index": 266,
+          "time": "2026-08-28T13:00:00.000000000Z",
+          "price": 4631.98
+        },
+        {
+          "index": 271,
+          "time": "2026-08-31T09:00:00.000000000Z",
+          "price": 4464.23
+        },
+        {
+          "index": 274,
+          "time": "2026-08-31T21:00:00.000000000Z",
+          "price": 4461.7
+        },
+        {
+          "index": 290,
+          "time": "2026-09-03T13:00:00.000000000Z",
+          "price": 4510.93
+        },
+        {
+          "index": 294,
+          "time": "2026-09-04T05:00:00.000000000Z",
+          "price": 4490.895
+        },
+        {
+          "index": 305,
+          "time": "2026-09-08T01:00:00.000000000Z",
+          "price": 4442.98
+        },
+        {
+          "index": 314,
+          "time": "2026-09-09T13:00:00.000000000Z",
+          "price": 4434.175
+        }
+      ],
+      "swingLows": [
+        {
+          "index": 260,
+          "time": "2026-08-27T13:00:00.000000000Z",
+          "price": 4564.27
+        },
+        {
+          "index": 269,
+          "time": "2026-08-31T01:00:00.000000000Z",
+          "price": 4396.525
+        },
+        {
+          "index": 272,
+          "time": "2026-08-31T13:00:00.000000000Z",
+          "price": 4415.75
+        },
+        {
+          "index": 281,
+          "time": "2026-09-02T01:00:00.000000000Z",
+          "price": 4282.625
+        },
+        {
+          "index": 296,
+          "time": "2026-09-04T13:00:00.000000000Z",
+          "price": 4365.57
+        },
+        {
+          "index": 301,
+          "time": "2026-09-07T09:00:00.000000000Z",
+          "price": 4381.24
+        },
+        {
+          "index": 310,
+          "time": "2026-09-08T21:00:00.000000000Z",
+          "price": 4341.255
+        },
+        {
+          "index": 314,
+          "time": "2026-09-09T13:00:00.000000000Z",
+          "price": 4375.155
+        }
+      ]
+    },
+    "structure1d": {
+      "state": "bearish",
+      "swingHighs": [
+        {
+          "index": 65,
+          "time": "2026-05-28T21:00:00.000000000Z",
+          "price": 4595.33
+        },
+        {
+          "index": 78,
+          "time": "2026-06-16T21:00:00.000000000Z",
+          "price": 4382.615
+        },
+        {
+          "index": 91,
+          "time": "2026-07-05T21:00:00.000000000Z",
+          "price": 4202.705
+        },
+        {
+          "index": 103,
+          "time": "2026-07-21T21:00:00.000000000Z",
+          "price": 4166.13
+        },
+        {
+          "index": 109,
+          "time": "2026-07-29T21:00:00.000000000Z",
+          "price": 4120.495
+        },
+        {
+          "index": 119,
+          "time": "2026-08-12T21:00:00.000000000Z",
+          "price": 4449.83
+        },
+        {
+          "index": 127,
+          "time": "2026-08-24T21:00:00.000000000Z",
+          "price": 4697.105
+        },
+        {
+          "index": 134,
+          "time": "2026-09-02T21:00:00.000000000Z",
+          "price": 4510.93
+        }
+      ],
+      "swingLows": [
+        {
+          "index": 87,
+          "time": "2026-06-29T21:00:00.000000000Z",
+          "price": 3942.1
+        },
+        {
+          "index": 93,
+          "time": "2026-07-07T21:00:00.000000000Z",
+          "price": 4021.815
+        },
+        {
+          "index": 100,
+          "time": "2026-07-16T21:00:00.000000000Z",
+          "price": 3959.8
+        },
+        {
+          "index": 108,
+          "time": "2026-07-28T21:00:00.000000000Z",
+          "price": 3996.055
+        },
+        {
+          "index": 111,
+          "time": "2026-08-02T21:00:00.000000000Z",
+          "price": 4019.24
+        },
+        {
+          "index": 120,
+          "time": "2026-08-13T21:00:00.000000000Z",
+          "price": 4311.04
+        },
+        {
+          "index": 123,
+          "time": "2026-08-18T21:00:00.000000000Z",
+          "price": 4324.68
+        },
+        {
+          "index": 133,
+          "time": "2026-09-01T21:00:00.000000000Z",
+          "price": 4282.625
+        }
+      ]
+    },
+    "orderBlocks": [
+      {
+        "side": "bullish",
+        "createdAt": "2026-08-05T13:00:00.000000000Z",
+        "blockCandleAt": "2026-08-04T17:00:00.000000000Z",
+        "zoneLow": 4074.69,
+        "zoneHigh": 4093.36,
+        "zoneMid": 4084.025,
+        "status": "untouched",
+        "quality": 77,
+        "bosLevel": 4079.185,
+        "displacementATR": 1.55,
+        "fairValueGap": true,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true,
+        "distanceATR": 8.86,
+        "planning": {
+          "limitReference": 4084.025,
+          "invalidationReference": 4069.245,
+          "targets": [
+            {
+              "price": 4406.9,
+              "rMultiple": 21.84
+            },
+            {
+              "price": 4416.55,
+              "rMultiple": 22.5
+            }
+          ],
+          "bestRMultiple": 22.5,
+          "passesRewardRiskGate": true
+        }
+      },
+      {
+        "side": "bearish",
+        "createdAt": "2026-08-28T13:00:00.000000000Z",
+        "blockCandleAt": "2026-08-28T05:00:00.000000000Z",
+        "zoneLow": 4584.495,
+        "zoneHigh": 4614.59,
+        "zoneMid": 4599.542,
+        "status": "untouched",
+        "quality": 75,
+        "bosLevel": 4564.27,
+        "displacementATR": 2.95,
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true,
+        "distanceATR": 5.57,
+        "planning": {
+          "limitReference": 4599.542,
+          "invalidationReference": 4620.035,
+          "targets": [
+            {
+              "price": 4381.24,
+              "rMultiple": 10.65
+            },
+            {
+              "price": 4377.355,
+              "rMultiple": 10.84
+            }
+          ],
+          "bestRMultiple": 10.84,
+          "passesRewardRiskGate": true
+        }
+      },
+      {
+        "side": "bearish",
+        "createdAt": "2026-09-08T17:00:00.000000000Z",
+        "blockCandleAt": "2026-09-08T09:00:00.000000000Z",
+        "zoneLow": 4394.19,
+        "zoneHigh": 4411.9,
+        "zoneMid": 4403.045,
+        "status": "in-zone",
+        "quality": 72,
+        "bosLevel": 4381.24,
+        "displacementATR": 1.08,
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true,
+        "distanceATR": -0.03,
+        "planning": {
+          "limitReference": 4403.045,
+          "invalidationReference": 4417.345,
+          "targets": [
+            {
+              "price": 4381.24,
+              "rMultiple": 1.52
+            },
+            {
+              "price": 4377.355,
+              "rMultiple": 1.8
+            }
+          ],
+          "bestRMultiple": 1.8,
+          "passesRewardRiskGate": true
+        }
+      },
+      {
+        "side": "bullish",
+        "createdAt": "2026-07-17T13:00:00.000000000Z",
+        "blockCandleAt": "2026-07-17T09:00:00.000000000Z",
+        "zoneLow": 3964.155,
+        "zoneHigh": 3994.255,
+        "zoneMid": 3979.205,
+        "status": "mitigated",
+        "quality": 69,
+        "bosLevel": 4008.795,
+        "displacementATR": 1.33,
+        "fairValueGap": false,
+        "liquiditySweep": true,
+        "premiumDiscountAligned": true,
+        "distanceATR": 11.78,
+        "planning": {
+          "limitReference": 3979.205,
+          "invalidationReference": 3958.71,
+          "targets": [
+            {
+              "price": 4406.9,
+              "rMultiple": 20.87
+            },
+            {
+              "price": 4416.55,
+              "rMultiple": 21.34
+            }
+          ],
+          "bestRMultiple": 21.34,
+          "passesRewardRiskGate": true
+        }
+      },
+      {
+        "side": "bullish",
+        "createdAt": "2026-08-07T09:00:00.000000000Z",
+        "blockCandleAt": "2026-08-06T21:00:00.000000000Z",
+        "zoneLow": 4229.875,
+        "zoneHigh": 4236.61,
+        "zoneMid": 4233.243,
+        "status": "untouched",
+        "quality": 68,
+        "bosLevel": 4304.285,
+        "displacementATR": 1.19,
+        "fairValueGap": true,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": false,
+        "distanceATR": 4.66,
+        "planning": {
+          "limitReference": 4233.243,
+          "invalidationReference": 4224.43,
+          "targets": [
+            {
+              "price": 4406.9,
+              "rMultiple": 19.7
+            },
+            {
+              "price": 4416.55,
+              "rMultiple": 20.8
+            }
+          ],
+          "bestRMultiple": 20.8,
+          "passesRewardRiskGate": true
+        }
+      },
+      {
+        "side": "bullish",
+        "createdAt": "2026-07-29T17:00:00.000000000Z",
+        "blockCandleAt": "2026-07-29T09:00:00.000000000Z",
+        "zoneLow": 4009.39,
+        "zoneHigh": 4037.73,
+        "zoneMid": 4023.56,
+        "status": "mitigated",
+        "quality": 68,
+        "bosLevel": 4047.88,
+        "displacementATR": 1.31,
+        "fairValueGap": false,
+        "liquiditySweep": true,
+        "premiumDiscountAligned": true,
+        "distanceATR": 10.5,
+        "planning": {
+          "limitReference": 4023.56,
+          "invalidationReference": 4003.945,
+          "targets": [
+            {
+              "price": 4406.9,
+              "rMultiple": 19.54
+            },
+            {
+              "price": 4416.55,
+              "rMultiple": 20.03
+            }
+          ],
+          "bestRMultiple": 20.03,
+          "passesRewardRiskGate": true
+        }
+      },
+      {
+        "side": "bullish",
+        "createdAt": "2026-08-04T13:00:00.000000000Z",
+        "blockCandleAt": "2026-08-04T05:00:00.000000000Z",
+        "zoneLow": 4054.455,
+        "zoneHigh": 4063.785,
+        "zoneMid": 4059.12,
+        "status": "untouched",
+        "quality": 65,
+        "bosLevel": 4079.185,
+        "displacementATR": 0.85,
+        "fairValueGap": false,
+        "liquiditySweep": true,
+        "premiumDiscountAligned": false,
+        "distanceATR": 9.73,
+        "planning": {
+          "limitReference": 4059.12,
+          "invalidationReference": 4049.01,
+          "targets": [
+            {
+              "price": 4406.9,
+              "rMultiple": 34.4
+            },
+            {
+              "price": 4416.55,
+              "rMultiple": 35.35
+            }
+          ],
+          "bestRMultiple": 35.35,
+          "passesRewardRiskGate": true
+        }
+      },
+      {
+        "side": "bullish",
+        "createdAt": "2026-07-21T01:00:00.000000000Z",
+        "blockCandleAt": "2026-07-20T17:00:00.000000000Z",
+        "zoneLow": 4003.405,
+        "zoneHigh": 4009.77,
+        "zoneMid": 4006.588,
+        "status": "mitigated",
+        "quality": 64,
+        "bosLevel": 4040.815,
+        "displacementATR": 0.8,
+        "fairValueGap": true,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true,
+        "distanceATR": 11.32,
+        "planning": {
+          "limitReference": 4006.588,
+          "invalidationReference": 3997.96,
+          "targets": [
+            {
+              "price": 4406.9,
+              "rMultiple": 46.4
+            },
+            {
+              "price": 4416.55,
+              "rMultiple": 47.52
+            }
+          ],
+          "bestRMultiple": 47.52,
+          "passesRewardRiskGate": true
+        }
+      }
+    ],
+    "preferredBullishOrderBlock": {
+      "side": "bullish",
+      "createdAt": "2026-08-05T13:00:00.000000000Z",
+      "blockCandleAt": "2026-08-04T17:00:00.000000000Z",
+      "zoneLow": 4074.69,
+      "zoneHigh": 4093.36,
+      "zoneMid": 4084.025,
+      "status": "untouched",
+      "quality": 77,
+      "bosLevel": 4079.185,
+      "displacementATR": 1.55,
+      "fairValueGap": true,
+      "liquiditySweep": false,
+      "premiumDiscountAligned": true,
+      "distanceATR": 8.86,
+      "planning": {
+        "limitReference": 4084.025,
+        "invalidationReference": 4069.245,
+        "targets": [
+          {
+            "price": 4406.9,
+            "rMultiple": 21.84
+          },
+          {
+            "price": 4416.55,
+            "rMultiple": 22.5
+          }
+        ],
+        "bestRMultiple": 22.5,
+        "passesRewardRiskGate": true
+      }
+    },
+    "preferredBearishOrderBlock": {
+      "side": "bearish",
+      "createdAt": "2026-08-28T13:00:00.000000000Z",
+      "blockCandleAt": "2026-08-28T05:00:00.000000000Z",
+      "zoneLow": 4584.495,
+      "zoneHigh": 4614.59,
+      "zoneMid": 4599.542,
+      "status": "untouched",
+      "quality": 75,
+      "bosLevel": 4564.27,
+      "displacementATR": 2.95,
+      "fairValueGap": false,
+      "liquiditySweep": false,
+      "premiumDiscountAligned": true,
+      "distanceATR": 5.57,
+      "planning": {
+        "limitReference": 4599.542,
+        "invalidationReference": 4620.035,
+        "targets": [
+          {
+            "price": 4381.24,
+            "rMultiple": 10.65
+          },
+          {
+            "price": 4377.355,
+            "rMultiple": 10.84
+          }
+        ],
+        "bestRMultiple": 10.84,
+        "passesRewardRiskGate": true
+      }
+    },
+    "candles4h": [
+      {
+        "time": "2026-08-10T01:00:00.000000000Z",
+        "open": 4332.27,
+        "high": 4340.655,
+        "low": 4313.43,
+        "close": 4339.535,
+        "volume": 119749
+      },
+      {
+        "time": "2026-08-10T05:00:00.000000000Z",
+        "open": 4339.475,
+        "high": 4362.06,
+        "low": 4331.74,
+        "close": 4346.65,
+        "volume": 97557
+      },
+      {
+        "time": "2026-08-10T09:00:00.000000000Z",
+        "open": 4346.715,
+        "high": 4350.07,
+        "low": 4324.125,
+        "close": 4332.625,
+        "volume": 81808
+      },
+      {
+        "time": "2026-08-10T13:00:00.000000000Z",
+        "open": 4332.66,
+        "high": 4364.8,
+        "low": 4316.675,
+        "close": 4356.845,
+        "volume": 209454
+      },
+      {
+        "time": "2026-08-10T17:00:00.000000000Z",
+        "open": 4356.855,
+        "high": 4395.385,
+        "low": 4351.75,
+        "close": 4390.235,
+        "volume": 135828
+      },
+      {
+        "time": "2026-08-10T21:00:00.000000000Z",
+        "open": 4389.775,
+        "high": 4419.335,
+        "low": 4389.34,
+        "close": 4409.495,
+        "volume": 49005
+      },
+      {
+        "time": "2026-08-11T01:00:00.000000000Z",
+        "open": 4409.49,
+        "high": 4435.245,
+        "low": 4393.78,
+        "close": 4409.005,
+        "volume": 124252
+      },
+      {
+        "time": "2026-08-11T05:00:00.000000000Z",
+        "open": 4408.995,
+        "high": 4409.15,
+        "low": 4356.7,
+        "close": 4369.29,
+        "volume": 139839
+      },
+      {
+        "time": "2026-08-11T09:00:00.000000000Z",
+        "open": 4369.245,
+        "high": 4400.185,
+        "low": 4367.675,
+        "close": 4392.53,
+        "volume": 114978
+      },
+      {
+        "time": "2026-08-11T13:00:00.000000000Z",
+        "open": 4392.52,
+        "high": 4404.29,
+        "low": 4369.15,
+        "close": 4383.46,
+        "volume": 184300
+      },
+      {
+        "time": "2026-08-11T17:00:00.000000000Z",
+        "open": 4383.5,
+        "high": 4385.765,
+        "low": 4360.295,
+        "close": 4368.245,
+        "volume": 82559
+      },
+      {
+        "time": "2026-08-11T21:00:00.000000000Z",
+        "open": 4372.355,
+        "high": 4383.8,
+        "low": 4362.655,
+        "close": 4380.5,
+        "volume": 44746
+      },
+      {
+        "time": "2026-08-12T01:00:00.000000000Z",
+        "open": 4380.585,
+        "high": 4416.25,
+        "low": 4378.445,
+        "close": 4401.175,
+        "volume": 85313
+      },
+      {
+        "time": "2026-08-12T05:00:00.000000000Z",
+        "open": 4401.125,
+        "high": 4410.545,
+        "low": 4384.02,
+        "close": 4401.895,
+        "volume": 83905
+      },
+      {
+        "time": "2026-08-12T09:00:00.000000000Z",
+        "open": 4401.95,
+        "high": 4438.305,
+        "low": 4382.485,
+        "close": 4437.37,
+        "volume": 134205
+      },
+      {
+        "time": "2026-08-12T13:00:00.000000000Z",
+        "open": 4437.37,
+        "high": 4441.315,
+        "low": 4396.575,
+        "close": 4401.68,
+        "volume": 272656
+      },
+      {
+        "time": "2026-08-12T17:00:00.000000000Z",
+        "open": 4401.685,
+        "high": 4418.475,
+        "low": 4396.575,
+        "close": 4408.525,
+        "volume": 80866
+      },
+      {
+        "time": "2026-08-12T21:00:00.000000000Z",
+        "open": 4405.785,
+        "high": 4449.83,
+        "low": 4398.43,
+        "close": 4427.76,
+        "volume": 50571
+      },
+      {
+        "time": "2026-08-13T01:00:00.000000000Z",
+        "open": 4427.71,
+        "high": 4435.44,
+        "low": 4391.615,
+        "close": 4397.825,
+        "volume": 127584
+      },
+      {
+        "time": "2026-08-13T05:00:00.000000000Z",
+        "open": 4397.85,
+        "high": 4407.31,
+        "low": 4364.17,
+        "close": 4376.025,
+        "volume": 137518
+      },
+      {
+        "time": "2026-08-13T09:00:00.000000000Z",
+        "open": 4375.995,
+        "high": 4401.9,
+        "low": 4372.605,
+        "close": 4401.82,
+        "volume": 102207
+      },
+      {
+        "time": "2026-08-13T13:00:00.000000000Z",
+        "open": 4401.745,
+        "high": 4402.215,
+        "low": 4351.355,
+        "close": 4366.95,
+        "volume": 232240
+      },
+      {
+        "time": "2026-08-13T17:00:00.000000000Z",
+        "open": 4367.0,
+        "high": 4373.435,
+        "low": 4343.65,
+        "close": 4351.27,
+        "volume": 93462
+      },
+      {
+        "time": "2026-08-13T21:00:00.000000000Z",
+        "open": 4353.405,
+        "high": 4364.45,
+        "low": 4329.42,
+        "close": 4341.095,
+        "volume": 60369
+      },
+      {
+        "time": "2026-08-14T01:00:00.000000000Z",
+        "open": 4341.085,
+        "high": 4341.325,
+        "low": 4311.27,
+        "close": 4327.015,
+        "volume": 105670
+      },
+      {
+        "time": "2026-08-14T05:00:00.000000000Z",
+        "open": 4327.055,
+        "high": 4349.845,
+        "low": 4311.04,
+        "close": 4348.605,
+        "volume": 92219
+      },
+      {
+        "time": "2026-08-14T09:00:00.000000000Z",
+        "open": 4348.555,
+        "high": 4386.965,
+        "low": 4346.14,
+        "close": 4373.725,
+        "volume": 84834
+      },
+      {
+        "time": "2026-08-14T13:00:00.000000000Z",
+        "open": 4373.785,
+        "high": 4397.06,
+        "low": 4370.32,
+        "close": 4386.015,
+        "volume": 171531
+      },
+      {
+        "time": "2026-08-14T17:00:00.000000000Z",
+        "open": 4386.105,
+        "high": 4386.53,
+        "low": 4371.005,
+        "close": 4376.82,
+        "volume": 71377
+      },
+      {
+        "time": "2026-08-16T21:00:00.000000000Z",
+        "open": 4372.68,
+        "high": 4402.015,
+        "low": 4367.29,
+        "close": 4401.08,
+        "volume": 51492
+      },
+      {
+        "time": "2026-08-17T01:00:00.000000000Z",
+        "open": 4401.005,
+        "high": 4416.55,
+        "low": 4388.285,
+        "close": 4390.86,
+        "volume": 96927
+      },
+      {
+        "time": "2026-08-17T05:00:00.000000000Z",
+        "open": 4390.78,
+        "high": 4411.32,
+        "low": 4386.94,
+        "close": 4395.18,
+        "volume": 89783
+      },
+      {
+        "time": "2026-08-17T09:00:00.000000000Z",
+        "open": 4395.19,
+        "high": 4405.97,
+        "low": 4377.355,
+        "close": 4384.935,
+        "volume": 88237
+      },
+      {
+        "time": "2026-08-17T13:00:00.000000000Z",
+        "open": 4385.015,
+        "high": 4428.89,
+        "low": 4381.94,
+        "close": 4424.245,
+        "volume": 198852
+      },
+      {
+        "time": "2026-08-17T17:00:00.000000000Z",
+        "open": 4424.255,
+        "high": 4426.23,
+        "low": 4398.205,
+        "close": 4416.68,
+        "volume": 95653
+      },
+      {
+        "time": "2026-08-17T21:00:00.000000000Z",
+        "open": 4416.205,
+        "high": 4434.88,
+        "low": 4409.89,
+        "close": 4434.46,
+        "volume": 43502
+      },
+      {
+        "time": "2026-08-18T01:00:00.000000000Z",
+        "open": 4434.435,
+        "high": 4436.23,
+        "low": 4389.02,
+        "close": 4393.69,
+        "volume": 106426
+      },
+      {
+        "time": "2026-08-18T05:00:00.000000000Z",
+        "open": 4393.66,
+        "high": 4403.735,
+        "low": 4386.185,
+        "close": 4393.44,
+        "volume": 81930
+      },
+      {
+        "time": "2026-08-18T09:00:00.000000000Z",
+        "open": 4393.385,
+        "high": 4400.85,
+        "low": 4387.03,
+        "close": 4394.225,
+        "volume": 71817
+      },
+      {
+        "time": "2026-08-18T13:00:00.000000000Z",
+        "open": 4394.23,
+        "high": 4406.9,
+        "low": 4351.765,
+        "close": 4363.835,
+        "volume": 262616
+      },
+      {
+        "time": "2026-08-18T17:00:00.000000000Z",
+        "open": 4363.83,
+        "high": 4368.355,
+        "low": 4329.265,
+        "close": 4334.575,
+        "volume": 101238
+      },
+      {
+        "time": "2026-08-18T21:00:00.000000000Z",
+        "open": 4341.965,
+        "high": 4347.42,
+        "low": 4327.27,
+        "close": 4338.155,
+        "volume": 65699
+      },
+      {
+        "time": "2026-08-19T01:00:00.000000000Z",
+        "open": 4338.015,
+        "high": 4362.165,
+        "low": 4324.68,
+        "close": 4348.555,
+        "volume": 98137
+      },
+      {
+        "time": "2026-08-19T05:00:00.000000000Z",
+        "open": 4348.53,
+        "high": 4363.34,
+        "low": 4335.175,
+        "close": 4355.735,
+        "volume": 108747
+      },
+      {
+        "time": "2026-08-19T09:00:00.000000000Z",
+        "open": 4355.66,
+        "high": 4442.47,
+        "low": 4353.45,
+        "close": 4438.87,
+        "volume": 139917
+      },
+      {
+        "time": "2026-08-19T13:00:00.000000000Z",
+        "open": 4438.875,
+        "high": 4499.425,
+        "low": 4424.285,
+        "close": 4493.395,
+        "volume": 341037
+      },
+      {
+        "time": "2026-08-19T17:00:00.000000000Z",
+        "open": 4493.52,
+        "high": 4524.34,
+        "low": 4472.18,
+        "close": 4522.96,
+        "volume": 167279
+      },
+      {
+        "time": "2026-08-19T21:00:00.000000000Z",
+        "open": 4521.405,
+        "high": 4523.86,
+        "low": 4503.835,
+        "close": 4504.68,
+        "volume": 62664
+      },
+      {
+        "time": "2026-08-20T01:00:00.000000000Z",
+        "open": 4504.705,
+        "high": 4510.22,
+        "low": 4484.48,
+        "close": 4488.63,
+        "volume": 133280
+      },
+      {
+        "time": "2026-08-20T05:00:00.000000000Z",
+        "open": 4488.64,
+        "high": 4498.78,
+        "low": 4478.075,
+        "close": 4489.35,
+        "volume": 100291
+      },
+      {
+        "time": "2026-08-20T09:00:00.000000000Z",
+        "open": 4489.39,
+        "high": 4495.145,
+        "low": 4450.745,
+        "close": 4474.855,
+        "volume": 132650
+      },
+      {
+        "time": "2026-08-20T13:00:00.000000000Z",
+        "open": 4474.875,
+        "high": 4541.045,
+        "low": 4469.35,
+        "close": 4510.07,
+        "volume": 314581
+      },
+      {
+        "time": "2026-08-20T17:00:00.000000000Z",
+        "open": 4510.1,
+        "high": 4532.235,
+        "low": 4507.79,
+        "close": 4518.955,
+        "volume": 107534
+      },
+      {
+        "time": "2026-08-20T21:00:00.000000000Z",
+        "open": 4519.545,
+        "high": 4533.05,
+        "low": 4509.8,
+        "close": 4510.765,
+        "volume": 45459
+      },
+      {
+        "time": "2026-08-21T01:00:00.000000000Z",
+        "open": 4510.755,
+        "high": 4548.215,
+        "low": 4508.995,
+        "close": 4540.7,
+        "volume": 111435
+      },
+      {
+        "time": "2026-08-21T05:00:00.000000000Z",
+        "open": 4540.75,
+        "high": 4585.13,
+        "low": 4529.115,
+        "close": 4584.255,
+        "volume": 113440
+      },
+      {
+        "time": "2026-08-21T09:00:00.000000000Z",
+        "open": 4584.285,
+        "high": 4604.61,
+        "low": 4563.57,
+        "close": 4578.08,
+        "volume": 129825
+      },
+      {
+        "time": "2026-08-21T13:00:00.000000000Z",
+        "open": 4578.025,
+        "high": 4629.165,
+        "low": 4573.4,
+        "close": 4628.88,
+        "volume": 284736
+      },
+      {
+        "time": "2026-08-21T17:00:00.000000000Z",
+        "open": 4628.92,
+        "high": 4632.145,
+        "low": 4602.67,
+        "close": 4602.99,
+        "volume": 121237
+      },
+      {
+        "time": "2026-08-23T21:00:00.000000000Z",
+        "open": 4609.655,
+        "high": 4640.935,
+        "low": 4594.515,
+        "close": 4621.905,
+        "volume": 95914
+      },
+      {
+        "time": "2026-08-24T01:00:00.000000000Z",
+        "open": 4621.85,
+        "high": 4657.0,
+        "low": 4608.155,
+        "close": 4638.93,
+        "volume": 181800
+      },
+      {
+        "time": "2026-08-24T05:00:00.000000000Z",
+        "open": 4638.94,
+        "high": 4660.125,
+        "low": 4628.895,
+        "close": 4638.19,
+        "volume": 174419
+      },
+      {
+        "time": "2026-08-24T09:00:00.000000000Z",
+        "open": 4638.135,
+        "high": 4670.46,
+        "low": 4632.895,
+        "close": 4662.85,
+        "volume": 152998
+      },
+      {
+        "time": "2026-08-24T13:00:00.000000000Z",
+        "open": 4662.83,
+        "high": 4681.02,
+        "low": 4640.135,
+        "close": 4645.105,
+        "volume": 308759
+      },
+      {
+        "time": "2026-08-24T17:00:00.000000000Z",
+        "open": 4645.095,
+        "high": 4656.145,
+        "low": 4625.225,
+        "close": 4651.24,
+        "volume": 197906
+      },
+      {
+        "time": "2026-08-24T21:00:00.000000000Z",
+        "open": 4655.495,
+        "high": 4697.105,
+        "low": 4655.205,
+        "close": 4684.645,
+        "volume": 81020
+      },
+      {
+        "time": "2026-08-25T01:00:00.000000000Z",
+        "open": 4684.615,
+        "high": 4687.125,
+        "low": 4617.28,
+        "close": 4625.99,
+        "volume": 202840
+      },
+      {
+        "time": "2026-08-25T05:00:00.000000000Z",
+        "open": 4626.03,
+        "high": 4653.43,
+        "low": 4620.09,
+        "close": 4630.48,
+        "volume": 147548
+      },
+      {
+        "time": "2026-08-25T09:00:00.000000000Z",
+        "open": 4630.46,
+        "high": 4647.33,
+        "low": 4624.29,
+        "close": 4640.77,
+        "volume": 140085
+      },
+      {
+        "time": "2026-08-25T13:00:00.000000000Z",
+        "open": 4640.76,
+        "high": 4659.485,
+        "low": 4605.29,
+        "close": 4643.62,
+        "volume": 263625
+      },
+      {
+        "time": "2026-08-25T17:00:00.000000000Z",
+        "open": 4643.625,
+        "high": 4669.115,
+        "low": 4634.305,
+        "close": 4659.055,
+        "volume": 114611
+      },
+      {
+        "time": "2026-08-25T21:00:00.000000000Z",
+        "open": 4661.445,
+        "high": 4673.765,
+        "low": 4634.505,
+        "close": 4637.7,
+        "volume": 53752
+      },
+      {
+        "time": "2026-08-26T01:00:00.000000000Z",
+        "open": 4637.705,
+        "high": 4670.83,
+        "low": 4629.615,
+        "close": 4640.715,
+        "volume": 124144
+      },
+      {
+        "time": "2026-08-26T05:00:00.000000000Z",
+        "open": 4640.765,
+        "high": 4649.61,
+        "low": 4622.36,
+        "close": 4628.49,
+        "volume": 108810
+      },
+      {
+        "time": "2026-08-26T09:00:00.000000000Z",
+        "open": 4628.6,
+        "high": 4633.325,
+        "low": 4610.97,
+        "close": 4614.465,
+        "volume": 113402
+      },
+      {
+        "time": "2026-08-26T13:00:00.000000000Z",
+        "open": 4614.52,
+        "high": 4633.69,
+        "low": 4583.065,
+        "close": 4591.64,
+        "volume": 238311
+      },
+      {
+        "time": "2026-08-26T17:00:00.000000000Z",
+        "open": 4591.685,
+        "high": 4604.735,
+        "low": 4584.19,
+        "close": 4594.675,
+        "volume": 93457
+      },
+      {
+        "time": "2026-08-26T21:00:00.000000000Z",
+        "open": 4603.39,
+        "high": 4627.05,
+        "low": 4600.735,
+        "close": 4605.2,
+        "volume": 57970
+      },
+      {
+        "time": "2026-08-27T01:00:00.000000000Z",
+        "open": 4605.25,
+        "high": 4643.21,
+        "low": 4602.46,
+        "close": 4618.945,
+        "volume": 109513
+      },
+      {
+        "time": "2026-08-27T05:00:00.000000000Z",
+        "open": 4618.985,
+        "high": 4621.75,
+        "low": 4593.705,
+        "close": 4599.105,
+        "volume": 117319
+      },
+      {
+        "time": "2026-08-27T09:00:00.000000000Z",
+        "open": 4599.105,
+        "high": 4601.225,
+        "low": 4569.29,
+        "close": 4585.925,
+        "volume": 120091
+      },
+      {
+        "time": "2026-08-27T13:00:00.000000000Z",
+        "open": 4585.985,
+        "high": 4616.695,
+        "low": 4564.27,
+        "close": 4615.0,
+        "volume": 246585
+      },
+      {
+        "time": "2026-08-27T17:00:00.000000000Z",
+        "open": 4615.12,
+        "high": 4618.02,
+        "low": 4600.115,
+        "close": 4601.885,
+        "volume": 125697
+      },
+      {
+        "time": "2026-08-27T21:00:00.000000000Z",
+        "open": 4601.95,
+        "high": 4611.46,
+        "low": 4585.845,
+        "close": 4588.875,
+        "volume": 45044
+      },
+      {
+        "time": "2026-08-28T01:00:00.000000000Z",
+        "open": 4588.92,
+        "high": 4602.32,
+        "low": 4575.055,
+        "close": 4584.465,
+        "volume": 105111
+      },
+      {
+        "time": "2026-08-28T05:00:00.000000000Z",
+        "open": 4584.495,
+        "high": 4614.59,
+        "low": 4571.66,
+        "close": 4602.88,
+        "volume": 120381
+      },
+      {
+        "time": "2026-08-28T09:00:00.000000000Z",
+        "open": 4602.84,
+        "high": 4609.96,
+        "low": 4589.13,
+        "close": 4601.74,
+        "volume": 106952
+      },
+      {
+        "time": "2026-08-28T13:00:00.000000000Z",
+        "open": 4601.82,
+        "high": 4631.98,
+        "low": 4464.415,
+        "close": 4479.545,
+        "volume": 506577
+      },
+      {
+        "time": "2026-08-28T17:00:00.000000000Z",
+        "open": 4479.53,
+        "high": 4486.84,
+        "low": 4445.455,
+        "close": 4454.99,
+        "volume": 215183
+      },
+      {
+        "time": "2026-08-30T21:00:00.000000000Z",
+        "open": 4445.72,
+        "high": 4472.165,
+        "low": 4435.825,
+        "close": 4456.305,
+        "volume": 78419
+      },
+      {
+        "time": "2026-08-31T01:00:00.000000000Z",
+        "open": 4456.31,
+        "high": 4463.295,
+        "low": 4396.525,
+        "close": 4424.635,
+        "volume": 173768
+      },
+      {
+        "time": "2026-08-31T05:00:00.000000000Z",
+        "open": 4424.615,
+        "high": 4449.53,
+        "low": 4419.37,
+        "close": 4435.645,
+        "volume": 113339
+      },
+      {
+        "time": "2026-08-31T09:00:00.000000000Z",
+        "open": 4435.69,
+        "high": 4464.23,
+        "low": 4435.44,
+        "close": 4435.8,
+        "volume": 101987
+      },
+      {
+        "time": "2026-08-31T13:00:00.000000000Z",
+        "open": 4435.81,
+        "high": 4448.255,
+        "low": 4415.75,
+        "close": 4433.365,
+        "volume": 237618
+      },
+      {
+        "time": "2026-08-31T17:00:00.000000000Z",
+        "open": 4433.36,
+        "high": 4455.925,
+        "low": 4426.3,
+        "close": 4449.24,
+        "volume": 99805
+      },
+      {
+        "time": "2026-08-31T21:00:00.000000000Z",
+        "open": 4454.255,
+        "high": 4461.7,
+        "low": 4441.85,
+        "close": 4453.745,
+        "volume": 48148
+      },
+      {
+        "time": "2026-09-01T01:00:00.000000000Z",
+        "open": 4453.81,
+        "high": 4457.015,
+        "low": 4425.555,
+        "close": 4426.815,
+        "volume": 110875
+      },
+      {
+        "time": "2026-09-01T05:00:00.000000000Z",
+        "open": 4426.82,
+        "high": 4446.105,
+        "low": 4369.365,
+        "close": 4370.905,
+        "volume": 173980
+      },
+      {
+        "time": "2026-09-01T09:00:00.000000000Z",
+        "open": 4370.84,
+        "high": 4387.385,
+        "low": 4352.015,
+        "close": 4356.29,
+        "volume": 169994
+      },
+      {
+        "time": "2026-09-01T13:00:00.000000000Z",
+        "open": 4356.3,
+        "high": 4375.695,
+        "low": 4326.27,
+        "close": 4351.42,
+        "volume": 292907
+      },
+      {
+        "time": "2026-09-01T17:00:00.000000000Z",
+        "open": 4351.47,
+        "high": 4352.05,
+        "low": 4322.745,
+        "close": 4328.405,
+        "volume": 143837
+      },
+      {
+        "time": "2026-09-01T21:00:00.000000000Z",
+        "open": 4331.385,
+        "high": 4335.9,
+        "low": 4314.63,
+        "close": 4315.905,
+        "volume": 60631
+      },
+      {
+        "time": "2026-09-02T01:00:00.000000000Z",
+        "open": 4315.815,
+        "high": 4326.815,
+        "low": 4282.625,
+        "close": 4307.465,
+        "volume": 152339
+      },
+      {
+        "time": "2026-09-02T05:00:00.000000000Z",
+        "open": 4307.415,
+        "high": 4331.645,
+        "low": 4303.72,
+        "close": 4313.07,
+        "volume": 150473
+      },
+      {
+        "time": "2026-09-02T09:00:00.000000000Z",
+        "open": 4313.045,
+        "high": 4344.385,
+        "low": 4301.745,
+        "close": 4331.5,
+        "volume": 156557
+      },
+      {
+        "time": "2026-09-02T13:00:00.000000000Z",
+        "open": 4331.525,
+        "high": 4397.75,
+        "low": 4330.85,
+        "close": 4368.4,
+        "volume": 263382
+      },
+      {
+        "time": "2026-09-02T17:00:00.000000000Z",
+        "open": 4368.405,
+        "high": 4391.67,
+        "low": 4364.735,
+        "close": 4388.22,
+        "volume": 110032
+      },
+      {
+        "time": "2026-09-02T21:00:00.000000000Z",
+        "open": 4391.29,
+        "high": 4397.985,
+        "low": 4381.25,
+        "close": 4395.585,
+        "volume": 44505
+      },
+      {
+        "time": "2026-09-03T01:00:00.000000000Z",
+        "open": 4395.645,
+        "high": 4438.725,
+        "low": 4387.365,
+        "close": 4437.405,
+        "volume": 116910
+      },
+      {
+        "time": "2026-09-03T05:00:00.000000000Z",
+        "open": 4437.4,
+        "high": 4443.715,
+        "low": 4417.575,
+        "close": 4434.97,
+        "volume": 157267
+      },
+      {
+        "time": "2026-09-03T09:00:00.000000000Z",
+        "open": 4435.025,
+        "high": 4495.23,
+        "low": 4419.09,
+        "close": 4493.54,
+        "volume": 156380
+      },
+      {
+        "time": "2026-09-03T13:00:00.000000000Z",
+        "open": 4493.535,
+        "high": 4510.93,
+        "low": 4456.925,
+        "close": 4486.28,
+        "volume": 281458
+      },
+      {
+        "time": "2026-09-03T17:00:00.000000000Z",
+        "open": 4486.36,
+        "high": 4494.745,
+        "low": 4470.55,
+        "close": 4472.965,
+        "volume": 104311
+      },
+      {
+        "time": "2026-09-03T21:00:00.000000000Z",
+        "open": 4476.075,
+        "high": 4487.475,
+        "low": 4471.515,
+        "close": 4486.4,
+        "volume": 41235
+      },
+      {
+        "time": "2026-09-04T01:00:00.000000000Z",
+        "open": 4486.51,
+        "high": 4487.545,
+        "low": 4465.49,
+        "close": 4473.825,
+        "volume": 80689
+      },
+      {
+        "time": "2026-09-04T05:00:00.000000000Z",
+        "open": 4473.785,
+        "high": 4490.895,
+        "low": 4460.155,
+        "close": 4477.97,
+        "volume": 101987
+      },
+      {
+        "time": "2026-09-04T09:00:00.000000000Z",
+        "open": 4477.95,
+        "high": 4479.315,
+        "low": 4376.18,
+        "close": 4393.77,
+        "volume": 159311
+      },
+      {
+        "time": "2026-09-04T13:00:00.000000000Z",
+        "open": 4393.735,
+        "high": 4449.0,
+        "low": 4365.57,
+        "close": 4436.37,
+        "volume": 286388
+      },
+      {
+        "time": "2026-09-04T17:00:00.000000000Z",
+        "open": 4436.335,
+        "high": 4440.55,
+        "low": 4411.97,
+        "close": 4429.825,
+        "volume": 95435
+      },
+      {
+        "time": "2026-09-06T21:00:00.000000000Z",
+        "open": 4422.495,
+        "high": 4435.255,
+        "low": 4410.1,
+        "close": 4412.8,
+        "volume": 35268
+      },
+      {
+        "time": "2026-09-07T01:00:00.000000000Z",
+        "open": 4412.78,
+        "high": 4419.02,
+        "low": 4389.585,
+        "close": 4398.145,
+        "volume": 102613
+      },
+      {
+        "time": "2026-09-07T05:00:00.000000000Z",
+        "open": 4398.165,
+        "high": 4423.885,
+        "low": 4385.33,
+        "close": 4411.005,
+        "volume": 96241
+      },
+      {
+        "time": "2026-09-07T09:00:00.000000000Z",
+        "open": 4411.055,
+        "high": 4413.885,
+        "low": 4381.24,
+        "close": 4396.845,
+        "volume": 65943
+      },
+      {
+        "time": "2026-09-07T13:00:00.000000000Z",
+        "open": 4396.745,
+        "high": 4419.655,
+        "low": 4395.47,
+        "close": 4414.575,
+        "volume": 69354
+      },
+      {
+        "time": "2026-09-07T17:00:00.000000000Z",
+        "open": 4414.57,
+        "high": 4415.185,
+        "low": 4403.13,
+        "close": 4406.065,
+        "volume": 9615
+      },
+      {
+        "time": "2026-09-07T21:00:00.000000000Z",
+        "open": 4412.87,
+        "high": 4430.325,
+        "low": 4406.295,
+        "close": 4426.255,
+        "volume": 60310
+      },
+      {
+        "time": "2026-09-08T01:00:00.000000000Z",
+        "open": 4426.24,
+        "high": 4442.98,
+        "low": 4417.19,
+        "close": 4436.0,
+        "volume": 100090
+      },
+      {
+        "time": "2026-09-08T05:00:00.000000000Z",
+        "open": 4435.985,
+        "high": 4437.77,
+        "low": 4388.01,
+        "close": 4394.26,
+        "volume": 142548
+      },
+      {
+        "time": "2026-09-08T09:00:00.000000000Z",
+        "open": 4394.19,
+        "high": 4411.9,
+        "low": 4385.475,
+        "close": 4411.73,
+        "volume": 114442
+      },
+      {
+        "time": "2026-09-08T13:00:00.000000000Z",
+        "open": 4411.735,
+        "high": 4413.235,
+        "low": 4380.655,
+        "close": 4393.72,
+        "volume": 186756
+      },
+      {
+        "time": "2026-09-08T17:00:00.000000000Z",
+        "open": 4393.76,
+        "high": 4403.725,
+        "low": 4345.06,
+        "close": 4355.705,
+        "volume": 131968
+      },
+      {
+        "time": "2026-09-08T21:00:00.000000000Z",
+        "open": 4357.66,
+        "high": 4365.59,
+        "low": 4341.255,
+        "close": 4364.77,
+        "volume": 53548
+      },
+      {
+        "time": "2026-09-09T01:00:00.000000000Z",
+        "open": 4364.795,
+        "high": 4384.58,
+        "low": 4354.22,
+        "close": 4381.64,
+        "volume": 89994
+      },
+      {
+        "time": "2026-09-09T05:00:00.000000000Z",
+        "open": 4381.73,
+        "high": 4413.01,
+        "low": 4380.38,
+        "close": 4400.695,
+        "volume": 89673
+      },
+      {
+        "time": "2026-09-09T09:00:00.000000000Z",
+        "open": 4400.765,
+        "high": 4415.365,
+        "low": 4386.335,
+        "close": 4400.19,
+        "volume": 116397
+      },
+      {
+        "time": "2026-09-09T13:00:00.000000000Z",
+        "open": 4400.18,
+        "high": 4434.175,
+        "low": 4375.155,
+        "close": 4409.385,
+        "volume": 261910
+      },
+      {
+        "time": "2026-09-09T17:00:00.000000000Z",
+        "open": 4409.5,
+        "high": 4421.65,
+        "low": 4393.59,
+        "close": 4402.115,
+        "volume": 90101
+      },
+      {
+        "time": "2026-09-09T21:00:00.000000000Z",
+        "open": 4405.28,
+        "high": 4406.105,
+        "low": 4389.735,
+        "close": 4401.15,
+        "volume": 33220
+      },
+      {
+        "time": "2026-09-10T01:00:00.000000000Z",
+        "open": 4401.05,
+        "high": 4421.17,
+        "low": 4400.185,
+        "close": 4408.675,
+        "volume": 114238
+      },
+      {
+        "time": "2026-09-10T05:00:00.000000000Z",
+        "open": 4408.725,
+        "high": 4435.045,
+        "low": 4392.58,
+        "close": 4395.045,
+        "volume": 137830
+      }
+    ],
+    "candles1d": [
+      {
+        "time": "2026-05-20T21:00:00.000000000Z",
+        "open": 4544.62,
+        "high": 4570.895,
+        "low": 4488.63,
+        "close": 4543.425,
+        "volume": 901513
+      },
+      {
+        "time": "2026-05-21T21:00:00.000000000Z",
+        "open": 4544.905,
+        "high": 4545.26,
+        "low": 4491.93,
+        "close": 4509.69,
+        "volume": 659174
+      },
+      {
+        "time": "2026-05-24T21:00:00.000000000Z",
+        "open": 4550.54,
+        "high": 4580.21,
+        "low": 4548.91,
+        "close": 4570.305,
+        "volume": 400851
+      },
+      {
+        "time": "2026-05-25T21:00:00.000000000Z",
+        "open": 4571.33,
+        "high": 4580.245,
+        "low": 4482.62,
+        "close": 4507.57,
+        "volume": 604038
+      },
+      {
+        "time": "2026-05-26T21:00:00.000000000Z",
+        "open": 4506.725,
+        "high": 4528.05,
+        "low": 4401.63,
+        "close": 4456.12,
+        "volume": 658755
+      },
+      {
+        "time": "2026-05-27T21:00:00.000000000Z",
+        "open": 4456.89,
+        "high": 4516.63,
+        "low": 4366.23,
+        "close": 4495.775,
+        "volume": 742842
+      },
+      {
+        "time": "2026-05-28T21:00:00.000000000Z",
+        "open": 4497.07,
+        "high": 4595.33,
+        "low": 4488.975,
+        "close": 4540.53,
+        "volume": 638138
+      },
+      {
+        "time": "2026-05-31T21:00:00.000000000Z",
+        "open": 4520.885,
+        "high": 4546.27,
+        "low": 4447.86,
+        "close": 4484.725,
+        "volume": 595171
+      },
+      {
+        "time": "2026-06-01T21:00:00.000000000Z",
+        "open": 4483.385,
+        "high": 4541.63,
+        "low": 4463.01,
+        "close": 4487.965,
+        "volume": 511879
+      },
+      {
+        "time": "2026-06-02T21:00:00.000000000Z",
+        "open": 4490.115,
+        "high": 4496.885,
+        "low": 4426.42,
+        "close": 4434.715,
+        "volume": 638763
+      },
+      {
+        "time": "2026-06-03T21:00:00.000000000Z",
+        "open": 4431.91,
+        "high": 4515.515,
+        "low": 4423.965,
+        "close": 4475.29,
+        "volume": 638481
+      },
+      {
+        "time": "2026-06-04T21:00:00.000000000Z",
+        "open": 4474.185,
+        "high": 4481.625,
+        "low": 4311.93,
+        "close": 4327.885,
+        "volume": 958042
+      },
+      {
+        "time": "2026-06-07T21:00:00.000000000Z",
+        "open": 4321.55,
+        "high": 4353.45,
+        "low": 4268.48,
+        "close": 4330.065,
+        "volume": 937564
+      },
+      {
+        "time": "2026-06-08T21:00:00.000000000Z",
+        "open": 4326.5,
+        "high": 4363.72,
+        "low": 4236.7,
+        "close": 4259.965,
+        "volume": 914922
+      },
+      {
+        "time": "2026-06-09T21:00:00.000000000Z",
+        "open": 4256.145,
+        "high": 4257.605,
+        "low": 4067.24,
+        "close": 4072.015,
+        "volume": 1244290
+      },
+      {
+        "time": "2026-06-10T21:00:00.000000000Z",
+        "open": 4061.7,
+        "high": 4220.22,
+        "low": 4023.87,
+        "close": 4211.695,
+        "volume": 1313490
+      },
+      {
+        "time": "2026-06-11T21:00:00.000000000Z",
+        "open": 4208.535,
+        "high": 4246.715,
+        "low": 4170.29,
+        "close": 4218.56,
+        "volume": 985172
+      },
+      {
+        "time": "2026-06-14T21:00:00.000000000Z",
+        "open": 4301.665,
+        "high": 4369.665,
+        "low": 4280.395,
+        "close": 4308.85,
+        "volume": 620032
+      },
+      {
+        "time": "2026-06-15T21:00:00.000000000Z",
+        "open": 4312.985,
+        "high": 4354.95,
+        "low": 4306.11,
+        "close": 4331.28,
+        "volume": 531315
+      },
+      {
+        "time": "2026-06-16T21:00:00.000000000Z",
+        "open": 4331.69,
+        "high": 4382.615,
+        "low": 4219.165,
+        "close": 4257.7,
+        "volume": 811852
+      },
+      {
+        "time": "2026-06-17T21:00:00.000000000Z",
+        "open": 4257.675,
+        "high": 4329.865,
+        "low": 4201.495,
+        "close": 4209.005,
+        "volume": 798024
+      },
+      {
+        "time": "2026-06-18T21:00:00.000000000Z",
+        "open": 4204.63,
+        "high": 4210.695,
+        "low": 4121.955,
+        "close": 4155.37,
+        "volume": 425931
+      },
+      {
+        "time": "2026-06-21T21:00:00.000000000Z",
+        "open": 4157.1,
+        "high": 4221.37,
+        "low": 4136.695,
+        "close": 4191.71,
+        "volume": 710597
+      },
+      {
+        "time": "2026-06-22T21:00:00.000000000Z",
+        "open": 4192.855,
+        "high": 4198.605,
+        "low": 4091.03,
+        "close": 4110.745,
+        "volume": 824084
+      },
+      {
+        "time": "2026-06-23T21:00:00.000000000Z",
+        "open": 4111.71,
+        "high": 4115.235,
+        "low": 3959.08,
+        "close": 3999.5,
+        "volume": 1153950
+      },
+      {
+        "time": "2026-06-24T21:00:00.000000000Z",
+        "open": 4006.955,
+        "high": 4044.14,
+        "low": 3962.475,
+        "close": 4026.97,
+        "volume": 1032808
+      },
+      {
+        "time": "2026-06-25T21:00:00.000000000Z",
+        "open": 4030.09,
+        "high": 4095.985,
+        "low": 3982.95,
+        "close": 4088.385,
+        "volume": 763854
+      },
+      {
+        "time": "2026-06-28T21:00:00.000000000Z",
+        "open": 4075.86,
+        "high": 4083.82,
+        "low": 4000.325,
+        "close": 4016.955,
+        "volume": 682809
+      },
+      {
+        "time": "2026-06-29T21:00:00.000000000Z",
+        "open": 4018.65,
+        "high": 4063.48,
+        "low": 3942.1,
+        "close": 4007.525,
+        "volume": 739811
+      },
+      {
+        "time": "2026-06-30T21:00:00.000000000Z",
+        "open": 4014.34,
+        "high": 4115.81,
+        "low": 3960.275,
+        "close": 4031.705,
+        "volume": 733346
+      },
+      {
+        "time": "2026-07-01T21:00:00.000000000Z",
+        "open": 4038.71,
+        "high": 4144.08,
+        "low": 4030.895,
+        "close": 4123.605,
+        "volume": 806996
+      },
+      {
+        "time": "2026-07-02T21:00:00.000000000Z",
+        "open": 4125.815,
+        "high": 4195.51,
+        "low": 4121.47,
+        "close": 4175.695,
+        "volume": 357533
+      },
+      {
+        "time": "2026-07-05T21:00:00.000000000Z",
+        "open": 4180.345,
+        "high": 4202.705,
+        "low": 4128.51,
+        "close": 4165.115,
+        "volume": 553116
+      },
+      {
+        "time": "2026-07-06T21:00:00.000000000Z",
+        "open": 4164.735,
+        "high": 4180.52,
+        "low": 4092.295,
+        "close": 4106.12,
+        "volume": 637384
+      },
+      {
+        "time": "2026-07-07T21:00:00.000000000Z",
+        "open": 4105.095,
+        "high": 4133.99,
+        "low": 4021.815,
+        "close": 4077.125,
+        "volume": 981239
+      },
+      {
+        "time": "2026-07-08T21:00:00.000000000Z",
+        "open": 4074.405,
+        "high": 4138.06,
+        "low": 4054.4,
+        "close": 4123.79,
+        "volume": 567896
+      },
+      {
+        "time": "2026-07-09T21:00:00.000000000Z",
+        "open": 4125.25,
+        "high": 4134.92,
+        "low": 4072.8,
+        "close": 4120.67,
+        "volume": 455635
+      },
+      {
+        "time": "2026-07-12T21:00:00.000000000Z",
+        "open": 4091.17,
+        "high": 4094.82,
+        "low": 3986.58,
+        "close": 4001.185,
+        "volume": 902785
+      },
+      {
+        "time": "2026-07-13T21:00:00.000000000Z",
+        "open": 4001.64,
+        "high": 4104.05,
+        "low": 3983.545,
+        "close": 4052.775,
+        "volume": 851207
+      },
+      {
+        "time": "2026-07-14T21:00:00.000000000Z",
+        "open": 4053.215,
+        "high": 4081.52,
+        "low": 4017.475,
+        "close": 4060.695,
+        "volume": 666711
+      },
+      {
+        "time": "2026-07-15T21:00:00.000000000Z",
+        "open": 4060.59,
+        "high": 4064.71,
+        "low": 3969.345,
+        "close": 3976.58,
+        "volume": 815031
+      },
+      {
+        "time": "2026-07-16T21:00:00.000000000Z",
+        "open": 3979.265,
+        "high": 4023.835,
+        "low": 3959.8,
+        "close": 4017.315,
+        "volume": 952595
+      },
+      {
+        "time": "2026-07-19T21:00:00.000000000Z",
+        "open": 3995.6,
+        "high": 4040.815,
+        "low": 3982.63,
+        "close": 4007.585,
+        "volume": 750213
+      },
+      {
+        "time": "2026-07-20T21:00:00.000000000Z",
+        "open": 4008.105,
+        "high": 4087.135,
+        "low": 3999.915,
+        "close": 4077.325,
+        "volume": 593737
+      },
+      {
+        "time": "2026-07-21T21:00:00.000000000Z",
+        "open": 4078.675,
+        "high": 4166.13,
+        "low": 4076.755,
+        "close": 4129.76,
+        "volume": 683537
+      },
+      {
+        "time": "2026-07-22T21:00:00.000000000Z",
+        "open": 4119.635,
+        "high": 4141.275,
+        "low": 4040.185,
+        "close": 4049.78,
+        "volume": 758048
+      },
+      {
+        "time": "2026-07-23T21:00:00.000000000Z",
+        "open": 4048.875,
+        "high": 4082.16,
+        "low": 4022.06,
+        "close": 4052.81,
+        "volume": 527442
+      },
+      {
+        "time": "2026-07-26T21:00:00.000000000Z",
+        "open": 4090.16,
+        "high": 4116.185,
+        "low": 4065.415,
+        "close": 4076.425,
+        "volume": 606674
+      },
+      {
+        "time": "2026-07-27T21:00:00.000000000Z",
+        "open": 4080.685,
+        "high": 4081.415,
+        "low": 4011.765,
+        "close": 4028.67,
+        "volume": 683996
+      },
+      {
+        "time": "2026-07-28T21:00:00.000000000Z",
+        "open": 4026.565,
+        "high": 4116.415,
+        "low": 3996.055,
+        "close": 4066.34,
+        "volume": 883487
+      },
+      {
+        "time": "2026-07-29T21:00:00.000000000Z",
+        "open": 4074.84,
+        "high": 4120.495,
+        "low": 4028.69,
+        "close": 4103.27,
+        "volume": 1004926
+      },
+      {
+        "time": "2026-07-30T21:00:00.000000000Z",
+        "open": 4103.36,
+        "high": 4112.01,
+        "low": 4020.975,
+        "close": 4045.165,
+        "volume": 639932
+      },
+      {
+        "time": "2026-08-02T21:00:00.000000000Z",
+        "open": 4075.055,
+        "high": 4079.185,
+        "low": 4019.24,
+        "close": 4055.135,
+        "volume": 588939
+      },
+      {
+        "time": "2026-08-03T21:00:00.000000000Z",
+        "open": 4052.12,
+        "high": 4106.475,
+        "low": 4042.72,
+        "close": 4077.055,
+        "volume": 545038
+      },
+      {
+        "time": "2026-08-04T21:00:00.000000000Z",
+        "open": 4078.39,
+        "high": 4268.09,
+        "low": 4065.33,
+        "close": 4247.275,
+        "volume": 815635
+      },
+      {
+        "time": "2026-08-05T21:00:00.000000000Z",
+        "open": 4249.5,
+        "high": 4304.285,
+        "low": 4223.505,
+        "close": 4240.75,
+        "volume": 758949
+      },
+      {
+        "time": "2026-08-06T21:00:00.000000000Z",
+        "open": 4236.61,
+        "high": 4371.84,
+        "low": 4229.875,
+        "close": 4341.935,
+        "volume": 886753
+      },
+      {
+        "time": "2026-08-09T21:00:00.000000000Z",
+        "open": 4340.39,
+        "high": 4395.385,
+        "low": 4313.43,
+        "close": 4390.235,
+        "volume": 705942
+      },
+      {
+        "time": "2026-08-10T21:00:00.000000000Z",
+        "open": 4389.775,
+        "high": 4435.245,
+        "low": 4356.7,
+        "close": 4368.245,
+        "volume": 694933
+      },
+      {
+        "time": "2026-08-11T21:00:00.000000000Z",
+        "open": 4372.355,
+        "high": 4441.315,
+        "low": 4362.655,
+        "close": 4408.525,
+        "volume": 701691
+      },
+      {
+        "time": "2026-08-12T21:00:00.000000000Z",
+        "open": 4405.785,
+        "high": 4449.83,
+        "low": 4343.65,
+        "close": 4351.27,
+        "volume": 743582
+      },
+      {
+        "time": "2026-08-13T21:00:00.000000000Z",
+        "open": 4353.405,
+        "high": 4397.06,
+        "low": 4311.04,
+        "close": 4376.82,
+        "volume": 586000
+      },
+      {
+        "time": "2026-08-16T21:00:00.000000000Z",
+        "open": 4372.68,
+        "high": 4428.89,
+        "low": 4367.29,
+        "close": 4416.68,
+        "volume": 620944
+      },
+      {
+        "time": "2026-08-17T21:00:00.000000000Z",
+        "open": 4416.205,
+        "high": 4436.23,
+        "low": 4329.265,
+        "close": 4334.575,
+        "volume": 667529
+      },
+      {
+        "time": "2026-08-18T21:00:00.000000000Z",
+        "open": 4341.965,
+        "high": 4524.34,
+        "low": 4324.68,
+        "close": 4522.96,
+        "volume": 920816
+      },
+      {
+        "time": "2026-08-19T21:00:00.000000000Z",
+        "open": 4521.405,
+        "high": 4541.045,
+        "low": 4450.745,
+        "close": 4518.955,
+        "volume": 851000
+      },
+      {
+        "time": "2026-08-20T21:00:00.000000000Z",
+        "open": 4519.545,
+        "high": 4632.145,
+        "low": 4508.995,
+        "close": 4602.99,
+        "volume": 806132
+      },
+      {
+        "time": "2026-08-23T21:00:00.000000000Z",
+        "open": 4609.655,
+        "high": 4681.02,
+        "low": 4594.515,
+        "close": 4651.24,
+        "volume": 1111796
+      },
+      {
+        "time": "2026-08-24T21:00:00.000000000Z",
+        "open": 4655.495,
+        "high": 4697.105,
+        "low": 4605.29,
+        "close": 4659.055,
+        "volume": 949729
+      },
+      {
+        "time": "2026-08-25T21:00:00.000000000Z",
+        "open": 4661.445,
+        "high": 4673.765,
+        "low": 4583.065,
+        "close": 4594.675,
+        "volume": 731876
+      },
+      {
+        "time": "2026-08-26T21:00:00.000000000Z",
+        "open": 4603.39,
+        "high": 4643.21,
+        "low": 4564.27,
+        "close": 4601.885,
+        "volume": 777175
+      },
+      {
+        "time": "2026-08-27T21:00:00.000000000Z",
+        "open": 4601.95,
+        "high": 4631.98,
+        "low": 4445.455,
+        "close": 4454.99,
+        "volume": 1099248
+      },
+      {
+        "time": "2026-08-30T21:00:00.000000000Z",
+        "open": 4445.72,
+        "high": 4472.165,
+        "low": 4396.525,
+        "close": 4449.24,
+        "volume": 804936
+      },
+      {
+        "time": "2026-08-31T21:00:00.000000000Z",
+        "open": 4454.255,
+        "high": 4461.7,
+        "low": 4322.745,
+        "close": 4328.405,
+        "volume": 939741
+      },
+      {
+        "time": "2026-09-01T21:00:00.000000000Z",
+        "open": 4331.385,
+        "high": 4397.75,
+        "low": 4282.625,
+        "close": 4388.22,
+        "volume": 893414
+      },
+      {
+        "time": "2026-09-02T21:00:00.000000000Z",
+        "open": 4391.29,
+        "high": 4510.93,
+        "low": 4381.25,
+        "close": 4472.965,
+        "volume": 860831
+      },
+      {
+        "time": "2026-09-03T21:00:00.000000000Z",
+        "open": 4476.075,
+        "high": 4490.895,
+        "low": 4365.57,
+        "close": 4429.825,
+        "volume": 765045
+      },
+      {
+        "time": "2026-09-06T21:00:00.000000000Z",
+        "open": 4422.495,
+        "high": 4435.255,
+        "low": 4381.24,
+        "close": 4406.065,
+        "volume": 379034
+      },
+      {
+        "time": "2026-09-07T21:00:00.000000000Z",
+        "open": 4412.87,
+        "high": 4442.98,
+        "low": 4345.06,
+        "close": 4355.705,
+        "volume": 736114
+      },
+      {
+        "time": "2026-09-08T21:00:00.000000000Z",
+        "open": 4357.66,
+        "high": 4434.175,
+        "low": 4341.255,
+        "close": 4402.115,
+        "volume": 701623
+      }
+    ],
+    "method": "BOS + displacement + last opposing candle; FVG/liquidity/premium-discount confluence; invalidation by 4H close beyond distal edge",
     "calibration": {
       "completed": 9,
       "wins": 4,
@@ -3310,51 +5582,58 @@
     "paidServicesEnabled": false
   },
   "signals": {
-    "status": "limited",
-    "generatedAt": "2026-09-10T06:00:52.740452Z",
+    "status": "live",
+    "generatedAt": "2026-09-10T11:09:28.763721Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-09-10T06:00:52.740452Z",
-      "marketObservedAt": null,
-      "validUntil": "2026-09-10T06:15:52.740452Z",
-      "currentPrice": null,
-      "entryZoneLow": null,
-      "entryZoneHigh": null,
-      "limitPrice": null,
-      "stopLossReference": null,
+      "generatedAt": "2026-09-10T11:09:28.763721Z",
+      "marketObservedAt": "2026-09-10T11:09:28.320951199Z",
+      "validUntil": "2026-09-10T11:24:28.763721Z",
+      "currentPrice": 4382.35,
+      "entryZoneLow": 4074.69,
+      "entryZoneHigh": 4093.36,
+      "limitPrice": 4084.025,
+      "stopLossReference": 4069.245,
       "tp1Reference": null,
       "tp2Reference": null,
       "rrTp1": null,
       "rrTp2": null,
-      "orderBlockQuality": null,
-      "confluenceCount": 0,
+      "orderBlockQuality": 77,
+      "confluenceCount": 2,
       "confidenceScore": 0,
-      "macroScore": -19.92,
-      "macroAgreementPct": 87,
+      "macroScore": -7.58,
+      "macroAgreementPct": 32,
       "layers": {
-        "fresh": -5.45,
-        "weekly": -11.71,
-        "regime": 1.51,
+        "fresh": 0.68,
+        "weekly": -11.27,
+        "regime": 7.28,
         "market": -4.27,
-        "bullishCount": 0,
-        "bearishCount": 3,
+        "bullishCount": 1,
+        "bearishCount": 2,
         "marketInputs": 3
       },
       "nextEvent": {
         "name": "Initial Jobless Claims",
         "dateUtc": "2026-09-10T12:30:00Z",
-        "minutesAway": 389
+        "minutesAway": 81
       },
-      "reasons": [],
+      "reasons": [
+        "Macro score -7.6 with 1 bullish layers",
+        "4H structure range; daily structure bearish",
+        "Bullish order block quality 77/100"
+      ],
       "blockers": [
-        "OANDA 4H technical feed is not live.",
-        "OANDA market snapshot is 9999 minutes old.",
-        "4H structure is unavailable, not bullish.",
-        "Macro gold score is not bullish enough (-19.9).",
+        "4H structure is range, not bullish.",
+        "Daily structure is bearish.",
+        "Macro gold score is not bullish enough (-7.6).",
         "Fewer than two independent macro layers are bullish.",
-        "No preferred bullish 4H order block is available."
+        "A meaningful macro layer still conflicts with the bullish case.",
+        "Macro agreement is too low (32%).",
+        "Initial Jobless Claims is due in 80 minutes.",
+        "Buy zone is 8.8 ATR below current price; too far away for an up-to-date pending signal.",
+        "No nearby 4H structural target offers a realistic 1.8R\u20136R reward/risk window."
       ],
       "rulesVersion": "buy-limit-v2",
       "notice": "Planning signal only. It does not guarantee a safe or profitable trade; refresh immediately before using a pending order."
@@ -3363,43 +5642,51 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-09-10T06:00:52.740452Z",
-      "marketObservedAt": null,
-      "validUntil": "2026-09-10T06:15:52.740452Z",
-      "currentPrice": null,
-      "entryZoneLow": null,
-      "entryZoneHigh": null,
-      "limitPrice": null,
-      "stopLossReference": null,
+      "generatedAt": "2026-09-10T11:09:28.763721Z",
+      "marketObservedAt": "2026-09-10T11:09:28.320951199Z",
+      "validUntil": "2026-09-10T11:24:28.763721Z",
+      "currentPrice": 4382.35,
+      "entryZoneLow": 4584.495,
+      "entryZoneHigh": 4614.59,
+      "limitPrice": 4599.542,
+      "stopLossReference": 4620.035,
       "tp1Reference": null,
       "tp2Reference": null,
       "rrTp1": null,
       "rrTp2": null,
-      "orderBlockQuality": null,
-      "confluenceCount": 0,
+      "orderBlockQuality": 75,
+      "confluenceCount": 1,
       "confidenceScore": 0,
-      "macroScore": -19.92,
-      "macroAgreementPct": 87,
+      "macroScore": -7.58,
+      "macroAgreementPct": 32,
       "layers": {
-        "fresh": -5.45,
-        "weekly": -11.71,
-        "regime": 1.51,
+        "fresh": 0.68,
+        "weekly": -11.27,
+        "regime": 7.28,
         "market": -4.27,
-        "bullishCount": 0,
-        "bearishCount": 3,
+        "bullishCount": 1,
+        "bearishCount": 2,
         "marketInputs": 3
       },
       "nextEvent": {
         "name": "Initial Jobless Claims",
         "dateUtc": "2026-09-10T12:30:00Z",
-        "minutesAway": 389
+        "minutesAway": 81
       },
-      "reasons": [],
+      "reasons": [
+        "Macro score -7.6 with 2 bearish layers",
+        "4H structure range; daily structure bearish",
+        "Bearish order block quality 75/100"
+      ],
       "blockers": [
-        "OANDA 4H technical feed is not live.",
-        "OANDA market snapshot is 9999 minutes old.",
-        "4H structure is unavailable, not bearish.",
-        "No preferred bearish 4H order block is available."
+        "4H structure is range, not bearish.",
+        "Macro gold score is not bearish enough (-7.6).",
+        "A meaningful macro layer still conflicts with the bearish case.",
+        "Macro agreement is too low (32%).",
+        "Initial Jobless Claims is due in 80 minutes.",
+        "Order block has fewer than two technical confluences (FVG / sweep / premium-discount).",
+        "Sell zone is 6.4 ATR above current price; too far away for an up-to-date pending signal.",
+        "No nearby 4H structural target offers a realistic 1.8R\u20136R reward/risk window."
       ],
       "rulesVersion": "sell-limit-v1",
       "notice": "Planning signal only. It does not guarantee a safe or profitable trade; refresh immediately before using a pending order."
