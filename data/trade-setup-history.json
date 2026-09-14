@@ -1,15 +1,53 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-14T07:06:47Z",
+  "updatedAt": "2026-09-14T13:59:34Z",
   "calibration": {
-    "completed": 10,
-    "wins": 5,
-    "winRate": 0.5,
-    "averageR": 10.15,
+    "completed": 11,
+    "wins": 6,
+    "winRate": 0.5455,
+    "averageR": 9.761,
     "factor": 1.0,
     "minimumSamplesForAdjustment": 30
   },
   "setups": [
+    {
+      "key": "bearish|2026-09-13T21:00:00.000000000Z|4338.68|4347.71",
+      "side": "bearish",
+      "createdAt": "2026-09-14T09:00:00.000000000Z",
+      "blockCandleAt": "2026-09-13T21:00:00.000000000Z",
+      "zoneLow": 4338.68,
+      "zoneHigh": 4347.71,
+      "quality": 73,
+      "confluence": {
+        "fairValueGap": true,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": false
+      },
+      "planning": {
+        "limitReference": 4343.195,
+        "invalidationReference": 4354.76,
+        "targets": [
+          {
+            "price": 4223.505,
+            "rMultiple": 10.35
+          },
+          {
+            "price": 4155.41,
+            "rMultiple": 16.24
+          }
+        ],
+        "bestRMultiple": 16.24,
+        "passesRewardRiskGate": true
+      },
+      "source": "OANDA v20 practice",
+      "firstObservedAt": "2026-09-14T13:59:34Z",
+      "status": "waiting",
+      "triggerIndex": null,
+      "triggeredAt": null,
+      "completedAt": null,
+      "bestR": 0.0,
+      "outcomeR": null
+    },
     {
       "key": "bearish|2026-09-10T13:00:00.000000000Z|4340.2|4376.45",
       "side": "bearish",
@@ -79,12 +117,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-09-10T14:58:33Z",
-      "status": "tp1",
+      "status": "tp2",
       "triggerIndex": 7,
       "triggeredAt": "2026-09-11T13:00:00.000000000Z",
-      "completedAt": null,
-      "bestR": 5.37,
-      "outcomeR": null
+      "completedAt": "2026-09-14T05:00:00.000000000Z",
+      "bestR": 5.87,
+      "outcomeR": 5.87
     },
     {
       "key": "bearish|2026-09-08T09:00:00.000000000Z|4394.19|4411.9",
