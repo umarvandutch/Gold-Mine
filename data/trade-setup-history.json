@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-16T04:58:34Z",
+  "updatedAt": "2026-09-16T09:49:57Z",
   "calibration": {
     "completed": 11,
     "wins": 6,
@@ -10,6 +10,44 @@
     "minimumSamplesForAdjustment": 30
   },
   "setups": [
+    {
+      "key": "bullish|2026-09-15T21:00:00.000000000Z|4275.67|4295.39",
+      "side": "bullish",
+      "createdAt": "2026-09-16T01:00:00.000000000Z",
+      "blockCandleAt": "2026-09-15T21:00:00.000000000Z",
+      "zoneLow": 4275.67,
+      "zoneHigh": 4295.39,
+      "quality": 74,
+      "confluence": {
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true
+      },
+      "planning": {
+        "limitReference": 4285.53,
+        "invalidationReference": 4270.035,
+        "targets": [
+          {
+            "price": 4371.84,
+            "rMultiple": 5.57
+          },
+          {
+            "price": 4402.63,
+            "rMultiple": 7.56
+          }
+        ],
+        "bestRMultiple": 7.56,
+        "passesRewardRiskGate": true
+      },
+      "source": "OANDA v20 practice",
+      "firstObservedAt": "2026-09-16T09:49:57Z",
+      "status": "triggered",
+      "triggerIndex": 0,
+      "triggeredAt": "2026-09-16T01:00:00.000000000Z",
+      "completedAt": null,
+      "bestR": 0.0,
+      "outcomeR": null
+    },
     {
       "key": "bearish|2026-09-13T21:00:00.000000000Z|4338.68|4347.71",
       "side": "bearish",
@@ -41,9 +79,9 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-09-14T13:59:34Z",
-      "status": "waiting",
-      "triggerIndex": null,
-      "triggeredAt": null,
+      "status": "triggered",
+      "triggerIndex": 10,
+      "triggeredAt": "2026-09-16T01:00:00.000000000Z",
       "completedAt": null,
       "bestR": 0.0,
       "outcomeR": null
