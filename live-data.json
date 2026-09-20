@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-20T17:44:05Z",
+  "generatedAt": "2026-09-20T19:48:47Z",
   "calendarStatus": "live",
   "counts": {
     "events": 128,
     "headlines": 80,
-    "marketFeeds": 2
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
@@ -2378,7 +2378,19 @@
       "kind": "yield",
       "source": "U.S. Treasury official daily rate"
     },
-    "real10y": null
+    "real10y": {
+      "label": "US 10Y real yield",
+      "symbol": "TC_10YEAR",
+      "name": "US 10Y real yield",
+      "price": 2.68,
+      "previous": 2.61,
+      "changePct": null,
+      "deltaBps": 7.0,
+      "date": "2026-09-18",
+      "time": null,
+      "kind": "real-yield",
+      "source": "U.S. Treasury official daily rate"
+    }
   },
   "headlines": [
     {
@@ -2387,6 +2399,15 @@
       "publishedUtc": "2026-09-20T16:43:00Z",
       "source": "Google News aggregation",
       "category": "inflation",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Gold outlook: Crude oil, bond yields exert pressure on XAU/USD ahead of FOMC - FOREX.com",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNVTdSUS1xOUtWQXlkdThVakNLWDg5dkREMWo2amVJcTVYbkdNbFZxQXlCUlhxZTlLcXdITXFzVnhLQ1Fmcktxdjd2YWxaZk56QzUxbkxZZFNGM1ZXb0lQX3pna0d6dGIwdkJ1eVBhNklkV0NLUG5IVjMyUHdvZGpqaDE1UGRmdkN4ZXpsTk8zd055ZXFxRzNaZDdxaUpoRDhmZDF2NloyWGgzWmZuM1o5cHhYdnFJeW1vdmc?oc=5",
+      "publishedUtc": "2026-09-20T16:41:01Z",
+      "source": "Google News aggregation",
+      "category": "other",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -2400,8 +2421,8 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Federal Reserve hikes interest rates amid inflation concerns - Fox News",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5sN01CNTNuaGNfWTVZeHdITTJBdnpBUk9ZMjM0Mms5NF9mOVBnMll3bEdZZ0lxUkotQ2l6bEw2S00ydl9adERoMGdhRUd3V3Y5S1Atb0RR?oc=5",
+      "title": "Federal Reserve hikes interest rates amid inflation concerns - yahoo.com",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdnd3THVocW1iLWhXbUkyS3lQNElpX0ZwRHlGUlhRY2FLak9IUEhLVWh5OGhOYllUV3FJVUlIUHZsUkFmV28xYnJHSGFtejNnRENDeHN6RU1UcEw5SzQtXy0wYWdWVlFMR3lVTjlRdGZ0OGhYMDFNeW40MEVBaDdHZmV2dXhPbVZheXc?oc=5",
       "publishedUtc": "2026-09-20T16:13:51Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -2409,11 +2430,21 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Gold outlook: Crude oil, bond yields exert pressure on XAU/USD ahead of FOMC - FOREX.com",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNVTdSUS1xOUtWQXlkdThVakNLWDg5dkREMWo2amVJcTVYbkdNbFZxQXlCUlhxZTlLcXdITXFzVnhLQ1Fmcktxdjd2YWxaZk56QzUxbkxZZFNGM1ZXb0lQX3pna0d6dGIwdkJ1eVBhNklkV0NLUG5IVjMyUHdvZGpqaDE1UGRmdkN4ZXpsTk8zd055ZXFxRzNaZDdxaUpoRDhmZDF2NloyWGgzWmZuM1o5cHhYdnFJeW1vdmc?oc=5",
-      "publishedUtc": "2026-09-20T15:41:31Z",
+      "title": "Federal Reserve hikes interest rates amid inflation concerns - Fox News",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5sN01CNTNuaGNfWTVZeHdITTJBdnpBUk9ZMjM0Mms5NF9mOVBnMll3bEdZZ0lxUkotQ2l6bEw2S00ydl9adERoMGdhRUd3V3Y5S1Atb0RR?oc=5",
+      "publishedUtc": "2026-09-20T16:13:51Z",
       "source": "Google News aggregation",
-      "category": "other",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
+    },
+    {
+      "title": "Federal Reserve rate hike reflects new world of sticky inflation and faster growth - Mankato Free Press",
+      "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOZHFZZnpSNlRXdGY2Ym9RVUYteTdLNHZSV1oxR1hER0J4di1GVVFybEtuNnJRWERvWkZ4dDR3MmE1Nk9DT1QxOFc5ZEUxYW10WHp6T2JBU0JxRW1uZU1vTnV1cFhPWkhoeHBORkt2QWtIS2tnV1oyRGMyd0lSM1paWTJLdGpVOF9aNEFOU3dpMXRIYUFycG5FYnAtM243eFVGMGxzNThpd3N4VWVEY28xYWV0SklPdWF6ZG1UOWRzYlp5U0d3N1BQRWJjSHRxRnJvNW1PSW5TeWNRZHREdEhlMWQxVms0T2t5RjRLUi1zOWJmNHI3dUpMb0dwZkVlM0lFaG1tNGRLTG9za28?oc=5",
+      "publishedUtc": "2026-09-20T15:39:29Z",
+      "source": "Google News aggregation",
+      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -2436,22 +2467,23 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Federal Reserve rate hike reflects new world of sticky inflation and faster growth - Ottumwa Courier",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOejVmUGNkSld2Q1JGT2kzNENRdi1fZ2hYbERZTUdRUHFuQTAweEZVcWtGTzk5Rk1pbXpqTElVUzBVMmJYbzFxRmJROGppVGh0R0NRVGVZVFlDamp1MndoeGs0VWh3TUV2aDhObEJUNWU0YVE2di1ZcDBNbnV5TVBqd1JrRHF0T0N2dUpwS0t5NGpIblh6VHpOZUtxYWVPWEZjYkQ3MVZGRzNaRnp5ck9aTFJvTklhcmN4YUNiY1NXTGt3V3J3Q29QVlJaS0g1enhycjQ1NUNIcXpjaDZIbzFjWTJDdEJNNU9qMDEzT0ItcnEyRmpGWk92YkFYeExqdEd5dFNfMkdDTUU?oc=5",
+      "publishedUtc": "2026-09-20T12:31:19Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "\u2018There\u2019s a whipsaw nature to it\u2019: how we\u2019ve covered Donald Trump\u2019s tumultuous trade wars - The Guardian",
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWHp3ODVoaFdKd2xzSGpOWm9tRV9TNkNPNDIxeDNyaUlwRzYtMmFMWFZkbC1yTG93b2JjX3l6ZllHM0gySC1lUzlMeThDd3dadVZnQjIwb00yYnh5LTRhRmFpajZlb011OHRDY1Nxa1ZwdHA0OWd1VlVuSWU0bm92LW1seFBfZTV1NFZqNWNiRm9uNk4yRTNSUU1RRlFtZERJUURGR1RPSnRMUmF6aXhiOFZpanpUU3k1czVGMVBJZHd4SzlrVVFkSFk4cHJJZw?oc=5",
       "publishedUtc": "2026-09-20T12:01:00Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Federal Reserve rate hike reflects new world of sticky inflation and faster growth - Ottumwa Courier",
-      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOejVmUGNkSld2Q1JGT2kzNENRdi1fZ2hYbERZTUdRUHFuQTAweEZVcWtGTzk5Rk1pbXpqTElVUzBVMmJYbzFxRmJROGppVGh0R0NRVGVZVFlDamp1MndoeGs0VWh3TUV2aDhObEJUNWU0YVE2di1ZcDBNbnV5TVBqd1JrRHF0T0N2dUpwS0t5NGpIblh6VHpOZUtxYWVPWEZjYkQ3MVZGRzNaRnp5ck9aTFJvTklhcmN4YUNiY1NXTGt3V3J3Q29QVlJaS0g1enhycjQ1NUNIcXpjaDZIbzFjWTJDdEJNNU9qMDEzT0ItcnEyRmpGWk92YkFYeExqdEd5dFNfMkdDTUU?oc=5",
-      "publishedUtc": "2026-09-20T11:59:42Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Federal Reserve rate hike reflects new world of sticky inflation and faster growth - The Verde Independent",
@@ -2460,7 +2492,8 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Federal Reserve raises interest rates for the 1st time since 2023 - ABC News - Breaking News, Latest News and Videos",
@@ -2500,7 +2533,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Elon Musk predicts AI could double US GDP growth to 4% - WION",
+      "title": "Elon Musk predicts AI could double US GDP growth to 4% - wionews.com",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNWm1lTFRJOHFJWF8xaHU3TG4zR2JEVHM2bFU0RV9CR045WlFONGNTWTZmNXRPVlgxYkVHQ2VsRTVBMElfMW1ZRHRFekdtdjgtNHVPc2JOQzZiOVhhUVl3SWNISjQyYWN4c1VTMGJiNW5RZTIyX05fb2Q3WDN6QjFtT0lkTFc3Y3NkTTVXcDBOTDB3dkoxcEJDb0NRZXRwTGfSAaQBQVVfeXFMTTJyZmxYZHFvUVh4OFhIMzFXbzJseEc5UlgxRGk1VTIxd1c1WF9ESnVvWklGZkRRQkN4aG9LVUxoeGxfUU12N09WRzNxQndoSU1LOHpTa1FPaFpiVlMxNjF1bVRlbnI0Y1lFSjk1alN2UkVrOE9yNmVoNnlVQklVU1ZCS0xVTEw2bkg4czZ5MUlURzZrV0tWaF9SaG5UamlYWmZCQm4?oc=5",
       "publishedUtc": "2026-09-20T09:35:00Z",
       "source": "Google News aggregation",
@@ -2527,7 +2560,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Trump\u2019s sanctions, inflation and a collapsing economy leaves Iran\u2019s sick exposed - cnn.com",
+      "title": "Trump\u2019s sanctions, inflation and a collapsing economy leaves Iran\u2019s sick exposed - CNN",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOWTF2bWxTR3dmM3gzVzBvMWlfSGc5cUpOUDZadmc4SWJrWGptNnprMXlRX21qYW9DazJpbXJqOEsyTndrTEQ5ZG9wZlM2RlZ1WVJ2eTVrc0taVVZNLVpsVi1NeTljNWpqYVRjckxuSmVpRElXZ1JLVzBUaGFaaUo4ZFRVTHYtRUcxYUE?oc=5",
       "publishedUtc": "2026-09-20T07:39:14Z",
       "source": "Google News aggregation",
@@ -2546,35 +2579,6 @@
       "retainedFromPreviousSnapshot": true
     },
     {
-      "title": "Fed Chair Kevin Warsh Defied President Donald Trump, and 17 Words From His Post-FOMC Meeting Press Conference Suggest He May Do So Again - The Motley Fool",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQbXkxNU4zX0t1cTZfQjBqWktrV2luS2s3WnIzbTNHWXFmT242aGlyYjFxMy0yM1Z4Y2RUS2d6eUtjQURweEd4WnpiZ1lHRGIySTBhX2otWk8zWnh0RzJWaXRpYTNjcDZLS0lPNTdIZ0tJMTNLX1dZYnYwMEFIaWY2cGlFOFAyQ1IxQkZqUF84YWsyUQ?oc=5",
-      "publishedUtc": "2026-09-20T01:30:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Fed Chair Kevin Warsh Defied President Donald Trump, and 17 Words From His Post-FOMC Meeting Press Conference Suggest He May Do So Again - theglobeandmail.com",
-      "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxNci1Eb3ZITVNkYktyekdZa196UE1DQ1I2aXJDNGZNX0dPQ0pKZzVGaFpQeDUwakcxc0FZMk43cThXLU1pZU5XRGl0SzdENEQtWXJXVktpT2dvZjAxeUxoVUJjZmJONHVEbEpENUY4dzg2MkV4QWQ2eElkeGZKeWdIa01XMzhDMWg0eUFKZ3N5d1RkY1NxN2w1R0t0aGd0azQyMEE5MmRqV0pNMkdfd2pKTWxfY3lWb3pFS0VRUFV3Z3UwVnFjZmNJbXR0emhuZWhZS04tZmY5VHZDaDE4ZHVtM25yWFpvbnpBOHp3WFNoNU9DYXotRjYzSnQ2WnZrMC05eGI4Z0FmQ25kSFpOdHVZVHdubmNnekowLXVXZ2tPSW9SQ1BJaTgxVzlKYUZPaE8wVkZFLW1MZy1YdnQtcURlWUpWQQ?oc=5",
-      "publishedUtc": "2026-09-20T01:07:49Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Fed Chair Kevin Warsh Defied President Donald Trump, and 17 Words From His Post-FOMC Meeting Press Conference Suggest He May Do So Again - The Globe and Mail",
-      "url": "https://news.google.com/rss/articles/CBMixAJBVV95cUxOZGw5U2Vxa1pZeV9ZVFpvWlFpN2tfSjJhQW9weDV2SE1hWGhGTGs3alNRYzB1RkxDUnRNdDBRMVg3SEtPdk1NVGR4aEhUbUVlVy1rYmNXQks1a1ZBOUN1Y2FpS0sxVDI3OFRINkFmTzlzR2NpYkNRMWI2N1g2SE45eTNlZnlwY2dJbGYxWGdXelA1VkRFa1oyRWtOVG5oUHNTeGhFQUZBY2htQTBER2l3R3BEZWxITWU3Q1NpLTcwd1lIZzRMZEVxMTQ5NG5iRlEtcFRFaGk3ZDFsbDBxTF9pdXNLc1NVd2xmT3MxNW5YUDFmLWRFOENlblNsdDNzQkRpb3hyS0c5d1BJcmdGZURiQXpna0ZZMEFhRXBUYXhHWndOTHJiNGpHcWRFd1Q4TlRVZ3FJS2NaaVJDNXVRSlRMZzJYbnY?oc=5",
-      "publishedUtc": "2026-09-20T00:52:38Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
       "title": "Satellite Images Show How Lake Powell Has Drained to Record Low in 9 Years - Newsweek",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdUh6dW0wUVltbWVqNm9wYnZobm83MG1KRkExTG5UQkxWWjZOdk9qNUNmSGprcXg5QmJUMzVhclprbkhGVHRiZXpNRlhNUmxWTTVENUZBUUtuLV9ienp2X01tak8yYVBDVlhsbDdvN3ZsUVIzR2p3OWd5TTdXc0FYQ1gwQVBmeHVDRGstNXZVVzZWLTNrbmIza2JtM0JURmM3aHYxbWFDcXl6V2FH?oc=5",
       "publishedUtc": "2026-09-19T11:10:00Z",
@@ -2584,7 +2588,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Can Kevin Warsh Change the Federal Reserve? - Time Magazine",
+      "title": "Can Kevin Warsh Change the Federal Reserve? - time.com",
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPWEZKeEhvcWhCeDF4eDlxNnJ5OXhwaGtQYjFtbFBFWVc0Sl9qRzRSU0t2OC1BdEZSangxWnpEbWFkWVNNWXZYZzFVaVpUaDRrQ0lpTU9TNUNWV09YNlV2R0FRTGl1SE5YanpFcWZ2WFY1RFd5SVhfZ0JGMVBqekxnWmdKRzJWQXc?oc=5",
       "publishedUtc": "2026-09-19T11:00:04Z",
       "source": "Google News aggregation",
@@ -2593,7 +2597,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Gold Trapped in Macro Tug-of-War as Hot CPI and Resilient US Dollar Clash - fxleaders.com",
+      "title": "Gold Trapped in Macro Tug-of-War as Hot CPI and Resilient US Dollar Clash - FXLeaders",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQRzV2OFp2MW5qTGR1NDFPU0Z4SS0ycWdOb0RhaTZyWUVSbDRBRndnOUZOQ3U1clpmR2lycnMxYmtlay10VERxdkp2c2h1MXEyU2d5b2xFVkdCSDQ2ZzE2NEFlZk9hSUlNS1FkVVVFeFJkTE05ZHBTa1VqdWdRREJDRlI5U0xHaXNNakNnR2hpMGUxV2VhZ1Y2V1RKMDNNUTRDSllSeGo0VHBFY0R2aG5FS1dabkNKdU0?oc=5",
       "publishedUtc": "2026-09-19T09:06:09Z",
       "source": "Google News aggregation",
@@ -2638,7 +2642,7 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Gold is tariff-proof. Canada has $11 billion a year of it stuck in permitting - mining.com",
+      "title": "Gold is tariff-proof. Canada has $11 billion a year of it stuck in permitting - Mining.com",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPZ29pNEU3WTBDTHBzV0lzcHRUd3B4SC1NcUUyc2swbFBvU1RCckVURGhuUUN2Z21zbHhoZVU5Uzg1VHcwSWRncjYyX25iOFU1Ni0taHpCR080bXpGRDRHVzlERm04N3d1b3NwdHFuYVF4YzhFZFJfLVU2Z2tBV2ZXOWprcGlhbDZNMnQwRXcta1l5dXd4cTdPbVFfY1BxR2pB?oc=5",
       "publishedUtc": "2026-09-18T19:42:34Z",
       "source": "Google News aggregation",
@@ -2708,8 +2712,8 @@
     },
     {
       "title": "Gears of War: E-Day has gone gold and these are its PC specs - Instant Gaming News",
-      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOQ0dqYVl4dk4wVkYxX29VaWhVMzBmRW9qV3l6UnlkS1ZUYjBiTE5MX3VOaU1nSFdUbkxhWjI4Yzl1WGlMbTJWSHdmdEF5dHdaMzlCX3AwZTgzSHJfdm4ydHlCcUZpYlJRdXZvdHlPQXI2QXYxWXZ1SGFmUS1DVTY1bGdwWTE5a3RVVS1aeDhXSXZwM1ZMdW1ZMGwtUmh5MVpYTExocXhrUFFEWmZsanZqd0xGci1GYXk2Rkozd3dRenZ6Q3VoUXYycXhCMjFDb00wdUpWa0szWDdUOE1iVHJv?oc=5",
-      "publishedUtc": "2026-09-18T07:39:21Z",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQQnJlb2JQMjlUWmZwaFRtTzI4WC1wQW5LZVpoWGYySzIyc0VqZkxXanhOWmFDMXI5RXdBdEF2d1JDMFhEUm1VdTFGLUdPQk50VmtpanltaUlCbnNUZHFoNk1YS2NpdmN4M2N2UDlhM3JtcnMtekJNNFFTWUZtMTVUcDN0V19SbUNYV2huRGVRZnU4cXhjQmstRExRUEZqS1dzQ1Jsc242aHBwaEltUXc?oc=5",
+      "publishedUtc": "2026-09-18T07:39:44Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -2734,7 +2738,7 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Gears of War: E-Day goes gold, PC requirements revealed - neowin.net",
+      "title": "Gears of War: E-Day goes gold, PC requirements revealed - Neowin",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQdUZWNnU2UWxiOWxSWFM1bWdkRnhfUUZuMFhwdlJEekRzY1ppa0tHY0xfSktyU2toYi1tcFdncG5tRTB5NVd0YW1xSGN3dEZrWGM5bmhPOUc1U0xic0FLUklJLWVHT0RGLU9lZTEtLWM2MkV3Vm5KR1VqNTdiWnFpWWdpeU9OTFY3SlE?oc=5",
       "publishedUtc": "2026-09-17T17:38:49Z",
       "source": "Google News aggregation",
@@ -2782,15 +2786,6 @@
       "title": "What the Fed Rate Hike Means for Borrowers and Investors - Darden Report Online",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNbUUxcGtmMVNwRlBwamZkOXBKTUQ1MDVxeC1rY1I5REFMeFVQN1hQMFo1Q0lfajhqcGMtWkFKS1ZzdkdwVGp5R19pa3Q2bmpFUldhWGJMdV9UWmpadGtOSUFqOTMtRng2U0p2U3NHQm1TU0lkeUhXa3llUlBnY3lkTG9VMFpBNk11Y19EUldEOTc3Qms?oc=5",
       "publishedUtc": "2026-09-17T14:12:36Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Top strategist thinks the Federal Reserve interest rate hike won't fix this huge earnings risk - Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOZV9EbjVUMmtzczNuYzZxTUxrb1ZuOTZzWFhSc0RTd2YzVWtxQVhrckJaYkNXTkx4LTdfS3dDWXZpbXdDY3JfVHlqbEJPeEJJYVdJMnN6VUkwVjBEbUVHY0hBdXZZb1A0dUhuN2szeWVVckE3NTIyWVlWdmJ6cVF3dndsUGZzTjYtYmg1QWotbHJpd0l3WmpZaF9yYjllbDA3ZTJPZHZsUE9nUWRwZzhZcFp6bTVrZzdxb3ZZeXFIc2x1QU93blVCSEpDbDd5VkY4d3o1OTcwRXpOeVJ0Q2wtZlNmNkY?oc=5",
-      "publishedUtc": "2026-09-17T12:16:19Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -2851,6 +2846,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "With the Federal Reserve's rate hike finalized, gold continues to trade in a range-bound pattern. - Moomoo",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQeDlLb0NZQXRCMHpNRGE4Y3RITjBycmNXZ05EMFl5Y21tUVkxYUs1TTBYNlNDdlZobUJxZ1loSTMxRzNXbWFyYzRKay1ILWE2eUhFRmVxT0dESGxMSXRyN2VpMjZ6YlJIZk94dE05aXRmZE1mNzdmempybzZSWmVfSVBMaE9vUGg5X1lCcDlLNTJlS2xtWHcxUURpZExnNHRhV2RjX2F3?oc=5",
+      "publishedUtc": "2026-09-17T03:06:03Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "FOMC Turns Hawkish to Tackle Inflation - Global Finance Magazine",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4zMFRKTnBONUpWVWZHS25iUFhBd2JjSnBQVmstekVNNmxWNm9mMFQ1Tnd6MTNhNlN6azBlb2ZhbFJ5YVpOVmVHYnJtLXB0SS03bW1lMTlEanJFTkw0cG5uaEFuN0x6ckJ2anRBSDJST2V0LW4wMm1PUGFrZVpyUW8?oc=5",
       "publishedUtc": "2026-09-17T01:51:55Z",
@@ -2869,7 +2873,16 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "What to know about US Federal Reserve\u2019s first interest rate hike in 3 years - aljazeera.com",
+      "title": "Expert weighs in after Federal Reserve raises interest rates for 1st time in 3 years - ABC13 Houston",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNVWdLZXRIRVdvQkl0cFBHWFJxbzBCQjB6WklKU0JaNlFuODg0cWk0TDU1OWJ5QWV3NDA4TGg3Q3NucVdYNldGajFpaGM0bjFiQ05sRlhxYTFiTUxtMXhSaTRIajlqbHhOWkdCc0hHRFBNWFNPek1nMXF0bDZiWVVQMnFWY0NxTFJGSFFJQklnRGgtWHfSAZgBQVVfeXFMUGp3VjBnZ0xwa3prNlNjbGtnSVlXSG0ySElTdmFSRHhhSjIySUZid2RHR2djMldTZmRiNlJiNWJlcllGWDJPT2NiYjl3dFAzMzRGOFhCbzhpeTl4Y2poUUYwbVpYWThad2ZicnM3M0o1bi1nNGZmMWpqanJ4b21jUTVHMDdkRlU3S1phdFNUV3ZJYkpfYTc4cVc?oc=5",
+      "publishedUtc": "2026-09-16T23:22:25Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "What to know about US Federal Reserve\u2019s first interest rate hike in 3 years - Al Jazeera",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNR2E0YlpfSnFQZldrNGdyd3FZNUxPVjU5OHZzTElVRjdUOUhLT3JzSFFVNHQ4VXd4WVhtMUZtdGhFTVNlZXl6YVpBdFhKc1B4WTY4ZDlXalJwb0ZleE1yQzNTLWw3UXNiYk9KaDNuVDJZRXZFQkNyOG5ySG4wNjNwelFWZUwyM2ZpbERyTjRsa19vYjh1SXo3cWxWTk92THRETV9JYkJ6aWd5QjVEWGR3VkoxdW15d9IBuwFBVV95cUxOLWhIRXBrWG1GNndPR1k2SEZYcS14bzhCMWdfV01Oak95OGlFNnp1eDhSVEE3VHdrTk1DR3VzbURjSC0xU00tRTA2a1pTVEJ3cTNoLTIwVFRHWWNHcXBvVVExdDVmbFpzY1U4ZHZYY3ZkSVJNaXRFRUVwUWQyemgxQTlIcnN2MXFZeWhDYmhjOWFzeW5QSy1KUjhHblBQR1VZRzA0eUxMdVFPbkNublFOVFVFR2NRZVBjTk9J?oc=5",
       "publishedUtc": "2026-09-16T23:18:48Z",
       "source": "Google News aggregation",
@@ -3159,7 +3172,7 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-09-20T17:44:49Z"
+    "updatedAt": "2026-09-20T19:49:27Z"
   },
   "technical": {
     "status": "live",
@@ -5451,14 +5464,14 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-09-20T17:44:51.307997Z",
+    "generatedAt": "2026-09-20T19:49:29.758073Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-09-20T17:44:51.307997Z",
+      "generatedAt": "2026-09-20T19:49:29.758073Z",
       "marketObservedAt": "2026-09-18T20:59:05.183867743Z",
-      "validUntil": "2026-09-20T17:59:51.307997Z",
+      "validUntil": "2026-09-20T20:04:29.758073Z",
       "currentPrice": 4378.385,
       "entryZoneLow": 4235.165,
       "entryZoneHigh": 4346.59,
@@ -5471,31 +5484,31 @@
       "orderBlockQuality": 77,
       "confluenceCount": 2,
       "confidenceScore": 0,
-      "macroScore": -37.97,
+      "macroScore": -57.04,
       "macroAgreementPct": 100,
       "layers": {
-        "fresh": -13.98,
-        "weekly": -17.78,
+        "fresh": -28.01,
+        "weekly": -18.15,
         "regime": -1.03,
-        "market": -5.18,
+        "market": -9.85,
         "bullishCount": 0,
         "bearishCount": 3,
-        "marketInputs": 2
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "Fed's Goolsbee speech",
         "dateUtc": "2026-09-21T10:30:00Z",
-        "minutesAway": 1005
+        "minutesAway": 881
       },
       "reasons": [
-        "Macro score -38.0 with 0 bullish layers",
+        "Macro score -57.0 with 0 bullish layers",
         "4H structure bullish; daily structure bearish",
         "Bullish order block quality 77/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 2685 minutes old.",
+        "OANDA market snapshot is 2810 minutes old.",
         "Daily structure is bearish.",
-        "Macro gold score is not bullish enough (-38.0).",
+        "Macro gold score is not bullish enough (-57.0).",
         "Fewer than two independent macro layers are bullish.",
         "Order block is mitigated, not untouched."
       ],
@@ -5506,9 +5519,9 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-09-20T17:44:51.307997Z",
+      "generatedAt": "2026-09-20T19:49:29.758073Z",
       "marketObservedAt": "2026-09-18T20:59:05.183867743Z",
-      "validUntil": "2026-09-20T17:59:51.307997Z",
+      "validUntil": "2026-09-20T20:04:29.758073Z",
       "currentPrice": 4378.385,
       "entryZoneLow": 4584.495,
       "entryZoneHigh": 4614.59,
@@ -5521,29 +5534,29 @@
       "orderBlockQuality": 71,
       "confluenceCount": 1,
       "confidenceScore": 0,
-      "macroScore": -37.97,
+      "macroScore": -57.04,
       "macroAgreementPct": 100,
       "layers": {
-        "fresh": -13.98,
-        "weekly": -17.78,
+        "fresh": -28.01,
+        "weekly": -18.15,
         "regime": -1.03,
-        "market": -5.18,
+        "market": -9.85,
         "bullishCount": 0,
         "bearishCount": 3,
-        "marketInputs": 2
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "Fed's Goolsbee speech",
         "dateUtc": "2026-09-21T10:30:00Z",
-        "minutesAway": 1005
+        "minutesAway": 881
       },
       "reasons": [
-        "Macro score -38.0 with 3 bearish layers",
+        "Macro score -57.0 with 3 bearish layers",
         "4H structure bullish; daily structure bearish",
         "Bearish order block quality 71/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 2685 minutes old.",
+        "OANDA market snapshot is 2810 minutes old.",
         "4H structure is bullish, not bearish.",
         "Order-block quality is only 71/100 (75 required).",
         "Order block has fewer than two technical confluences (FVG / sweep / premium-discount).",
