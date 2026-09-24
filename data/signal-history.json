@@ -1,7 +1,87 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-24T10:20:27Z",
+  "updatedAt": "2026-09-24T15:17:52Z",
   "events": [
+    {
+      "key": "086e59fb-0a4b-4f19-8af1-393bb8ee5128|2026-09-24T14:00:00Z",
+      "id": "086e59fb-0a4b-4f19-8af1-393bb8ee5128",
+      "dateUtc": "2026-09-24T14:00:00Z",
+      "name": "New Home Sales Change (MoM)",
+      "family": "Housing",
+      "category": "housing",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 6.4,
+      "consensus": null,
+      "previous": -10.5,
+      "revised": -4.3,
+      "firstObservedAt": "2026-09-24T15:17:06Z",
+      "lastObservedAt": "2026-09-24T15:17:06Z",
+      "model": {
+        "bias": "bearish",
+        "score": -99.97,
+        "surpriseZ": null,
+        "revisionZ": 6.2,
+        "importance": 3.57,
+        "family": "Housing"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-09-24T15:17:06Z",
+          "xau": 4250.91,
+          "dxy": 101.3289,
+          "us2y": 4.85,
+          "us10y": 5.11,
+          "real10y": 2.76
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "11e2ad64-148f-4472-81dc-86bea3e398fe|2026-09-24T12:30:00Z",
+      "id": "11e2ad64-148f-4472-81dc-86bea3e398fe",
+      "dateUtc": "2026-09-24T12:30:00Z",
+      "name": "Initial Jobless Claims",
+      "family": "Jobless claims",
+      "category": "labour",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 197.0,
+      "consensus": 201.0,
+      "previous": 196.0,
+      "revised": 198.0,
+      "firstObservedAt": "2026-09-24T15:17:06Z",
+      "lastObservedAt": "2026-09-24T15:17:06Z",
+      "model": {
+        "bias": "bearish",
+        "score": -13.93,
+        "surpriseZ": 0.267,
+        "revisionZ": -0.133,
+        "importance": 12.55,
+        "family": "Jobless claims"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-09-24T15:17:06Z",
+          "xau": 4250.91,
+          "dxy": 101.3289,
+          "us2y": 4.85,
+          "us10y": 5.11,
+          "real10y": 2.76
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "6dd30953-081a-47f8-bd4c-1d8c81ccc7bb|2026-09-23T13:45:00Z",
       "id": "6dd30953-081a-47f8-bd4c-1d8c81ccc7bb",
@@ -17,7 +97,7 @@
       "previous": 53.9,
       "revised": null,
       "firstObservedAt": "2026-09-23T15:32:44Z",
-      "lastObservedAt": "2026-09-24T10:19:40Z",
+      "lastObservedAt": "2026-09-24T15:17:06Z",
       "model": {
         "bias": "bearish",
         "score": -93.62,
@@ -57,7 +137,7 @@
       "previous": 56.5,
       "revised": null,
       "firstObservedAt": "2026-09-23T15:32:44Z",
-      "lastObservedAt": "2026-09-24T10:19:40Z",
+      "lastObservedAt": "2026-09-24T15:17:06Z",
       "model": {
         "bias": "bearish",
         "score": -86.58,
@@ -97,7 +177,7 @@
       "previous": 16.25,
       "revised": 16.75,
       "firstObservedAt": "2026-09-22T17:00:15Z",
-      "lastObservedAt": "2026-09-24T10:19:40Z",
+      "lastObservedAt": "2026-09-24T15:17:06Z",
       "model": {
         "bias": "bearish",
         "score": -34.52,
@@ -137,7 +217,7 @@
       "previous": 0.2,
       "revised": null,
       "firstObservedAt": "2026-09-18T14:27:53Z",
-      "lastObservedAt": "2026-09-24T10:19:40Z",
+      "lastObservedAt": "2026-09-24T15:17:06Z",
       "model": {
         "bias": "bullish",
         "score": 47.77,
@@ -385,7 +465,7 @@
       "previous": 3.75,
       "revised": null,
       "firstObservedAt": "2026-09-16T18:18:40Z",
-      "lastObservedAt": "2026-09-24T10:19:40Z",
+      "lastObservedAt": "2026-09-24T15:17:06Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
