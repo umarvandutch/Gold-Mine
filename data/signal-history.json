@@ -1,7 +1,167 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-02T06:48:46Z",
+  "updatedAt": "2026-10-02T13:15:56Z",
   "events": [
+    {
+      "key": "a8be8ae1-e0eb-43b4-8b98-4c2333560680|2026-10-02T12:30:00Z",
+      "id": "a8be8ae1-e0eb-43b4-8b98-4c2333560680",
+      "dateUtc": "2026-10-02T12:30:00Z",
+      "name": "Average Hourly Earnings (MoM)",
+      "family": "Wages",
+      "category": "labour",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.1,
+      "consensus": 0.3,
+      "previous": 0.3,
+      "revised": null,
+      "firstObservedAt": "2026-10-02T13:15:07Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
+      "model": {
+        "bias": "bullish",
+        "score": 69.97,
+        "surpriseZ": -1.111,
+        "revisionZ": null,
+        "importance": 23.76,
+        "family": "Wages"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-02T13:15:07Z",
+          "xau": 4193.19,
+          "dxy": 101.9333,
+          "us2y": 4.78,
+          "us10y": 5.24,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "a0485df5-8fd5-477b-9a61-0daad1abde41|2026-10-02T12:30:00Z",
+      "id": "a0485df5-8fd5-477b-9a61-0daad1abde41",
+      "dateUtc": "2026-10-02T12:30:00Z",
+      "name": "Average Hourly Earnings (YoY)",
+      "family": "Wages",
+      "category": "labour",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.0,
+      "consensus": 3.2,
+      "previous": 3.1,
+      "revised": null,
+      "firstObservedAt": "2026-10-02T13:15:07Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
+      "model": {
+        "bias": "bullish",
+        "score": 69.97,
+        "surpriseZ": -1.111,
+        "revisionZ": null,
+        "importance": 23.76,
+        "family": "Wages"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-02T13:15:07Z",
+          "xau": 4193.19,
+          "dxy": 101.9333,
+          "us2y": 4.78,
+          "us10y": 5.24,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "42eb369a-fa30-4a2e-b508-ba4dc3fd8073|2026-10-02T12:30:00Z",
+      "id": "42eb369a-fa30-4a2e-b508-ba4dc3fd8073",
+      "dateUtc": "2026-10-02T12:30:00Z",
+      "name": "Nonfarm Payrolls",
+      "family": "Payrolls",
+      "category": "labour",
+      "volatility": "HIGH",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 29.0,
+      "consensus": 90.0,
+      "previous": 162.0,
+      "revised": 133.0,
+      "firstObservedAt": "2026-10-02T13:15:07Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
+      "model": {
+        "bias": "bullish",
+        "score": 49.77,
+        "surpriseZ": -0.813,
+        "revisionZ": -0.387,
+        "importance": 25.96,
+        "family": "Payrolls"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-02T13:15:07Z",
+          "xau": 4193.19,
+          "dxy": 101.9333,
+          "us2y": 4.78,
+          "us10y": 5.24,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "a2fbeb2f-013c-49cb-a03c-dc2c592cd48c|2026-10-02T12:30:00Z",
+      "id": "a2fbeb2f-013c-49cb-a03c-dc2c592cd48c",
+      "dateUtc": "2026-10-02T12:30:00Z",
+      "name": "Unemployment Rate",
+      "family": "Unemployment",
+      "category": "labour",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 4.2,
+      "consensus": 4.1,
+      "previous": 4.1,
+      "revised": null,
+      "firstObservedAt": "2026-10-02T13:15:07Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
+      "model": {
+        "bias": "bullish",
+        "score": 47.77,
+        "surpriseZ": -0.667,
+        "revisionZ": null,
+        "importance": 15.28,
+        "family": "Unemployment"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-02T13:15:07Z",
+          "xau": 4193.19,
+          "dxy": 101.9333,
+          "us2y": 4.78,
+          "us10y": 5.24,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "05dd9d6f-3824-41d0-9c6f-ce69efbb311a|2026-10-01T14:00:00Z",
       "id": "05dd9d6f-3824-41d0-9c6f-ce69efbb311a",
@@ -17,7 +177,7 @@
       "previous": 54.6,
       "revised": null,
       "firstObservedAt": "2026-10-01T16:34:46Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 25.43,
@@ -57,7 +217,7 @@
       "previous": 71.1,
       "revised": null,
       "firstObservedAt": "2026-10-01T16:34:46Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bearish",
         "score": -99.41,
@@ -97,7 +257,7 @@
       "previous": 197.0,
       "revised": 198.0,
       "firstObservedAt": "2026-10-01T16:34:46Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "mixed",
         "score": -11.04,
@@ -137,7 +297,7 @@
       "previous": 47.1,
       "revised": null,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bearish",
         "score": -99.88,
@@ -177,7 +337,7 @@
       "previous": 0.2,
       "revised": 0.1,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 40.19,
@@ -217,7 +377,7 @@
       "previous": 3.3,
       "revised": 3.0,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 85.56,
@@ -257,7 +417,7 @@
       "previous": 3.6,
       "revised": null,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 22.98,
@@ -297,7 +457,7 @@
       "previous": 1.5,
       "revised": null,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bearish",
         "score": -79.76,
@@ -337,7 +497,7 @@
       "previous": 0.2,
       "revised": 0.1,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 40.19,
@@ -377,7 +537,7 @@
       "previous": 3.7,
       "revised": 3.4,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 85.56,
@@ -417,7 +577,7 @@
       "previous": 5.3,
       "revised": null,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 86.17,
@@ -457,7 +617,7 @@
       "previous": 0.4,
       "revised": 0.3,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bullish",
         "score": 79.07,
@@ -497,7 +657,7 @@
       "previous": 0.2,
       "revised": 0.1,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bearish",
         "score": -32.91,
@@ -537,7 +697,7 @@
       "previous": 38.0,
       "revised": 36.0,
       "firstObservedAt": "2026-09-30T15:12:43Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bearish",
         "score": -61.97,
@@ -577,7 +737,7 @@
       "previous": 7.271,
       "revised": 7.335,
       "firstObservedAt": "2026-09-29T14:16:54Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "mixed",
         "score": 8.15,
@@ -623,7 +783,7 @@
       "previous": 0.0,
       "revised": null,
       "firstObservedAt": "2026-09-29T14:16:54Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "bearish",
         "score": -86.17,
@@ -663,7 +823,7 @@
       "previous": 47.8,
       "revised": null,
       "firstObservedAt": "2026-09-25T15:29:26Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "mixed",
         "score": -8.65,
@@ -703,7 +863,7 @@
       "previous": 4.6,
       "revised": null,
       "firstObservedAt": "2026-09-25T15:29:26Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -743,7 +903,7 @@
       "previous": 3.4,
       "revised": null,
       "firstObservedAt": "2026-09-25T15:29:26Z",
-      "lastObservedAt": "2026-10-02T06:48:02Z",
+      "lastObservedAt": "2026-10-02T13:15:07Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
