@@ -1,15 +1,53 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-09T02:58:23Z",
+  "updatedAt": "2026-10-09T10:22:21Z",
   "calibration": {
-    "completed": 16,
+    "completed": 17,
     "wins": 7,
-    "winRate": 0.4375,
-    "averageR": 6.797,
+    "winRate": 0.4118,
+    "averageR": 6.338,
     "factor": 1.0,
     "minimumSamplesForAdjustment": 30
   },
   "setups": [
+    {
+      "key": "bullish|2026-10-08T09:00:00.000000000Z|4109.97|4126.475",
+      "side": "bullish",
+      "createdAt": "2026-10-09T01:00:00.000000000Z",
+      "blockCandleAt": "2026-10-08T09:00:00.000000000Z",
+      "zoneLow": 4109.97,
+      "zoneHigh": 4126.475,
+      "quality": 75,
+      "confluence": {
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true
+      },
+      "planning": {
+        "limitReference": 4118.222,
+        "invalidationReference": 4105.486,
+        "targets": [
+          {
+            "price": 4193.09,
+            "rMultiple": 5.88
+          },
+          {
+            "price": 4219.415,
+            "rMultiple": 7.95
+          }
+        ],
+        "bestRMultiple": 7.95,
+        "passesRewardRiskGate": true
+      },
+      "source": "OANDA v20 practice",
+      "firstObservedAt": "2026-10-09T10:22:21Z",
+      "status": "waiting",
+      "triggerIndex": null,
+      "triggeredAt": null,
+      "completedAt": null,
+      "bestR": 0.0,
+      "outcomeR": null
+    },
     {
       "key": "bearish|2026-10-06T17:00:00.000000000Z|4156.915|4184.385",
       "side": "bearish",
@@ -41,12 +79,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-10-07T13:56:33Z",
-      "status": "waiting",
-      "triggerIndex": null,
-      "triggeredAt": null,
-      "completedAt": null,
+      "status": "stopped",
+      "triggerIndex": 10,
+      "triggeredAt": "2026-10-09T01:00:00.000000000Z",
+      "completedAt": "2026-10-09T05:00:00.000000000Z",
       "bestR": 0.0,
-      "outcomeR": null
+      "outcomeR": -1.0
     },
     {
       "key": "bullish|2026-10-02T05:00:00.000000000Z|4177.485|4185.015",
