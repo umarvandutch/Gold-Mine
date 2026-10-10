@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-10T07:16:12Z",
+  "generatedAt": "2026-10-10T13:50:36Z",
   "calendarStatus": "live",
   "counts": {
     "events": 161,
     "headlines": 80,
-    "marketFeeds": 2
+    "marketFeeds": 1
   },
   "sourceStatus": {
     "calendar": "live",
@@ -2946,35 +2946,50 @@
       "live": true,
       "observedAt": "2026-10-09T20:59:05.299523586Z"
     },
-    "us2y": {
-      "label": "US 2Y Treasury yield",
-      "symbol": "BC_2YEAR",
-      "name": "US 2Y Treasury yield",
-      "price": 4.8,
-      "previous": 4.75,
+    "us2y": null,
+    "us10y": null,
+    "real10y": {
+      "label": "US 10Y real yield",
+      "symbol": "TC_10YEAR",
+      "name": "US 10Y real yield",
+      "price": 2.91,
+      "previous": 2.87,
       "changePct": null,
-      "deltaBps": 5.0,
+      "deltaBps": 4.0,
       "date": "2026-10-09",
       "time": null,
-      "kind": "yield",
+      "kind": "real-yield",
       "source": "U.S. Treasury official daily rate"
-    },
-    "us10y": {
-      "label": "US 10Y Treasury yield",
-      "symbol": "BC_10YEAR",
-      "name": "US 10Y Treasury yield",
-      "price": 5.24,
-      "previous": 5.22,
-      "changePct": null,
-      "deltaBps": 2.0,
-      "date": "2026-10-09",
-      "time": null,
-      "kind": "yield",
-      "source": "U.S. Treasury official daily rate"
-    },
-    "real10y": null
+    }
   },
   "headlines": [
+    {
+      "title": "Why is US turning to Russia for diesel despite sanctions? - Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSGNTbVgyVC14ZDVBOEs3Mm1rTW16emtnYzdRZm1OWi1SQ0xod09CRWZaajVkbEVmanlDdUxDRGd4NXNJOFdJYUYwUmV2UW00VXl2a2p4M0ZxNVc2NGlNdFIyN1R4UEFwTzN4aFdDcFNSM3ZKdnpIN3Bqek1wT25UUkhZUVV4UlJ0YjNROFc3TEgwQ25hZWlmZmJMVVJ1ZUnSAaQBQVVfeXFMT1R5NE0yR3F1TTRkZHZCb1h4M2lvd1JTMklBT05BUWY5SGRsSVFSbG9LTlNNeDJVNFpnMk9ZcVVpNnBLOUxPQmdacjA2VTdCeWVSei1lbmVJYUw1MFBnN1RRV2VjNENoQmhDck5EbkpXaFpoUW0wQ1ktbG54Z2l2LTVyN2dDc3BERTZzYTlOVGdyNDItSnh3UnFRc2RlbWktbWtKVXI?oc=5",
+      "publishedUtc": "2026-10-10T12:22:30Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Germany sticks to Russia sanctions after Trump announcement on diesel - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPYUFXZDgzaHN2T1FRdnc3Njh3R0t5cGppS3pJUm8xREprWk54RFdON1pYY1BBbFRKS2pEajVWVzJJcmNiQVVJVGI1czM0U0F1U04zUEFZZVNDZzUtVWZ6UzdPQlItRzNyX3ZseVdmeVlaY1B5M203LWhwWFJTZjh0TlBFVm4zbm9SQjVvRGpXclhWWnJDYmdOWVRmaFhCVDBRNV9uU0UtZmo?oc=5",
+      "publishedUtc": "2026-10-10T10:59:43Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Federal Reserve Reform: Let Markets Determine the Money Supply - National Review",
+      "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQdkg1XzZzaFh3cFFsVjRrQS1yQ1VhT1dOMXRfTDZRSlhaeXlCVWlJWmZIV2NQcThzcFF4b0YwendXR1Fqdk5RWTJvT2ZzTDBEUUI5UkZOaW1rUUpUaXRXbVBhTHQ5S0VUUzR1MmM0d1EtZEJTMTJldWJ4OFhNNjNaeGJfbmZHTWxiNFJjdzNLVHVZQVZWNE9MRkwyVEU5ZGZhYjFrek1rZE5Kb2RmeklacHlSWVRWZVFBM2xRdDVCTWtValRVU2FxRDBoclZsMmZpaDBqQmZyRnZMeGozMUtFRWJvZTlJQ1EyVDZxRklKRTNfVE5xYllKZGJnWlFqbXFIa0RQMEItdFVLYTJpUnRHUXJ3?oc=5",
+      "publishedUtc": "2026-10-10T10:30:16Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
     {
       "title": "Trump hits International Criminal Court with sanctions after Nobel goes to former judge - The Washington Post",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbnIxSGZ1cXZ1OGRKT21CTV9oa2U3WjJYSW9NS290alRJdHgxQWxxWHN5WTAwM25RTHZmTHl5WEtiRE14MEx3cGoyTHVwNWxLeHFzWmFRelNlek5SbGkwVHRSdjA4RTQ5cWNqallxamtiN3JZMm1JRFZNVk8tWmFveXJMR2U2STV2d1I2V25XMG5JRUdhNS1EdWx5bDJyUU5zcmxCSjFkbGJVUlF0YXlz?oc=5",
@@ -3097,45 +3112,6 @@
       "retainedFromPreviousSnapshot": true
     },
     {
-      "title": "US hits International Criminal Court with sweeping sanctions as part of drive to dismantle tribunal - AP News",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPcXNFcXVnRVZfckpBb0hJMmN0aVhRQ1lxZHlsUlR4MWhLN0J0d0VYdllmYnF2SUlxV3BFN1VGbTAzQXMtaTZjbld2WFg0akNnMjNaUlBTRTlZeE1SQlZ6OXJ6Y3pibHNOQjBreHRHN295WTlVZmtnT0RnX1YwTV8yWTlibFA?oc=5",
-      "publishedUtc": "2026-10-09T18:46:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "US unveils sanctions on ICC in move court condemns as 'assault on rule of law' - BBC",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9WSElxQ2l1VzJ2ZTNTQ2N1VHFLbXNzbmRvV3FMOEVyMm83ZDFxMmdxWmZuWHM5TmtGbXIya3c3U0kyYTcySW8yTzY2VGF1Q0h3TlAyVmZPbmp6d2s?oc=5",
-      "publishedUtc": "2026-10-09T18:40:10Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Trump Administration Hits International Criminal Court With Severe Sanctions - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOcHBFOGx1NzFvVkdzQWlHbm5vTGFlNFNBSm5fWWVPWC1EYXNoVmgtd2ZXSWJnaFZtSjhvRU5pd1YtMUVUV1FMYllka1hZQm5pck04N2pza0hZRU5NZXZtSEVnQWFGemMzWk00WlJaeVlDajNmQk0zNUg0RlhGYVBRX0dlYzBVS0w5aEJXLVdSMVdjZUxQalpnemtrRlg?oc=5",
-      "publishedUtc": "2026-10-09T17:51:24Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Trump escalates war on International Criminal Court with deep sanctions - Courthouse News",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMWJ6UEplRzNEaEZjUWp1UExHSUR4Nzk3Z09SZTJtMkhGS1F3RG5WWjA2dlN2aGpmX3F2SnNwM3ppakF0eS1TOTZzR1o1bE5ya2FtYWVlMDZrV3Zxbk1FblAxQk4zN0FveXBOcHl1ZG42MHZoVVFmNkJqYTA2ankxYjZVQnctUm5SVVVrSHAzT1VFNGRzZlI2dzItTGxOTi1aNHRzTQ?oc=5",
-      "publishedUtc": "2026-10-09T17:43:37Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
       "title": "Trump announces committee to investigate Federal Reserve\u2019s Lisa Cook - ABC News - Breaking News, Latest News and Videos",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNcXdDTHFELXdwLWdzdEYyLVlMM0p4OWVqQnl2dXFFM1MxTnpsQ2JJaVhsWlhXMmNMU1BURGRyRHRwYXQyT0VUdkJNaVVsbHRaNXFNeHZsWjgtWDlvTTlIRGdDSDRIaVlSNFpmNEdSanNCWnFoVjR0aWFQOUNtTGZEYmRuLTdrSXJqVmhMLTZpTGlBT1QyZ0lfTWZZV0FKZzJNQ2VoYmdJQkppOW9wd2lDNDRB0gG3AUFVX3lxTE5tNDBTS19sckdQZDhJbjBpTUIzc1lSUWx4NFkwRWpSWW4tWnhQU2RZREFxN3EwMFg2UGNDQ295a1FzMVdTUlJ6Q3ZzYnZFTWNxQ3pIQzQ1dnlzX1BjUldSWGREaTFFNi03Z2JqSElwT1B0Nzg0OVMyNEJBMnNWa2Y4cDFjc0dOWkktRVpFUWNYNjRqRVFLVzFhZzJ5WWpLMGozLTFOaU1nSnJsc2hqcnl3LVIzTm80VQ?oc=5",
       "publishedUtc": "2026-10-09T17:23:35Z",
@@ -3163,27 +3139,9 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Trump establishes \u2018committee of inquiry\u2019 for Federal Reserve member Lisa Cook - The Hill",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOOXJvcTQxVkdYTUlpVDNGSEdmbUh6cVNhekNJLWV0d2gyWTU2MER6UFZMaFZZZ1g5RlUtU0hOSkNPc2ZUc0hsTG01NGlkUzItbzRCUnVDSEJVQnotQWpPMFRuMFpIZlFGaGF1Y3JaWXJVWkh1a3lLZmlfZTdaM3NUejhiVldpVWQ4bDkwM0hXQdIBlAFBVV95cUxQdDJPd1Q3dlE1bjNVQW4xT3lpVmtkMkJhQ240ck9TVTFqYzhiNjlLNHd6bUd3RTVDMmtXZFg5aTU5ZUt5clRKQXRBdG1WY2pYVmlIRXNkQjJUOTJiU0lJQUxwLUZFTFZuZUtETEhlQTI3ZjBYOWhQX3liZ1ZCSi1pSF9YRkNDempsOFBIVmNyalBhQTBP?oc=5",
-      "publishedUtc": "2026-10-09T15:19:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "New York Federal Reserve says inflation on everyday items is because of tariffs - WSMH",
       "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdkFlSWZ1RmFfOEF4VGFWSDlBc19YVUU2UEZidXRXalhiODhGVmYwaVItaHZPTGNrWXNUTlJvY1Q1SGRrcjU1QUNHYzJLakxhWERyS09ZT2J2amNTbTFmZjBEM0syNEVpbDNfdTRNLW5DcG9WaGgySHB6andoODRtVG1qLW95WExZbTM3OTNuWUhud0tBLVY0ZWpmVjJ4eDFrOWEyZWVLNEFubzNOcjYtSnZaanRWWEVGTnl2dWw3Y2xVRnlZR3dMWDYzNXp3aUwxMmVsZW1R?oc=5",
       "publishedUtc": "2026-10-09T14:18:38Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "The Fed's going to take its time with rate hikes - Axios",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBRbjZBYktnZmU3Y3pEZGtCQUprVkUtTk95YVVobXBfRjdXeXVna3ZUSks5VVRLN3dTdDAtMlhiR2xyRGdkOVpQSFRmYUJ6R1hKTGlZRjJMdTZhLThSMHZZYmc5V1l0c011LUc4ZXZkd1E?oc=5",
-      "publishedUtc": "2026-10-09T12:41:15Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3244,15 +3202,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Fed chair Jerome Powell says he will stay on central bank's board after term expires next month - ABC News - Breaking News, Latest News and Videos",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOVTRuNnNUUkdLNnBuVk9RQTBiS25xcTVBVVpjeFpTaDFUWjJuWFl4QjBkUnp0YkozM3ZXUXRfQ1RSTW1kU2h0OXZiU0M2MHJUQWZBdDNnWVU1am1yb1UxRWlpYWlpN1Y5VUFwd1oxUjF0UlFMeEt3SUx4UURpb1ZpYXY1c0lkYThrLUZtVlpUSWnSAZYBQVVfeXFMUEQwcFlXdjlTV3lqejM2WFFIQ25UWlhUM1FQNjIzTGtGV2ZQaElPZ2Izd0gwR2lLZ1pSdTZhWDVXMTg4d0V6RGxZdnZSak9walllOHRDOFlUT2pYSUJrdjc0NFYyekpfdjVIQUpVaDZjRGpJMlVwLXFHdFhnYzN5b2g3cWpZNkl5Ty11U29pbHllLUNLVjdR?oc=5",
-      "publishedUtc": "2026-10-08T19:54:15Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "War should be bullish for Gold. Right now it's capping it - FXStreet",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMm5ueUhDc0xhMkR6VldHSHdMWUZIdm8zaWZDZG9ndVdHc0VqU1JlYzZGOXN4dklYQmVzUTRXSk4xandxY08tT0pQSTNJbUtEdkNRYXRwNGlPLUxsWUw0YU1fOGhETFd2emRRbWgwbEZ4Ynl6NENOQlpxZXJLLTJfa3hWWTlIU0t5SkdMQXZTNERSUHI2NjFVZUU5YWZadHZORVRuRA?oc=5",
       "publishedUtc": "2026-10-08T17:36:00Z",
@@ -3265,6 +3214,24 @@
       "title": "Gold Star Families and Survivors Speak on Deadly Port Shuaiba Attack - Progressive Policy Institute",
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOb1gxM19SOG9oSm5mUURhLVRWTG1nQnd1QktuSkhZUVNMUXFTWDZxN2lGa3NGc25GTDhobU5FUm1kMXFCYVp6REFLUjUyZU1XakMyOVVtb2xZdDNGOWo0aUYzLUtPZ2wweVViWm16UFhZRDE3NkhQZkJhcWRyQmkteXduOWx0SGtnd21lU2hYclVmdmlfby1YMnIwNGpJdzRha05pYy1n?oc=5",
       "publishedUtc": "2026-10-08T17:11:45Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "The Fed's going to take its time with rate hikes - Axios",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBRbjZBYktnZmU3Y3pEZGtCQUprVkUtTk95YVVobXBfRjdXeXVna3ZUSks5VVRLN3dTdDAtMlhiR2xyRGdkOVpQSFRmYUJ6R1hKTGlZRjJMdTZhLThSMHZZYmc5V1l0c011LUc4ZXZkd1E?oc=5",
+      "publishedUtc": "2026-10-08T16:55:51Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "M23 guerrilla war\u2019s shadow economy: How Congo\u2019s militias turn guns, gold and tolls into profit - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNUVZtWWlCVzNqWkhHd0RxNE9JVm56NHZPNzRKVEtUM3dFSG9LZl9abkVsaHZMQzBkZXgzdUxnbkg1NkExZHJKUllPdkJRYS1mVEJuOTRIOXJWZlRvTmVJTzhQbGxaMHNsNU5GVGY4aFVXbThsWmVReUFSUEYwdTc5Rk1wZjJaT2ZxeTVKeDA4YjY0MEpGRnVsVWdyRE5OUGc5N3lORHc1eF80SE9tc1VpS2ozb050SDZWT2s1bVhySmdBZTlienhhQ3ZpblFmNElYV0xmRW1tRjBDRnNRdTJVN1J6OXhwdEJiekdaRWhaMm5RQk9sWjB6Rzg5SERMUGRUQ2NN0gGIAkFVX3lxTE11SHFtMjJPQWUzN0poQzRxNGljNUVDdXNuRFRXZV9zaFZxRTg3V1ZmZXdkb05BcndiUk84aV9jZUczOUpwNjBwRnhnLVc2VUhrR0otSWxRRmhlM0l4SThiLVRDSWpNZmpLekNLVFM4QnVtMjEwOS1LX0FoZEpCVW52QjNidm54ZHFZeXk4RTYzUVJ3WWRveDdFekg1NTVIZmp6QVJ4RFRvOU1KZnF2dU5SSXZtRWJyUE4td1VyT2xrYXZTTWszTi1wQ0ExTS1lOF9La3lkQk1MVFVSQ0Vha3R5UVpfbUNxOUNnRGM0ZWhsbzVRejlMWjdUbHNuV08yUGhybklia25mNA?oc=5",
+      "publishedUtc": "2026-10-08T12:41:00Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -3413,6 +3380,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "China Has Been Buying Gold for 23 Consecutive Months: Is Beijing Preparing for a Major War? - UA.NEWS",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOM0N0UkEtYlc0YmM3R3ZaVWF5LS1BVUlkNWtKdl9lNGx0S3pWc2NJQ2JKcWlmTXlnYklURVRtRHFMaDBPb01ocU1Sc0RYRGxycmR2ZG5yY09DYlZBaTA5bVlKdjFUN05BOFN3UDFKRlM2dVlpY3RwdHhCZjBfNnVjelJRZi1kQ1dkOGdYN0NXeVBLWFd6UEJvTDNYSkFXdW9XZG5Cbmh1ZjE?oc=5",
+      "publishedUtc": "2026-10-07T14:50:12Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
       "title": "Glen Powell Is Staying Quiet on Politics Because \u2018I Do Not Like the Discourse,\u2019 Says \u2018Running Man\u2019 Flopped After Paramount Laid Off \u2018Entire Marketing Department\u2019 - Variety",
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOd1gyb3ItWHdRckJfUDRnX3ExQnVybFVtZkk3aVVxdDNZN2t2dzIyZGJnZnVoTEkyaU1MZVRWMmpJTWtFTi1lMmZjbGNYUmlUa1VldWdNWTM4RDVYekhMcWJRdEFCMURIdDF1ckVOWURBUHJWN0RjanhyRFF3eDZVNG96TU9zczlUX3ZFUGFPUFlsMHhualJPRW5rZw?oc=5",
       "publishedUtc": "2026-10-07T14:02:00Z",
@@ -3458,6 +3434,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Backing off Brinker? National GOP group pulls CD2 ads; Dems do the same for Powell - Omaha World-Herald",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOUWN6YW1YcUhfcW4xazRzOWNoNEdfWkNaZk80Z0lsdXhTcU1SbXFfZ1ZLMERhUGdKblExZmw4YVVrRWUxenJIQUgzR0ZrU28tQUs4cUFZTTh4NExyczA0UUF4bW91UjN2dExsSmZIclJqcVFpQWlYcGNEYkoxc0Rucm84VGg5QXFPdlZIaTJMaTVhNmFzOFpQc3dqSUdZRjk4YzlROHkyNmpWS0QtVlFFak8zaDEtajZQ?oc=5",
+      "publishedUtc": "2026-10-07T09:50:46Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Gold Prices Fall as Dollar Strengthens Ahead of Federal Reserve Minutes - Yahoo Finance",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLUJ6QzRwVFp6QVFXT2NBb0tGVFRlclQyeWdtaTJaSi12M05qdG5ieUxBQVBBTHJjU0E5SEJtaDVOTHZnakFDZVBmaW5KWkYzend6bnF4c3llWEM3czBrZFFKbm1ybDJGaWVLS2NrQm02ZVo2eGdHcDRJX2dqa0ZPN1hwdHdxeHYxMlZSR0VYYXVBeXJvLUt2OEEyVnNhclRSVkdVWl9jTmw?oc=5",
       "publishedUtc": "2026-10-07T09:33:56Z",
@@ -3483,6 +3468,15 @@
       "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
+    },
+    {
+      "title": "Fed may skip October but pull rate hike trigger in December - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNOVRfM1dqWHpoenJab09IVXh3am1peVNMWFFPOFhOSjl1SkI5MklDUDl6VFpkSkZxUE8tU0Q4S3R3VXNxd0t5Mlc3NGxXNTBid1N4U0czdVA2b09hVmRyT0VtaEU3M243T09TQjVTSzVMYURvSkg5WjBSc2tjVnpzM29ZMHdTMC1hUGlRUzBJRXBQdWk3bG9heTJOQjQ3QQ?oc=5",
+      "publishedUtc": "2026-10-02T17:56:09Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "Fed policymakers lean against October rate hike - Reuters",
@@ -3584,15 +3578,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "The Fed raises interest rates. And, EU proposes Canada become an 'associate member' - NPR",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOd19NTHRCcDhsUVEzSWxfZXZTUFVQMVppQnNybjA4OGhxMTduN21mZkRHdkc5TFZtUUMwRzVBNk5IYUh1U3hqc2hzX2hpZ1ZJUU1sdFZOcFFsUTN1YUYxNzRGc3d0SEdWY1dHSkdFRTJOU0ZwLThvVVFIV0NiRGh3cm9tcFJhdUdEVXhKQnpnVlpFc1V4WTZQaHJ0ZXhTNDEzWE1ZcUhCY2xXU0JXd3VrOVY5OXNvRGkyMzgybUxJS3E5blM3TzhnM3dB?oc=5",
-      "publishedUtc": "2026-09-17T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "FOMC rate decision in focus. - CME Group",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOR045dEJreU4zbG9Ldmt6MFBBbmNySTVzOFduYkxnTml0M2VoZGpBeURkR0lKbWtzVXB0NFNNalJ5b2sycjlPbU13ejFPdEZ4QXpKT3hBaUYtdDRaTHVHbjdRSkQ5Nl83elRLNlplSWVMUTY2REdWZTlQbDEybm4yR0ZDTU5BckF3Q2NV?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
@@ -3620,6 +3605,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Trump offers fiery response to Federal Reserve rate hike - The Hill",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNREJYYUpwQi1LREE0OFNCVUZZcnhRTGxzNXVFc1hSYjdCSmtnRWF5NFk3dUR6Q2xoT2xfQzRLLXVFY24tUXljQ0dWaFB5UlFCNnZQRU5TbXhyWS1xSXZScXY2ckRxNThCV193dGRQbTdpQzZBdnc3T1R2LXRrVElzdEl4cjdiZXh1QW1INENOaWNteVhobzZYMndR0gGfAUFVX3lxTFBfYnViN0FUQVY1U2oxRGpLOEd1VkZ6WDZ0NFdub3VvdTVuandDNms1TVJtNzgwMUNCVE9fbmtxZk9MZ2YydGNzc1czMERXX2JCbUpwY0hIeEdIblJpTS1jNFZwQ1dDU19JWDVnZmJyam9PZDB3ajRLWkk3M085Ym9vSFdycmJEX1UwZm1tM1JpX1ZvWVZOWWxzc0JscFZIOA?oc=5",
+      "publishedUtc": "2026-09-16T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Federal Funds Rate History 1990 to 2026 - Forbes",
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBsNEtLYjBNb05hZjBmRkV5NDctYTNrTTF1a0FwQzlpdG42Y3ROZmNVdmROTHRMbTBobHFhTnBzUVVDZEwxdGk5cm9HRWlWMTBCYk5EM0doODFNNnFPb0JfRDR1VVFwSzlsYnV0MUVfeldlTGpw?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
@@ -3629,8 +3623,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Trump offers fiery response to Federal Reserve rate hike - The Hill",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNREJYYUpwQi1LREE0OFNCVUZZcnhRTGxzNXVFc1hSYjdCSmtnRWF5NFk3dUR6Q2xoT2xfQzRLLXVFY24tUXljQ0dWaFB5UlFCNnZQRU5TbXhyWS1xSXZScXY2ckRxNThCV193dGRQbTdpQzZBdnc3T1R2LXRrVElzdEl4cjdiZXh1QW1INENOaWNteVhobzZYMndR0gGfAUFVX3lxTFBfYnViN0FUQVY1U2oxRGpLOEd1VkZ6WDZ0NFdub3VvdTVuandDNms1TVJtNzgwMUNCVE9fbmtxZk9MZ2YydGNzc1czMERXX2JCbUpwY0hIeEdIblJpTS1jNFZwQ1dDU19JWDVnZmJyam9PZDB3ajRLWkk3M085Ym9vSFdycmJEX1UwZm1tM1JpX1ZvWVZOWWxzc0JscFZIOA?oc=5",
+      "title": "Federal Reserve raises interest rates for the first time since 2023 - CBS News",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9aQTI5TnA0bk5pNlk0b0E3NkpjR1Jfd1BFa1FwZ1ZhY01FS1NfMFBHVnBySWdFY1FBN1RibF9hZk1tU180bU1EdTFQS3JuNHotRE5TNjk1REFsdG5iY2hqeXpmeEJNMVNFWnQ5aF9fSQ?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3656,8 +3650,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Federal Reserve raises interest rates for the first time since 2023 - CBS News",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9aQTI5TnA0bk5pNlk0b0E3NkpjR1Jfd1BFa1FwZ1ZhY01FS1NfMFBHVnBySWdFY1FBN1RibF9hZk1tU180bU1EdTFQS3JuNHotRE5TNjk1REFsdG5iY2hqeXpmeEJNMVNFWnQ5aF9fSQ?oc=5",
+      "title": "A Hike in Whose Interest? - The Century Foundation",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9RYnNjcjhvNmFBU2pIbU00TUpQb295OXpoYlY5ck9tbzVrOG9obEY0WkFCNFZzcDcyWEcySDhNX0FtR2ZMdFhLaF90eXAyYUVyRURxeW1JRV9lZHgxZXVjeFJFQTNEMFRTeVFiZQ?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3665,8 +3659,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "A Hike in Whose Interest? - The Century Foundation",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9RYnNjcjhvNmFBU2pIbU00TUpQb295OXpoYlY5ck9tbzVrOG9obEY0WkFCNFZzcDcyWEcySDhNX0FtR2ZMdFhLaF90eXAyYUVyRURxeW1JRV9lZHgxZXVjeFJFQTNEMFRTeVFiZQ?oc=5",
+      "title": "Fed Delivers First Rate Hike in Years With Unanimous Vote - WSJ",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSnY3TVFMMUNHQklOdVhJV2JyYzZwRVhSZVJCNTFsZkdMR3Z5dmM4TGlxR3FqYUlhUEgwTlpXR25pNC1PdXF6bHJ1NHpLVzl5Q3NBanFRcnNjMFZhS01HMzFZZ0dzVzFvX0xZeTZxd0gwaUZpOFZIcUpvdzA3NkpXTlN3U0tVZFpXbWJZZ3FkUENBd1lsSTRacFBKeHl1c2JT?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3683,26 +3677,17 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Multifamily experts react to Fed\u2019s first rate hike in 3 years - Multifamily Dive",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQUzA5QWdRbTBqZ2tOdTA5OGtjZm1ETVAzQW1XVU5ta2xpaFB5UDVVcWRkV2dMR1I0cW92dzdVU2d1alRpSW45ZzgwZUlhZHc3VFR0MWJQemlhV1hhWVNCM09pcm1qRUd2LTd2SkhTSjlNYTRPZXBCQ3RVT2pKUU0zTkxnUWdmR09BN2JaVnNR?oc=5",
-      "publishedUtc": "2026-09-16T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Fed raises interest rates for first time since 2023, defying Trump as inflation mounts - NBC News",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQaHFvTUxpaHU4XzFTTkx6bkQxb19mNkF3WjVwQ1FMZjVkaXRPMzZmdDFCZVNKU0RJSDNpUWR1TmxFWWkyUWxfUnl1aUs5SGRKYzU1eDgtUzR5cUZsX044M0E0T2VBenRKZUJOTk5Dc2FDbFhtRlpyenBmRk8wVjRERUFCbGpoM214OUE?oc=5",
-      "publishedUtc": "2026-09-16T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "Federal Reserve hikes interest rates, finally putting its foot down on inflation - Scotsman Guide",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQR2FJN1puSGZJa19BODVndWk3YmRCT3RzTlJzc0toTWc4c2ZTdV9ORWxzS2RIRXNVc1hzS1k5ZFUwLV95R0VQZTVqQzhhaGRDVk1jZkM4UFNSSHZmUzVTancyVHBKeXlNMVM1RWhyZWR2VlM5VEFlYVBDVjFKczZsQ3g0TnZqeFI4RE15Nkd4V0NQRlY1YnBzX0lDREZCZFctNTdib09FbHNWVWlVdzlfd3MtUERUdw?oc=5",
+      "publishedUtc": "2026-09-16T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Multifamily experts react to Fed\u2019s first rate hike in 3 years - Multifamily Dive",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQUzA5QWdRbTBqZ2tOdTA5OGtjZm1ETVAzQW1XVU5ta2xpaFB5UDVVcWRkV2dMR1I0cW92dzdVU2d1alRpSW45ZzgwZUlhZHc3VFR0MWJQemlhV1hhWVNCM09pcm1qRUd2LTd2SkhTSjlNYTRPZXBCQ3RVT2pKUU0zTkxnUWdmR09BN2JaVnNR?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3720,7 +3705,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 46,
+    "retainedRecentCount": 38,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3757,7 +3742,7 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-10-10T07:16:55Z"
+    "updatedAt": "2026-10-10T13:51:21Z"
   },
   "technical": {
     "status": "live",
@@ -6049,14 +6034,14 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-10-10T07:16:58.189098Z",
+    "generatedAt": "2026-10-10T13:51:26.061323Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-10-10T07:16:58.189098Z",
+      "generatedAt": "2026-10-10T13:51:26.061323Z",
       "marketObservedAt": "2026-10-09T20:59:05.299523586Z",
-      "validUntil": "2026-10-10T07:31:58.189098Z",
+      "validUntil": "2026-10-10T14:06:26.061323Z",
       "currentPrice": 4194.645,
       "entryZoneLow": 4109.97,
       "entryZoneHigh": 4126.475,
@@ -6069,31 +6054,31 @@
       "orderBlockQuality": 75,
       "confluenceCount": 1,
       "confidenceScore": 0,
-      "macroScore": -27.32,
-      "macroAgreementPct": 100,
+      "macroScore": -22.96,
+      "macroAgreementPct": 80,
       "layers": {
-        "fresh": -2.21,
-        "weekly": -13.51,
+        "fresh": 2.84,
+        "weekly": -13.89,
         "regime": -9.24,
-        "market": -2.36,
+        "market": -2.67,
         "bullishCount": 0,
         "bearishCount": 2,
-        "marketInputs": 2
+        "marketInputs": 1
       },
       "nextEvent": {
         "name": "IMF Meeting",
         "dateUtc": "2026-10-12T00:00:00Z",
-        "minutesAway": 2443
+        "minutesAway": 2049
       },
       "reasons": [
-        "Macro score -27.3 with 0 bullish layers",
+        "Macro score -23.0 with 0 bullish layers",
         "4H structure bullish; daily structure bearish",
         "Bullish order block quality 75/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 617 minutes old.",
+        "OANDA market snapshot is 1012 minutes old.",
         "Daily structure is bearish.",
-        "Macro gold score is not bullish enough (-27.3).",
+        "Macro gold score is not bullish enough (-23.0).",
         "Fewer than two independent macro layers are bullish.",
         "Order block has fewer than two technical confluences (FVG / sweep / premium-discount).",
         "Buy zone is 3.0 ATR below current price; too far away for an up-to-date pending signal."
@@ -6105,9 +6090,9 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-10-10T07:16:58.189098Z",
+      "generatedAt": "2026-10-10T13:51:26.061323Z",
       "marketObservedAt": "2026-10-09T20:59:05.299523586Z",
-      "validUntil": "2026-10-10T07:31:58.189098Z",
+      "validUntil": "2026-10-10T14:06:26.061323Z",
       "currentPrice": 4194.645,
       "entryZoneLow": 4293.395,
       "entryZoneHigh": 4315.795,
@@ -6120,29 +6105,29 @@
       "orderBlockQuality": 79,
       "confluenceCount": 2,
       "confidenceScore": 0,
-      "macroScore": -27.32,
-      "macroAgreementPct": 100,
+      "macroScore": -22.96,
+      "macroAgreementPct": 80,
       "layers": {
-        "fresh": -2.21,
-        "weekly": -13.51,
+        "fresh": 2.84,
+        "weekly": -13.89,
         "regime": -9.24,
-        "market": -2.36,
+        "market": -2.67,
         "bullishCount": 0,
         "bearishCount": 2,
-        "marketInputs": 2
+        "marketInputs": 1
       },
       "nextEvent": {
         "name": "IMF Meeting",
         "dateUtc": "2026-10-12T00:00:00Z",
-        "minutesAway": 2443
+        "minutesAway": 2049
       },
       "reasons": [
-        "Macro score -27.3 with 2 bearish layers",
+        "Macro score -23.0 with 2 bearish layers",
         "4H structure bullish; daily structure bearish",
         "Bearish order block quality 79/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 617 minutes old.",
+        "OANDA market snapshot is 1012 minutes old.",
         "4H structure is bullish, not bearish.",
         "Sell zone is 4.3 ATR above current price; too far away for an up-to-date pending signal.",
         "No nearby 4H structural target offers a realistic 1.8R\u20136R reward/risk window."
