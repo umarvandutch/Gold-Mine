@@ -1,7 +1,78 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-13T10:59:59Z",
+  "updatedAt": "2026-10-13T18:07:42Z",
   "events": [
+    {
+      "key": "d26dcd6d-e4cf-4e86-b6ba-354dd99c8b26|2026-10-13T14:00:00Z",
+      "id": "d26dcd6d-e4cf-4e86-b6ba-354dd99c8b26",
+      "dateUtc": "2026-10-13T14:00:00Z",
+      "name": "Existing Home Sales Change (MoM)",
+      "family": "Housing",
+      "category": "housing",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 1.5,
+      "consensus": null,
+      "previous": -2.0,
+      "revised": -3.2,
+      "firstObservedAt": "2026-10-13T18:06:56Z",
+      "lastObservedAt": "2026-10-13T18:06:56Z",
+      "model": {
+        "bias": "bullish",
+        "score": 69.83,
+        "surpriseZ": null,
+        "revisionZ": -1.2,
+        "importance": 3.57,
+        "family": "Housing"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-13T18:06:56Z",
+          "xau": 4161.065,
+          "dxy": 102.173,
+          "us2y": 4.8,
+          "us10y": 5.24,
+          "real10y": 2.91
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "296f4279-48db-4941-9b30-8505a637ed61|2026-10-13T12:15:00Z",
+      "id": "296f4279-48db-4941-9b30-8505a637ed61",
+      "dateUtc": "2026-10-13T12:15:00Z",
+      "name": "ADP Employment Change 4-week average",
+      "family": "labour",
+      "category": "labour",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 24.75,
+      "consensus": null,
+      "previous": 23.75,
+      "revised": 25.25,
+      "firstObservedAt": "2026-10-13T18:06:56Z",
+      "lastObservedAt": "2026-10-13T18:06:56Z",
+      "model": {
+        "bias": "bearish",
+        "score": -79.32,
+        "surpriseZ": null,
+        "revisionZ": 1.5,
+        "importance": 13.64,
+        "family": "labour"
+      },
+      "marketObservations": [],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "43c05090-4826-452f-bcb9-232a1c32cf38|2026-10-09T14:00:00Z",
       "id": "43c05090-4826-452f-bcb9-232a1c32cf38",
@@ -17,7 +88,7 @@
       "previous": 48.1,
       "revised": null,
       "firstObservedAt": "2026-10-09T17:06:22Z",
-      "lastObservedAt": "2026-10-13T10:59:12Z",
+      "lastObservedAt": "2026-10-13T18:06:56Z",
       "model": {
         "bias": "bullish",
         "score": 22.16,
@@ -57,7 +128,7 @@
       "previous": 197.0,
       "revised": 199.0,
       "firstObservedAt": "2026-10-08T17:57:57Z",
-      "lastObservedAt": "2026-10-13T10:59:12Z",
+      "lastObservedAt": "2026-10-13T18:06:56Z",
       "model": {
         "bias": "mixed",
         "score": -10.0,
