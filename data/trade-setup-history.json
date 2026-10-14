@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-14T12:17:51Z",
+  "updatedAt": "2026-10-14T17:21:21Z",
   "calibration": {
-    "completed": 17,
-    "wins": 7,
-    "winRate": 0.4118,
-    "averageR": 6.338,
+    "completed": 19,
+    "wins": 8,
+    "winRate": 0.4211,
+    "averageR": 5.755,
     "factor": 1.0,
     "minimumSamplesForAdjustment": 30
   },
@@ -41,12 +41,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-10-14T12:17:51Z",
-      "status": "triggered",
+      "status": "tp2",
       "triggerIndex": 0,
       "triggeredAt": "2026-10-14T05:00:00.000000000Z",
-      "completedAt": null,
-      "bestR": 0.0,
-      "outcomeR": null
+      "completedAt": "2026-10-14T09:00:00.000000000Z",
+      "bestR": 2.6,
+      "outcomeR": 2.6
     },
     {
       "key": "bullish|2026-10-08T09:00:00.000000000Z|4109.97|4126.475",
@@ -79,12 +79,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-10-09T10:22:21Z",
-      "status": "waiting",
-      "triggerIndex": null,
-      "triggeredAt": null,
-      "completedAt": null,
+      "status": "stopped",
+      "triggerIndex": 20,
+      "triggeredAt": "2026-10-14T09:00:00.000000000Z",
+      "completedAt": "2026-10-14T09:00:00.000000000Z",
       "bestR": 0.0,
-      "outcomeR": null
+      "outcomeR": -1.0
     },
     {
       "key": "bearish|2026-10-06T17:00:00.000000000Z|4156.915|4184.385",

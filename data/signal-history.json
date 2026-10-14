@@ -1,7 +1,167 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-14T12:18:32Z",
+  "updatedAt": "2026-10-14T17:22:13Z",
   "events": [
+    {
+      "key": "cbe30686-e724-42b1-b883-36bd8925fe5a|2026-10-14T12:30:00Z",
+      "id": "cbe30686-e724-42b1-b883-36bd8925fe5a",
+      "dateUtc": "2026-10-14T12:30:00Z",
+      "name": "Consumer Price Index (MoM)",
+      "family": "inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.6,
+      "consensus": 0.6,
+      "previous": 0.4,
+      "revised": null,
+      "firstObservedAt": "2026-10-14T17:21:21Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 28.0,
+        "family": "inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-14T17:21:21Z",
+          "xau": 4083.035,
+          "dxy": 102.7298,
+          "us2y": 4.79,
+          "us10y": 5.21,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "1e25f809-a3a8-4256-a9f1-de86b4f61f4a|2026-10-14T12:30:00Z",
+      "id": "1e25f809-a3a8-4256-a9f1-de86b4f61f4a",
+      "dateUtc": "2026-10-14T12:30:00Z",
+      "name": "Consumer Price Index (YoY)",
+      "family": "inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.7,
+      "consensus": 3.6,
+      "previous": 3.4,
+      "revised": null,
+      "firstObservedAt": "2026-10-14T17:21:21Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
+      "model": {
+        "bias": "mixed",
+        "score": -7.78,
+        "surpriseZ": 0.1,
+        "revisionZ": null,
+        "importance": 28.0,
+        "family": "inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-14T17:21:21Z",
+          "xau": 4083.035,
+          "dxy": 102.7298,
+          "us2y": 4.79,
+          "us10y": 5.21,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "cfaffea7-7471-4647-926d-581b3eecb400|2026-10-14T12:30:00Z",
+      "id": "cfaffea7-7471-4647-926d-581b3eecb400",
+      "dateUtc": "2026-10-14T12:30:00Z",
+      "name": "Consumer Price Index ex Food & Energy (MoM)",
+      "family": "inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.3,
+      "consensus": 0.2,
+      "previous": 0.3,
+      "revised": null,
+      "firstObservedAt": "2026-10-14T17:21:21Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
+      "model": {
+        "bias": "bearish",
+        "score": -57.17,
+        "surpriseZ": 0.833,
+        "revisionZ": null,
+        "importance": 28.0,
+        "family": "inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-14T17:21:21Z",
+          "xau": 4083.035,
+          "dxy": 102.7298,
+          "us2y": 4.79,
+          "us10y": 5.21,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "e3111bf6-764b-4b93-9319-9fe860d7bf34|2026-10-14T12:30:00Z",
+      "id": "e3111bf6-764b-4b93-9319-9fe860d7bf34",
+      "dateUtc": "2026-10-14T12:30:00Z",
+      "name": "Consumer Price Index ex Food & Energy (YoY)",
+      "family": "inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 2.6,
+      "consensus": 2.5,
+      "previous": 2.4,
+      "revised": null,
+      "firstObservedAt": "2026-10-14T17:21:21Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
+      "model": {
+        "bias": "mixed",
+        "score": -7.78,
+        "surpriseZ": 0.1,
+        "revisionZ": null,
+        "importance": 28.0,
+        "family": "inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-14T17:21:21Z",
+          "xau": 4083.035,
+          "dxy": 102.7298,
+          "us2y": 4.79,
+          "us10y": 5.21,
+          "real10y": 2.88
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "d26dcd6d-e4cf-4e86-b6ba-354dd99c8b26|2026-10-13T14:00:00Z",
       "id": "d26dcd6d-e4cf-4e86-b6ba-354dd99c8b26",
@@ -17,7 +177,7 @@
       "previous": -2.0,
       "revised": -3.2,
       "firstObservedAt": "2026-10-13T18:06:56Z",
-      "lastObservedAt": "2026-10-14T12:17:51Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
       "model": {
         "bias": "bullish",
         "score": 69.83,
@@ -57,7 +217,7 @@
       "previous": 23.75,
       "revised": 25.25,
       "firstObservedAt": "2026-10-13T18:06:56Z",
-      "lastObservedAt": "2026-10-14T12:17:51Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
       "model": {
         "bias": "bearish",
         "score": -79.32,
@@ -88,7 +248,7 @@
       "previous": 48.1,
       "revised": null,
       "firstObservedAt": "2026-10-09T17:06:22Z",
-      "lastObservedAt": "2026-10-14T12:17:51Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
       "model": {
         "bias": "bullish",
         "score": 22.16,
@@ -128,7 +288,7 @@
       "previous": 197.0,
       "revised": 199.0,
       "firstObservedAt": "2026-10-08T17:57:57Z",
-      "lastObservedAt": "2026-10-14T12:17:51Z",
+      "lastObservedAt": "2026-10-14T17:21:21Z",
       "model": {
         "bias": "mixed",
         "score": -10.0,
