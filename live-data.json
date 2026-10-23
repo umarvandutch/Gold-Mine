@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-23T00:33:13Z",
+  "generatedAt": "2026-10-23T05:17:46Z",
   "calendarStatus": "live",
   "counts": {
     "events": 154,
     "headlines": 80,
-    "marketFeeds": 3
+    "marketFeeds": 0
   },
   "sourceStatus": {
     "calendar": "live",
     "headlines": "live",
-    "market": "live-or-delayed",
+    "market": "unavailable",
     "headlineContinuity": "recent-snapshot-fallback",
     "signalPolicy": "medium-high-only; 7d ordinary; 90d CPI-rates",
     "xauProgrammatic": "oanda-live",
@@ -2794,73 +2794,64 @@
       "label": "Gold / XAUUSD",
       "symbol": "XAU_USD",
       "name": "Gold / XAUUSD",
-      "price": 4018.175,
+      "price": 4014.35,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-10-23",
-      "time": "00:33:54",
+      "time": "05:18:27",
       "kind": "gold",
       "source": "OANDA v20 practice",
       "live": true,
-      "observedAt": "2026-10-23T00:33:54.106133838Z"
+      "observedAt": "2026-10-23T05:18:27.242450977Z"
     },
     "dxy": {
       "label": "Synthetic US Dollar Index",
       "symbol": "DXY-synthetic",
       "name": "Synthetic DXY from six FX pairs",
-      "price": 101.5175,
+      "price": 101.6807,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-10-23",
-      "time": "00:33:54",
+      "time": "05:18:27",
       "kind": "index",
       "source": "OANDA v20 practice \u00b7 DXY formula",
       "live": true,
-      "observedAt": "2026-10-23T00:33:54.106133838Z"
+      "observedAt": "2026-10-23T05:18:27.242450977Z"
     },
-    "us2y": {
-      "label": "US 2Y Treasury yield",
-      "symbol": "BC_2YEAR",
-      "name": "US 2Y Treasury yield",
-      "price": 4.65,
-      "previous": 4.81,
-      "changePct": null,
-      "deltaBps": -16.0,
-      "date": "2026-10-22",
-      "time": null,
-      "kind": "yield",
-      "source": "U.S. Treasury official daily rate"
-    },
-    "us10y": {
-      "label": "US 10Y Treasury yield",
-      "symbol": "BC_10YEAR",
-      "name": "US 10Y Treasury yield",
-      "price": 4.96,
-      "previous": 5.13,
-      "changePct": null,
-      "deltaBps": -17.0,
-      "date": "2026-10-22",
-      "time": null,
-      "kind": "yield",
-      "source": "U.S. Treasury official daily rate"
-    },
-    "real10y": {
-      "label": "US 10Y real yield",
-      "symbol": "TC_10YEAR",
-      "name": "US 10Y real yield",
-      "price": 2.64,
-      "previous": 2.76,
-      "changePct": null,
-      "deltaBps": -12.0,
-      "date": "2026-10-22",
-      "time": null,
-      "kind": "real-yield",
-      "source": "U.S. Treasury official daily rate"
-    }
+    "us2y": null,
+    "us10y": null,
+    "real10y": null
   },
   "headlines": [
+    {
+      "title": "Trump Rally: U.S. Armed Forces investment, war in Venezuela and oil prices - KTIV",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOanNFR1VlNDJZNGxudWxYTmNlRnc3Mm5lXzNNU040NG1UWG9LLWREX3RBcGpUS3lhWXBTeUEzRzBtT3o4dXlraXh3eGVqWDRnWXVyUTRoLVh5LUdOU3dLVnlhNzg2VENPTXRkNDJwUFg1NThnUTNTTUZsM3J3MXg5QzFUbmkwazYwdHBkalFxdzVoSlB1WXh5YUhUUHVTM1I3TXpBcQ?oc=5",
+      "publishedUtc": "2026-10-23T01:23:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Trump invokes Cold War-era Defense Production Act for oil production, refining - The Economic Times",
+      "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPalFmWk5Fc19WUEtjTXlubThJSjFMWHRzdXZsN3h1TmFKQ2dYdDR5clRPVE4tcUxXUnFmUTdUQWphQ0pvY01pMnZJUmE1ZjhmaUhFd3hEMVhYaEtlQXFfM2NXX1RRVkFJcF9ndERfcmd0ZEQyczBKdUdVU0VwcXB5amt1UVA2cXJOcnZ6bElIUEJwX2d4QWt2OHlmV0J1aDBVTlBPS2dfZ2o3QXJpM0tzRGZ1TlFud3V4NmlOUm5EcTZQLTgtVzNURHJ3NGp3em1SbUV0dGhCdjBOU291V0sweVNOdU52TTRPN0hsUmwwM19ybTZ4UENUOHNkbk8tRTA?oc=5",
+      "publishedUtc": "2026-10-23T01:17:51Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Donald Trump claims Iran faked Strait of Hormuz attacks to influence midterm elections - The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBia0ozM0gzY0dieWFvMFYySGhwRm1hdlZFVDJ2QWFqSFhraEdTRTl1d2IxRkJ6RldfSndQeGx2Ukg2bFQ0NERTTGRfNXNSUVdoTUNldTRaVFRWZ0YtVXFxYzJBVEdObFNsNGc?oc=5",
+      "publishedUtc": "2026-10-23T01:17:40Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
     {
       "title": "The Federal Reserve at a Time of Uncertainty - American Enterprise Institute - AEI",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOVkhmSEFiZXNGVkdETXNWWkhOdml5VzBfUUpsbWVkbjBGLV85OC1OOUdKUHNGd0RuUFU2cVdoRUlDTUxOUzQ2RXdfOWZVR1ZVcVlkMmZVWFpNa3dBWEJOM2t3MHZ2MDc0VXB6T2M3cHBRb3FzSmhlZHJuR081V3NuYw?oc=5",
@@ -2886,7 +2877,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Trump invokes Cold War era Defense Production Act for oil production, refining - CNBC",
@@ -2898,9 +2890,9 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Trump invokes Cold War era Defense Production Act for oil production, refining - Reuters",
+      "title": "Trump invokes Cold War-era Defense Production Act for oil production, refining - Reuters",
       "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdm9ka0hnal9OOUFnN19HQmRZd0ljY2tJOVNoN2tIWURrMHExZ0p0NWN0UEpTMmFORG1TTU1CeXZkb3RhenhtelltYVY2SmRyZEctMnRIcUNEQlFXODdsZGxBMXhpem81NjJwRjRCbVl1N2tyWVkxeXU0T2k3ZEttNk5lbzZCVzRrUEtwT3JPTlJiUUVmSjU4b25EaXNIQ3dyS3c3NlJUSkFBdWZSMDFZVmZ1dmhncGFIYjNQU0tOd1I5dFk?oc=5",
-      "publishedUtc": "2026-10-22T21:15:56Z",
+      "publishedUtc": "2026-10-22T21:32:07Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -2931,25 +2923,7 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Canada hit back at Trump tariffs. Now the U.S. alleges possible election interference. - Axios",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOZ1VPaDMtckQ5cDF4QmN1R1hfM0FDVEJQd2ZWNWFWVXFiZWtRNXEzNHBYb21jMEhfRWJQeXVOcjhnSFhXTlZfc05IMFc2NGFEdmY3TkYxeU1iMjFpY1lDWVhVWnZJcXFUeVBwckVnSFNVeWgxMVJHRjd3cWVQcm5XSGh4Q3JoMm8?oc=5",
-      "publishedUtc": "2026-10-22T15:48:53Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Iran says 7 oil tankers were attacked in the Strait of Hormuz as fears grow of a return to war - Boston Herald",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQaDdNZmtKeU5uWWxHMDlTUDQ5SENpV25KUXZCTVM1VHBIOHM2VkxuNmhYbTY3T29ZYU1RV1NORlM4UlZzTk03aVRrbDlnbExTZnZLYmV0M3h3T0lrMjB4dF9EbEh6T0pXckhXZFk5NTM5aE9aVFJ4NlhzSy05Z05kQURSM3lmeEFRQ3FV?oc=5",
-      "publishedUtc": "2026-10-22T15:39:09Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
+      "memoryWindowDays": 90,
       "retainedFromPreviousSnapshot": true
     },
     {
@@ -2962,9 +2936,9 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "A shake-up in the Russian treasury. Putin is selling gold to fund the war - Defence24.com",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPaUxoT0NSWW1VZTVlMVJ0RU0yTk9RWHR6MmtFa0Fha2tPMVlZOHlNa2hCYWlkNjBoZW4yTS1pTFN5UFBtdFlBYkZ1bDZrQm9MLVpHVllnTlRQTnBPX2RPOEJRVl9RQTlGODBOR2x4OEdUa3pLQ04tRUxxbDB6OFkwYWxVSFUzalpXWUZ5cFZubkFpajlzcUE3NkdGWW40UGQxQXVOWkgzWU5zVzEzT2c?oc=5",
-      "publishedUtc": "2026-10-22T08:48:22Z",
+      "title": "Why Is Gold Falling on War Headlines? Silver Tumbles $1.70 Toward $55 | Metals Minute Phil Streible - The Globe and Mail",
+      "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxQM3l5SFlXTGI2MjZ3cDNzX0JsSUwwZ21kTDR6UXllVFNndngzaERHOWFBeFJ2WmZqaWRlV0FQYkoxZ1g3eU11RW1falJnOUthRGJ4YTM0YURRYl8yQUVmNVRUZmlhcnVFZ2hhUzU1MU5DVjlrcWRZNWliWUhuUUZOamxVY2t2SFlpWU1lZHFrLWw2RmFJekMza1VrNDJqT2JnWkdkUHYyLU5PckdtSzlYT3JFNUpGdU9fT3pEdU5uOFo1OFU0VGhfZXVrUDVpdjJFUWxwQmx0T2pNdTV3MTJJTTRPNXUtdnZ5SlVCVDdIQ0FXWFBMRXY0Nkk1OThlZTUzS0ttNk96Q3hIZkoxc1Nhc3J2VQ?oc=5",
+      "publishedUtc": "2026-10-22T11:12:00Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -2976,6 +2950,15 @@
       "publishedUtc": "2026-10-22T06:18:00Z",
       "source": "Google News aggregation",
       "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Norman Powell's first Bulls bucket comes from midrange - NBA.com",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOdXdpQWtFTnRIcWJiT1dXWmJKQWRHTjFZbG42OS14TEZ0b0ExTXJkeGRZWXd4cFNaajNmTUdGXzlzZDhoQXQ4eWRFaFVfbUF5T0dTUnBWRV9CbkNUNnBoWUVPVHBjZTJvYWlBb1FjM013ZDVlSl9mRDNpQ25oTWdpLWItUl95YU9CSjZRY3RDQQ?oc=5",
+      "publishedUtc": "2026-10-22T01:41:24Z",
+      "source": "Google News aggregation",
+      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3127,15 +3110,6 @@
       "title": "Julie Powell highlights \u2018high level of expertise\u2019 and \u2018years of time and effort\u2019 in campaign for Davis School Board District 3 seat - Standard-Examiner",
       "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxOMnJsN3h1ZmlMUGduX1lqejBYb1p0ajlLb242cjFkSzh5OXhRSFlhMHpKSEd6bnBfa2hoTTR4QnRuSGpFdTUzY0RWYVNVeHpIWW4xR1dyc0J0ZUxtRF9ZeWFhN0paWkZXeld0S3Rmb1NYZEVnaFA3eGZzSDNLVGRWQmwwdWZNS3d6YWZBd2dfZFBWVWpNdEJaVV9UZzRsWC1BR3QtMm9wRGhpc3BYOGVHOV9ZdjNIcEpSRVRUYmdEbFJ4MmxHLW9rWW9lWVBVYk9kb0l6eExpN1RENHQzNWt5Z2JOVVN5dy1wSUExX1M0bTRONHg5QnpyQVhnYlJOMEpuNHA4aW80MA?oc=5",
       "publishedUtc": "2026-10-20T23:00:42Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Mavs Notes: Irving, Powell, Cisse, Injuries, Johnson - Hoops Rumors",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRWtPTFBrdGxIcEtWRU5pUnhHdG1lUUlzVWQ0cVJVZW43Umg3aTdjdE5KblJJUzRPQ0FraGxEV3B0bTN2cXQyVXMzRHdOd2ZFbWNLSEtMZ21WNzd5VjZpSzdfdGUydUhFclVoVlFJcGhaR2tGcDI1MWVneVFsZkNsQk42X1BvVTFLR2U0Rld1QkFfQQ?oc=5",
-      "publishedUtc": "2026-10-20T20:29:51Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3298,15 +3272,6 @@
       "title": "Mavericks waive longtime center Dwight Powell ahead of NBA's roster deadline - Dallas News",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRXlvSld2cHI0ankyS08xOEVfcXlfNkFlYjlWRnJhTTduRzh4V29iZ2wwZXJLbjViRU1yeWhHdW5KdmI0ekdhcTVfRDJ2emZhSUNlcFNyTzNEdURERTFZUE9ZLTl6blJzQWhuNGhybEhSdmNqQzh0Tnh0QkFoeWpIWm54SjZjc3VjRndQUWZVWU12enc?oc=5",
       "publishedUtc": "2026-10-19T19:05:28Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Mavericks part ways with veteran big man Dwight Powell - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQOHVEQldZVlBTblNhbm1mMHBPTi1ZYzBTTWsyMzBnWGVjUk9qYzQ4dl9KQ1ZCWjJSd0NFcy1lRjN1S1lWYUdsdGpzTjVLdHp2QTVWNFoyVjI4aDg3UGc3QVRCelFYRHZ0SFNCcjg3UlhxV2FHSHNKY1ZWYnVGNzlBMjlOYjNIT1dvMGNXZlFvcS1NU08yd1dwRmkxVEJiUVNzMWxhZQ?oc=5",
-      "publishedUtc": "2026-10-19T18:28:34Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3593,7 +3558,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 42,
+    "retainedRecentCount": 38,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3630,98 +3595,98 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-10-23T00:33:51Z"
+    "updatedAt": "2026-10-23T05:18:32Z"
   },
   "technical": {
     "status": "live",
     "source": "OANDA v20 practice",
-    "observedAt": "2026-10-23T00:33:54.106133838Z",
+    "observedAt": "2026-10-23T05:18:27.242450977Z",
     "symbol": "XAUUSD",
     "executionTimeframe": "4H",
-    "currentPrice": 4018.175,
-    "atr14": 29.533,
+    "currentPrice": 4014.35,
+    "atr14": 30.117,
     "structure4h": {
       "state": "bearish",
       "swingHighs": [
         {
-          "index": 266,
+          "index": 264,
           "time": "2026-10-12T01:00:00.000000000Z",
           "price": 4217.395
         },
         {
-          "index": 273,
+          "index": 271,
           "time": "2026-10-13T05:00:00.000000000Z",
           "price": 4200.625
         },
         {
-          "index": 278,
+          "index": 276,
           "time": "2026-10-14T01:00:00.000000000Z",
           "price": 4170.49
         },
         {
-          "index": 284,
+          "index": 282,
           "time": "2026-10-15T01:00:00.000000000Z",
           "price": 4161.77
         },
         {
-          "index": 293,
+          "index": 291,
           "time": "2026-10-16T13:00:00.000000000Z",
           "price": 4199.08
         },
         {
-          "index": 297,
+          "index": 295,
           "time": "2026-10-19T05:00:00.000000000Z",
           "price": 4190.42
         },
         {
-          "index": 305,
+          "index": 303,
           "time": "2026-10-20T13:00:00.000000000Z",
           "price": 4155.57
         },
         {
-          "index": 312,
+          "index": 310,
           "time": "2026-10-21T17:00:00.000000000Z",
           "price": 4142.225
         }
       ],
       "swingLows": [
         {
-          "index": 257,
+          "index": 255,
           "time": "2026-10-08T13:00:00.000000000Z",
           "price": 4105.5
         },
         {
-          "index": 268,
+          "index": 266,
           "time": "2026-10-12T09:00:00.000000000Z",
           "price": 4154.725
         },
         {
-          "index": 272,
+          "index": 270,
           "time": "2026-10-13T01:00:00.000000000Z",
           "price": 4150.785
         },
         {
-          "index": 281,
+          "index": 279,
           "time": "2026-10-14T13:00:00.000000000Z",
           "price": 4073.545
         },
         {
-          "index": 286,
+          "index": 284,
           "time": "2026-10-15T09:00:00.000000000Z",
           "price": 4130.245
         },
         {
-          "index": 293,
+          "index": 291,
           "time": "2026-10-16T13:00:00.000000000Z",
           "price": 4154.82
         },
         {
-          "index": 304,
+          "index": 302,
           "time": "2026-10-20T09:00:00.000000000Z",
           "price": 4111.68
         },
         {
-          "index": 308,
+          "index": 306,
           "time": "2026-10-21T01:00:00.000000000Z",
           "price": 4106.345
         }
@@ -3829,10 +3794,10 @@
         "fairValueGap": true,
         "liquiditySweep": true,
         "premiumDiscountAligned": true,
-        "distanceATR": 5.05,
+        "distanceATR": 5.62,
         "planning": {
           "limitReference": 4179.265,
-          "invalidationReference": 4189.605,
+          "invalidationReference": 4189.699,
           "targets": [],
           "bestRMultiple": null,
           "passesRewardRiskGate": false
@@ -3852,10 +3817,10 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 9.1,
+        "distanceATR": 9.59,
         "planning": {
           "limitReference": 4304.595,
-          "invalidationReference": 4320.52,
+          "invalidationReference": 4320.614,
           "targets": [],
           "bestRMultiple": null,
           "passesRewardRiskGate": false
@@ -3875,33 +3840,10 @@
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": false,
-        "distanceATR": 1.99,
+        "distanceATR": 2.61,
         "planning": {
           "limitReference": 4087.847,
-          "invalidationReference": 4097.28,
-          "targets": [],
-          "bestRMultiple": null,
-          "passesRewardRiskGate": false
-        }
-      },
-      {
-        "side": "bearish",
-        "createdAt": "2026-10-22T01:00:00.000000000Z",
-        "blockCandleAt": "2026-10-21T17:00:00.000000000Z",
-        "zoneLow": 4131.68,
-        "zoneHigh": 4142.225,
-        "zoneMid": 4136.953,
-        "status": "untouched",
-        "quality": 71,
-        "bosLevel": 4106.345,
-        "displacementATR": 0.87,
-        "fairValueGap": false,
-        "liquiditySweep": false,
-        "premiumDiscountAligned": true,
-        "distanceATR": 3.63,
-        "planning": {
-          "limitReference": 4136.953,
-          "invalidationReference": 4146.95,
+          "invalidationReference": 4097.374,
           "targets": [],
           "bestRMultiple": null,
           "passesRewardRiskGate": false
@@ -3921,10 +3863,10 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 10.56,
+        "distanceATR": 11.02,
         "planning": {
           "limitReference": 4353.823,
-          "invalidationReference": 4376.105,
+          "invalidationReference": 4376.199,
           "targets": [],
           "bestRMultiple": null,
           "passesRewardRiskGate": false
@@ -3944,10 +3886,56 @@
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 18.96,
+        "distanceATR": 19.26,
         "planning": {
           "limitReference": 4599.542,
-          "invalidationReference": 4619.315,
+          "invalidationReference": 4619.409,
+          "targets": [],
+          "bestRMultiple": null,
+          "passesRewardRiskGate": false
+        }
+      },
+      {
+        "side": "bearish",
+        "createdAt": "2026-10-22T01:00:00.000000000Z",
+        "blockCandleAt": "2026-10-21T17:00:00.000000000Z",
+        "zoneLow": 4131.68,
+        "zoneHigh": 4142.225,
+        "zoneMid": 4136.953,
+        "status": "untouched",
+        "quality": 70,
+        "bosLevel": 4106.345,
+        "displacementATR": 0.87,
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true,
+        "distanceATR": 4.22,
+        "planning": {
+          "limitReference": 4136.953,
+          "invalidationReference": 4147.044,
+          "targets": [],
+          "bestRMultiple": null,
+          "passesRewardRiskGate": false
+        }
+      },
+      {
+        "side": "bearish",
+        "createdAt": "2026-10-23T01:00:00.000000000Z",
+        "blockCandleAt": "2026-10-22T21:00:00.000000000Z",
+        "zoneLow": 4027.5,
+        "zoneHigh": 4032.79,
+        "zoneMid": 4030.145,
+        "status": "in-zone",
+        "quality": 64,
+        "bosLevel": 4106.345,
+        "displacementATR": 0.87,
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": false,
+        "distanceATR": 0.76,
+        "planning": {
+          "limitReference": 4030.145,
+          "invalidationReference": 4037.609,
           "targets": [],
           "bestRMultiple": null,
           "passesRewardRiskGate": false
@@ -3967,33 +3955,10 @@
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 12.75,
+        "distanceATR": 13.17,
         "planning": {
           "limitReference": 4411.11,
-          "invalidationReference": 4425.895,
-          "targets": [],
-          "bestRMultiple": null,
-          "passesRewardRiskGate": false
-        }
-      },
-      {
-        "side": "bearish",
-        "createdAt": "2026-09-08T17:00:00.000000000Z",
-        "blockCandleAt": "2026-09-08T09:00:00.000000000Z",
-        "zoneLow": 4394.19,
-        "zoneHigh": 4411.9,
-        "zoneMid": 4403.045,
-        "status": "mitigated",
-        "quality": 57,
-        "bosLevel": 4381.24,
-        "displacementATR": 1.08,
-        "fairValueGap": false,
-        "liquiditySweep": false,
-        "premiumDiscountAligned": true,
-        "distanceATR": 12.52,
-        "planning": {
-          "limitReference": 4403.045,
-          "invalidationReference": 4416.625,
+          "invalidationReference": 4425.989,
           "targets": [],
           "bestRMultiple": null,
           "passesRewardRiskGate": false
@@ -4015,32 +3980,16 @@
       "fairValueGap": true,
       "liquiditySweep": true,
       "premiumDiscountAligned": true,
-      "distanceATR": 5.05,
+      "distanceATR": 5.62,
       "planning": {
         "limitReference": 4179.265,
-        "invalidationReference": 4189.605,
+        "invalidationReference": 4189.699,
         "targets": [],
         "bestRMultiple": null,
         "passesRewardRiskGate": false
       }
     },
     "candles4h": [
-      {
-        "time": "2026-09-21T13:00:00.000000000Z",
-        "open": 4359.565,
-        "high": 4369.855,
-        "low": 4322.81,
-        "close": 4343.395,
-        "volume": 174456
-      },
-      {
-        "time": "2026-09-21T17:00:00.000000000Z",
-        "open": 4343.43,
-        "high": 4353.795,
-        "low": 4337.55,
-        "close": 4343.545,
-        "volume": 72991
-      },
       {
         "time": "2026-09-21T21:00:00.000000000Z",
         "open": 4348.155,
@@ -5144,6 +5093,22 @@
         "low": 4021.165,
         "close": 4024.51,
         "volume": 132419
+      },
+      {
+        "time": "2026-10-22T21:00:00.000000000Z",
+        "open": 4027.5,
+        "high": 4032.79,
+        "low": 4016.815,
+        "close": 4030.67,
+        "volume": 52586
+      },
+      {
+        "time": "2026-10-23T01:00:00.000000000Z",
+        "open": 4030.68,
+        "high": 4030.68,
+        "low": 3986.73,
+        "close": 4004.49,
+        "volume": 140187
       }
     ],
     "candles1d": [
@@ -5810,15 +5775,15 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-10-23T00:33:54.312424Z",
+    "generatedAt": "2026-10-23T05:18:35.267171Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-10-23T00:33:54.312424Z",
-      "marketObservedAt": "2026-10-23T00:33:54.106133838Z",
-      "validUntil": "2026-10-23T00:48:54.312424Z",
-      "currentPrice": 4018.175,
+      "generatedAt": "2026-10-23T05:18:35.267171Z",
+      "marketObservedAt": "2026-10-23T05:18:27.242450977Z",
+      "validUntil": "2026-10-23T05:33:35.267171Z",
+      "currentPrice": 4014.35,
       "entryZoneLow": null,
       "entryZoneHigh": null,
       "limitPrice": null,
@@ -5830,29 +5795,28 @@
       "orderBlockQuality": null,
       "confluenceCount": 0,
       "confidenceScore": 0,
-      "macroScore": 2.78,
-      "macroAgreementPct": 9,
+      "macroScore": -9.54,
+      "macroAgreementPct": 53,
       "layers": {
-        "fresh": 1.56,
-        "weekly": 1.96,
-        "regime": -13.74,
-        "market": 13.0,
-        "bullishCount": 1,
+        "fresh": 2.04,
+        "weekly": 2.15,
+        "regime": -13.72,
+        "market": 0.0,
+        "bullishCount": 0,
         "bearishCount": 1,
-        "marketInputs": 3
+        "marketInputs": 0
       },
       "nextEvent": {
         "name": "S&P Global Composite PMI",
         "dateUtc": "2026-10-23T13:45:00Z",
-        "minutesAway": 791
+        "minutesAway": 506
       },
       "reasons": [],
       "blockers": [
         "4H structure is bearish, not bullish.",
-        "Macro gold score is not bullish enough (+2.8).",
+        "Macro gold score is not bullish enough (-9.5).",
         "Fewer than two independent macro layers are bullish.",
         "A meaningful macro layer still conflicts with the bullish case.",
-        "Macro agreement is too low (9%).",
         "No preferred bullish 4H order block is available."
       ],
       "rulesVersion": "buy-limit-v2",
@@ -5862,47 +5826,45 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-10-23T00:33:54.312424Z",
-      "marketObservedAt": "2026-10-23T00:33:54.106133838Z",
-      "validUntil": "2026-10-23T00:48:54.312424Z",
-      "currentPrice": 4018.175,
+      "generatedAt": "2026-10-23T05:18:35.267171Z",
+      "marketObservedAt": "2026-10-23T05:18:27.242450977Z",
+      "validUntil": "2026-10-23T05:33:35.267171Z",
+      "currentPrice": 4014.35,
       "entryZoneLow": 4173.65,
       "entryZoneHigh": 4184.88,
       "limitPrice": 4179.265,
-      "stopLossReference": 4189.605,
+      "stopLossReference": 4189.699,
       "tp1Reference": 4154.82,
       "tp2Reference": 4154.725,
-      "rrTp1": 2.36,
-      "rrTp2": 2.37,
+      "rrTp1": 2.34,
+      "rrTp2": 2.35,
       "orderBlockQuality": 88,
       "confluenceCount": 3,
       "confidenceScore": 0,
-      "macroScore": 2.78,
-      "macroAgreementPct": 9,
+      "macroScore": -9.54,
+      "macroAgreementPct": 53,
       "layers": {
-        "fresh": 1.56,
-        "weekly": 1.96,
-        "regime": -13.74,
-        "market": 13.0,
-        "bullishCount": 1,
+        "fresh": 2.04,
+        "weekly": 2.15,
+        "regime": -13.72,
+        "market": 0.0,
+        "bullishCount": 0,
         "bearishCount": 1,
-        "marketInputs": 3
+        "marketInputs": 0
       },
       "nextEvent": {
         "name": "S&P Global Composite PMI",
         "dateUtc": "2026-10-23T13:45:00Z",
-        "minutesAway": 791
+        "minutesAway": 506
       },
       "reasons": [
-        "Macro score +2.8 with 1 bearish layers",
+        "Macro score -9.5 with 1 bearish layers",
         "4H structure bearish; daily structure range",
         "Bearish order block quality 88/100"
       ],
       "blockers": [
-        "Macro gold score is not bearish enough (+2.8).",
+        "Macro gold score is not bearish enough (-9.5).",
         "Fewer than two independent macro layers are bearish.",
-        "A meaningful macro layer still conflicts with the bearish case.",
-        "Macro agreement is too low (9%).",
         "Sell zone is 5.5 ATR above current price; too far away for an up-to-date pending signal."
       ],
       "rulesVersion": "sell-limit-v1",
