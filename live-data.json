@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-24T13:33:07Z",
+  "generatedAt": "2026-10-24T16:54:58Z",
   "calendarStatus": "live",
   "counts": {
     "events": 152,
     "headlines": 80,
-    "marketFeeds": 2
+    "marketFeeds": 0
   },
   "sourceStatus": {
     "calendar": "live",
     "headlines": "live",
-    "market": "live-or-delayed",
+    "market": "unavailable",
     "headlineContinuity": "recent-snapshot-fallback",
     "signalPolicy": "medium-high-only; 7d ordinary; 90d CPI-rates",
     "xauProgrammatic": "oanda-live",
@@ -2399,7 +2399,7 @@
       "name": "Housing Price Index (MoM)",
       "actual": null,
       "revised": null,
-      "consensus": null,
+      "consensus": 0.1,
       "previous": 0.3,
       "unit": "%",
       "volatility": "MEDIUM",
@@ -2561,7 +2561,7 @@
       "name": "Gross Domestic Product Annualized",
       "actual": null,
       "revised": null,
-      "consensus": 3.0,
+      "consensus": 3.2,
       "previous": 2.2,
       "unit": "%",
       "volatility": "HIGH",
@@ -2784,35 +2784,29 @@
       "live": true,
       "observedAt": "2026-10-23T20:59:05.223143299Z"
     },
-    "us2y": {
-      "label": "US 2Y Treasury yield",
-      "symbol": "BC_2YEAR",
-      "name": "US 2Y Treasury yield",
-      "price": 4.69,
-      "previous": 4.65,
-      "changePct": null,
-      "deltaBps": 4.0,
-      "date": "2026-10-23",
-      "time": null,
-      "kind": "yield",
-      "source": "U.S. Treasury official daily rate"
-    },
-    "us10y": {
-      "label": "US 10Y Treasury yield",
-      "symbol": "BC_10YEAR",
-      "name": "US 10Y Treasury yield",
-      "price": 5.0,
-      "previous": 4.96,
-      "changePct": null,
-      "deltaBps": 4.0,
-      "date": "2026-10-23",
-      "time": null,
-      "kind": "yield",
-      "source": "U.S. Treasury official daily rate"
-    },
+    "us2y": null,
+    "us10y": null,
     "real10y": null
   },
   "headlines": [
+    {
+      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - WTOP News",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNTjZBZGI5ajZXbGtSSWlXM2dYX3gyalBrYkxkM3A3ZG5VV0FLTFRNMU0zVU1ZWFREU0R5N29aSU1BNEMwQ3hDeW5yMThnZHlkRVlxN0R3cnRDNUo1YnBPS0RWV2NzRVgzVjM4bzRLSlItQU5ic2VOX215a2x3ck5VaEJxYmdDcXg1ZUNMOHlBTXlzakZMM09TNkE1VlZqLVFoVm9pbEJkMVpOdHhQbHFvWExHYUJsWU1id1ZGc0hqejBrUTJUWGVneWp5Rkg?oc=5",
+      "publishedUtc": "2026-10-24T13:47:38Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - The Transylvania Times",
+      "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxOZjVzQWlxVjVrRWhMSENkOXJPbUlZUFJrS3NHOVlEaGwwXzdfZjNqV194OVZTSlVMLUNnV1RGWjRSSDI5RnVYWXBlTGlKOHI0SFRuNno4b1o4Q1JTZ0U2U0JDTWpBV3Azd0s0SVJDNndJT1IyRWNtVVZmT0lRNkFYNDFROE5kSEJ3emttcWMzRDlua1c3cjNpOVJzdERuRXZuUF9LMW1xQXVkNk9lWTJudzcwSm5kMEZQdW4zVUl1OVh2b29kS19rNTA2MENSRXM2R3l2NVEzYURCS1BEdEowUktIU09YWm9lelRBYVl1cTRYcnhseXBja2NicnlNWm9EUHJqaDRHSXhYN0VWRGpGMEU3TWYzZTZn?oc=5",
+      "publishedUtc": "2026-10-24T13:47:38Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
     {
       "title": "Peter Schiff Says Buy Gold Near $4000 As Prices Sink From January High, Warns Of Currency Crisis Worse Than 2008 - Stocktwits",
       "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPNHlNSkxibFB3Z3RqZzVvWWViTnJrLUEzZG9CUEE3b2JERWZVS0tBVFpQak9fSU5vRHYtdnNrM19mSk5KVHlQSHRqTU00OXhuUnh4bkwzTFJwaEFSN3FialJUOUpfaXBZQ0R1YzNBMDBfeGdKUEFlYkQxMlVEaVBlRENRTWg3UHFwWml0X0dtRjZpVXJsa2FxRm0xeUFMeHRoQ1pmSTU2WVhFUXBWc1lOWEZSTmFMQldEVmdwNmd6cHhteXRWT2pSSTVDbW5xTk9CVVhRMnBMYmVXRjMzdjhLOVBrNmtScHN2MEltdlRnemxhN1pYRDlWaEdyYkNoZW9JWE9VVg?oc=5",
@@ -2824,12 +2818,21 @@
     },
     {
       "title": "Canada is feeling the pain from Trump's tariffs \u2014 but the trade fight didn't start overnight - Fox News",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQM2wybjNPWnM4T3d0OEw5ekpLTVN6TWFxcjR1UnJIVXdTUFdBOHVNRy1kMUhNY3dsV3k1R2RKSWZYZ21EYXlMRi1TeVBva05WbXk0elBaMElmR0ZIN2xZaWp0ZTA3U0JTbkNRMkI2b3hRTno2eGVNR1M5ZV9tNWN0MTJBbnhEUVFkNzFRRHc2bkRyYjdsUlNMekNJQ0liRFVPOXZv0gGoAUFVX3lxTFBPWTh5NE1CTGJwQ19tYko3N0JBaXdDOW00T0pfbGRkRkhkcnFpa1U0WjNveEJsSm9heXJqWUpYNkVaVVExeGhkTGI2eVYtb3RvYUZOT0tyRjQ4Nmp2VXdPNVpGTEkyNlZqUnlrZkd4ZVZZNWFhTG4yTEdJZDQtU3pLR3lFa1I5a3MwYXFTU1ZYUnBOQUIwT1hUdHBIZEJvUkFjYU13ejFnUw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQM2wybjNPWnM4T3d0OEw5ekpLTVN6TWFxcjR1UnJIVXdTUFdBOHVNRy1kMUhNY3dsV3k1R2RKSWZYZ21EYXlMRi1TeVBva05WbXk0elBaMElmR0ZIN2xZaWp0ZTA3U0JTbkNRMkI2b3hRTno2eGVNR1M5ZV9tNWN0MTJBbnhEUVFkNzFRRHc2bkRyYjdsUlNMekNJQ0liRFVPOXZv?oc=5",
       "publishedUtc": "2026-10-24T11:00:54Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
+    },
+    {
+      "title": "Gold price falls below $4,000 as rising oil prices fuel inflation and interest rate fears - Share Talk",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbFN1SFlpTEtiUXJkQzlBTTNPQWRIX0pGR3hEZkdUYkpua0JrVmZqVVJ5WUkwRXJiRlF5ajJqTVNXcjBSLWRzMWtEUGhobFJnbHpoSTJRZi1sUTdUTVdxN1duU0FsTk9oOFA1ZDIyOHd3Ti1Leng5WHlZMTlzWnluWENTZC1Rc3lWLXNEYXY2TUlCNlR5bE5INnlzdXI5RGVFYXJPNkxlUTZlUkxZc1Z3dE1GMFcyQQ?oc=5",
+      "publishedUtc": "2026-10-24T10:56:02Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "Trump, seeking to help Maine Sen. Susan Collins, exempts some Canadian imports from his 50% tariffs - ABC News - Breaking News, Latest News and Videos",
@@ -2838,16 +2841,7 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - WTOP News",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNTjZBZGI5ajZXbGtSSWlXM2dYX3gyalBrYkxkM3A3ZG5VV0FLTFRNMU0zVU1ZWFREU0R5N29aSU1BNEMwQ3hDeW5yMThnZHlkRVlxN0R3cnRDNUo1YnBPS0RWV2NzRVgzVjM4bzRLSlItQU5ic2VOX215a2x3ck5VaEJxYmdDcXg1ZUNMOHlBTXlzakZMM09TNkE1VlZqLVFoVm9pbEJkMVpOdHhQbHFvWExHYUJsWU1id1ZGc0hqejBrUTJUWGVneWp5Rkg?oc=5",
-      "publishedUtc": "2026-10-24T08:01:30Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
+      "memoryWindowDays": 7,
       "retainedFromPreviousSnapshot": true
     },
     {
@@ -2857,11 +2851,12 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
-      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - Richmond Register",
-      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxQX0JfcUJLbjB1V1E3SzFzVXRJakh0YXM5cTJlcmQyZWRjYlhnVGt4V3RaYjRNOGtkZHFtbUVaallDOTZ1bEF4ZjJ5Nlk4MVBIQWlmdlpOVjFKYWNxOHFvNzJuSVdiMU95WVJnLVBOX3J6R1EzYXR6QU04ODE5cW1RZGl6amllMG5BYUJhTzJVZ3ZzN05Mbk94cDVoYjc1UkJJOTNvUnJOdmpBNVREaTd5cnFOOTFzLWxmSVZFS2xXdHA5Y1pvYlNyaHFlVzF4djdCTTU3ZVNaR1pfZmtFTlJiX1k1akFZaGRmX2tfSEE0T2RudllsSWhsaXZQc09fNXBDazF2aDVaWkF5bXpuR0Rj?oc=5",
+      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - Ottumwa Courier",
+      "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQSDFVckx1dHBQVk9KVXB0TTgzVjhyTmRyYy1KdmowMndnMU1qSjBLdndVcWYwZkQ1d1MwelhhYnRwNVRySEdMRHgzY0puWmlBRHVRRUV2WmgzRll0S0t0ZnZKVWVuc2ZtNXROYnlIYnkxN1Z5czNQZ3JoMHA2RTNZaU5GVUREOUpoSHBUd3pWWUtHYm9RNm44bDNJMGRzOGtYNlBIZDYybzFrVDdzQlk2UWNKWDhtN0JwaDA0TzkyUWVpd3E2dEZiQ0Q5VUpQVEx4WG1GY3VyRmsweGRqU0R3bDZxX0VVLUZ0VWZRYWhfWHhGT3hrNndqS2E1NVdubGd4emNaMHI5cjBQdEdqc0E4MFhXWjJmdw?oc=5",
       "publishedUtc": "2026-10-24T08:00:09Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -2869,8 +2864,17 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - Ottumwa Courier",
-      "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxQSDFVckx1dHBQVk9KVXB0TTgzVjhyTmRyYy1KdmowMndnMU1qSjBLdndVcWYwZkQ1d1MwelhhYnRwNVRySEdMRHgzY0puWmlBRHVRRUV2WmgzRll0S0t0ZnZKVWVuc2ZtNXROYnlIYnkxN1Z5czNQZ3JoMHA2RTNZaU5GVUREOUpoSHBUd3pWWUtHYm9RNm44bDNJMGRzOGtYNlBIZDYybzFrVDdzQlk2UWNKWDhtN0JwaDA0TzkyUWVpd3E2dEZiQ0Q5VUpQVEx4WG1GY3VyRmsweGRqU0R3bDZxX0VVLUZ0VWZRYWhfWHhGT3hrNndqS2E1NVdubGd4emNaMHI5cjBQdEdqc0E4MFhXWjJmdw?oc=5",
+      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - morning-times.com",
+      "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxNN281ZGpVdzU3REtINE1HbHRuRnhVa1MzbzZqcVlSMDBNeE1zR3pobUpWVGZtMVRfb0lQcXF2Wnd1TzJyU3h5T3AwOGlTUHZjWjA2T2E5T3ltZU1sMXgxSFphd3dSNmdZWDNqWXFiTkw1MXJlZFlJSzJ1OXVjaWVybXNOU0RjaVlxRHVsS3ptNGY0WGEwT3JVb2tLem1GdmctaU5DQ1U4Ukh0Ny1SVHc2N0ZPTUhxbUZpeGNITzdRaVZ6bEdGWll3UVFBV3BFa2tOSndfWGU0dlpLMl9pdXZtXzFoQ3JYemc5RTNKUVY3NjdJVEF5OF8ya1A5VG52Z0xwQ3dUY0JOTjNueWc?oc=5",
+      "publishedUtc": "2026-10-24T08:00:09Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Inflation, earnings reports and the mood of consumers and the Federal Reserve fill out a busy week - Richmond Register",
+      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxQX0JfcUJLbjB1V1E3SzFzVXRJakh0YXM5cTJlcmQyZWRjYlhnVGt4V3RaYjRNOGtkZHFtbUVaallDOTZ1bEF4ZjJ5Nlk4MVBIQWlmdlpOVjFKYWNxOHFvNzJuSVdiMU95WVJnLVBOX3J6R1EzYXR6QU04ODE5cW1RZGl6amllMG5BYUJhTzJVZ3ZzN05Mbk94cDVoYjc1UkJJOTNvUnJOdmpBNVREaTd5cnFOOTFzLWxmSVZFS2xXdHA5Y1pvYlNyaHFlVzF4djdCTTU3ZVNaR1pfZmtFTlJiX1k1akFZaGRmX2tfSEE0T2RudllsSWhsaXZQc09fNXBDazF2aDVaWkF5bXpuR0Rj?oc=5",
       "publishedUtc": "2026-10-24T08:00:09Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -2956,13 +2960,23 @@
       "retainedFromPreviousSnapshot": true
     },
     {
+      "title": "Trump administration pays out milestone $100 billion in tariff refunds - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPaC1NcXQtTU1pa0V3QTQ3eW9CMThMVUVWXzBVLUpkTlNCekpxQkxiQi1XZzI0X1VzZ2hNdXRjUzF5MVlzcm9zcnJRb3pRanp1TGJ1Mm02T0NDWXU0MXI1R3JmNHNKb3lnOWx2R0dpQjR2Rk9aNGowb0NNcXRpVWdQRmVoN1pndGhaLUxXc3d5d2R6RVlhVHlNbHd6c1RnZUdUNFp5YUl3OGF4VURrTjg00gG0AUFVX3lxTE5IUDFROHpDMGhZM1pRelFZelItOFlhYTk4ZlpZaVpwWjBuYUZoN2l4MFM2bjRFMDBjMEtyNXFsSF93eFBzcU43TW16XzNacEh1b0Vja0xRZkp5LTFMaE4wUUlfd1o4RUNsNkN0aWVtb1hQTHZELUtvR2N0QVROTjN2dF9JZW9QUVl6NzNTRVJFSDRKYy15WHRUMGxDNWNabzFvZGFSNlhHcnBtWlN3TnloUFZlbQ?oc=5",
+      "publishedUtc": "2026-10-24T00:01:36Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
       "title": "Powell scores 25 points to help the Bulls hold off the Bucks, 132-125 - WMTV 15 NEWS",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQX0lRelNzYzhETlRnWVdjWHR4b3JneHpIYWlrdW1kRWxiTkwzdHRWY1pHWVNlM3FBVzJTR1BDZ29iTHl3YlF1Zjl0eXBpdnlUV3BpMVhxQ1o0N1FOcnZ1X3p0ZEtPdFVRXzdTdnctQXNBNlpjdEdUUlctZUNvRGVTNHhIb09nbEtyNzZscXJISmJkQkdvSG5ON1Nfb27SAbABQVVfeXFMT2VwWlVFT25SN3MxU3ZzZFZwSmR6cTJHSlQwQllEc3NDQjZ2eU5LU2N4SUtjN1E5N05pdTF4QUtsU3pydXFESWs4QkNOSWItYVRYSldXNmJJMDB3cWlsT0hMTmRMUG04VC1IQ3BITU1fV0Zha0IzMXpXWFpxdU1OR2Z4YmhiRHoyZGszZURtM0pXMTRVZUxOYV81S3ZzbmVIUGNmMnYwRVFBZXgxTmhxX1k?oc=5",
       "publishedUtc": "2026-10-23T23:51:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Renton High boys basketball coach Rashaad Powell discharged after investigation - The Seattle Times",
@@ -2971,42 +2985,12 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Trump to Remove Some Tariffs on Canada in Bid to Help Susan Collins - WSJ",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMmZYSFVLdHB5ZTlUdnVQWFQxTURvTlVUdGJZWlJmVGxJRWdkWWw4aXJpN0pCTUg4UDdMaDhQX0tIcDlLbG5tM3BFOEduZkxtbmhncmJIRVZMUUJNNDBWN0lISzV3WWhmUnY2Z05UcEUxVzdyeVRqVmhuLWlnRnhyb2hDYkgxS250UG8wTzB1YWNsQkFKWTZuYzM4SldUVlhfWDJtMGplOFRCUjdkVGlkX2VfXzRUWHlJajVHWVN3?oc=5",
-      "publishedUtc": "2026-10-23T22:34:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Trump ends tariffs on some Canadian products, aiming to help Senator Collins - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQRWdrcmlzeVVGU0lLY2lmdVZHQ094Uk80eXhLb25UQkVoYjhXX3lXSERuOW1pVzNpRGEzQWMtMUVfVEp5bERnM2hqM0hFZFNrb1B5Y1QxRG9tMDUtTFNQSFFoMFZodXFPbmtDUUhpYXVIOXhNRTdkNU9RcDkzRW8xTkM0REpYZ0k3TlhDOGx6WEhYSUJIWG5WSE1Ia1FLWHVTVHN5UFhjVmhtb1J4TkpDTU90LVp4eWR0MnBxaA?oc=5",
-      "publishedUtc": "2026-10-23T22:30:23Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
+      "memoryWindowDays": 90
     },
     {
       "title": "Sebastian Koch takes his Cold War spy pedigree to Apple TV\u2019s Disavowed opposite James Marsden - IMDb",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5jeXVUQUJjcXRSMUtQVTZHMk1neFBfQzJKMkJ4Z0lCMW9BaWtjaEN2aURsa1BIeFJSSlJLenRCV2QzYW1JY1dqTUZGTnZTZy1EcGZGUktwUFI5RkhSeGhCSE5RcFM?oc=5",
       "publishedUtc": "2026-10-23T22:22:08Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Overland Park mom shares account of trail assault with warning for other women - KCTV",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOS1dhZ292WHNqb09pWTFDYjNhQ3BJTnliU3lXeklSZVA1dk91dFBuTU9yelVmYzFBTTgwUnJpbEJsYUlwVkxUVkJyMzR6TlVvbDRtS2szSWVtVXRjNWlsUlBiLU9nbHJyQlN3U192RElKemVzUW5OdEFUV2RGZy1KR3dHVlZZSFhfZkIxZVBIVXYyTWQ2c20xTExCbU1ySmlWXy1EYTVKakbSAbwBQVVfeXFMTThBeW9NOWhacWx6TWUySzRaWlFoWWV6cnExYnFqYnFTQi1BSmh2T2ItTWxELUZkS0p5bm1QdDQ4OHR1VEprQzlSMW55UnVzZUpIMVdHQVkzc0JxdS1JajE5SjRmSTcxNEEwTENoZXBhb0J1LUw4UUNGRDlNVm41dFNFLU5aWmFPZ255T1NJejgyb1Y2RVZFWjBmaEp3ZHRlU09CWlNaSldfRUYtZnRFVE1fU3M1SnVsT0tIWkY?oc=5",
-      "publishedUtc": "2026-10-23T22:15:00Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -3052,15 +3036,6 @@
       "title": "What To Expect From Wednesday\u2019s Federal Reserve Meeting - Investopedia",
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQR1g1MjJqM1A4WVk0SHlYMjhTTjRnZk1rdWZSeVh6QnBmbkhqeEFLMS1uQXN3OVB0VEhCMElnak05UFRLRkV2VVlmVno1YzAyOXFXbS1BanllLVRVUkI2eXI1LWRvcDd1M05nWGtLcmtwTHpjQWw0SkNDdkxhWkxiODNWek9CWmV4Mm81dTRHOTFfczJVYzRZ?oc=5",
       "publishedUtc": "2026-10-23T19:18:41Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Brett Powell Obituary Oct 18, 2026 - Golden Gate Funeral & Cremation Services",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5xNDVnUlk4dXE2Z3J6LS04V0V6M1ZFNTJvdWV3aDJVdGt4NkhoX09udHF5TjlKeEZuOFozVWZacS05OWwyN0lyRkx2WFNpN0g1WDBWNF84VHl1U1Q5ejdZcFln?oc=5",
-      "publishedUtc": "2026-10-23T16:56:44Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3142,6 +3117,15 @@
       "title": "Iran caps dollar purchases at $1,000 per day amid sanctions-hit economy - The Economic Times",
       "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNbmMzQW5iaVBFXzRJTkQzOXNxeEpUX1RnRmZsMXNJQXpFSmFhZ0RsUFpUUDA0NnJJYnhQLXg3cmtYS21jTnlzS2wyT2xuVmt1Z2QtWG9jZGJiaV9KR0ZncEVEN214Uy1NalAwTVVOQm1MNW1vR3NabEJOc2tWd3FjeEJOWVNzMmJyVGN0VHBFdmM3blIyMHJUNXZzU1VCNmVBOXlaLUdpNmxtR1ZCUzg4am1oQnAwQ1F2NWZpS1RJeW9vYkZEQUwyRW82TEZOVWZLOFd2VEhQNUU4bW02YXBhYmxJRzhrcEdP0gHuAUFVX3lxTE5YUE5hZ29iX1F0UnlKcXkwUVE3akRHNUVmdVlRZEk2R2NKSnlzXzRyTGpXSGpDTWYxeHN1Z2hBbTYzOHVpeDNERlJpTmEwb1NQY05sT0N0elczeFdVOVBZampiNmdEWWtleFc2MWZGM0pQbnBvN0ZZX1lVTFBCOS1RUHY0NzBKZ1dyZXg3RzE2dTMtd1R5WGJ6WXI0b19icHdNRF9wVU5pcmlzd1VXTmtVOHgwVV9tTDVrSkswaWp1ZU4yeGVkNmRBUlF5ZUNXSG5HUzRtVGJ0c2pOc1dtRThDTmltcjY2UW9iSG8xSUE?oc=5",
       "publishedUtc": "2026-10-23T03:55:06Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "China-Russia \u2018Threat\u2019 To Europe? Xi Jinping Fires \u2018Cold War\u2019 Jibe As Eu Attacks Putin | Watch - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNbDR3WmZaTXFQZGtLcjVLY1VSSzNhOXdNWWhuNE9XQVRSTXJfSWJldTZSSmo1WGtrQ3VwNHJJY25tcWlTRUJab0xqSjZuMUE3TkprdGpVUWN0Y09ucm5yZld2U1ZBOUpEV2NEVlBpQWlJcFhMa3daa1h5NVhRSS0yYjRNM29xOWRHNDhKdUlHOVFLTmZheE45c1JOeFVjRkRYUG0xQnhLRVRXVHNsWFFhWlF3U0tUMGdXdVBnWTJfZ2VGMXJUakk2WWRwdF94WXc2UzI4R0RJRk52Wjlvc1hsNnVLbHpSaWFnWjVBdmZRVDZrX05uWTd3NXEzWdIBgAJBVV95cUxNNkxCUUkzSllaVHhlV0ZuNjN2Vk5nSUN0LTNnYnoxNkp0Mko3SncxcGo5M1hxcUdLYlFMV0FieVViZUpqWGxPcG5ZM0J6dGROR1gxOHpIY1NJUWlVTThseXFLTG9LTGEzVF95Qzh5N0pqcGtldmo4cC1XQm5YYTVqRWdKNTVJdndHRTVZVnlzV0NPLWpneEF4aDlzZjV0aURVNmI0ZHJKZ2JDYV9UdFZQT2syeHp2MFVnR3RKVXBSenZ5VGhrdFdPRzNxZlpKbjNXaF8zbm9Qd1BQMG1lWnRxUzdZM3BnamRqbnlmeHlXSzhqOUt2Wkg3MkZYNHhDdXRP?oc=5",
+      "publishedUtc": "2026-10-23T01:30:00Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -3306,15 +3290,6 @@
       "publishedUtc": "2026-10-21T07:30:00Z",
       "source": "Google News aggregation",
       "category": "other",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Pamela G. Powell Obituary Oct 21, 2026 - Henry Funeral Home & Cremation Center",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE45OVBaRm81bk9PYUVmYUJxbW43MVk5S2FibmxBWVluTzI2T1VhU0RrNHhPemozWDFieUlwWEFjVjdiQm02YnBkYWN2d2poaU1CM0VGajRzVEJTQTVrUG43RC1IYXgyQ0x0?oc=5",
-      "publishedUtc": "2026-10-21T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3554,7 +3529,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 39,
+    "retainedRecentCount": 43,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3591,7 +3566,7 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-10-24T13:33:50Z"
+    "updatedAt": "2026-10-24T16:55:44Z"
   },
   "technical": {
     "status": "live",
@@ -5816,14 +5791,14 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-10-24T13:33:54.939638Z",
+    "generatedAt": "2026-10-24T16:55:46.860794Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-10-24T13:33:54.939638Z",
+      "generatedAt": "2026-10-24T16:55:46.860794Z",
       "marketObservedAt": "2026-10-23T20:59:05.223143299Z",
-      "validUntil": "2026-10-24T13:48:54.939638Z",
+      "validUntil": "2026-10-24T17:10:46.860794Z",
       "currentPrice": 3995.81,
       "entryZoneLow": null,
       "entryZoneHigh": null,
@@ -5836,27 +5811,27 @@
       "orderBlockQuality": null,
       "confluenceCount": 0,
       "confidenceScore": 0,
-      "macroScore": -21.02,
-      "macroAgreementPct": 91,
+      "macroScore": -18.46,
+      "macroAgreementPct": 90,
       "layers": {
-        "fresh": -1.52,
-        "weekly": 1.05,
+        "fresh": -1.47,
+        "weekly": 1.01,
         "regime": -18,
-        "market": -2.55,
+        "market": 0.0,
         "bullishCount": 0,
         "bearishCount": 1,
-        "marketInputs": 2
+        "marketInputs": 0
       },
       "nextEvent": {
         "name": "ADP Employment Change 4-week average",
         "dateUtc": "2026-10-27T12:15:00Z",
-        "minutesAway": 4241
+        "minutesAway": 4039
       },
       "reasons": [],
       "blockers": [
-        "OANDA market snapshot is 994 minutes old.",
+        "OANDA market snapshot is 1196 minutes old.",
         "4H structure is bearish, not bullish.",
-        "Macro gold score is not bullish enough (-21.0).",
+        "Macro gold score is not bullish enough (-18.5).",
         "Fewer than two independent macro layers are bullish.",
         "No preferred bullish 4H order block is available."
       ],
@@ -5867,9 +5842,9 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-10-24T13:33:54.939638Z",
+      "generatedAt": "2026-10-24T16:55:46.860794Z",
       "marketObservedAt": "2026-10-23T20:59:05.223143299Z",
-      "validUntil": "2026-10-24T13:48:54.939638Z",
+      "validUntil": "2026-10-24T17:10:46.860794Z",
       "currentPrice": 3995.81,
       "entryZoneLow": 4173.65,
       "entryZoneHigh": 4184.88,
@@ -5882,29 +5857,29 @@
       "orderBlockQuality": 88,
       "confluenceCount": 3,
       "confidenceScore": 0,
-      "macroScore": -21.02,
-      "macroAgreementPct": 91,
+      "macroScore": -18.46,
+      "macroAgreementPct": 90,
       "layers": {
-        "fresh": -1.52,
-        "weekly": 1.05,
+        "fresh": -1.47,
+        "weekly": 1.01,
         "regime": -18,
-        "market": -2.55,
+        "market": 0.0,
         "bullishCount": 0,
         "bearishCount": 1,
-        "marketInputs": 2
+        "marketInputs": 0
       },
       "nextEvent": {
         "name": "ADP Employment Change 4-week average",
         "dateUtc": "2026-10-27T12:15:00Z",
-        "minutesAway": 4241
+        "minutesAway": 4039
       },
       "reasons": [
-        "Macro score -21.0 with 1 bearish layers",
+        "Macro score -18.5 with 1 bearish layers",
         "4H structure bearish; daily structure range",
         "Bearish order block quality 88/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 994 minutes old.",
+        "OANDA market snapshot is 1196 minutes old.",
         "Fewer than two independent macro layers are bearish.",
         "Sell zone is 5.8 ATR above current price; too far away for an up-to-date pending signal."
       ],
