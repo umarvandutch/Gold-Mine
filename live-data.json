@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-24T16:54:58Z",
+  "generatedAt": "2026-10-24T19:16:19Z",
   "calendarStatus": "live",
   "counts": {
     "events": 152,
     "headlines": 80,
-    "marketFeeds": 0
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
     "headlines": "live",
-    "market": "unavailable",
+    "market": "live-or-delayed",
     "headlineContinuity": "recent-snapshot-fallback",
     "signalPolicy": "medium-high-only; 7d ordinary; 90d CPI-rates",
     "xauProgrammatic": "oanda-live",
@@ -2784,9 +2784,45 @@
       "live": true,
       "observedAt": "2026-10-23T20:59:05.223143299Z"
     },
-    "us2y": null,
-    "us10y": null,
-    "real10y": null
+    "us2y": {
+      "label": "US 2Y Treasury yield",
+      "symbol": "BC_2YEAR",
+      "name": "US 2Y Treasury yield",
+      "price": 4.69,
+      "previous": 4.65,
+      "changePct": null,
+      "deltaBps": 4.0,
+      "date": "2026-10-23",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
+    "us10y": {
+      "label": "US 10Y Treasury yield",
+      "symbol": "BC_10YEAR",
+      "name": "US 10Y Treasury yield",
+      "price": 5.0,
+      "previous": 4.96,
+      "changePct": null,
+      "deltaBps": 4.0,
+      "date": "2026-10-23",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
+    "real10y": {
+      "label": "US 10Y real yield",
+      "symbol": "TC_10YEAR",
+      "name": "US 10Y real yield",
+      "price": 2.66,
+      "previous": 2.64,
+      "changePct": null,
+      "deltaBps": 2.0,
+      "date": "2026-10-23",
+      "time": null,
+      "kind": "real-yield",
+      "source": "U.S. Treasury official daily rate"
+    }
   },
   "headlines": [
     {
@@ -2814,11 +2850,21 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
+    },
+    {
+      "title": "The Federal Reserve At A Time Of Uncertainty - Seeking Alpha",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQWXIyZlhaX2ZXUzZTUnA4MHdCTnRJekp3X1lVbXV2eDZ2ZTI4NllYbFVrNVZSeDdhLVRpQ2RQU3M4cDktOTVDb0RpRm1XVHlMT0hBc05MR082Y25TcnlOZXlMandEYlpGZmRMeHppUmtnTC1Qa3cwUkhQclFsVUNmamZPQlN4QQ?oc=5",
+      "publishedUtc": "2026-10-24T11:05:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "Canada is feeling the pain from Trump's tariffs \u2014 but the trade fight didn't start overnight - Fox News",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQM2wybjNPWnM4T3d0OEw5ekpLTVN6TWFxcjR1UnJIVXdTUFdBOHVNRy1kMUhNY3dsV3k1R2RKSWZYZ21EYXlMRi1TeVBva05WbXk0elBaMElmR0ZIN2xZaWp0ZTA3U0JTbkNRMkI2b3hRTno2eGVNR1M5ZV9tNWN0MTJBbnhEUVFkNzFRRHc2bkRyYjdsUlNMekNJQ0liRFVPOXZv?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQM2wybjNPWnM4T3d0OEw5ekpLTVN6TWFxcjR1UnJIVXdTUFdBOHVNRy1kMUhNY3dsV3k1R2RKSWZYZ21EYXlMRi1TeVBva05WbXk0elBaMElmR0ZIN2xZaWp0ZTA3U0JTbkNRMkI2b3hRTno2eGVNR1M5ZV9tNWN0MTJBbnhEUVFkNzFRRHc2bkRyYjdsUlNMekNJQ0liRFVPOXZv0gGoAUFVX3lxTFBPWTh5NE1CTGJwQ19tYko3N0JBaXdDOW00T0pfbGRkRkhkcnFpa1U0WjNveEJsSm9heXJqWUpYNkVaVVExeGhkTGI2eVYtb3RvYUZOT0tyRjQ4Nmp2VXdPNVpGTEkyNlZqUnlrZkd4ZVZZNWFhTG4yTEdJZDQtU3pLR3lFa1I5a3MwYXFTU1ZYUnBOQUIwT1hUdHBIZEJvUkFjYU13ejFnUw?oc=5",
       "publishedUtc": "2026-10-24T11:00:54Z",
       "source": "Google News aggregation",
       "category": "other",
@@ -2832,7 +2878,17 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
+    },
+    {
+      "title": "Tesla Got Trump Tariff Refunds, and Elon Musk Isn\u2019t Sitting on the Cash \u2014 CFO Says Money Is Going Into... - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOM0szUWQxV3VDVDFZSFZwT0tEbm5KVmJRaGhLTF9nLUc1bjhzeDZBdVNIMXJRelpJcUtMamkwai1wZzRtTG1kN2JaT3g2NV9meWFiTVFuOUlBWi0wMDdTSGhieVVEUUZPR1MwN0xka0h1UW02N3lUUno4NkdGUzI3Rlk1Uzg1ZDZxbFVGYzg3cUpYR3FxZ3VBOWlTaw?oc=5",
+      "publishedUtc": "2026-10-24T10:45:06Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
     },
     {
       "title": "Trump, seeking to help Maine Sen. Susan Collins, exempts some Canadian imports from his 50% tariffs - ABC News - Breaking News, Latest News and Videos",
@@ -2883,7 +2939,7 @@
       "retainedFromPreviousSnapshot": true
     },
     {
-      "title": "Federal Reserve preview: A pause before a December hike - ing think",
+      "title": "Federal Reserve preview: A pause before a December hike - ING Think",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcVJoZ1lwbW55OENBSXEtTVVBNWpaUTJfVWozbW1aVV9oRGdXZXo1MnQ2bEJOVTlfbXY2X0x3WmpBQi00VTIza2hNNy1PZ0FlMjdGMjlHYmRBeG4xN2NCc1NiQlNRbkt6dW5XM2ZjQ1BQUkhtSlNkSEJQaGpGbHBCV1d6TXJ4dV82RWlsdXpmVQ?oc=5",
       "publishedUtc": "2026-10-24T04:21:39Z",
       "source": "Google News aggregation",
@@ -2975,8 +3031,7 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
+      "memoryWindowDays": 90
     },
     {
       "title": "Renton High boys basketball coach Rashaad Powell discharged after investigation - The Seattle Times",
@@ -2991,6 +3046,15 @@
       "title": "Sebastian Koch takes his Cold War spy pedigree to Apple TV\u2019s Disavowed opposite James Marsden - IMDb",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5jeXVUQUJjcXRSMUtQVTZHMk1neFBfQzJKMkJ4Z0lCMW9BaWtjaEN2aURsa1BIeFJSSlJLenRCV2QzYW1JY1dqTUZGTnZTZy1EcGZGUktwUFI5RkhSeGhCSE5RcFM?oc=5",
       "publishedUtc": "2026-10-23T22:22:08Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Overland Park mom shares account of trail assault with warning for other women - KCTV",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOS1dhZ292WHNqb09pWTFDYjNhQ3BJTnliU3lXeklSZVA1dk91dFBuTU9yelVmYzFBTTgwUnJpbEJsYUlwVkxUVkJyMzR6TlVvbDRtS2szSWVtVXRjNWlsUlBiLU9nbHJyQlN3U192RElKemVzUW5OdEFUV2RGZy1KR3dHVlZZSFhfZkIxZVBIVXYyTWQ2c20xTExCbU1ySmlWXy1EYTVKakbSAbwBQVVfeXFMTThBeW9NOWhacWx6TWUySzRaWlFoWWV6cnExYnFqYnFTQi1BSmh2T2ItTWxELUZkS0p5bm1QdDQ4OHR1VEprQzlSMW55UnVzZUpIMVdHQVkzc0JxdS1JajE5SjRmSTcxNEEwTENoZXBhb0J1LUw4UUNGRDlNVm41dFNFLU5aWmFPZ255T1NJejgyb1Y2RVZFWjBmaEp3ZHRlU09CWlNaSldfRUYtZnRFVE1fU3M1SnVsT0tIWkY?oc=5",
+      "publishedUtc": "2026-10-23T22:15:00Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
@@ -3096,7 +3160,7 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "How a Cold War Architect Broke Through the Iron Curtain - Bloomberg",
+      "title": "How a Cold War Architect Broke Through the Iron Curtain - Bloomberg.com",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOZHdKNGVsRkNpRTZiMVhlSm5MbzFiRG04VVdobFVwV1ZUeGRvRG5ncUJaZ3VVTEI1UmxXYXlzQlZHbFJNdjVucUVOVkhRRWMxaC1ZOHFMdTROUHlnbGNCRHVHM05KcTFOMHhHY25JMmt6TU42LXlENGZVeGJ0TnRKNTFwSVBMWFBOcGJOU1p2WFJlR1V0cVhKRk11TnBGQ2tIUHpGcWNURGFWbExEUlpTYUNxLXNrb3R1a2xiSGZR?oc=5",
       "publishedUtc": "2026-10-23T06:01:00Z",
       "source": "Google News aggregation",
@@ -3144,15 +3208,6 @@
       "title": "Simms Powell Pavilion at Parkersburg City Park holds first event - WTAP",
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOblhIOU9QbHVRRVluUG1lSjd6ejk1NE1nNzJQemduOGhtZ29SSEF5ckdvajBWWXJSaFduT3c3NUM4b1I5SzBfTnNya19TbGhUQy1CdnZIS0JMVWVPNWlUZ0VUS3VYZDY3MjZXVm5mTHEzQWVxOENMWEtJZ1FxWFlfdTV4cXZObVR3X3ZWOWtXSTBjYl9tZkw1ZmlB0gGuAUFVX3lxTFA3aXVVblVyU1RiSnI3Y3AxQjg1OW9KbVVGOEdtdFROWS04akZZZ2pvaVhvVEtzSm16RFZ3UFpJS3M3NnB0OWpEcWZ1Z1drd2VkSURMem9iWVRtR0NsTmxyR01YRnREV2NaWkR3cVpMMGxnSmdwZjRhVnlCWW9WTjBrdVBKSnY5RVFNUjM3WF9idG9BWHhqek1GeFlDTU5LRVFGWXlHV2E4VW1vMFNGZw?oc=5",
       "publishedUtc": "2026-10-23T00:10:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "The Federal Reserve at a Time of Uncertainty - American Enterprise Institute - AEI",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOVkhmSEFiZXNGVkdETXNWWkhOdml5VzBfUUpsbWVkbjBGLV85OC1OOUdKUHNGd0RuUFU2cVdoRUlDTUxOUzQ2RXdfOWZVR1ZVcVlkMmZVWFpNa3dBWEJOM2t3MHZ2MDc0VXB6T2M3cHBRb3FzSmhlZHJuR081V3NuYw?oc=5",
-      "publishedUtc": "2026-10-22T22:17:13Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3231,15 +3286,6 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Justice Department Closes Inquiry of Federal Reserve Pushed by Trump - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5zdk5zX0FqR2NfVFhkd1hOdHJ2TllsbkNrVk5UeloyRXJaMWpHc2c5T19PNkVZc3F5bHFFRHp3M2ZwYXZhMnZlaV91N0xvQ00zbmxhV1FKYVVfNEJDWVVacDViQQ?oc=5",
-      "publishedUtc": "2026-10-22T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "US dollar slips as Treasury yields fall ahead of Federal Reserve meeting - Economies.com",
       "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPS3VvdFduY2NnVnBEaWFlV3J2OS1sc1ZwWmVKam03SHo4TmNKTlJ5YnRUcWhQS3hQUGo5T0Y2dlg4TXl6aEJFQzI3cHdjWTI2NWNZM3JZeU9na0ZOSW1iX1lWNlR0QTlRVjFPVTI0Ql9yS1A1U1J0dnQxTGYtTkNpbFpvWXFqT0JWblBqMlVUQ182ODhzQTJWVUlnYW91NnllVWExdmE1Wng0Nzh5QUhwUFpxZ2JnOVE2aS1oZ1IzY25zZzJxNmQ4TnBn?oc=5",
       "publishedUtc": "2026-10-22T06:18:00Z",
@@ -3249,9 +3295,9 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Norman Powell's first Bulls bucket comes from midrange - NBA.com",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOdXdpQWtFTnRIcWJiT1dXWmJKQWRHTjFZbG42OS14TEZ0b0ExTXJkeGRZWXd4cFNaajNmTUdGXzlzZDhoQXQ4eWRFaFVfbUF5T0dTUnBWRV9CbkNUNnBoWUVPVHBjZTJvYWlBb1FjM013ZDVlSl9mRDNpQ25oTWdpLWItUl95YU9CSjZRY3RDQQ?oc=5",
-      "publishedUtc": "2026-10-22T01:41:24Z",
+      "title": "Talon Powell - FloWrestling",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE44d1hPblp4MkxSM1Q5Qk8zRWE0U2JhVUFKQjFuZ3NMTFBPdVZfc3EwU1lVcGdIcE9Yb0dlVkRCRlVBRl9SYl9rUnFGdnJiOGZsSGs2dDRydk5vY2llZ2Rzd2NnVUljaWZFUDhRcENB?oc=5",
+      "publishedUtc": "2026-10-22T06:06:32Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3283,15 +3329,6 @@
       "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
-    },
-    {
-      "title": "US Dollar Price Forecast: UK CPI Hits 3.5%, DXY Eyes 102.01 as EUR/USD, GBP/USD Split - Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNNXpKREhNSlVwQllUUjBCellMUXU1X3oxSW5FS2xWeXllNDFGa3c2WW1rRlRwdzViYlpxSVN2WjI3d1hGbkNPRDc5c0NxOW5QR29DbnhYc2JvR2FmejhzcS1ISmRRdGYtdVJvQmtnZ0xOYWxrZlRXY05QN3FLTnlKc0lVdjVnd29jalF1NlZodW04ZEFjbTBEXzZQN2I?oc=5",
-      "publishedUtc": "2026-10-21T07:30:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "high",
-      "memoryWindowDays": 90
     },
     {
       "title": "Inside the Consumer Price Index: September 2026 - Advisor Perspectives",
@@ -3566,7 +3603,7 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-10-24T16:55:44Z"
+    "updatedAt": "2026-10-24T19:17:02Z"
   },
   "technical": {
     "status": "live",
@@ -5791,14 +5828,14 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-10-24T16:55:46.860794Z",
+    "generatedAt": "2026-10-24T19:17:04.820691Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-10-24T16:55:46.860794Z",
+      "generatedAt": "2026-10-24T19:17:04.820691Z",
       "marketObservedAt": "2026-10-23T20:59:05.223143299Z",
-      "validUntil": "2026-10-24T17:10:46.860794Z",
+      "validUntil": "2026-10-24T19:32:04.820691Z",
       "currentPrice": 3995.81,
       "entryZoneLow": null,
       "entryZoneHigh": null,
@@ -5811,27 +5848,27 @@
       "orderBlockQuality": null,
       "confluenceCount": 0,
       "confidenceScore": 0,
-      "macroScore": -18.46,
-      "macroAgreementPct": 90,
+      "macroScore": -22.07,
+      "macroAgreementPct": 92,
       "layers": {
-        "fresh": -1.47,
-        "weekly": 1.01,
+        "fresh": -1.18,
+        "weekly": 0.99,
         "regime": -18,
-        "market": 0.0,
+        "market": -3.88,
         "bullishCount": 0,
-        "bearishCount": 1,
-        "marketInputs": 0
+        "bearishCount": 2,
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "ADP Employment Change 4-week average",
         "dateUtc": "2026-10-27T12:15:00Z",
-        "minutesAway": 4039
+        "minutesAway": 3898
       },
       "reasons": [],
       "blockers": [
-        "OANDA market snapshot is 1196 minutes old.",
+        "OANDA market snapshot is 1337 minutes old.",
         "4H structure is bearish, not bullish.",
-        "Macro gold score is not bullish enough (-18.5).",
+        "Macro gold score is not bullish enough (-22.1).",
         "Fewer than two independent macro layers are bullish.",
         "No preferred bullish 4H order block is available."
       ],
@@ -5842,9 +5879,9 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-10-24T16:55:46.860794Z",
+      "generatedAt": "2026-10-24T19:17:04.820691Z",
       "marketObservedAt": "2026-10-23T20:59:05.223143299Z",
-      "validUntil": "2026-10-24T17:10:46.860794Z",
+      "validUntil": "2026-10-24T19:32:04.820691Z",
       "currentPrice": 3995.81,
       "entryZoneLow": 4173.65,
       "entryZoneHigh": 4184.88,
@@ -5857,30 +5894,29 @@
       "orderBlockQuality": 88,
       "confluenceCount": 3,
       "confidenceScore": 0,
-      "macroScore": -18.46,
-      "macroAgreementPct": 90,
+      "macroScore": -22.07,
+      "macroAgreementPct": 92,
       "layers": {
-        "fresh": -1.47,
-        "weekly": 1.01,
+        "fresh": -1.18,
+        "weekly": 0.99,
         "regime": -18,
-        "market": 0.0,
+        "market": -3.88,
         "bullishCount": 0,
-        "bearishCount": 1,
-        "marketInputs": 0
+        "bearishCount": 2,
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "ADP Employment Change 4-week average",
         "dateUtc": "2026-10-27T12:15:00Z",
-        "minutesAway": 4039
+        "minutesAway": 3898
       },
       "reasons": [
-        "Macro score -18.5 with 1 bearish layers",
+        "Macro score -22.1 with 2 bearish layers",
         "4H structure bearish; daily structure range",
         "Bearish order block quality 88/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 1196 minutes old.",
-        "Fewer than two independent macro layers are bearish.",
+        "OANDA market snapshot is 1337 minutes old.",
         "Sell zone is 5.8 ATR above current price; too far away for an up-to-date pending signal."
       ],
       "rulesVersion": "sell-limit-v1",
