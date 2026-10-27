@@ -1,15 +1,53 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-27T15:53:10Z",
+  "updatedAt": "2026-10-27T20:23:09Z",
   "calibration": {
-    "completed": 20,
-    "wins": 8,
-    "winRate": 0.4,
-    "averageR": 5.418,
+    "completed": 21,
+    "wins": 9,
+    "winRate": 0.4286,
+    "averageR": 5.438,
     "factor": 1.0,
     "minimumSamplesForAdjustment": 30
   },
   "setups": [
+    {
+      "key": "bullish|2026-10-27T05:00:00.000000000Z|3989.16|4010.775",
+      "side": "bullish",
+      "createdAt": "2026-10-27T13:00:00.000000000Z",
+      "blockCandleAt": "2026-10-27T05:00:00.000000000Z",
+      "zoneLow": 3989.16,
+      "zoneHigh": 4010.775,
+      "quality": 85,
+      "confluence": {
+        "fairValueGap": true,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": true
+      },
+      "planning": {
+        "limitReference": 3999.967,
+        "invalidationReference": 3984.874,
+        "targets": [
+          {
+            "price": 4142.225,
+            "rMultiple": 9.42
+          },
+          {
+            "price": 4143.425,
+            "rMultiple": 9.5
+          }
+        ],
+        "bestRMultiple": 9.5,
+        "passesRewardRiskGate": true
+      },
+      "source": "OANDA v20 practice",
+      "firstObservedAt": "2026-10-27T20:23:09Z",
+      "status": "waiting",
+      "triggerIndex": null,
+      "triggeredAt": null,
+      "completedAt": null,
+      "bestR": 0.0,
+      "outcomeR": null
+    },
     {
       "key": "bearish|2026-10-22T21:00:00.000000000Z|4027.5|4032.79",
       "side": "bearish",
@@ -37,12 +75,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "status": "tp1",
+      "status": "stopped",
       "triggerIndex": 0,
       "triggeredAt": "2026-10-23T01:00:00.000000000Z",
-      "completedAt": null,
+      "completedAt": "2026-10-27T13:00:00.000000000Z",
       "bestR": 5.85,
-      "outcomeR": null
+      "outcomeR": 5.85
     },
     {
       "key": "bearish|2026-10-22T09:00:00.000000000Z|4083.14|4092.555",
