@@ -1,7 +1,247 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-27T10:11:32Z",
+  "updatedAt": "2026-10-27T15:53:56Z",
   "events": [
+    {
+      "key": "624fe625-be6d-4dc3-97b6-0e9cfad94699|2026-10-27T14:00:00Z",
+      "id": "624fe625-be6d-4dc3-97b6-0e9cfad94699",
+      "dateUtc": "2026-10-27T14:00:00Z",
+      "name": "New Home Sales Change (MoM)",
+      "family": "Housing",
+      "category": "housing",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": -0.6,
+      "consensus": null,
+      "previous": 6.4,
+      "revised": 5.1,
+      "firstObservedAt": "2026-10-27T15:53:10Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
+      "model": {
+        "bias": "bullish",
+        "score": 73.34,
+        "surpriseZ": null,
+        "revisionZ": -1.3,
+        "importance": 3.57,
+        "family": "Housing"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-27T15:53:10Z",
+          "xau": 4062.385,
+          "dxy": 102.244,
+          "us2y": 4.68,
+          "us10y": 5.0,
+          "real10y": 2.66
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "0a46270c-bb17-48d2-b040-e665fb098048|2026-10-27T13:00:00Z",
+      "id": "0a46270c-bb17-48d2-b040-e665fb098048",
+      "dateUtc": "2026-10-27T13:00:00Z",
+      "name": "Housing Price Index (MoM)",
+      "family": "inflation",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.3,
+      "consensus": 0.1,
+      "previous": 0.3,
+      "revised": null,
+      "firstObservedAt": "2026-10-27T15:53:10Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
+      "model": {
+        "bias": "bearish",
+        "score": -86.17,
+        "surpriseZ": 1.667,
+        "revisionZ": null,
+        "importance": 17.36,
+        "family": "inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-27T15:53:10Z",
+          "xau": 4062.385,
+          "dxy": 102.244,
+          "us2y": 4.68,
+          "us10y": 5.0,
+          "real10y": 2.66
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "4c96bce1-23bf-46c7-bb25-213d3f58f913|2026-10-27T12:30:00Z",
+      "id": "4c96bce1-23bf-46c7-bb25-213d3f58f913",
+      "dateUtc": "2026-10-27T12:30:00Z",
+      "name": "Durable Goods Orders",
+      "family": "Durable goods",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 1.8,
+      "consensus": 0.6,
+      "previous": 0.0,
+      "revised": 0.1,
+      "firstObservedAt": "2026-10-27T15:53:10Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
+      "model": {
+        "bias": "bearish",
+        "score": -89.87,
+        "surpriseZ": 10.0,
+        "revisionZ": 0.833,
+        "importance": 5.21,
+        "family": "Durable goods"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-27T15:53:10Z",
+          "xau": 4062.385,
+          "dxy": 102.244,
+          "us2y": 4.68,
+          "us10y": 5.0,
+          "real10y": 2.66
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "caf9872b-51c0-49f1-ac77-81d84447bd12|2026-10-27T12:30:00Z",
+      "id": "caf9872b-51c0-49f1-ac77-81d84447bd12",
+      "dateUtc": "2026-10-27T12:30:00Z",
+      "name": "Durable Goods Orders ex Defense",
+      "family": "Durable goods",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 2.2,
+      "consensus": null,
+      "previous": 0.1,
+      "revised": 0.3,
+      "firstObservedAt": "2026-10-27T15:53:10Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
+      "model": {
+        "bias": "bearish",
+        "score": -83.37,
+        "surpriseZ": null,
+        "revisionZ": 1.667,
+        "importance": 5.21,
+        "family": "Durable goods"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-27T15:53:10Z",
+          "xau": 4062.385,
+          "dxy": 102.244,
+          "us2y": 4.68,
+          "us10y": 5.0,
+          "real10y": 2.66
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "ce0766ef-6fe9-486c-9cfc-3cc88e8e77b9|2026-10-27T12:30:00Z",
+      "id": "ce0766ef-6fe9-486c-9cfc-3cc88e8e77b9",
+      "dateUtc": "2026-10-27T12:30:00Z",
+      "name": "Durable Goods Orders ex Transportation",
+      "family": "Durable goods",
+      "category": "business",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.5,
+      "consensus": 0.6,
+      "previous": 0.3,
+      "revised": 0.2,
+      "firstObservedAt": "2026-10-27T15:53:10Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
+      "model": {
+        "bias": "bullish",
+        "score": 56.41,
+        "surpriseZ": -0.833,
+        "revisionZ": -0.833,
+        "importance": 5.21,
+        "family": "Durable goods"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-27T15:53:10Z",
+          "xau": 4062.385,
+          "dxy": 102.244,
+          "us2y": 4.68,
+          "us10y": 5.0,
+          "real10y": 2.66
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "de4c41db-e564-4d31-9495-626a9d7927b1|2026-10-27T12:15:00Z",
+      "id": "de4c41db-e564-4d31-9495-626a9d7927b1",
+      "dateUtc": "2026-10-27T12:15:00Z",
+      "name": "ADP Employment Change 4-week average",
+      "family": "labour",
+      "category": "labour",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 16.8,
+      "consensus": null,
+      "previous": 18.5,
+      "revised": 17.5,
+      "firstObservedAt": "2026-10-27T15:53:10Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
+      "model": {
+        "bias": "bullish",
+        "score": 61.69,
+        "surpriseZ": null,
+        "revisionZ": -1.0,
+        "importance": 13.64,
+        "family": "labour"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-27T15:53:10Z",
+          "xau": 4062.385,
+          "dxy": 102.244,
+          "us2y": 4.68,
+          "us10y": 5.0,
+          "real10y": 2.66
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "a959ed2f-3292-4a16-8dfb-d1f0ca612065|2026-10-23T14:00:00Z",
       "id": "a959ed2f-3292-4a16-8dfb-d1f0ca612065",
@@ -17,7 +257,7 @@
       "previous": 46.3,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-27T10:10:48Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
       "model": {
         "bias": "bearish",
         "score": -28.64,
@@ -57,7 +297,7 @@
       "previous": 4.7,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-27T10:10:48Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -97,7 +337,7 @@
       "previous": 3.5,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-27T10:10:48Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -137,7 +377,7 @@
       "previous": 55.9,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-27T10:10:48Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
       "model": {
         "bias": "bearish",
         "score": -19.26,
@@ -177,7 +417,7 @@
       "previous": 58.8,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-27T10:10:48Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -217,7 +457,7 @@
       "previous": 199.0,
       "revised": 200.0,
       "firstObservedAt": "2026-10-22T14:40:55Z",
-      "lastObservedAt": "2026-10-27T10:10:48Z",
+      "lastObservedAt": "2026-10-27T15:53:10Z",
       "model": {
         "bias": "bearish",
         "score": -22.56,
