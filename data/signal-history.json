@@ -1,7 +1,447 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-29T07:00:50Z",
+  "updatedAt": "2026-10-29T14:08:27Z",
   "events": [
+    {
+      "key": "2241a1cd-eb29-4740-a28d-fc2b8cc813ef|2026-10-29T12:30:00Z",
+      "id": "2241a1cd-eb29-4740-a28d-fc2b8cc813ef",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Core Personal Consumption Expenditures - Price Index (MoM)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.3,
+      "consensus": 0.3,
+      "previous": 0.2,
+      "revised": 0.3,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "mixed",
+        "score": -8.31,
+        "surpriseZ": 0.0,
+        "revisionZ": 0.556,
+        "importance": 32.48,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "401e58cb-1252-4e02-9c2a-144d3ea169e1|2026-10-29T12:30:00Z",
+      "id": "401e58cb-1252-4e02-9c2a-144d3ea169e1",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Core Personal Consumption Expenditures - Price Index (YoY)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.1,
+      "consensus": 3.1,
+      "previous": 3.0,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 32.48,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "ae9d410c-360e-4fed-8fc8-d9569f4558b8|2026-10-29T12:30:00Z",
+      "id": "ae9d410c-360e-4fed-8fc8-d9569f4558b8",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Core Personal Consumption Expenditures (QoQ)",
+      "family": "other",
+      "category": "other",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 2.5,
+      "consensus": 2.4,
+      "previous": 3.3,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "mixed",
+        "score": -7.78,
+        "surpriseZ": 0.1,
+        "revisionZ": null,
+        "importance": 3.1,
+        "family": "other"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "eee5daa2-7168-46ec-bf09-83c8fbe8ce20|2026-10-29T12:30:00Z",
+      "id": "eee5daa2-7168-46ec-bf09-83c8fbe8ce20",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Gross Domestic Product Annualized",
+      "family": "GDP",
+      "category": "growth",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.4,
+      "consensus": 3.2,
+      "previous": 2.2,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "bearish",
+        "score": -30.23,
+        "surpriseZ": 0.4,
+        "revisionZ": null,
+        "importance": 19.08,
+        "family": "GDP"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "f1a492c1-7a0d-446b-a2ae-a0afee0703f1|2026-10-29T12:30:00Z",
+      "id": "f1a492c1-7a0d-446b-a2ae-a0afee0703f1",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Gross Domestic Product Price Index",
+      "family": "GDP",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 2.2,
+      "consensus": 3.5,
+      "previous": 6.1,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "bullish",
+        "score": 96.6,
+        "surpriseZ": -2.6,
+        "revisionZ": null,
+        "importance": 29.68,
+        "family": "GDP"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "8f998cac-4b65-4c95-a0fa-73723b4526c5|2026-10-29T12:30:00Z",
+      "id": "8f998cac-4b65-4c95-a0fa-73723b4526c5",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Initial Jobless Claims",
+      "family": "Jobless claims",
+      "category": "labour",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 194.0,
+      "consensus": 199.0,
+      "previous": 194.0,
+      "revised": 195.0,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "bearish",
+        "score": -18.82,
+        "surpriseZ": 0.333,
+        "revisionZ": -0.067,
+        "importance": 12.55,
+        "family": "Jobless claims"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "e8b79a49-8f95-4e08-b60f-c5367e1138b9|2026-10-29T12:30:00Z",
+      "id": "e8b79a49-8f95-4e08-b60f-c5367e1138b9",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Personal Consumption Expenditures - Price Index (MoM)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.5,
+      "consensus": 0.5,
+      "previous": 0.3,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 20.14,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "1c247eab-2e2a-4393-ae9a-508ebd4d9b71|2026-10-29T12:30:00Z",
+      "id": "1c247eab-2e2a-4393-ae9a-508ebd4d9b71",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Personal Consumption Expenditures - Price Index (YoY)",
+      "family": "PCE inflation",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 3.6,
+      "consensus": 3.6,
+      "previous": 3.4,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 20.14,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "2e90a491-2097-47bd-92fe-5d4fde8c5c2c|2026-10-29T12:30:00Z",
+      "id": "2e90a491-2097-47bd-92fe-5d4fde8c5c2c",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Personal Consumption Expenditures Prices (QoQ)",
+      "family": "PCE inflation",
+      "category": "other",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 2.1,
+      "consensus": 3.4,
+      "previous": 5.0,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "bullish",
+        "score": 100.0,
+        "surpriseZ": -7.222,
+        "revisionZ": null,
+        "importance": 3.6,
+        "family": "PCE inflation"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "413c2200-8525-4383-82bf-4ef5dd268f1f|2026-10-29T12:30:00Z",
+      "id": "413c2200-8525-4383-82bf-4ef5dd268f1f",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Personal Income (MoM)",
+      "family": "consumer",
+      "category": "consumer",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.2,
+      "consensus": 0.3,
+      "previous": 0.2,
+      "revised": 0.3,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "bullish",
+        "score": 32.91,
+        "surpriseZ": -0.833,
+        "revisionZ": 0.833,
+        "importance": 7.44,
+        "family": "consumer"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "07858c98-100e-4b62-9aa5-0336b40cd1a7|2026-10-29T12:30:00Z",
+      "id": "07858c98-100e-4b62-9aa5-0336b40cd1a7",
+      "dateUtc": "2026-10-29T12:30:00Z",
+      "name": "Personal Spending",
+      "family": "consumer",
+      "category": "consumer",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.5,
+      "consensus": 0.6,
+      "previous": 0.9,
+      "revised": null,
+      "firstObservedAt": "2026-10-29T14:07:40Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
+      "model": {
+        "bias": "bullish",
+        "score": 57.17,
+        "surpriseZ": -0.833,
+        "revisionZ": null,
+        "importance": 7.44,
+        "family": "consumer"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-10-29T14:07:40Z",
+          "xau": 4022.105,
+          "dxy": 102.2195,
+          "us2y": 4.67,
+          "us10y": 5.05,
+          "real10y": 2.67
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "0fa5c63c-f61c-4436-8763-66222addfe7a|2026-10-28T18:00:00Z",
       "id": "0fa5c63c-f61c-4436-8763-66222addfe7a",
@@ -17,7 +457,7 @@
       "previous": 4.0,
       "revised": null,
       "firstObservedAt": "2026-10-28T21:18:06Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -57,7 +497,7 @@
       "previous": 6.4,
       "revised": 5.1,
       "firstObservedAt": "2026-10-27T15:53:10Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bullish",
         "score": 73.34,
@@ -95,14 +535,14 @@
       "actual": 0.3,
       "consensus": 0.1,
       "previous": 0.3,
-      "revised": null,
+      "revised": 0.2,
       "firstObservedAt": "2026-10-27T15:53:10Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bearish",
-        "score": -86.17,
+        "score": -55.57,
         "surpriseZ": 1.667,
-        "revisionZ": null,
+        "revisionZ": -0.833,
         "importance": 17.36,
         "family": "inflation"
       },
@@ -137,7 +577,7 @@
       "previous": 0.0,
       "revised": 0.1,
       "firstObservedAt": "2026-10-27T15:53:10Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bearish",
         "score": -89.87,
@@ -177,7 +617,7 @@
       "previous": 0.1,
       "revised": 0.3,
       "firstObservedAt": "2026-10-27T15:53:10Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bearish",
         "score": -83.37,
@@ -215,14 +655,14 @@
       "actual": 0.5,
       "consensus": 0.6,
       "previous": 0.3,
-      "revised": 0.2,
+      "revised": 0.3,
       "firstObservedAt": "2026-10-27T15:53:10Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bullish",
-        "score": 56.41,
+        "score": 57.17,
         "surpriseZ": -0.833,
-        "revisionZ": -0.833,
+        "revisionZ": null,
         "importance": 5.21,
         "family": "Durable goods"
       },
@@ -257,7 +697,7 @@
       "previous": 18.5,
       "revised": 17.5,
       "firstObservedAt": "2026-10-27T15:53:10Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bullish",
         "score": 61.69,
@@ -297,7 +737,7 @@
       "previous": 46.3,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bearish",
         "score": -28.64,
@@ -337,7 +777,7 @@
       "previous": 4.7,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -377,7 +817,7 @@
       "previous": 3.5,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
@@ -417,7 +857,7 @@
       "previous": 55.9,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "bearish",
         "score": -19.26,
@@ -457,7 +897,7 @@
       "previous": 58.8,
       "revised": null,
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "lastObservedAt": "2026-10-29T06:59:57Z",
+      "lastObservedAt": "2026-10-29T14:07:40Z",
       "model": {
         "bias": "mixed",
         "score": -0.0,
