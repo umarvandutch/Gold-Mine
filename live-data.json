@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-30T02:54:50Z",
+  "generatedAt": "2026-10-30T09:39:57Z",
   "calendarStatus": "live",
   "counts": {
-    "events": 174,
+    "events": 175,
     "headlines": 80,
-    "marketFeeds": 1
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
@@ -3147,6 +3147,24 @@
       "source": "FXStreet public calendar",
       "memoryWindowDays": 7,
       "impactPolicy": "high-or-medium-only"
+    },
+    {
+      "id": "3c65eaeb-5cb9-4f49-be99-9bc4a414f645",
+      "dateUtc": "2026-11-06T17:15:00Z",
+      "periodDateUtc": null,
+      "name": "Fed's Bowman speech",
+      "actual": null,
+      "revised": null,
+      "consensus": null,
+      "previous": null,
+      "unit": null,
+      "volatility": "MEDIUM",
+      "isSpeech": true,
+      "isTentative": false,
+      "category": "rates",
+      "source": "FXStreet public calendar",
+      "memoryWindowDays": 90,
+      "impactPolicy": "high-or-medium-only"
     }
   ],
   "market": {
@@ -3154,34 +3172,58 @@
       "label": "Gold / XAUUSD",
       "symbol": "XAU_USD",
       "name": "Gold / XAUUSD",
-      "price": 3997.56,
+      "price": 3989.23,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-10-30",
-      "time": "02:55:35",
+      "time": "09:40:41",
       "kind": "gold",
       "source": "OANDA v20 practice",
       "live": true,
-      "observedAt": "2026-10-30T02:55:35.816319007Z"
+      "observedAt": "2026-10-30T09:40:41.368527841Z"
     },
     "dxy": {
       "label": "Synthetic US Dollar Index",
       "symbol": "DXY-synthetic",
       "name": "Synthetic DXY from six FX pairs",
-      "price": 101.7326,
+      "price": 101.687,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
       "date": "2026-10-30",
-      "time": "02:55:35",
+      "time": "09:40:41",
       "kind": "index",
       "source": "OANDA v20 practice \u00b7 DXY formula",
       "live": true,
-      "observedAt": "2026-10-30T02:55:35.816319007Z"
+      "observedAt": "2026-10-30T09:40:41.368527841Z"
     },
-    "us2y": null,
-    "us10y": null,
+    "us2y": {
+      "label": "US 2Y Treasury yield",
+      "symbol": "BC_2YEAR",
+      "name": "US 2Y Treasury yield",
+      "price": 4.61,
+      "previous": 4.67,
+      "changePct": null,
+      "deltaBps": -6.0,
+      "date": "2026-10-29",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
+    "us10y": {
+      "label": "US 10Y Treasury yield",
+      "symbol": "BC_10YEAR",
+      "name": "US 10Y Treasury yield",
+      "price": 4.98,
+      "previous": 5.05,
+      "changePct": null,
+      "deltaBps": -7.0,
+      "date": "2026-10-29",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
     "real10y": {
       "label": "US 10Y real yield",
       "symbol": "TC_10YEAR",
@@ -3198,13 +3240,50 @@
   },
   "headlines": [
     {
+      "title": "New sanctions show limits of Trump influence over Congo conflict - Semafor",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNX2phZnlRUTRkRXQzY3g5emQwNUVJMDhZRWtYRGRGUmx3dk5LZzMtVzdpRENYZHZEemVQQlFnSmtjVFpPQjZaQjNmLWJRelJCbDlma1B5SkN1aU10WVNWRVpXZDd3Q2xmTUhKeEhsNWs2M05qOF9GNnc3akJxVXNuTmdZZFVoMEVNczkyYndubUdBNTBkZUpUX2s1UUliSXdGOWZmblVEN09wSFk?oc=5",
+      "publishedUtc": "2026-10-30T08:50:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Trump's tariffs fail to cut US trade deficit, IW report shows - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQQXAtelVIRmlkeEJiVmJ1VDVNTWFNOW5Yc3pQQjZFVVVmaGJaRjVzbjdWRlpKNlBKYWVXMmpOV3J4WldwRUs1U3hnalZ2d0wxRnlYbkZ3SVlnSGpfa2RWWE5LQ05GdlNnSmVSeEZsekVPSFNpZTd4QVpNTmcyc2tlRHNuWFlDMXZyUl9SN0hrejlpc3FSSXJMZkVCV296WU51bXZJ?oc=5",
+      "publishedUtc": "2026-10-30T07:07:43Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Gov't Urges 11th Circ. To Lift Sanctions Over Trump-IRS Deal - Law360",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPVk90WDNlS1NfTDljQ0ZoaVRTZGREUlM3T2lyTXdNTTRMX0tqZUVLeGFtN1A0b3QybG0wQmdJZ2FFZFBTcHpsRnRCT3Fqem5ISXN6SGlTX1hNczh6cEdQNU45NjlDUEkyR0podzlPRERRSl9FeXhrZnFpUFlGMU5iY3Q0RGFEMlRpb1BISGVqeHhkaDI0NnRSclMyaWoxMlozUXRxUDJBOHFERXFOdFBCVVpHX3lJWnlXbUlKU3dn0gFoQVVfeXFMUDlCQ25qcUFJa3pBT0FOWThsVFBiRGFoTUc3Sm1uNER1VkxNVU8zOHV2dTVMbEM2OUhBcW9ZdWhoMTRXbVdEWkhnLWlEUy00VTY1TWVDOVNmNjVSaGloWTNNcXZXUEVWclc?oc=5",
+      "publishedUtc": "2026-10-30T05:17:58Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Gold hovers near $4,000 as PCE inflation, oil risks revive Fed hike concerns - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTUJlNjNmX0pCWlpYMGZkWGdlSW9vWlZXQjZ6U1lZMzlGb0F5UkMtV1oybmhfbHB0Vm95a3ZRR3NwSGNZcGtZMkJuMzVFLUxJNExYcFJvLW1xVlE1TTg3U0J6SFBFOGdRcTQ0VWo3WlRxalRvVFltTUttX1pOdFhvU203N25hdW1DVVB6QzJTeUk3R0VuSnd3?oc=5",
+      "publishedUtc": "2026-10-30T01:46:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
       "title": "Gold hovers near $4,000 as PCE inflation, oil risks revive Fed hike concerns - Investing.com",
       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZXZLWlhQby1GNWVYRk5KWWJBZ3Rqd20zU3cyRFNSY1dHdWhRYXVIcW5YMjdoLWtza1BHa1lEV0FKWUZFLU5NTXBFSkcyYi1uYXplLVpQWEYtU3Q3OF9IRnFpZnhkWnhRXzRjZ1ZJX01WQkVvcDFYbTlDVlpDY0Jlcks1bEk5cFdJTTJzbzFQRDdOcUpaa1hpdjMzWUxCSC1lZFdfVThueTlnU1BfMWVTYlJOMnhTRzRJTlhSM2tlNnIzZ2xFclA0Nw?oc=5",
       "publishedUtc": "2026-10-30T01:18:18Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "U.S. GDP Beats Forecasts as Inflation Accelerates - IndexBox",
@@ -3222,12 +3301,22 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Federal Reserve Holds Interest Rates Steady at 3.75% to 4% - Hardware Retailing",
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPN3EwS0JCMThHMFlMbFgzMElkb05xbHpXWjNOb00tTVM0TzBhMm9qcmRyV1N5SFdXdlBpVEdLaWhMUWdXWFFXNl9lWVJ4bk4taGVMbmNYWktCem1jeERkbjgxZC16U0Iwa2FJbUl2OXN0SE4tM2NxNUpoVXc3WjdRZVE1NXNCRWVXTW5mV0UyTFU?oc=5",
       "publishedUtc": "2026-10-29T22:52:58Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "FRED Adds Median Inflation Data from the Cleveland Fed - Federal Reserve Economic Data | FRED | St. Louis Fed",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVEFyaEpGeHEzdVZkczg1Mk1ESExzd0Qyd2VvN3lJeG9MMmgwaXl0SDctX293ZXBqSXM0LU5IQVp4UTFnYk9IR1otQjhiUHBDSzRPVVl2TTZoSlFTbFI4cTlqcGFVNjlBaG1haVkydUU2dDZSQi1Ybm9qNm1mcThrVzlrUHhLUk4yQXVIaHp0VGZXbEt3TXc?oc=5",
+      "publishedUtc": "2026-10-29T22:37:13Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3240,6 +3329,16 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
+    },
+    {
+      "title": "Powell and Harding make final pitches in Nebraska\u2019s 2nd Congressional District - Nebraska Examiner",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPS05hZHpvNVRVVkFYd0l1eWNrZ2VKNzRnODZSWGd5Q1NhQjdCSi0taUFFTU1HOUFqRDRoUVJOSHJUZHk2OWhTWkt2WC1tT2p0Ml9ucXpoZE9lUUhraGJwMUF1SFZhRG5ZY1VpeXVtUHZIZGRPcXJOdHlpTVpEUl8xY0FJQWEyNFVnbExWZ3kxb3k3MU9XeHBBUHRsTS1FYnI4RkE3NmRIWGVDRWtvOHpBLWJHMXlrQy1RWXc?oc=5",
+      "publishedUtc": "2026-10-29T21:13:40Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
       "memoryWindowDays": 90
     },
     {
@@ -3249,7 +3348,17 @@
       "source": "Google News aggregation",
       "category": "growth",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
+    },
+    {
+      "title": "Warsh shakes up Fed's approach to setting interest rates - WCIV",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNNDNoY1Jfcl9OenZKaG5SdmVrdDYzSVBQOTFVNHhqWkx6UGhOZzQwTFdOTE9Nd3RLVlZ4bW5oMzBnS2o4UVgwTG16WUJ6TjR5U1BOSlNfd0dxaEQ0aVZxaG01dmQzVnl6TW5KQUNmRDZyZmlRMTBZNFZXTmFfSFpNSjJGTFVQbFBJT2d3QkFpY0JzR0liT3ptU09fWHhpME1RbnhFMW1KZ2ZWQTh2STNYMWlRTExTMWZLaDRfS0tBdnpOQTA1UVRtYWx6UkhTeFZCNlRyOEFieXpyTC03SWlkWkR0RkpGeDdLUWc?oc=5",
+      "publishedUtc": "2026-10-29T21:07:37Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "Gold, silver fall as strong U.S. GDP, inflation support Fed tightening bets - Kitco PM Report - Kitco",
@@ -3258,8 +3367,7 @@
       "source": "Google News aggregation",
       "category": "inflation",
       "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
+      "memoryWindowDays": 7
     },
     {
       "title": "US promises tariff relief in talks with Audi on Georgia plant, sources say - Reuters",
@@ -3291,61 +3399,6 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Warsh shakes up Fed's approach to setting interest rates - WPEC",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNVkdUUlJZTzE0akdrZFkwSUFZcFRRR21vdm10MC1iM2tuTGRQbXVNOGw4Y0w3TVNsenRBa1JYZmRvcmpGcGxZbUxXX25YRmRReHR3VGxmNHF4MlBPaXEtY05kck5rTlhBal9yQmVlRE5wbWhNYmd5REVWZEFqTWpWY0JDOWFtQzRia1BsSW1oY3dRejlTeWpRbzlJU19NYzZKdEdkZU9SNlRWVF9KM3NRb2N0OWJzalJRbTN5LTR2NlZ5dTVzOU1CaUNvSUpMMDQwTk1RTU9LWUs4WTRfbVI1YkJCWlZFQQ?oc=5",
-      "publishedUtc": "2026-10-29T20:31:28Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "US GDP looks good, inflation doesn't, and savings won't last forever - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1BOTEzTlhac0ZpSk0wVzlCYW05bTlUMGx1dWV2T1Z0UUhqXzFBVDdaTEtRaE8wS1ZmdFRua0tndU1tWkM4ZGNGYzhJSjVUV2R0WWhsTklwZjdzY1lpRUs5UXR3VWpucDQ?oc=5",
-      "publishedUtc": "2026-10-29T20:27:57Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Seven oil tankers carrying 288,000 tonnes of Russian diesel sail towards US - The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMkdILTNweng5VDdwM0RRNFo3c1M4aWdYbFQ0aVlwRzFXY0RSN1BoNllkWkVFTzlxc2hPWmlUQ1dJQjRKM0hkcFAzeHBQTExjSlo1bzZ6RTFwYXdIUEtnbHkwN2NuNkNkVmw0bU50aGhHcG1fV002RDFFeGNIWG1xSnFxVU9oNy05ZTR2dHVWZmZhTldLdFplcVo3UVlla0NmSXVucDZ4VjAtX0hiZTdTZVpKYkI?oc=5",
-      "publishedUtc": "2026-10-29T19:01:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "U.S. GDP grows more in Q3 - Econbrowser",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFA5ZGVsamVHVENYbU85U0VrdWo3ZENZQ3FKRHpuTktqWHNNRWtZU0hLWURSUXcwUTFJd29GelQzZEtua0stYlNSNzRRclhSWTl5b05xdEFBVlloYTNpNUUzQzdqeXNwdWNPVjcwamxienp2LVE?oc=5",
-      "publishedUtc": "2026-10-29T18:46:27Z",
-      "source": "Google News aggregation",
-      "category": "growth",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Can gold hold $4,000 as strong US GDP and a cautious ECB squeeze the bulls? - Kitco",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOZDZJVk9jZFJ6TEN2aWhXT2tLYVdBUHZyS0FLRkd6QjQ5N3FVaDN5RDZjX3J2ZmFsSVdGamlzYjJQdFZ0ZzhpcmFoN0NqNHRpcWJDVW5yQ0ZOekt3WFpac3Z0dTkzdW4zZHQ5Zy1TSHV5YVBwR3JhT0RtVFNyb1ZQUGxScTE4djRHd0RQR3Bnekl2VWtHNElvRFZWU0t1cG1LUmllRVhJUQ?oc=5",
-      "publishedUtc": "2026-10-29T18:44:06Z",
-      "source": "Google News aggregation",
-      "category": "growth",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Kremlin turns to gold reserves as war costs rise and revenues fall - RBC-Ukraine",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNRHhCTm9OQlFXb1VXNW9EMi1GWkw0ZmZQc3FzUjNOaUc0dXQzSEFVQ0VtSTdFZ2w0M0NicWJ3TnF3OURVX2RrSGg3VmI1U0NqMUVxWWg0X25lMFlYX1prcnUxekhjUnZScml0dERBM1cxbldnM21xXzd3aV9OR29uMHlRaExBSndOZEVZWDhMODNKWUJjcnc?oc=5",
-      "publishedUtc": "2026-10-29T18:35:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
       "title": "Why did the US Dollar remain flat despite the Federal Reserve holding rates and two officials voting for a hike? - www.tmgm.com",
       "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQU3lySktjeVVfR1QtLXVMUHdkQTlNbUQyWDVWMTNLb3o2VGVkT0VSSzdKWmp4THZzakMxQ0JRSGRpNFAya2JlOGduaG1tMGFUN2pPb0JLMkRHQ2t1SmtuWHFHeFpzX2pPZngxb2JEQk9FbzJBdGJTSGczb09yMjhpcS1JNXFzQU9NZ21QMmZkN2NELXFhRGt1bjFqbmphT3JZYXBtT0R1cDZkT2VJeDBZYTFXcVkzd2R5NXVrcWpGUFRPeTByVFE3QWl5UVRxTjlQTTN2cGlTWHA3VEc2SExBRXJpWS1wZ3IzeHNUYkN6VHExelVyZUd6azRNcDhxU2tN?oc=5",
       "publishedUtc": "2026-10-29T18:23:30Z",
@@ -3355,82 +3408,31 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Fed holds main interest rate steady despite accelerating inflation - Trucking Dive",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT0w1M1NtdEs2R0laRHZybzJrVWxWSTNhS0ZHVlZRU1doczA4X3YxS1F0YkNNbmFVc2h1dVJVdFI0V2VXVWlQVkxhOGdDc3FRLWd2bFpvSjB3dDByek1pM0VLUmtxczJPRlhyU0w4VTFhMHoxaFRrTVRFT2EyTHB2Z0xKalNDZWZKellPSlowMkJzdUtCRmJ5NnJVUjlKQlJRV0pLZVM0c0kyQQ?oc=5",
-      "publishedUtc": "2026-10-29T18:20:28Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Trump\u2019s Trade Chief Questions the EU Tariff Truce After Airbus\u2019s \u201cRecord-Breaking\u201d Loan - Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRnI3MjRwNmhYbDZBeHJ5alZNcDlpMGpmb2NGWVU1X1ZpeklhRl9hQUEwY0RscmNRTDc1a1NmTHdkSEN5bWNyWTVoZ3FCc2QyRk9LWDJSb2M2d2c5VmR4M1dydDBUZXBBb1FtaS03MXFEODFkbUZKdEd6UnJYZmI3dTNrZzNSLVBDbjVsaTI4MXEweTZMMUpodzVHcw?oc=5",
-      "publishedUtc": "2026-10-29T17:30:39Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "What is happening with US interest rates and the economy? - BBC",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBuQXVLYjJab1F4NDZ6T2h3WV81UkdLa0c1VjZILWQ2RC1MRTk2YkYzWVVuNXZIS2g1RFNEOF92Wmc1bTE0YUUxcVVya1UxVVZsU3RpZTNHcVl1bUk?oc=5",
-      "publishedUtc": "2026-10-29T17:15:05Z",
+      "title": "Alan Greenspan\u2019s Legacy as Chair of the Federal Reserve - Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObHFhMVg5cmQyVGpsU3A5Rk5oaF9YUnpnVHViUVE0QWNsaTlMWHpoS1ZabVlZOFUwOTZhUnZNd3hMM2VzYlZLc21NS0lGUEhkbk9fOS1DZml0U0s3OUI5VVN2emRJOW50SVhmaVNDaWZpZVJ6bElvQ2N3TldPUXFxR1hzZFc4NUE?oc=5",
+      "publishedUtc": "2026-10-29T16:14:04Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
     {
-      "title": "U.S. Hits Rwanda With New Sanctions Over a Conflict Trump Declared \u2018Ended\u2019 - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOM3RIUm10VUtmSjgwYWgyTHdQSHVIczM3ZFhCSGJGbjEzN1JyWFg2YWRSa2lBR3IwYU13MVlGckhRQXJlUWRTZWxndDh0YjdTXzUxLV96WkoyM2gtQzRCcDBnQjJabmZIQi14S1RXVzhoNGY0LXhHVUdQOUlPMnhxczhjeTR4Zw?oc=5",
-      "publishedUtc": "2026-10-29T17:13:48Z",
+      "title": "US Dollar stayed flat as Federal Reserve held rates despite two officials voting for a hike - www.tmgm.com",
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNYTFMdVJfa3d6a0g2bHo5dkxCVTh6T2dwc1ZObkZlbUIxbEwtLVBmYU4tdFh1YjZsTE9xRlpQSzFmYWtnZUlYSXdrS2ZxdU5PMGlQVzNYRUkyaVVkLXN2X0xpazJjVHlPOGk4NHoxcjNEeE1NVnBMam1fdDEwRkRqeHd5aGNFQkJjZWxoMnZaWjctdGZCLW55LU1iRzFwc0RnWnBPQXF1eXk5Yzk4Ym11NEFjYk9VcTJFUUlmeWhxMERiYXFkVTh5MU96S0o2RFNiOXlqbHE4UUFMVWdsTDQ5dXhRZFRncXZQSWNxNS1mNjJQaEhfVlJqS2ZsSDhYaklq?oc=5",
+      "publishedUtc": "2026-10-29T14:58:04Z",
       "source": "Google News aggregation",
       "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
-      "title": "Trump opts for trade talks over tariffs for robotics, industrial machinery - Manufacturing Dive",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPSTZYYkg0M3ZqTjlNOFNGa3hNMG5GRmZMTkRJYk1zYkdFUEtvSUk0cWlndjdZdHdDTkZsMDJCMl9pU3MtdGVwZ3ppNW9EM0IyeW1LRWxyZ0F1TDNHdndDZUM5aVJZc1JpemgxUk1UeGdRMVl5aFdnQkkydHlRV0VDN2hXYXhqVFp3dWtZNWZpd3p6TG5jX3d1RTJ6b3pzUXRibE9NNnZYMFpHdWs?oc=5",
-      "publishedUtc": "2026-10-29T16:35:38Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "IMF says Federal Reserve is \u2018appropriately\u2019 keeping close eye on data - WTVB",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPakQ2R1JrR0tHcTQyazkwcWFURmFUUzNoN0p6N01GYW0tLVJEVHQ3eHdnLVlUdXNCZi02TkctajRieGlCc29WNF9hTlg2OGZ4am0za1dmWUdJWnlhZEZzdFhYRF9ZR21feFUtY3VFQ203STUyRjRVSHp4MVlOQzYtaTloMThUTG1IOVpmVnEyQ25fNDRFYW13UUpyZVB0QkU?oc=5",
-      "publishedUtc": "2026-10-29T16:33:48Z",
+      "title": "Federal Reserve\u2019s preferred measure of inflation rose slightly in September - The Hill",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFA4ZXJvZXdxSXFlelNEd1cxSFdJVmVvQkxsX3IyY2szWmZMNTNKcUJBTllmTXdSb1BSZVVRZ3BNaElMMVpZUy02d095bl9TX1E1RmowbVdjaE9tS29ZX0ZudTZzMzdWU0NPX0Y2cERwNWZSVkdo?oc=5",
+      "publishedUtc": "2026-10-29T13:36:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "Judge orders accused killer John Powell Morgan held without bail in new felony case - KTNV Las Vegas",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZDJYT1o2X3ptcXMzMUZ5cFllb05CRjRjQ1VPbkdoaTRRYkgtWWtFcHlrY2ZoVEJXQlRVZENyNG13c0Z2VHpIdTRqc3NIWmgxRGhyMjNKV1g0RlVpMDNBWElOaENFZFhTcGFBTVVGVjV0RFk5OWt5Z2ZKYXFVZFdFLVVjcE1qTjdSRXpfSmlLSlRlMGVEUDc1bloxeUYzWlJ6SmJEUkRRYWR3c2REanFrU2tyY0w4NnNYTXhWUw?oc=5",
-      "publishedUtc": "2026-10-29T16:19:10Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "U.S. GDP Jumped 3.4% in Q3 with Strong Domestic Demand - Haver Analytics",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNVTljZ3JqQjBkOWJtMWU2WTRVX0lzWlVnUlRnUDV0VXFpSWtnOVl5NjdqbHRHTy1wLVN1M0UySkZxUTNoSmh1WmhlNU9ERzVpak5HZER2aHpmTlFiN1VNeG9JdjF1b25xQjBJUUM2UVF0SVAzUWNhSTNpVXZRWDd3THBYeDl4THF1SExN?oc=5",
-      "publishedUtc": "2026-10-29T16:10:33Z",
-      "source": "Google News aggregation",
-      "category": "growth",
-      "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 90
     },
     {
       "title": "The Fed\u2019s decision to hold interest rates steady helps Warsh deny Tehran a say over monetary policy - Fortune",
@@ -3449,6 +3451,15 @@
       "category": "inflation",
       "impact": "medium",
       "memoryWindowDays": 7
+    },
+    {
+      "title": "Rain raises Lake Powell water levels, but snow will decide its fate - azcentral.com and The Arizona Republic",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPMDdWVVlxeGRxRjQzcGRHdF9odDNZekI0aVVzZUVPaURFenhiZmpLeEhmOGhKb2Z4M2stSl9WZks5ZXdFSmtEQUhrYmpKMHpGVTE2VjBzcFJ1WlBRNUtDcG9oa1lfZExpVF8yUXdhV0F5TUxjamVpR1lUblRwenVUcWNXczRVdlJRSGZkSkhaYXRvd0ZEdnRYTHRIMHhaa2FhTHFVOXVueGtvTmo0T3YyX1hsZDN2VHBjclR4ak1yYUhkTjdIbThCX3lPZzI4cUNqQWJib0ZiYk9ZMjQ?oc=5",
+      "publishedUtc": "2026-10-29T12:04:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "The Federal Reserve holds rates and two officials vote for a hike: Why the US Dollar stayed flat anyway - FXStreet",
@@ -3478,6 +3489,24 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "10-year Treasury yield hovers below 5% after strong GDP report, rising inflation data - CNBC",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9tUkpYWmlUR3kwRzB5cTZuejFRaTloS09XeThKc3hXUnVVem12eHNkN0ZnV2VpemJ2N09sZWNkenlUNGhHVUo4RmdxaDFIUFhSU0JmMHlKckhSbXhxWXpMUGNsZ0dWOVVmd25nNnRpTE1lbEpTbWhkNk9VTnRpeGPSAYQBQVVfeXFMUE1seWVoTlViUzNtNmZyRk1NekFwcWN2ZkZSMUhWOUY2UHJQWnVZcTB2d1NPRXNzcmhzWlFGWlNNYUd2RTlEbUR1WEZlLWVCQzhjclZPdjlVX29STXVDVW1GOFVaeVUxeUoxSk9GRkhEeGg4RmlXclBlb1ZGZFgydFl0SjJN?oc=5",
+      "publishedUtc": "2026-10-29T10:48:54Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "What the Fed's interest rate decision means for your bank accounts, loans, credit cards, and investments - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOaDlWS0VRSklaemMzd3V4dllmTlZRbTQtOVV6WlA2SjlkcTI2LTl4RU1PTk93OHpIelZWUWczX1RfS0xCRHVnN0FlWUZBOFUtc2dWdjE1OXFaekxLWjR0b243b1VWRENCeko4OVFnSXBEVFhCeUhGVFQxMFZVby1CY3dNMG1ZR3JEd0dRWGgyblV2UjIxQkwxZXNjakpHV0dBWUtoeXJlUUpJR2pkaVFlRGEtMEZqd1M2UXlwT1RfRWlxbzhYQU1WdUxXWkh0MHZNa1J6QVl2SFliSVIzVmgwSjBoZ1V1RlZjUGloa2xIWmVBeURVSHNLcFNtM21LMXY2RHNTOQ?oc=5",
+      "publishedUtc": "2026-10-29T09:56:25Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Russia\u2019s Gold Reserves Hit Lowest Level Since 2019 as War Costs Drain State Finances - UNITED24 Media",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQU1dYOUNOTHlnSkptQXNJdWlGTFo5QzVjb3h1dGJFOXlJY1Y4MnZWQWhoMFBpbUhfcS1tQ1FrY2JNT2EzVHZqMDBhNTlYM2JINWlNLUR4ZWl5OWpSeTBQblVvX1Q5VFZXLU9mNEJLeHRCeU44UGJleFdLb09lbmRmd0N2ZHRJZWlWNGpSUDEwOFZmYXotTzdoeWV4ZGtIRE5uX0hQZU5vc3cwLUpzMEVsVENtVlZtbHZjWEMwYWdn?oc=5",
       "publishedUtc": "2026-10-29T09:09:36Z",
@@ -3487,11 +3516,47 @@
       "memoryWindowDays": 7
     },
     {
+      "title": "Sanctions Progress and New Funding Framework: What Antilles Gold (ASX:AAU) Is Building in Cuba - Kalkine",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUVkxSTJsYXpmcHNabTRsQjNwc09WUlZTR081STEyejV2LVVrSmNxQXc0RlVHcXJ1M0VBWkx3TkhVcmJ0SndBbFk4R1h6U1JQS0VWU3pySkhsd0JibFZ3SlR2a1RnbmFWQ3p5RUNMY1hCZ1JZcEszems1VHhibnd6SWJFamYtcVhDSjN4cjZaVUZOd1ZVVkVGS1BsMFZEMFo3Q3BzNTBnaENKc1FkOWNFbkFUcmptcFZfMnBmdmFreVZ3YjA?oc=5",
+      "publishedUtc": "2026-10-29T08:49:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Following the Federal Reserve's interest rate decision, the U.S. Dollar Index continues to fluctuate at elevated levels. - Moomoo",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObEpJT1YxN0RfSVpFajEtdk02ZXVLLXdOTlBpekh0a2RKT0EtSko3bEJxUVlPeU9WRGllR2FYQThDY0QwcGJDMUdya0ZDY05vN3VwbkVnQ0xQSV9pbjRiYkcycEFDSG84RUo5YjBtbmpyWEV4X1A1WFpUZnY4bFpYbjh2WmVMTFJORXVEeC1OdGZXdXJZeWJBTnB2YXowLW8wYWVSQlM1c3I?oc=5",
+      "publishedUtc": "2026-10-29T06:44:42Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Gold fell to $4,053.90 per ounce following the U.S. Federal Reserve's decision on interest rates - \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d)",
       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNbHo1YTIySkc4bC1ITnV0WUp1dlM2NWdnU0JIcVdOSXNVQ1ZXWU8xRHFtbGdrdV9tZ1JIYS1mWkFWV3pXWndiUU9tNDlEenR2dUNmMnkzWlFlb1IwVDdDWWN1SnVheFZodGNuQzhTY0hRc21zanJVdnFVclU4aDlzZUw4QWFNY0F5WUFWRVdsdUhlTVNlQ3ZuQ2pmUldnSGN5UmVERnFIallMWjB4dloyY2VvTWNKal9hTFRv0gG6AUFVX3lxTE9NZTk4MUd5dDNVclg4OHlKSkFzNDlQOGhRZENUamUzbFA3XzZkVzlPLXVhSU82c1ZjN3pZcEhvTlpUenhNaTdUUTRmMGFiSWxDXzZwOGkzNzl5SThZekkybjFuaXk4ZWk2S01UYmZNY1pjODJNdHZKalZXaWY0T1RsTjY0enFjNHhDWWpBWWdSVXozYlFSREN3R1NudV9rLTB3QXVIMjVCUkYzZnRpUzdrVUhaZFp0VE5XQQ?oc=5",
       "publishedUtc": "2026-10-29T04:37:19Z",
       "source": "Google News aggregation",
       "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Indian investors weigh stocks, gold and overseas assets amid war and AI volatility - Traders Union",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNREhoT24taEF2S1QwNUg2c0I4d0RWOUU1SjQ3c3JUc2JpcnFPX2RRd0pTS3hUMTJvVi1aenNLdkE5ZzlHaHVBRFZXWTFrUnNFbU5aVjZscUxLWEI1YWV4VUNUMmRsbzU3dkV2UHc1anZqZENzbWhsRnRuMF90THZnUk9NQzFpR0lsZlZaTHZDVENiWVl5REE?oc=5",
+      "publishedUtc": "2026-10-29T02:25:33Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Judge orders accused killer John Powell Morgan held without bail in new felony case - KTNV Las Vegas",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZDJYT1o2X3ptcXMzMUZ5cFllb05CRjRjQ1VPbkdoaTRRYkgtWWtFcHlrY2ZoVEJXQlRVZENyNG13c0Z2VHpIdTRqc3NIWmgxRGhyMjNKV1g0RlVpMDNBWElOaENFZFhTcGFBTVVGVjV0RFk5OWt5Z2ZKYXFVZFdFLVVjcE1qTjdSRXpfSmlLSlRlMGVEUDc1bloxeUYzWlJ6SmJEUkRRYWR3c2REanFrU2tyY0w4NnNYTXhWUw?oc=5",
+      "publishedUtc": "2026-10-29T01:29:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3523,9 +3588,36 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Lori Loughlin Shares How She Bonded With Glen Powell for His Birthday - E! News",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZ1p3Y3hWd1dMUUxMQVR5RnNNZTMwSEtUR3pYSWJhZUdfWUNNSzRWMHBWRDYwbmRZT0FKRHJab2N6ZHBQc1NSODF0aGg1Z1JIazRFVF85MXFpSkYzcUpZMFRBSi1kQXJLTjhpQ0ljY1h5cWN6RTRTSkdEd21pRkllV2Zuci1vSkNLZDZzSDd3bXhJRWJySlhSRmVTaXNfT2xzUVFLenhRU0JVLWs?oc=5",
+      "publishedUtc": "2026-10-28T21:58:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Federal Reserve keeps rates unchanged despite elevated inflation - AP News",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdmpNR3hXT3B1c2RacHY4TFZnNjlfaTY2c0tXMXZjSWE5Z2JCZlNDZTE0dGRQYjNEejl5ZXFILTNPQ05pX0NyRWpwNW1YVzdpREhYblpHWTZMZkkzNFZnVTZ1NWV4M3FtR0VMUmRNTjczY1NGaTEtSFptWEY0NF9RZ1otWWdjMTZDYXE3SHRWM0NhdEtyczFDeXFYT3RWVF9DTmdGTHdGWHR1QQ?oc=5",
+      "publishedUtc": "2026-10-28T21:54:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Opinion | The Federal Reserve\u2019s Hawkish Hold - WSJ",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNOWJuOWxnMlUxMzlNZDRObEJNMWdVWmFDdmVFWEhlZjZUVWRYZ1F5MHliQk5Vb2IzVW9HcWw5RWh2Sjg2bTRQX0RFTUx0WWxrYXVVQ2FDbEJ2QTRCMlZrRWJGeW80ZUZRZ1pRdW9lamIwSnZpd3QwODh5WUNXbTJ1SmVqMlZieDE2cVE5bw?oc=5",
       "publishedUtc": "2026-10-28T21:44:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Federal Reserve holds fire on interest rates despite intensifying inflation - Financial Times",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOb01WZnNoVWtvSG5SMU1hTzNBQkF4V2JVTWY1ZVV2bFdiYjlMM3FXakV1UXJyU2l3a290U2VZU1hQMHZ4dHZrSlV4Z0x4c01Gc0pBZ3BHMzl2MUJGd0ZEdTNPUWJqUi13T2V5YVJURWNFa19GTS05dkJFVUJIUUZJTElreWQ?oc=5",
+      "publishedUtc": "2026-10-28T21:32:08Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3541,6 +3633,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "Federal Reserve holds interest rates steady despite elevated inflation - MS NOW",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWWx5T3J6azZ4Y0loQlpjNXM2LWRCaGtwUGhHWU51dWxZbl9lNXgtWlZ2QVYyZHFwanpHSEg0X0tyNFdUekhXSnFCZUtwS2w3QXUwal9RQ1dBaUQ3U3A1dzhtZGhFNXFYUUlBRERJU3RwbE1QNGFsYkppczVGamNTR2RGTU9BUEMxQi15RUN5SkpxMC01V2hTdk93?oc=5",
+      "publishedUtc": "2026-10-28T21:19:44Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Federal Reserve makes interest rate decision ahead of midterms - Fox Business",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOR0hLUjN3TllXcDVjaXRBaUwxOW1QcnJLRkc3ZGR3SnR1U283WVdPeWozMmw2eFlLa3ZVb011TlEtMHI0RjV6eWE0T2ZXcXRNQVR5eEIzbVhRektfTHkzLWNLbVc5U0RQaXUyRnFSZ2VCUmZNOFlpcTQyWXc5S21zRWxpb2FBSS1FSkpiVnc0VnV5S2o50gGaAUFVX3lxTE1DUFpkcUswb2dYdVhleE1XejZfZVdTSHJsbUhOelF3Z1B4UUpGdWhqUGQzTmxvTmhGbFFQZ1VNdmhNenprZE1Hbjh6bW9RUTFGN0lfYkZMZ3g4YUh1VlM2eUhGNHNpVUN5ZG12R2RrSnpxTDRKTVR6Y29oMUhHNVdMZ1N1UzFLUjF3LUNnc0pvUFNQZXA1T1JnQ0E?oc=5",
       "publishedUtc": "2026-10-28T21:17:00Z",
@@ -3550,27 +3651,27 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "FOMC holds rates steady - ABA Banking Journal",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE91d1hqVXZsRGlPTkZHT0Zwa2tMLTZMRWZjYmtHRkg4WFFqQkVBdUVTampMV01IYk1IUmZlVUt3a0pURDJKTnpkVWs0d0xuWGFrWjkycnd5NU1aZDlkbmdhZV91eTNpQ0RaajBqQkg5c0NoNDQ?oc=5",
+      "publishedUtc": "2026-10-28T21:13:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Federal Reserve holds interest rates steady as midterm elections loom - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPUEhoYVl4OGJtaXFLRU1idHB1dmlvYk1uNEtNNnlMVkFlZEN4N3hpNVB5cmNjWkFEajM2WUZ4bDJJN0pNYlpra21QSGI4cFFwLWllM0xxZlptYWRmdkRlbXAwRWVLcGRBd3J3MDFpUDBvUjVWMElMOGwtZlJMemRJQzczLXI1cWNFMnJKeEcwcGJhUjkzVjZfZ3puam1BQUZFMTRFZ1BIa9IBrAFBVV95cUxQeXRhLUNLYUFqaEtwY25VNnhEUzVzZmRMczBrdVo0SnJXdjdCZjhCbVpURUZJQ2M2MUwyVzlHblFrcTQ0UGhIYUVubHhUZHFVbldqNnJxOFprRG9FRmJIV3ZPaFJiSHZ2a1k0N2R4Q2swcFJ2cDNhZVVJdG0zbG9qaFdvd1l5MXcwbjFWZnBFelBZdFZBMk9pekEzOGFmaEVqVVNmTkx4dXU0eXha?oc=5",
+      "publishedUtc": "2026-10-28T21:09:41Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "The Fed - October 27-28, 2026 FOMC Meeting - Federal Reserve (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE14RjZmQWJVVVo4aUZXV2czTElmaWNwWEctaUhMU1pzTUtBV1lTSU9nNlZjM1h1OHZUMDRkd3oyOTVIOEkxdkVfaXFTdFhuY0JpRFdySDg2ZlRXdDBDTzN6VEg1S2hnczlnc1V2RmpLVWs1Sy02R3RHaE5B?oc=5",
       "publishedUtc": "2026-10-28T21:02:29Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Warsh Says FOMC Meeting Schedule Will Change as of Next Fall - Bloomberg",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMmFaSnVIZ25QMm1nYTFDalFNWnhBNmRWc1VlV1RlTDhaT0IxSFVEc2pZVmFuay1UYUszVVpOc0pvTmFXZG42QmJpQW1fZnRLS0EtbGtzNjhtazl5OWttS05aVFROWG5ReVdHNGsxT0FYdVFOR0JpYVJ4YUpvbzN5U1FNY0RjTWgtcWFFUGVyNUVpbFhLNHEycXh0eWN0bDFNd09mY3B3?oc=5",
-      "publishedUtc": "2026-10-28T20:50:28Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Huntsville police close two 2010 murder cases, name Jeremy Powell as killer - WAFF",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNNXBlUFEyTXlYNnlBYXJGcy0ta2hKTDEwc09icy0yUzI1T3hBYTRSMUF2V2cxUm5seEI5UzNRUUdVNmtYTHR5SmU0QVNkdUlrdTl5X2U4RmZTMVRPbjItZHU2OXN2Z2JFcnNZWUNtbmZqYTNSemRldWtzM3lNcUQ4ZTNzV01KdDJfVzdWMGd2LUc1ZG1OQkFFb2wtTi1qbTNMLXZPQ0pCd9IBuwFBVV95cUxPMVNJSFhscGxSR29vZjdQWmxMNU9DZ0tySXhZd0JVZ2pqZkxqUWNsdmVVY1NVaGY2Q3ZKTE9nclh3ZElWVThBbDFsLXVuWWMyeVVNNDlnWklMM3pCRkRRN1lweGEtVHMxSmtZbnNYQ1VKSDlERVlpSkRFZDhiTkd4Ukp5Ql9XaGZJS1dPcUdsWjk0bUQxRzlIMUtaMlJvc3RORG5NOVh4VG5laUotREFvZ01DeFRqdzYxWTZJ?oc=5",
-      "publishedUtc": "2026-10-28T20:25:00Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
@@ -3640,72 +3741,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Fed holds interest rates steady even as inflation remains stubborn - NPR",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxONGlIQ19wM2oxdDZvTmVUSVFmSDNFVTY2ZGUzSlVMZFU2NHJ3alhfODMzYUFKYmE4M21aSG5zd2k1MVI2akpidHhGUXRwck43WFNZYU5mZmpRRzl2dDZES3VWTkxURW43UkZteGUxODZsMEcyRENWX2VJQVU4dVNPdFhRWGt1eUpBamtPcFhn?oc=5",
-      "publishedUtc": "2026-10-28T18:04:42Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Fed holds rates steady despite concerns over inflation - CNBC",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPVjFqcXcxNFVDRGhYVGxJWGRJMTlJQmxGSDB5WUtrVzVKTGdOeHJuRFlCclpaVmFYQWtuQUx5QkliT0hCY05xN2oxTEs5eFFpa1dfMHBOTkY1Q2FMa3RRYlJhdU5tc2pJQk9KRkp2c1l6bVZFak5FYzUwelRWRnlJX29B0gGHAUFVX3lxTE9YSTVNRm1qMmE1eUZDQUlLdW51bmtLeWxka1JqTDFTMG9rUnNDR21QNFJRTTIxQjZyRlliVzZoYzd2MVVRTmFuQk13bE5qVFJsazZ6S1Jyd2h0RUl5VzM0TlphMFBhU21oUFpkOGRyQjFKVEkyZjVObmVBMVl2S3FTZ0RUVTFiWQ?oc=5",
-      "publishedUtc": "2026-10-28T18:00:18Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Federal Reserve issues FOMC statement",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
-      "publishedUtc": "2026-10-28T18:00:00Z",
-      "source": "Federal Reserve",
-      "category": "rates",
-      "primarySource": true,
-      "officialText": "The Federal Open Market Committee approved the following statement for release by a 10 \u2013 2 vote: The Committee decided to maintain the target range for the federal funds rate at 3-3/4 to 4 percent, in support of the Federal Reserve's dual mandate. Economic activity is expanding at a strong pace. Job gains have kept pace with the workforce, and the unemployment rate has changed little. The accumulation of more information will help the Committee determine the policy stance appropriate to ensure a timely return of inflation to the Committee's 2 percent goal. Voting against the monetary policy action were Lisa D. Hammack, who preferred to raise the target range for the federal funds rate by 1/4 percentage point at this meeting.",
-      "officialTextSource": "Federal Reserve page text",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Why gold prices are plunging amid the Iran war, despite being a supposedly safe asset - ABC News - Breaking News, Latest News and Videos",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYWtMTnVJTkNTczRrcS1UbEJXamtuaUZfTTR4c1hxUnMyNHBITXgxZkJQd0p3MURWUDNQMEU1TVNuM3BKS0VIamNtejRFMmhXMTlvZzhIYU9vLUVtTnNVNUZaeERKVlREN1FKX1dtSGJRWGRQYXhrLXJhR2g5MGt0Q2JPTFkyb0ZPQmtaeGhVTEE1MVg0eDJIQVE5UTQtcTZlcTNJ0gGoAUFVX3lxTE82UTlMeHVybWpIMy0tM2dHNFJXNklZTTR0cjlaSTUyZmNMTTgzNDVRTG5nVTQwbXhxZEI4TUhwRFBaOHk5LUM4cF9IZ05hUFV2TTFWeWphbEcxUzRsRGhJRllxSFg2VUg3TE9HU1Bja2dmUDBmY0pvZTRwY3dtZUg5b0V4M3NwaGlMbV9jbm9EZllBN2w2VlhsTGZ6UGIzRkF1RUczd0VVag?oc=5",
-      "publishedUtc": "2026-10-28T17:28:14Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "The Federal Reserve Will Release Its Interest Rate Decision Today. Here\u2019s What to Watch. - The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQcUJVN2QwZGtTaW1kaW1YenZOLVpfZDdLTHFMSUxaZFBPeUFoUEQ5S2d3b3N6dE5DREtLMmZnWDFFSVhqQzFVS2tnR3JrSndRUlZxVmQ2RmtPdTRJNkdjM0IyTjVJek1RUVk1cEg1N3FqbUI1YzFwb3VmYjhQUUtPMDJTZkVqZw?oc=5",
-      "publishedUtc": "2026-10-28T16:36:07Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Federal Reserve raises interest rates for the 1st time since 2023 - ABC News - Breaking News, Latest News and Videos",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYktxZlJxRVNrdUZFRWViQjVMLUh3OGJwNGhrVFpJY2E5QTAyajNfcnFSb09rZUVkSnVMUHd4WkpsYktvZGczX05nRzVhSTdKNWtfU2hWb09IYnNQQ01tTlMwMV95YzJkbWVDMklwZ19XMC1RNmVsckpGS3FpNUpiRlUxZkVtNXk5NE5YRnpBSTI4eEhVOWxaUlBzZDlxb3p1ZVBFeHFR0gGrAUFVX3lxTFBrZzU3UXhjRlBBblFYNzJZZ3dINVFwMnpIOFQwRlJ1NmRTa3JNUGlkamJyS08wRjM5UlFuMkRJcHAtUEQxYjF3b2Yyc2E2V1hOOEhQRHRPckpidllEOHpLRG9VUTFxSUwyaE95SzNNZ0pkemQwQkNBYkZPbTBpN0ZMYTBWU25nT3FrUVNNal9Eb0lCNnJwZTVFUVVhM0dDRlMzQ1pQTF8xRTV6bw?oc=5",
-      "publishedUtc": "2026-10-28T15:52:10Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Federal Reserve to announce its latest interest rate today. Here's what economists expect. - CBS News",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQTjc3SWhXX3BBd29iUjJQRC1HZ1k2M1ZzU3RORWEySTQ4TGdaSjdaMjIwNTVUWFJpZW5OZmU4X2JPYlNSOWEzRW1BNHJVRTk3azhSRExhRTRlNG8tNzhsMHhIcUpIZGdScG5jWnNGR1A1VVdpWTVNcDhMYm5kZjFWSzJn?oc=5",
-      "publishedUtc": "2026-10-28T15:29:04Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "Consumer Price Index: Inflation at 3.7% in September - Advisor Perspectives",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOd2htc1NwUVBJTUlYUGhWV0JPUWlpOEMycXZxc0oyb0lmVEFtc3oyMzMwam5vRVRSOVNudEhLeXZ1dUY3VkVwOXFucW1MLW5zN2lxSGRnYnRrS3NpNl9WTzJJbUdCRDdqbUFiM0dSNDBCRk54WkZzVDlITlFSNkJMbm1DYXduMFYwSkR0RE5LczJkcFJoTHJ0VnhyMll3azk1VWpUYXVlUTFOUTEzTUx3ag?oc=5",
       "publishedUtc": "2026-10-22T15:18:28Z",
@@ -3715,11 +3750,11 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Analysis: Everyone expects the Fed to hold rates in October. Kevin Warsh could surprise us all - CNBC",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZFl6VlNnRU5TX2V4NEx3eEEwWDhfZGMxS3FsUVd2Z0FMZzJLcnNfOEQ1Z2xxYmc5Nk1SYVNFQkhQeFZiX21fdFJTOWZ4aEhvTU1mQTRIdEFYMms2Q093RS0xMURjb3RwTVNfQXp0cVhjTHpGUEdENzBHeERCYW84dnRkRE1DVjRuTXo5c3M5aEkzOXNkMnlFX9IBngFBVV95cUxQUjQ0SjZBMDNsSDI4cDdJVTgtUFlVdnlhQXN4ZjViU2R2bWdobHQ4RDM2cDVIc1J5RGJwOXZsNnRUQTh6QkFyVEFjbUc0blFvNUE4M2tZN1NnRTJhbnVLa1AxYkk3R0xCTUpQN1dRV0dNckx2NzFXZktaLW1QOXlCMVJmN1FfWjJNZmJma3hQcGZvQUF6NkNaZGwySWtmQQ?oc=5",
-      "publishedUtc": "2026-10-16T07:00:00Z",
+      "title": "US inflation heats up in September; Fed rate hike this month back on table - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNX3hkV3J5em1xWWY4V0hQODFTamFtU3NvdkpPRUUzMGY0TnlKaVlneXZPc0J6bFpWdDZWb2hLRkZZaHhZVElDSXNFbGNYMVVBRGR6c1RlNDA4cEhkMEcwck5VMFRtZ1QxOFJqNTkyaGJzWWFLSXp2Z0l1Z19vMDh5bGd6N1FJSkJFR2tZUXd1UWUzeVlvZi1xNTVONk00ejJ5cE0xSGY4THFsaUo0RGxPV3dpaW4tbEZseUE?oc=5",
+      "publishedUtc": "2026-10-14T07:00:00Z",
       "source": "Google News aggregation",
-      "category": "rates",
+      "category": "inflation",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3733,8 +3768,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "September CPI report shows inflation accelerated to 3.7% as energy costs soared - CBS News",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1FOV9waFFyY1ktcHJ6LTMtcmRZa01rMHRnenRGZEgzcWlDazhQb3BRMEdPS3VJUWdHeTFIRlNHeThXMVMzU2N1OG10OXlFckhub3RxSVdSSWhVdXlUV0o1OEJhQ2RrTmRqd1ZpRTdLTk5tTVBJRmFvbWFCaWZ3dw?oc=5",
+      "title": "U.S. Consumer Price Index: Energy and Core Pressures Keep Fed Tightening Debate Active - Haver Analytics",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNVzVqNGQ0dXBteFNxanNRVmg5WTFlNVdkN0ZOWEhyVnZwSGtRdEk2YVY5M0RFQ0xqQ2hsNW5hOUYyMU9ObDBjaTVib2JOM1VQUzJDSm5yckJiWlB6VWUzNk9mMllvTHJVT1FFZHptYUtVb0JTemhadW1tNC1jRHYtUE1hM3djemExMkZSeVFIdHFkOEk0VWxkRlAtMW1aMHpVM0NqcGM5RVdfV0FRbkZKU2c0bVZadw?oc=5",
       "publishedUtc": "2026-10-14T07:00:00Z",
       "source": "Google News aggregation",
       "category": "inflation",
@@ -3751,6 +3786,15 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "September CPI report shows inflation accelerated to 3.7% as energy costs soared - CBS News",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1FOV9waFFyY1ktcHJ6LTMtcmRZa01rMHRnenRGZEgzcWlDazhQb3BRMEdPS3VJUWdHeTFIRlNHeThXMVMzU2N1OG10OXlFckhub3RxSVdSSWhVdXlUV0o1OEJhQ2RrTmRqd1ZpRTdLTk5tTVBJRmFvbWFCaWZ3dw?oc=5",
+      "publishedUtc": "2026-10-14T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Consumer price index (CPI): US inflation rises to 3.7% in September - Beinsure",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1tMThlV1dRRHdVRE4zY2FISy13bmpqQWl3Yk9GdmREVzdxa0JwYnRBekFYX0E5ZV91TkFnTHJ2NGpyMFJwNlZUTms2WUJDcHZfcEcxWEUzbUE2TEd0WG9zMFZxV0dfejg?oc=5",
       "publishedUtc": "2026-10-14T07:00:00Z",
@@ -3760,26 +3804,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Inflation increased to 3.7% in last consumer price index report before midterm elections - Washington Examiner",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQWFdIUUJwUld0MFZMLWZBakp2S3I4Wk40X2N1MjUzQjFFVE41WmF3bS0xaEFCNGx3MW0xRFNlTWdRV0g2U255cUo2RmNUNzVZUjY3TFJrdEVKQ20yajJzQzVNVWdLMlliQ0dyeHQydS10ODBZbXIxQjQxTmlmVF9GNER4alZzR3V0TnBDenJuLWw5Nmh1T0x1YTlYQlhBT1Vab0x5TENYMGNsMktlVTRiQzNISG9BZnQtZlBhSy1XSjQyV0k4a3hZWEVyRQ?oc=5",
-      "publishedUtc": "2026-10-14T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "CPI Report: Inflation Jumps to 3.7% in Troubling Sign for Mortgage Rates - Realtor.com",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQTDFNYTZUbFNUdWdTWmxtblZTenZRR1B4VHYyT2hnX2d5bXhqekd0cUZ3dWNWX0E3MUhiN1hFMUhCQjJUeWRaLXU3MFVPR2I0bDFROWI3SjhEeDdhdUhTOXNVM2VhWV9TcElSQjRWTjRKVEplcEtyZm1OR2VBNFhBUHhqdTJZeVNIN0ZIQWhNM1c?oc=5",
-      "publishedUtc": "2026-10-14T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Fed rate hike call seen tight as inflation heats up - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMjl1ZWZGd2lIRXg1US1hUjNacTVDN2o5S2lIcXpCdnZ1VHBXcEpqOHV5SzJJZHJrT3RxYjdrRjRrRU03eHNGTTFRMnVCVEdZa0VfLU9BeFdSeTE1aFRrc3ZRampyOFVTczZRbWk0azFBakVndUJ1X0NjVmJmV1JmeXNXSlFkNzF0NUZKTUUyUnlHWi1sOXFpVHV5NnVvcDA?oc=5",
+      "title": "EXCLUSIVE: Fed's Daly says rate hikes likely needed, but not urgently - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOMndHODQzSE53STRuTnVib1hVbS02ZEtKUEFmQnlqNDRFTXVHSVRxMFh1YU9IN0lLRTlPbEZsOXhHQllMczhyQ0llSHFoX3RuQTdHNUMtQUszZlZEcWJYMDRjMDAxNG5hUGNxMXZHejlZbFg5STlZekM0Vy1VeldsVGdvRXU5SVZmZTAyVTRkT0NZOHptamRHMFVqdzdBUmNONTV2eWJzaXc?oc=5",
       "publishedUtc": "2026-10-14T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3805,8 +3831,17 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Fed minutes: Another rate hike likely coming this year to combat persistent inflation - ABC7 New York",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQQk5wd0NJcTk5SnRHS2hYUjRDRXAtQjBQZE5XZ2Q0X2FzWFRlbUVWT0l2NU1aWEFWM2ZOYktsczkybWNKb0JmOXl0clJsQUs1ckpodTg5cy04UzZGT3JGallkWUJ1alRvcjFCSmloeDZ5cllHTFpDdGZEeTZrd09XbUNlM2loaVN3am5HNDMzOTRJcUhyMW5IX18yUnREd0ZWVHRlMjRGYw?oc=5",
+      "title": "Are Fed officials changing their tone ahead of October\u2019s FOMC meeting? Here\u2019s what they\u2019re saying - Chase Bank",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNQmxxWEp5RGVuTElTd1hhSUZIeEk5NmVmeDl0cG4yZjhjdjRUaHVhSDdxMWxva0tia3VEOWFwY2RrdmFFT3dkUERzWVZEUkVIOWhmbjdzTHRrV1NkLTUwbXYwcEVmWnNNaXFPQXl6NVdhMnBSUEg5elQ4Mjd1UXl5NTdleVFNT0pHS3QwVGR6YTNCdzNNZFVnTEdfUFJjdnY2QzBtODhmVVBrQWtGN2xWRGgxZGxZeGh4WnBUelZKN3I5R0R5N3d1aUwwclRGYlhqd0hxYzRjdXRCcUdPb1Vr?oc=5",
+      "publishedUtc": "2026-10-12T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Fed minutes: Another rate hike likely coming this year to combat persistent inflation - ABC7 Los Angeles",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNMVBLVEgwejNoSlowajFhT0ZuSTN4UVk5Ui1Ea3dZWUZjR0lWbVNaY3IzTkU5Q2VfQUpOZHRVajNPYUJ6OTBva0E2VzJCVFZTWjgwUEJBMTN5YmE5SGhxeTlRTEVoM3RIak1MVEN5cVNwUVJ6LXpfQnlMNDhsMUh4YjlBTzhMNnM0WjktaGxmVGtEUkpObEVDdGpMUTdYb3VnaWNNMg?oc=5",
       "publishedUtc": "2026-10-11T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3823,15 +3858,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Fed policymakers divided over rate-hike logic in September, minutes show - Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQOVl1b0t4RWF0WnFRODUzeHAydHMzOFl1U0lKbEhOa3ZSbG1GdDdubllBRG9raTZ0VllPeWJsUEFmOUlLaGZKYkd1QXo0dEFyUzZCUjdKM0NQeHdCeUZWU1hBcTBNaGJIaVJwVkluZ3Y0elloSXRyRHJkek1VdUxJdkV0NV8xSXJxUFdOVjBJVmFRcm5Na3M2ZGlodGdtcEk2NFlnWnZXVUNQSlJBUUFUSmJiOA?oc=5",
-      "publishedUtc": "2026-10-07T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "Discussing Consumer Price Index numbers, inflation and Federal Reserve's decision-making process - 11Alive.com",
       "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNVjEwYTlfUHNDX2hDc2p1OGQzb2JuTXB0X1c1WXphUy1IWjJ3S0lvUXozMkw5Sk5SYmpxRV84eFNmMjNXR3dCdE9TM1F0eExGaW1sdmwxZWw1MkNTX3VSdFNjd18ybzFmWVZ4RVZuZmFUZlFIa2QzOXBWRVV4bm5iT0tyU2FQdEFVQUt2WE4tRnZXYkdZVXBvQ0cxVXd4N1ZlbjduUEt2Uy1xYjVrUXhOMkJRMWlpM0Ywc3VmWHNQZGlOQXdseFM1X2lUOEFydjhhZUFGNUZYVmZtWlYxdktSa0luVEw0d09hUHdLQXdsbHhWdnE4c3cyRnE5TGVSVHc?oc=5",
       "publishedUtc": "2026-10-05T07:00:00Z",
@@ -3841,26 +3867,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "What makes the Federal Reserve decide to raise or lower interest rates? - Chase Bank",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYmNGVDdWOHB0Y2E3TVNGSVdZbHBqdllnVE9XMXRKRmE5V0l0b3NvZkh0MTR3a0JtdnZMazVKN2FfR1NIdlB5LXZvRkxTaF9jV1ZQVnU5dERKNGNlM2lXdGU4NDluVE5CZmlTLVZENlJBZ1ZXV2NiYXNPWDNTTEhSMlZROVQ3aVhkTzVxNFlLaHF3cUh0dGxwTnFVa0FBY1BNczg1bnpSZVA1eURnbXZ2ag?oc=5",
-      "publishedUtc": "2026-09-28T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "US CPI: One month buys the Fed time but it doesn't buy a trend - RBC Capital Markets",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPUmtoVnNrWDN5c2ZnNGFwOUxYX1JxMXN6N2t5TE1qeDk5eDVMbjQzNVc5Z1g2ZVd4b3JRWG5DMGZyOG51TzZILVA2SktnOUVTdGNKYkN1VlgxbFRVemI5cnhBR0VOTzZ5WEFJMjF2azBHcXNtRHRDdjNkNXJ0bV9ydGJOSl9BRzRLTHNBNzdpdGFnQVFHODJLQlk4dXNwNFhtWDZobzBNUUIzRWhmWnpMVmRiQ1pJOXNGTDFSeTNB?oc=5",
-      "publishedUtc": "2026-09-25T04:10:35Z",
-      "source": "Google News aggregation",
-      "category": "inflation",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Federal Reserve rate hike reflects new world of sticky inflation and faster growth - PBS",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxON3hFUzkwR1E4VklXWkZzb3FWeG5Nb0c2QnM5QVg4MC1UV1ZTbGpWOVpxOGFDaThlTmw3MlV6RFRfRFlLYTY4YnJrVE5ldHJ1eFN5NW5WM0V2RHFoMDJVUTBjeDB2Ym1kdzVaa0tCaDFrVkdqVnE3WVl2cWRydm5QVkwyNjh2eUNpVjhaNEkwUGFHSDFIRzZrQjZKcnVQa0lEYmJVNWNPcWpRbTJzZEkwWUYyTTYzemxQZUlz0gHAAUFVX3lxTE9IR0xCTjVudjlGY2xSU1JHbVJ2MGU1VG1TYUVBTm1XLVdVMHYycm1veTBkX2pLMWU0OVByci1ETlgzTUN6dWVtT2hFeDZmMkJ5X3FaUlJ5cEJmczVIWXhYTGZPa1k0ak45OUNfcU9sbTY1ZFFNR0N3LWRrSXJEYnRKT3d4UVlNWTM5cHRqS3Y3SXV0R3pZcEhodkFNNmZaV2oyX3ozbDN4WUtUbldqMXJrT0JsY0otTkRfWTVMV25mYQ?oc=5",
+      "title": "Federal Reserve rate hike reflects new world of sticky inflation and faster growth - AP News",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPeUxpb0hhaEY4MGl0T21yM2ZObndRRlBrc0owTWxDM1FKMlFrWmF5Q21aNGFXdFh2QW5RRTJMMkVZSnJkdnpJMEdTWEFzTjFLQ2RCUWNqWXdlVVJoalBTLUxTMFJHN3pQVlAyLTdGLXBDdnlWbFlzMEJRTlowcklrY2NOaXEyOUE0cG4zQS1oRkxFR1JORWFBNHdJUXRnSGpILWc?oc=5",
       "publishedUtc": "2026-09-20T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3877,15 +3885,6 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "What the Fed Rate Hike Means for Borrowers and Investors - Darden Report",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSjJVLXJGcVpkWmt0c2hzXzVWYjJraXdPUEtPb0tXSWNIZlJfY1RoejFPNDdqNjJ3b0VTbzlFYmt6bWRWYWRXYmZHb1l2YlFKQldCMm1rbkJlOC1ZUTJyUmVKTlhzMVdhZzZGUnR2Y1Y5cVlGYnAxOFBQelYyQjZjSEFSY2VGaEdyb19ITlkydjhjYVgyT1ZvQ2IwYlFlSEU?oc=5",
-      "publishedUtc": "2026-09-17T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
       "title": "Fed approves interest rate hike, signals one more to come this year - CNBC",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB2d21SUXhkazRGZk1QSTgxb2lQME5TUzdVNEZ0bWVxdWRENm96dUNfU040Rnc4Skl5MnZwcXlKLXh0c1NzYVhrNDZHY0F2M2otb0ZEZmRyd0N2Vlk1WjZ1a1FpZk9jaEtBV25HejlPUE5LVWllZDN2TtIBfkFVX3lxTE5MbUliaWM2Nm1nSDRQU0ZEUmdZUXVNVjRZeXpzRWlaY2pMRzMwdGFUb09jaWhqUFNJZEo5OUxJenR2aEtkcWR0MnVYR3VmdndJWlJTNGlPWmUzNmJYLS1oZ29fMW5PR0dzY3JYUkUzaGdfemtIQjBqc1hjMjNtZw?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
@@ -3895,8 +3894,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Fed Delivers First Rate Hike in Years With Unanimous Vote - WSJ",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSnY3TVFMMUNHQklOdVhJV2JyYzZwRVhSZVJCNTFsZkdMR3Z5dmM4TGlxR3FqYUlhUEgwTlpXR25pNC1PdXF6bHJ1NHpLVzl5Q3NBanFRcnNjMFZhS01HMzFZZ0dzVzFvX0xZeTZxd0gwaUZpOFZIcUpvdzA3NkpXTlN3U0tVZFpXbWJZZ3FkUENBd1lsSTRacFBKeHl1c2JT?oc=5",
+      "title": "Federal Reserve raises interest rates for the 1st time since 2023 - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYktxZlJxRVNrdUZFRWViQjVMLUh3OGJwNGhrVFpJY2E5QTAyajNfcnFSb09rZUVkSnVMUHd4WkpsYktvZGczX05nRzVhSTdKNWtfU2hWb09IYnNQQ01tTlMwMV95YzJkbWVDMklwZ19XMC1RNmVsckpGS3FpNUpiRlUxZkVtNXk5NE5YRnpBSTI4eEhVOWxaUlBzZDlxb3p1ZVBFeHFR0gGrAUFVX3lxTFBrZzU3UXhjRlBBblFYNzJZZ3dINVFwMnpIOFQwRlJ1NmRTa3JNUGlkamJyS08wRjM5UlFuMkRJcHAtUEQxYjF3b2Yyc2E2V1hOOEhQRHRPckpidllEOHpLRG9VUTFxSUwyaE95SzNNZ0pkemQwQkNBYkZPbTBpN0ZMYTBWU25nT3FrUVNNal9Eb0lCNnJwZTVFUVVhM0dDRlMzQ1pQTF8xRTV6bw?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3904,8 +3903,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "Fed raises rates to 3.75%-4.00%, first hike since 2023 - U.S. Bank",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNRHE2X3NqMTh3SDJDcXAyMlBMcE96b2xIc3BBSTJvNXA1WFZuSHlpanRkMnlJdjNYZUdONHVqT3g5VXZONm02UGRzTjVLSU11bldvdHktMjVOVHBrdnYya3RCS0c1TFp1Zl9lX1dDQUhaTTVMM2wzeFlvNGFYNktiVEl2dk50aWhUU3diQUFYaVh1OXpQRnZPdDN5LTdycndSRDVOdw?oc=5",
+      "title": "Federal Reserve hikes interest rates for first time since 2023 amid stubborn inflation - Fox Business",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNTkNGQWZwRUllRWhwM29vZGhCd0Z1TjVzSGtnUXZibzlBNnNNX0hobXRaempWb1k1bndFR0xaTk5yTllrRWFWQk00b3NDYVhQTDI2bUZWQW0xV3lCeUNuOFhEaVVQdnJGc3ZCQUY3MzN3ZWpqb3A1ZG1HT2dMNGdieEw0R0ZsZ2pYTlJMOVdMeVhkVFFWQ2o40gGcAUFVX3lxTE5zT2pObGszWGx6dXo3VjdyQnlDN0U2N1ROcFp1NW81amlLVGJ2b3Nmb19Ca2RxcVpISHdhdTdfdXppX1JJV2RUTEwyYm9MdDRucDdMNEY5Y1M5d1IweWZSbUVseGYydldTNm91OWVVdDFvT1BJQUVXa0lpLTY4OUwtVTUwUHZBWlNQaDN2VW9kSzFmSGQ1bWtzT001bA?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3913,8 +3912,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "The Fed raises interest rates for the first time in over three years - NPR",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVTl2UWxwMkg4QzNVNll6b0ZoSlhSNlVzOV9sd2Z6bWd0Vm5rS0U5Ni1XTmplTVlNamhVV1d3RDA2ckxWTVJIakVpNnlscEc3b29xRklzRGhwSmVlMmJ5d0dpcDE4eENtYXUtUEU2a3g5MlFNZXI0UkVHeHY3a2tWNU5Fd2dITUtWRnNwQ19Qdy1oS0p3Vkhleg?oc=5",
+      "title": "Federal Reserve raises interest rates for the first time since 2023 - CBS News",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9aQTI5TnA0bk5pNlk0b0E3NkpjR1Jfd1BFa1FwZ1ZhY01FS1NfMFBHVnBySWdFY1FBN1RibF9hZk1tU180bU1EdTFQS3JuNHotRE5TNjk1REFsdG5iY2hqeXpmeEJNMVNFWnQ5aF9fSQ?oc=5",
       "publishedUtc": "2026-09-16T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3929,6 +3928,42 @@
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
+    },
+    {
+      "title": "Federal Funds Rate History 1990 to 2026 - Forbes",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBsNEtLYjBNb05hZjBmRkV5NDctYTNrTTF1a0FwQzlpdG42Y3ROZmNVdmROTHRMbTBobHFhTnBzUVVDZEwxdGk5cm9HRWlWMTBCYk5EM0doODFNNnFPb0JfRDR1VVFwSzlsYnV0MUVfeldlTGpw?oc=5",
+      "publishedUtc": "2026-09-16T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "US Federal Reserve raises interest rates for the first time since 2023 - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOeWhDdlBSX1lpSjc2M2Y0Skh6c25pbEZKUXkyajNkd2xlbERaQ2poY01KRE50dWxsSENqWmRERDEtekVfME9KRWx3ZVp0SHIwOXdlTm5LY2lQTEIwNkR0aVRGdEtKVGJEOV9DRVIwME45QkFiSlpWVFJtVU9BVC1XRU5tTU9aUXlQUEo1VQ?oc=5",
+      "publishedUtc": "2026-09-16T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Trump and the Federal Reserve are on a collision course over interest rates - NBC News",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxORUx2RFdkdERoV091d1VKeFloZFNyMXVxN1RTelVMd3VzQUI0eHpDTWdaQm0zbTlxSTNNcERBZzlycXM5bmRKNWpjZEpGQ0RWVzJYWjF3M1pNRlFfUkp0Z3g0WGpndHcweWFMNUlmOVVtRWRUZThNR0ZyLWFsalVabE9zNlFZNnFSb3dncHZidlh6d05pVkVaamtn?oc=5",
+      "publishedUtc": "2026-09-15T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Transportation Consumer Price Index \u2013 August 2026 - Bureau of Transportation Statistics (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxORDBmUnY4S2NOMkJnZ0RaVk5TZlFxQ1VyWUdVWWpiS0JtU1ZGNnd3b0FGRXNZU0t0WkZadHpPWXBtcjY3Mi1UcUFBb3hPMjVpbTNIeTlydERyQXVJNmpKcVpMQ25MMU9vMHktX2xJR21QaGhqWFZ1MHhoX0YydDBXb1hR?oc=5",
+      "publishedUtc": "2026-09-11T07:00:00Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "high",
+      "memoryWindowDays": 90
     }
   ],
   "errors": [],
@@ -3941,7 +3976,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 39,
+    "retainedRecentCount": 47,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3978,98 +4013,98 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-10-30T02:55:34Z"
+    "updatedAt": "2026-10-30T09:40:38Z"
   },
   "technical": {
     "status": "live",
     "source": "OANDA v20 practice",
-    "observedAt": "2026-10-30T02:55:35.816319007Z",
+    "observedAt": "2026-10-30T09:40:41.368527841Z",
     "symbol": "XAUUSD",
     "executionTimeframe": "4H",
-    "currentPrice": 3997.56,
-    "atr14": 26.884,
+    "currentPrice": 3989.23,
+    "atr14": 30.346,
     "structure4h": {
       "state": "range",
       "swingHighs": [
         {
-          "index": 262,
+          "index": 260,
           "time": "2026-10-16T13:00:00.000000000Z",
           "price": 4199.08
         },
         {
-          "index": 266,
+          "index": 264,
           "time": "2026-10-19T05:00:00.000000000Z",
           "price": 4190.42
         },
         {
-          "index": 274,
+          "index": 272,
           "time": "2026-10-20T13:00:00.000000000Z",
           "price": 4155.57
         },
         {
-          "index": 281,
+          "index": 279,
           "time": "2026-10-21T17:00:00.000000000Z",
           "price": 4142.225
         },
         {
-          "index": 292,
+          "index": 290,
           "time": "2026-10-23T13:00:00.000000000Z",
           "price": 4034.085
         },
         {
-          "index": 299,
+          "index": 297,
           "time": "2026-10-26T17:00:00.000000000Z",
           "price": 4030.065
         },
         {
-          "index": 306,
+          "index": 304,
           "time": "2026-10-27T21:00:00.000000000Z",
           "price": 4070.84
         },
         {
-          "index": 311,
+          "index": 309,
           "time": "2026-10-28T17:00:00.000000000Z",
           "price": 4082.825
         }
       ],
       "swingLows": [
         {
-          "index": 277,
+          "index": 275,
           "time": "2026-10-21T01:00:00.000000000Z",
           "price": 4106.345
         },
         {
-          "index": 289,
+          "index": 287,
           "time": "2026-10-23T01:00:00.000000000Z",
           "price": 3986.73
         },
         {
-          "index": 292,
+          "index": 290,
           "time": "2026-10-23T13:00:00.000000000Z",
           "price": 3975.65
         },
         {
-          "index": 295,
+          "index": 293,
           "time": "2026-10-26T01:00:00.000000000Z",
           "price": 3978.18
         },
         {
-          "index": 298,
+          "index": 296,
           "time": "2026-10-26T13:00:00.000000000Z",
           "price": 3988.825
         },
         {
-          "index": 302,
+          "index": 300,
           "time": "2026-10-27T05:00:00.000000000Z",
           "price": 3989.16
         },
         {
-          "index": 308,
+          "index": 306,
           "time": "2026-10-28T05:00:00.000000000Z",
           "price": 4028.19
         },
         {
-          "index": 311,
+          "index": 309,
           "time": "2026-10-28T17:00:00.000000000Z",
           "price": 4024.665
         }
@@ -4177,21 +4212,21 @@
         "fairValueGap": true,
         "liquiditySweep": true,
         "premiumDiscountAligned": true,
-        "distanceATR": 6.27,
+        "distanceATR": 5.81,
         "planning": {
           "limitReference": 4179.265,
-          "invalidationReference": 4189.181,
+          "invalidationReference": 4189.735,
           "targets": [
             {
               "price": 3989.16,
-              "rMultiple": 19.17
+              "rMultiple": 18.16
             },
             {
               "price": 3988.825,
-              "rMultiple": 19.2
+              "rMultiple": 18.19
             }
           ],
-          "bestRMultiple": 19.2,
+          "bestRMultiple": 18.19,
           "passesRewardRiskGate": true
         }
       },
@@ -4209,21 +4244,21 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": -0.21,
+        "distanceATR": -0.44,
         "planning": {
           "limitReference": 3999.967,
-          "invalidationReference": 3984.859,
+          "invalidationReference": 3984.305,
           "targets": [
             {
               "price": 4030.065,
-              "rMultiple": 1.99
+              "rMultiple": 1.92
             },
             {
               "price": 4034.085,
-              "rMultiple": 2.26
+              "rMultiple": 2.18
             }
           ],
-          "bestRMultiple": 2.26,
+          "bestRMultiple": 2.18,
           "passesRewardRiskGate": true
         }
       },
@@ -4241,21 +4276,21 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 10.72,
+        "distanceATR": 9.76,
         "planning": {
           "limitReference": 4304.595,
-          "invalidationReference": 4320.096,
+          "invalidationReference": 4320.65,
           "targets": [
             {
               "price": 3989.16,
-              "rMultiple": 20.35
+              "rMultiple": 19.65
             },
             {
               "price": 3988.825,
-              "rMultiple": 20.37
+              "rMultiple": 19.67
             }
           ],
-          "bestRMultiple": 20.37,
+          "bestRMultiple": 19.67,
           "passesRewardRiskGate": true
         }
       },
@@ -4273,21 +4308,21 @@
         "fairValueGap": true,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 12.31,
+        "distanceATR": 11.17,
         "planning": {
           "limitReference": 4353.823,
-          "invalidationReference": 4375.681,
+          "invalidationReference": 4376.235,
           "targets": [
             {
               "price": 3989.16,
-              "rMultiple": 16.68
+              "rMultiple": 16.27
             },
             {
               "price": 3988.825,
-              "rMultiple": 16.7
+              "rMultiple": 16.29
             }
           ],
-          "bestRMultiple": 16.7,
+          "bestRMultiple": 16.29,
           "passesRewardRiskGate": true
         }
       },
@@ -4305,21 +4340,21 @@
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 21.55,
+        "distanceATR": 19.35,
         "planning": {
           "limitReference": 4599.542,
-          "invalidationReference": 4618.891,
+          "invalidationReference": 4619.445,
           "targets": [
             {
               "price": 3989.16,
-              "rMultiple": 31.55
+              "rMultiple": 30.67
             },
             {
               "price": 3988.825,
-              "rMultiple": 31.56
+              "rMultiple": 30.68
             }
           ],
-          "bestRMultiple": 31.56,
+          "bestRMultiple": 30.68,
           "passesRewardRiskGate": true
         }
       },
@@ -4337,21 +4372,21 @@
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": false,
-        "distanceATR": 2.9,
+        "distanceATR": 2.83,
         "planning": {
           "limitReference": 4087.847,
-          "invalidationReference": 4096.856,
+          "invalidationReference": 4097.41,
           "targets": [
             {
               "price": 3989.16,
-              "rMultiple": 10.95
+              "rMultiple": 10.32
             },
             {
               "price": 3988.825,
-              "rMultiple": 10.99
+              "rMultiple": 10.35
             }
           ],
-          "bestRMultiple": 10.99,
+          "bestRMultiple": 10.35,
           "passesRewardRiskGate": true
         }
       },
@@ -4369,21 +4404,21 @@
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": true,
-        "distanceATR": 4.7,
+        "distanceATR": 4.43,
         "planning": {
           "limitReference": 4136.953,
-          "invalidationReference": 4146.526,
+          "invalidationReference": 4147.08,
           "targets": [
             {
               "price": 3989.16,
-              "rMultiple": 15.44
+              "rMultiple": 14.59
             },
             {
               "price": 3988.825,
-              "rMultiple": 15.47
+              "rMultiple": 14.63
             }
           ],
-          "bestRMultiple": 15.47,
+          "bestRMultiple": 14.63,
           "passesRewardRiskGate": true
         }
       },
@@ -4394,28 +4429,28 @@
         "zoneLow": 4018.475,
         "zoneHigh": 4032.61,
         "zoneMid": 4025.543,
-        "status": "in-zone",
-        "quality": 63,
+        "status": "untouched",
+        "quality": 62,
         "bosLevel": 4024.665,
         "displacementATR": 0.7,
         "fairValueGap": false,
         "liquiditySweep": false,
         "premiumDiscountAligned": false,
-        "distanceATR": 0.49,
+        "distanceATR": 0.7,
         "planning": {
           "limitReference": 4025.543,
-          "invalidationReference": 4036.911,
+          "invalidationReference": 4037.465,
           "targets": [
             {
               "price": 3989.16,
-              "rMultiple": 3.2
+              "rMultiple": 3.05
             },
             {
               "price": 3988.825,
-              "rMultiple": 3.23
+              "rMultiple": 3.08
             }
           ],
-          "bestRMultiple": 3.23,
+          "bestRMultiple": 3.08,
           "passesRewardRiskGate": false
         }
       }
@@ -4434,21 +4469,21 @@
       "fairValueGap": true,
       "liquiditySweep": false,
       "premiumDiscountAligned": true,
-      "distanceATR": -0.21,
+      "distanceATR": -0.44,
       "planning": {
         "limitReference": 3999.967,
-        "invalidationReference": 3984.859,
+        "invalidationReference": 3984.305,
         "targets": [
           {
             "price": 4030.065,
-            "rMultiple": 1.99
+            "rMultiple": 1.92
           },
           {
             "price": 4034.085,
-            "rMultiple": 2.26
+            "rMultiple": 2.18
           }
         ],
-        "bestRMultiple": 2.26,
+        "bestRMultiple": 2.18,
         "passesRewardRiskGate": true
       }
     },
@@ -4466,41 +4501,25 @@
       "fairValueGap": true,
       "liquiditySweep": true,
       "premiumDiscountAligned": true,
-      "distanceATR": 6.27,
+      "distanceATR": 5.81,
       "planning": {
         "limitReference": 4179.265,
-        "invalidationReference": 4189.181,
+        "invalidationReference": 4189.735,
         "targets": [
           {
             "price": 3989.16,
-            "rMultiple": 19.17
+            "rMultiple": 18.16
           },
           {
             "price": 3988.825,
-            "rMultiple": 19.2
+            "rMultiple": 18.19
           }
         ],
-        "bestRMultiple": 19.2,
+        "bestRMultiple": 18.19,
         "passesRewardRiskGate": true
       }
     },
     "candles4h": [
-      {
-        "time": "2026-09-28T17:00:00.000000000Z",
-        "open": 4129.43,
-        "high": 4146.77,
-        "low": 4111.52,
-        "close": 4114.985,
-        "volume": 125729
-      },
-      {
-        "time": "2026-09-28T21:00:00.000000000Z",
-        "open": 4121.355,
-        "high": 4129.07,
-        "low": 4114.44,
-        "close": 4117.945,
-        "volume": 56107
-      },
       {
         "time": "2026-09-29T01:00:00.000000000Z",
         "open": 4117.86,
@@ -5604,6 +5623,22 @@
         "low": 4003.175,
         "close": 4005.21,
         "volume": 43514
+      },
+      {
+        "time": "2026-10-30T01:00:00.000000000Z",
+        "open": 4005.16,
+        "high": 4013.95,
+        "low": 3987.495,
+        "close": 3996.725,
+        "volume": 114438
+      },
+      {
+        "time": "2026-10-30T05:00:00.000000000Z",
+        "open": 3996.69,
+        "high": 4011.63,
+        "low": 3965.15,
+        "close": 3997.275,
+        "volume": 100200
       }
     ],
     "candles1d": [
@@ -6250,10 +6285,10 @@
     ],
     "method": "BOS + displacement + last opposing candle; FVG/liquidity/premium-discount confluence; invalidation by 4H close beyond distal edge",
     "calibration": {
-      "completed": 21,
+      "completed": 22,
       "wins": 9,
-      "winRate": 0.4286,
-      "averageR": 5.438,
+      "winRate": 0.4091,
+      "averageR": 5.145,
       "factor": 1.0,
       "minimumSamplesForAdjustment": 30
     }
@@ -6270,54 +6305,53 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-10-30T02:55:36.242479Z",
+    "generatedAt": "2026-10-30T09:40:42.549771Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-10-30T02:55:36.242479Z",
-      "marketObservedAt": "2026-10-30T02:55:35.816319007Z",
-      "validUntil": "2026-10-30T03:10:36.242479Z",
-      "currentPrice": 3997.56,
+      "generatedAt": "2026-10-30T09:40:42.549771Z",
+      "marketObservedAt": "2026-10-30T09:40:41.368527841Z",
+      "validUntil": "2026-10-30T09:55:42.549771Z",
+      "currentPrice": 3989.23,
       "entryZoneLow": 3989.16,
       "entryZoneHigh": 4010.775,
       "limitPrice": 3999.967,
-      "stopLossReference": 3984.859,
+      "stopLossReference": 3984.305,
       "tp1Reference": 4030.065,
       "tp2Reference": 4034.085,
-      "rrTp1": 1.99,
-      "rrTp2": 2.26,
+      "rrTp1": 1.92,
+      "rrTp2": 2.18,
       "orderBlockQuality": 83,
       "confluenceCount": 2,
       "confidenceScore": 0,
-      "macroScore": -6.03,
-      "macroAgreementPct": 15,
+      "macroScore": -0.67,
+      "macroAgreementPct": 1,
       "layers": {
-        "fresh": 14.54,
-        "weekly": -8.33,
-        "regime": -14.9,
-        "market": 2.67,
-        "bullishCount": 1,
+        "fresh": 15.4,
+        "weekly": -7.81,
+        "regime": -15.02,
+        "market": 6.76,
+        "bullishCount": 2,
         "bearishCount": 2,
-        "marketInputs": 1
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "Employment Cost Index",
         "dateUtc": "2026-10-30T12:30:00Z",
-        "minutesAway": 574
+        "minutesAway": 169
       },
       "reasons": [
-        "Macro score -6.0 with 1 bullish layers",
+        "Macro score -0.7 with 2 bullish layers",
         "4H structure range; daily structure bearish",
         "Bullish order block quality 83/100"
       ],
       "blockers": [
         "4H structure is range, not bullish.",
         "Daily structure is bearish.",
-        "Macro gold score is not bullish enough (-6.0).",
-        "Fewer than two independent macro layers are bullish.",
+        "Macro gold score is not bullish enough (-0.7).",
         "A meaningful macro layer still conflicts with the bullish case.",
-        "Macro agreement is too low (15%).",
+        "Macro agreement is too low (1%).",
         "Order block is in-zone, not untouched.",
         "Price is already at/through the buy zone; no fresh pending buy limit is promoted."
       ],
@@ -6328,14 +6362,14 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-10-30T02:55:36.242479Z",
-      "marketObservedAt": "2026-10-30T02:55:35.816319007Z",
-      "validUntil": "2026-10-30T03:10:36.242479Z",
-      "currentPrice": 3997.56,
+      "generatedAt": "2026-10-30T09:40:42.549771Z",
+      "marketObservedAt": "2026-10-30T09:40:41.368527841Z",
+      "validUntil": "2026-10-30T09:55:42.549771Z",
+      "currentPrice": 3989.23,
       "entryZoneLow": 4173.65,
       "entryZoneHigh": 4184.88,
       "limitPrice": 4179.265,
-      "stopLossReference": 4189.181,
+      "stopLossReference": 4189.735,
       "tp1Reference": null,
       "tp2Reference": null,
       "rrTp1": null,
@@ -6343,33 +6377,33 @@
       "orderBlockQuality": 85,
       "confluenceCount": 3,
       "confidenceScore": 0,
-      "macroScore": -6.03,
-      "macroAgreementPct": 15,
+      "macroScore": -0.67,
+      "macroAgreementPct": 1,
       "layers": {
-        "fresh": 14.54,
-        "weekly": -8.33,
-        "regime": -14.9,
-        "market": 2.67,
-        "bullishCount": 1,
+        "fresh": 15.4,
+        "weekly": -7.81,
+        "regime": -15.02,
+        "market": 6.76,
+        "bullishCount": 2,
         "bearishCount": 2,
-        "marketInputs": 1
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "Employment Cost Index",
         "dateUtc": "2026-10-30T12:30:00Z",
-        "minutesAway": 574
+        "minutesAway": 169
       },
       "reasons": [
-        "Macro score -6.0 with 2 bearish layers",
+        "Macro score -0.7 with 2 bearish layers",
         "4H structure range; daily structure bearish",
         "Bearish order block quality 85/100"
       ],
       "blockers": [
         "4H structure is range, not bearish.",
-        "Macro gold score is not bearish enough (-6.0).",
+        "Macro gold score is not bearish enough (-0.7).",
         "A meaningful macro layer still conflicts with the bearish case.",
-        "Macro agreement is too low (15%).",
-        "Sell zone is 6.8 ATR above current price; too far away for an up-to-date pending signal.",
+        "Macro agreement is too low (1%).",
+        "Sell zone is 6.3 ATR above current price; too far away for an up-to-date pending signal.",
         "No nearby 4H structural target offers a realistic 1.8R\u20136R reward/risk window."
       ],
       "rulesVersion": "sell-limit-v1",
