@@ -1,15 +1,53 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-04T23:55:04Z",
+  "updatedAt": "2026-11-05T05:29:45Z",
   "calibration": {
-    "completed": 23,
-    "wins": 9,
-    "winRate": 0.3913,
-    "averageR": 4.878,
+    "completed": 25,
+    "wins": 11,
+    "winRate": 0.44,
+    "averageR": 5.21,
     "factor": 1.0,
     "minimumSamplesForAdjustment": 30
   },
   "setups": [
+    {
+      "key": "bullish|2026-11-04T18:00:00.000000000Z|4055.365|4066.06",
+      "side": "bullish",
+      "createdAt": "2026-11-04T22:00:00.000000000Z",
+      "blockCandleAt": "2026-11-04T18:00:00.000000000Z",
+      "zoneLow": 4055.365,
+      "zoneHigh": 4066.06,
+      "quality": 69,
+      "confluence": {
+        "fairValueGap": false,
+        "liquiditySweep": false,
+        "premiumDiscountAligned": false
+      },
+      "planning": {
+        "limitReference": 4060.712,
+        "invalidationReference": 4048.74,
+        "targets": [
+          {
+            "price": 4142.225,
+            "rMultiple": 6.81
+          },
+          {
+            "price": 4143.425,
+            "rMultiple": 6.91
+          }
+        ],
+        "bestRMultiple": 6.91,
+        "passesRewardRiskGate": true
+      },
+      "source": "OANDA v20 practice",
+      "firstObservedAt": "2026-11-05T05:29:45Z",
+      "status": "triggered",
+      "triggerIndex": 0,
+      "triggeredAt": "2026-11-04T22:00:00.000000000Z",
+      "completedAt": null,
+      "bestR": 0.0,
+      "outcomeR": null
+    },
     {
       "key": "bullish|2026-11-03T18:00:00.000000000Z|3917.565|3932.94",
       "side": "bullish",
@@ -181,12 +219,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-10-23T15:10:25Z",
-      "status": "tp1",
+      "status": "stopped",
       "triggerIndex": 0,
       "triggeredAt": "2026-10-22T13:00:00.000000000Z",
-      "completedAt": null,
+      "completedAt": "2026-11-04T22:00:00.000000000Z",
       "bestR": 10.66,
-      "outcomeR": null
+      "outcomeR": 10.66
     },
     {
       "key": "bearish|2026-10-21T17:00:00.000000000Z|4131.68|4142.225",
@@ -219,12 +257,12 @@
       },
       "source": "OANDA v20 practice",
       "firstObservedAt": "2026-10-22T09:40:13Z",
-      "status": "waiting",
-      "triggerIndex": null,
-      "triggeredAt": null,
-      "completedAt": null,
-      "bestR": 0.0,
-      "outcomeR": null
+      "status": "tp2",
+      "triggerIndex": 59,
+      "triggeredAt": "2026-11-04T22:00:00.000000000Z",
+      "completedAt": "2026-11-04T22:00:00.000000000Z",
+      "bestR": 7.39,
+      "outcomeR": 7.39
     },
     {
       "key": "bearish|2026-10-20T01:00:00.000000000Z|4131.33|4147.415",
