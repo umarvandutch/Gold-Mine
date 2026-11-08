@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-08T19:00:12Z",
+  "generatedAt": "2026-11-08T22:47:07Z",
   "calendarStatus": "live",
   "counts": {
     "events": 170,
     "headlines": 80,
-    "marketFeeds": 1
+    "marketFeeds": 3
   },
   "sourceStatus": {
     "calendar": "live",
@@ -2687,7 +2687,7 @@
       "name": "Consumer Price Index (YoY)",
       "actual": null,
       "revised": null,
-      "consensus": null,
+      "consensus": 3.9,
       "previous": 3.7,
       "unit": "%",
       "volatility": "HIGH",
@@ -2723,7 +2723,7 @@
       "name": "Consumer Price Index ex Food & Energy (YoY)",
       "actual": null,
       "revised": null,
-      "consensus": null,
+      "consensus": 2.8,
       "previous": 2.6,
       "unit": "%",
       "volatility": "HIGH",
@@ -2957,7 +2957,7 @@
       "name": "Producer Price Index (YoY)",
       "actual": null,
       "revised": null,
-      "consensus": null,
+      "consensus": 6.6,
       "previous": 6.3,
       "unit": "%",
       "volatility": "MEDIUM",
@@ -2993,7 +2993,7 @@
       "name": "Producer Price Index ex Food & Energy (YoY)",
       "actual": null,
       "revised": null,
-      "consensus": null,
+      "consensus": 5.0,
       "previous": 5.0,
       "unit": "%",
       "volatility": "HIGH",
@@ -3086,30 +3086,54 @@
       "previous": null,
       "changePct": null,
       "deltaBps": null,
-      "date": "2026-11-06",
-      "time": "21:59:05",
+      "date": "2026-11-08",
+      "time": "22:47:47",
       "kind": "gold",
       "source": "OANDA v20 practice",
       "live": true,
-      "observedAt": "2026-11-06T21:59:05.181643517Z"
+      "observedAt": "2026-11-08T22:47:47.972720285Z"
     },
     "dxy": {
       "label": "Synthetic US Dollar Index",
       "symbol": "DXY-synthetic",
       "name": "Synthetic DXY from six FX pairs",
-      "price": 102.2939,
+      "price": 102.2728,
       "previous": null,
       "changePct": null,
       "deltaBps": null,
-      "date": "2026-11-06",
-      "time": "21:59:05",
+      "date": "2026-11-08",
+      "time": "22:47:47",
       "kind": "index",
       "source": "OANDA v20 practice \u00b7 DXY formula",
       "live": true,
-      "observedAt": "2026-11-06T21:59:05.181643517Z"
+      "observedAt": "2026-11-08T22:47:47.972720285Z"
     },
-    "us2y": null,
-    "us10y": null,
+    "us2y": {
+      "label": "US 2Y Treasury yield",
+      "symbol": "BC_2YEAR",
+      "name": "US 2Y Treasury yield",
+      "price": 4.51,
+      "previous": 4.46,
+      "changePct": null,
+      "deltaBps": 5.0,
+      "date": "2026-11-06",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
+    "us10y": {
+      "label": "US 10Y Treasury yield",
+      "symbol": "BC_10YEAR",
+      "name": "US 10Y Treasury yield",
+      "price": 4.86,
+      "previous": 4.84,
+      "changePct": null,
+      "deltaBps": 2.0,
+      "date": "2026-11-06",
+      "time": null,
+      "kind": "yield",
+      "source": "U.S. Treasury official daily rate"
+    },
     "real10y": {
       "label": "US 10Y real yield",
       "symbol": "TC_10YEAR",
@@ -3126,13 +3150,77 @@
   },
   "headlines": [
     {
+      "title": "Silver Price Forecast: Rally Faces US CPI Test After Dollar Jump - FXEmpire",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNbmJEbTZkTzFqMndWbXN3ZTRUX1RFZGpBNks1RC1WaUhTRjZYVHZBY0FEdnQ0UWMxVlE4cV9ZdXB3NnZhV3hNRGdVOFdrTFhITEhrWmI1OFp3dzlTRngyWjAxNVpnbjVWU3M4WjZGTW56NGNyLWlmcEhiNHBFb0ktdUttZ2w3WVhlRWluRWozaGVTb3hwU0s5RXl0RktKQnktZlVIcUhKeTZnWlNwN1Y0MUJQd1M?oc=5",
+      "publishedUtc": "2026-11-08T22:38:09Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Australian Stock Market Today: ASX Futures Edge Higher On Firm US Jobs And CPI Watch - Yahoo! Finance Canada",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQOHkybGZmWjdDY2hYSHBpSjBLR05UQ0E5T0h2SFNyWnB5N09qZW83aEpHS2xiMEZvSWw2YnkwQUZhYl9zT3FiQWM5dDlnY0w2OWZULTVRaUxzNnpuSnptbXJlMGdwcVI2QjFZVG9ZOHNKNndPV1VsRFh2VUMtOGg5dVZHWWxpZzU3N3c?oc=5",
+      "publishedUtc": "2026-11-08T21:09:43Z",
+      "source": "Google News aggregation",
+      "category": "inflation",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Democrats take aim at Trump\u2019s tariffs, but a rollback faces a veto wall - Firstpost",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQnduekJNTXNkR29DYl9OYWhMc1hUVkdwN0F2Tk1NcUVjXzJFMU1QQ1QzTi1rWmFwVVNDR1lIOUh0a1FNMXZJSXBYRkd1X1B6U3AwMnJ4UEE1cEd5VTBoTzgwTFJpQlN0SEZrUWpESmxkTE9XSFNhNUlZalZ2b1FoOUVNa2hYUnZaUlpUcUtockJ3OUFIWEVENnJVQXMyR3RzaWpNTEJlS3dkR3ZOQlgxbDRfWTVUaDlvNDZnS3AySGhEQVF2Nk5yNNIBzgFBVV95cUxPdjFHNTVEUUllMGY3M1BhSFdLWk02a0lmS2dRal8xaDBhbUZrcUprblpRdnIyMGowYkRvalRYZE1FV2h2UktiYzc3TG9fSnQxUHRVMW03TnlpazBKM1p1SU9WS0pTSWRNbHVVUEpxd1pPOXhxcF9LcnM2ZXZEdlo2YkpZWngtRkhJa21rZ2xyOHhmR01SZFE3TWpYM2xQNERBeXpBeXNXZGh2akdaS0JmTm1pcDU4N1FESnZ4YWRvOXpTLUFvN1ViOS1QZTMydw?oc=5",
+      "publishedUtc": "2026-11-08T19:14:40Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
+      "title": "Norman Powell is out today - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9idkhQVG13Um5iMFprUlQteGZ1eVFUZVhCN3BHbGZoOXB3NWlEUGt2cVdMTmJfMG9iemtEamhoU09Bd2VPNFAxZVp0XzdQdnJCb0d1WFI2djI3SUFYc1drQUZvVDJCSEVPMjhNLS14S1NZTjltd3ZJ?oc=5",
+      "publishedUtc": "2026-11-08T18:50:58Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Norman Powell is out today - HoopsHype",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNbGFFelplVUNJZV9wMi1ndkhsNW9qdmluRW1yanRPYVI4MzhUZnFoVXV0ekc3MFZZcEQ3alJRbGlkd2RybzNwQlRwNmo3RHRpUTF6YXZvRFFCWklOaEw4WTBXN0x3M2w5WWlSOHZSSEtfOS1xQmthSlJqS3cxYzFDZGQ3VzYxWlpNaEd1bUVwRHlCcWo1LTREMElXSG9HQ2F0VUE?oc=5",
+      "publishedUtc": "2026-11-08T18:50:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Teaching GCSE topics younger risks turning schools into \u2018early exam factories\u2019, Powell warns - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPcTdMZG4tZXlIcmhNRHVPQ1pVaFBDUVJIWUR5TlBPbzk2TGl6djBmTXQtWUgyNXplSU8wSER1dGxFNk01emxiT01fR2xHSko4ZmhnNHJoYmV4NHNjb2Vobk1IZXlPSVptSzdZeGFxek02YTBMdjQ5Z25Oc2RXemxuVGVRWkNuVnRBa2o0XzVzck4wUXFYTXp4WEdQRFowelI2UHV4NlBvUkdqTHlCNkJlenpIVUMyZw?oc=5",
+      "publishedUtc": "2026-11-08T18:49:00Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Roger Powell Jr., Bruce Weber share \u2018special\u2019 moment after Valpo stuns Purdue - Awful Announcing",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOa3lxLTVNdk5laW9TTkZWYnlJX3B2TjBWZGNtdzBfRmNfZnp5RS00YTR0cDVlV0NTVUM1UmFMcW53ZEwzMHd0WUVyMUl6SEw2VmNJMk9qX1FBT0U0NTc4UXlDbHRta2RBMzVzUHJlU3BjOTFoc21LaERBdjMwR0ZRT3l5Zk93Q0FwdF9SYjN6ZG56aTI4ZTdtNl9selpEcmdwTVJLMUtvLWtOeURsRjgw?oc=5",
+      "publishedUtc": "2026-11-08T18:06:01Z",
+      "source": "Google News aggregation",
+      "category": "rates",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
       "title": "Floods bring rare relief to U.S. Southwest reservoirs as Lake Powell rises 20 feet - PBS",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVXdiQ0dhNWFQekJLMUk3Y3NBWlhUazhnclhvMWpZZFR1bTFsRXRubTVXbUloQkN4aEhhRFluQk41Z1FLQkZ3Uy1zSVNOZXRnek1kMC03bXRZZ3hSOHgtMnBRaWswRENYenlzZVFmVFRKcDVSS1JrSVoxVTVvYnVSNVVZem5MWXk4Mm1pMllhS2N4NXVhRHkzY0JCd1IyR3prUlFOOEVPUV9VejVuM1NJUW05UFhoT29f?oc=5",
       "publishedUtc": "2026-11-08T17:31:40Z",
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "'On par with what the DoD pursued during the Cold War': Pentagon\u2019s war stockpile plan hits a minerals wall - Fortune",
@@ -3150,7 +3238,8 @@
       "source": "Google News aggregation",
       "category": "other",
       "impact": "medium",
-      "memoryWindowDays": 7
+      "memoryWindowDays": 7,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Week Ahead: US Inflation and UK GDP After a Rough Week - AskTraders.com",
@@ -3168,7 +3257,8 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "As the Colorado River shrinks, calls to drain Lake Powell grow - Grist",
@@ -3179,6 +3269,15 @@
       "impact": "high",
       "memoryWindowDays": 90,
       "retainedFromPreviousSnapshot": true
+    },
+    {
+      "title": "Gold Weathers Violent Rates Move Ahead of CPI - Investing.com UK",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQYkh5SHpKS3dOa0ltdkVFWjJxTnlPVERfXzFhOGliQ3JhSWR0X1ZwYnY1MWhjVjJ1TVRPeWJWU2F6SmZyU2psNDlWZUd4azEtNTZHc0dVVG1TeUZLT0dTOGNEWjhnTDRueGFUaHQteUFOQ2tFcHd5R2swYmQ3UVphMmVzdmtFanBJTVhyeUwtYUZwMVU?oc=5",
+      "publishedUtc": "2026-11-08T13:46:49Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "high",
+      "memoryWindowDays": 90
     },
     {
       "title": "How Democrats will try to end Trump's tariffs - CNBC",
@@ -3205,7 +3304,8 @@
       "source": "Google News aggregation",
       "category": "rates",
       "impact": "high",
-      "memoryWindowDays": 90
+      "memoryWindowDays": 90,
+      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Nashville's Gold Star Monument honors fallen World War I soldiers - The Tennessean",
@@ -3226,39 +3326,29 @@
       "memoryWindowDays": 90
     },
     {
+      "title": "\u2018Ancy is gold\u2019: Asiad silver medalist drops new jewellery ad campaign amid cyber attack - Onmanorama",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNU3N5TWw0UmJnSFYzcUVBbWk2V2FNR3BIR0llNENfZmtWaGNtLXhhal93VjZZbDZrNG9TTkVscEFXTFBhVmFxTjZEcU1KQTJQUFBReHFoOUMtOG5INHBGRDI0Y085eG8yVmNyN09UNjRXR29tcFlWcmN0bElQWWV6WDZrcVFDYmlfdXltcm5TTldadFhiUHRCaF9xTWhHN2R2WEViSGhpand2QkJ5THYzTWlYU3ppc0J1cUtfVkF4c3NRcDRwOXRjWWMxamZkd19N?oc=5",
+      "publishedUtc": "2026-11-08T09:55:00Z",
+      "source": "Google News aggregation",
+      "category": "other",
+      "impact": "medium",
+      "memoryWindowDays": 7
+    },
+    {
       "title": "XAU/USD Bullish Forecast: Soft US CPI Could Fuel Gold Breakout Past $4,140 Target - FXLeaders",
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNMU91NWNCWWtCNmRVWTN1cDNaWUZtQmQ2R2ZYaUsxcjZNeXFtdUphMVZlaTg0YWN6YzVEd2JEVkt6RktkZHJSa1FRNkNpaldkM29KLWJfWml3UF8zczcwSjRKbEVxZzlwZ2dXeW03Qm1DSGdmUEpISFFvdVpjRm1PLU1UUVpaclZWUVpROUVLS2lpd0lKa0xfdWx2SlBOWlgwa1hzSWRhOHAtRG1oN3AtNW9qR0N4MTlobDlHRGF3?oc=5",
       "publishedUtc": "2026-11-08T08:26:21Z",
       "source": "Google News aggregation",
       "category": "other",
       "impact": "high",
-      "memoryWindowDays": 90,
-      "retainedFromPreviousSnapshot": true
+      "memoryWindowDays": 90
     },
     {
-      "title": "Gold Drops Over 1% on Higher Oil Prices; US Payrolls Data in Focus - ASHARQ AL-AWSAT English",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOUDM2SDVFR1NxS2VSbF9qUmVMTTRfUlNKcDd1S0g2Yl82SUkydDhGS0w0ejF6bkdfaVppZFdtdzhTWmdIVGo1TDB2Mmgyc01DSEx0bFBJalFZSTI5LUh5ZUdwWFhlRjVOeVY2aEoyZHlRZVdYZlF3bEpENXdERk1ZLS1XWU95QTM1UUQtVUZFQzh2cWZOMzJsUjFqa0wxcE85MGhnZw?oc=5",
-      "publishedUtc": "2026-11-08T08:08:58Z",
+      "title": "KOSPI barely holds the 5,000 mark... Eyes on U.S. CPI and foreign investor flows [Weekly Market Outlook] - \ud30c\uc774\ub0b8\uc15c\ub274\uc2a4",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE55UmJRSU1pRnRlanRFVC1RRTRrWmJwc1R6NFcxQnBPLVF5R3VOVjJsQmlCaW5vSnd1RmdDRk5JWkxONTBCZDBwVk5kWXRoZjdTU3VPWnhQSWI?oc=5",
+      "publishedUtc": "2026-11-08T07:01:22Z",
       "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Will Democrats block Trump\u2019s push to deliver Turkey F-35s, lift sanctions? - Al-Monitor",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONDJNTkUxNFhXMnhPZ2lmdDhHeXp2WE1nNEFkbE0zUzJaemlsOWtKUzQzZ3l0Rk82N2xvSWY5cTBVaWtMU19qOXAtc1U2bHNxVnh4MEFXV0FSQVl2V1ZRMVp1U0ZvQWpIbmFDVTRqeDNfSEZndjQyUnloRi1BS0FTSUJTUW50cWluR1BKNlEyOExlWVl1ME9pUURtX1c3NUZhaUFCR3FaMXpXYl9rVWJTeXZVYw?oc=5",
-      "publishedUtc": "2026-11-08T07:42:46Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Gold pulls back from over two-month high amid rising oil, caution ahead of CPI By Investing.com - Investing.com India",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOdUJFcHNQeXhUd2ZTNC1leFFocXFBTXo5M1dHY1prX1VOMHotVnFyQ0xSa3YwR05DRThNRjEyLWZiZUdDaHZ0QXJkM2hEcFcydkdnSW5yd0dEMVBkNnplT3FnWktfUHM5Q2phaklsMy1UakhfYjNBeFktQW5GZmdzT3QyTlNMd2FJNFpZaEZnZDZ3YjE0dEtMdnRnVVZBdmJEdGUzQVZ0QU1TeW9BcV9Ha0lXY1A1ZGhCMldZdnFRd09NUQ?oc=5",
-      "publishedUtc": "2026-11-08T07:09:34Z",
-      "source": "Google News aggregation",
-      "category": "other",
+      "category": "inflation",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3270,26 +3360,6 @@
       "category": "other",
       "impact": "medium",
       "memoryWindowDays": 7
-    },
-    {
-      "title": "PUCSL and NSO clash over proposed Q4 2026 electricity tariff increase - Hiru News",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNRzdYS24wYWV3SUp6Y1ZQUUpEOXQ2eTNsM0UxdzFFbnJhTVducjVfOTJqY1Exa1JXWThpVmZuRHpqNDVUOHNPNU5sSEhUcjczYWhYTi1MbGlXYWNvSmNnVk1rNWFuNF8xcGtfUHRnZXVvTVQyMGZ3ZVhxbHIxTXROQnJtV1diQk1wX1FEdXlfZVB4QXVQbm1oT0lvRFg3eDNQeGhJenY4M1lvT2M?oc=5",
-      "publishedUtc": "2026-11-08T06:15:53Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
-    },
-    {
-      "title": "\u2018Extremely delicate\u2019 situation in Hormuz as US, Iran attack ships - Hiru News",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNZEtwU0tiaWVNNTJnNWZoZlgxXzJxY2pfMERZM0FxMmlPdTczNVFfU2NzWTN2SURvT1BEMGtsSDNoZERRUnN2ZDlVRWJxamFZSFc2MVU5alZJYVNNdm03ZlhDMmdKSFZBdWM4WkxmSWVPUUlqTmEyaHdKV1JqNUwxVVVOT05YcDFzLTNWVVdZZnNwb2dRZ3B0RUtELTVtUnB1Qmc?oc=5",
-      "publishedUtc": "2026-11-08T05:17:38Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7,
-      "retainedFromPreviousSnapshot": true
     },
     {
       "title": "Bulls Notes: Claxton, Smith, Buzelis, Powell, Trade Season - Hoops Rumors",
@@ -3306,6 +3376,15 @@
       "publishedUtc": "2026-11-07T22:25:00Z",
       "source": "Google News aggregation",
       "category": "inflation",
+      "impact": "high",
+      "memoryWindowDays": 90
+    },
+    {
+      "title": "Federal Reserve raises interest rates for the 1st time since 2023 - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYktxZlJxRVNrdUZFRWViQjVMLUh3OGJwNGhrVFpJY2E5QTAyajNfcnFSb09rZUVkSnVMUHd4WkpsYktvZGczX05nRzVhSTdKNWtfU2hWb09IYnNQQ01tTlMwMV95YzJkbWVDMklwZ19XMC1RNmVsckpGS3FpNUpiRlUxZkVtNXk5NE5YRnpBSTI4eEhVOWxaUlBzZDlxb3p1ZVBFeHFR0gGrAUFVX3lxTFBrZzU3UXhjRlBBblFYNzJZZ3dINVFwMnpIOFQwRlJ1NmRTa3JNUGlkamJyS08wRjM5UlFuMkRJcHAtUEQxYjF3b2Yyc2E2V1hOOEhQRHRPckpidllEOHpLRG9VUTFxSUwyaE95SzNNZ0pkemQwQkNBYkZPbTBpN0ZMYTBWU25nT3FrUVNNal9Eb0lCNnJwZTVFUVVhM0dDRlMzQ1pQTF8xRTV6bw?oc=5",
+      "publishedUtc": "2026-11-07T18:34:30Z",
+      "source": "Google News aggregation",
+      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3373,7 +3452,7 @@
       "memoryWindowDays": 7
     },
     {
-      "title": "Egypt's gold war on Sudan's border could become Israel's problem - ynetnews",
+      "title": "Egypt's gold war on Sudan's border could become Israel's problem - Ynetnews",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1DSFZ1WDdoVEExYTdfRXRfcE9oU3FoU3pHeFM2enZqZ2g5N0ltLVNqaHNnYzQ1d05KYjRtWU1hcFFoTEFtZ3ZZNC01VHdCamZMNmhSTFFpaEFPakpadjZfa0x4cHZsZk9MTW84c3ZR?oc=5",
       "publishedUtc": "2026-11-07T09:48:58Z",
       "source": "Google News aggregation",
@@ -3387,15 +3466,6 @@
       "publishedUtc": "2026-11-07T09:09:29Z",
       "source": "Google News aggregation",
       "category": "other",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Federal Reserve raises interest rates for the 1st time since 2023 - ABC News - Breaking News, Latest News and Videos",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOYktxZlJxRVNrdUZFRWViQjVMLUh3OGJwNGhrVFpJY2E5QTAyajNfcnFSb09rZUVkSnVMUHd4WkpsYktvZGczX05nRzVhSTdKNWtfU2hWb09IYnNQQ01tTlMwMV95YzJkbWVDMklwZ19XMC1RNmVsckpGS3FpNUpiRlUxZkVtNXk5NE5YRnpBSTI4eEhVOWxaUlBzZDlxb3p1ZVBFeHFR0gGrAUFVX3lxTFBrZzU3UXhjRlBBblFYNzJZZ3dINVFwMnpIOFQwRlJ1NmRTa3JNUGlkamJyS08wRjM5UlFuMkRJcHAtUEQxYjF3b2Yyc2E2V1hOOEhQRHRPckpidllEOHpLRG9VUTFxSUwyaE95SzNNZ0pkemQwQkNBYkZPbTBpN0ZMYTBWU25nT3FrUVNNal9Eb0lCNnJwZTVFUVVhM0dDRlMzQ1pQTF8xRTV6bw?oc=5",
-      "publishedUtc": "2026-11-07T04:51:29Z",
-      "source": "Google News aggregation",
-      "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3468,15 +3538,6 @@
       "publishedUtc": "2026-11-06T15:51:19Z",
       "source": "Google News aggregation",
       "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Robust US jobs market boosts December rate hike chances - ING Think",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMnEzSUd2ak0wTmsxb3lueDFDVG94RHZOLVNTZ3ZMeVB5QVY3NGNHUHdaVzJwMkEwT3BXWlhCSlV3MkFEdWc4a2szSUE3bExWTmdXV3c2UTJFSjBXTGYxV1FxYmF4YjhVUTE1bmp1QzlCdmJwNHN5Y001ZWU0SHNobldsVk90T0hUT2xWM2VFenM?oc=5",
-      "publishedUtc": "2026-11-06T14:48:19Z",
-      "source": "Google News aggregation",
-      "category": "other",
       "impact": "high",
       "memoryWindowDays": 90
     },
@@ -3587,42 +3648,6 @@
       "category": "rates",
       "impact": "high",
       "memoryWindowDays": 90
-    },
-    {
-      "title": "Gold Star mom to address Jewish War Veterans - chandlernews.com",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQVVlfX0kxQWF1S2hjdGtwNWtCc2F0eEY4aTFEazJ2QVA1LVhxTTdsSU1vLU9KeUlhbWFqMzI3Vl9kYVE5QXBLTGhpRngxSkNVLUJtTDNZZFhDTkhaa2JDTmRiS1h3RWpzY3NWN0Zwbkt4cUlBdWNJcC1EdWptMUFrUHN0ZklXYlQyUkdDVUc3ZzRSMmFQRFhfcC1CWVpBNmwwWHZDeXE2Q1E0Qjg3U21fYnJyakZzd3N3WDNGdHRTMXlCcVU3QUtWX1ZYZjlldGNsa2dBazBlcw?oc=5",
-      "publishedUtc": "2026-11-04T07:00:00Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
-    },
-    {
-      "title": "Democrat Denise Powell wins election to U.S. House in Nebraska's 2nd Congressional District - PBS",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNVFpNbkMxZUthN2lZc29GUTA2NHk3RFJZbEVMNWRrMlN4eTUwMl9GWlpRWHo0Um1IZGtkUWd5dE1vTnp0cHM0TEhNWlVnLXJWTFZUSmx6bUhJNFVBemhXeVBQRVVnQW5abU5EZnJmeXlHZ09Sam0wclZxdHl4NEQ1dU5VeFctc2lQMFYyYVlEY2ZvVTRzTFRwMzRZbUVkMFBEUVlJbkNiRm5FVnlMSm8wLVIzbkp3NFZxRlozXy1pcmhrX3pMLXfSAcsBQVVfeXFMT2xaYkRlbkhsZ2RHZlowNHB1bHFwUmQ3Zkt1MndLNFFqakFqVFRSNWVWb2Z5bGFPbl80TVBEcTY5SU9RZVBhNXNLNGgzRlplWS1oRk5Fd0xJc29oeUJWY0ZacEM4TFVaYllsS3IxcUZRS181bGJYNVZSaGRZQzlkejhvaVk0ZmI1ZVEwUDJhTlhCYXFpd3dCeGczbFJVT1Zxem9mWGxIZmstZFBQUHdfVWh4bHZEcVQ4cVFac092dW1uQkphVkhyajZSdnM?oc=5",
-      "publishedUtc": "2026-11-04T05:23:40Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Denise Powell flips Second Congressional District - KHGI",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNdi0wblc1eHpNVklnY20wTk5uTVVUNVNfcWJjRndMX2dVc2JwLVNRTXVlaU1uNFpVU3ZDdDhPTlZZSWJCTmhrRkMyZURPR1JTQ0JXN25TYmc1QkYxRTJRZ3hyVWpzMTdIem1mSWtPTVRianJEYW1hdFQzRTRTSUlUY01CWHhqVXM?oc=5",
-      "publishedUtc": "2026-11-04T04:28:56Z",
-      "source": "Google News aggregation",
-      "category": "rates",
-      "impact": "high",
-      "memoryWindowDays": 90
-    },
-    {
-      "title": "Oil rises 44% since Iran war start, gold falls 25%; Trump hints possible post-midterm strike on Iran. - Pluang",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE45UWhZNDByTVpFMU5IRGFSdjQtazljWVJMNzdId1VXV3ZfczJaRnR3TDV5UjUwQXlkY3ItcTJOMkJOYV9YVjh3VjJTYmRUUkZRVFA3ZzRkUjZNS21GUWNfZUFQQktxXzB5NWJURHptNzBKYTdJMW0tMF83aXM?oc=5",
-      "publishedUtc": "2026-11-04T00:16:30Z",
-      "source": "Google News aggregation",
-      "category": "other",
-      "impact": "medium",
-      "memoryWindowDays": 7
     },
     {
       "title": "Federal Reserve holds interest rates steady as midterm elections loom - ABC7 Bay Area",
@@ -3805,8 +3830,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "FOMC Turns Hawkish to Tackle Inflation - Global Finance Magazine",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4zMFRKTnBONUpWVWZHS25iUFhBd2JjSnBQVmstekVNNmxWNm9mMFQ1Tnd6MTNhNlN6azBlb2ZhbFJ5YVpOVmVHYnJtLXB0SS03bW1lMTlEanJFTkw0cG5uaEFuN0x6ckJ2anRBSDJST2V0LW4wMm1PUGFrZVpyUW8?oc=5",
+      "title": "The Federal Reserve raises interest rates by a quarter percentage point - NPR",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQTWZnczRnTEdIbnVVSVM2dUJGNWJVRk4yMDlLVnJDN1NSbGQ1eVBla1Y2RlRKbTVCZmdLRWtXbk1QS2UxSzZ1YzFaUHg1ck5IVFduWDNhOHkyWmlNZWRjTFppanJicm9ONUpHOW1aQ3pQZ19ORkR6R3EtMnkzOUN5RXQ5eXJjYURCVl9qcWJFbzlOUzBNWWNoT096MjJFQl9pbU9GWGUzRnB0NFl3dEM4V3JvRXRvcUE?oc=5",
       "publishedUtc": "2026-09-17T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3814,8 +3839,8 @@
       "memoryWindowDays": 90
     },
     {
-      "title": "The Federal Reserve raises interest rates by a quarter percentage point - NPR",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQTWZnczRnTEdIbnVVSVM2dUJGNWJVRk4yMDlLVnJDN1NSbGQ1eVBla1Y2RlRKbTVCZmdLRWtXbk1QS2UxSzZ1YzFaUHg1ck5IVFduWDNhOHkyWmlNZWRjTFppanJicm9ONUpHOW1aQ3pQZ19ORkR6R3EtMnkzOUN5RXQ5eXJjYURCVl9qcWJFbzlOUzBNWWNoT096MjJFQl9pbU9GWGUzRnB0NFl3dEM4V3JvRXRvcUE?oc=5",
+      "title": "FOMC Turns Hawkish to Tackle Inflation - Global Finance Magazine",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4zMFRKTnBONUpWVWZHS25iUFhBd2JjSnBQVmstekVNNmxWNm9mMFQ1Tnd6MTNhNlN6azBlb2ZhbFJ5YVpOVmVHYnJtLXB0SS03bW1lMTlEanJFTkw0cG5uaEFuN0x6ckJ2anRBSDJST2V0LW4wMm1PUGFrZVpyUW8?oc=5",
       "publishedUtc": "2026-09-17T07:00:00Z",
       "source": "Google News aggregation",
       "category": "rates",
@@ -3860,7 +3885,7 @@
   ],
   "headlineContinuity": {
     "freshCount": 36,
-    "retainedRecentCount": 30,
+    "retainedRecentCount": 31,
     "finalCount": 36,
     "maxRetainedAgeHours": 72
   },
@@ -3897,12 +3922,12 @@
     "ordinaryLookbackDays": 7,
     "cpiAndRatesLookbackDays": 90,
     "longMemoryDecayRequired": true,
-    "updatedAt": "2026-11-08T19:00:56Z"
+    "updatedAt": "2026-11-08T22:47:46Z"
   },
   "technical": {
     "status": "live",
     "source": "OANDA v20 practice",
-    "observedAt": "2026-11-06T21:59:05.181643517Z",
+    "observedAt": "2026-11-08T22:47:47.972720285Z",
     "symbol": "XAUUSD",
     "executionTimeframe": "4H",
     "currentPrice": 4070.59,
@@ -6189,14 +6214,14 @@
   },
   "signals": {
     "status": "live",
-    "generatedAt": "2026-11-08T19:00:57.846671Z",
+    "generatedAt": "2026-11-08T22:47:48.767564Z",
     "buyLimit": {
       "side": "buy",
       "status": "no-signal",
       "action": "NO BUY LIMIT SIGNAL",
-      "generatedAt": "2026-11-08T19:00:57.846671Z",
-      "marketObservedAt": "2026-11-06T21:59:05.181643517Z",
-      "validUntil": "2026-11-08T19:15:57.846671Z",
+      "generatedAt": "2026-11-08T22:47:48.767564Z",
+      "marketObservedAt": "2026-11-08T22:47:47.972720285Z",
+      "validUntil": "2026-11-08T23:02:48.767564Z",
       "currentPrice": 4070.59,
       "entryZoneLow": 3917.565,
       "entryZoneHigh": 3932.94,
@@ -6209,31 +6234,30 @@
       "orderBlockQuality": 81,
       "confluenceCount": 2,
       "confidenceScore": 0,
-      "macroScore": -32.27,
-      "macroAgreementPct": 100,
+      "macroScore": -30.31,
+      "macroAgreementPct": 83,
       "layers": {
-        "fresh": -0.77,
-        "weekly": -18.56,
-        "regime": -10.93,
-        "market": -2.0,
-        "bullishCount": 0,
-        "bearishCount": 2,
-        "marketInputs": 1
+        "fresh": 3.17,
+        "weekly": -18.23,
+        "regime": -10.89,
+        "market": -4.36,
+        "bullishCount": 1,
+        "bearishCount": 3,
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "Fed's Bowman speech",
         "dateUtc": "2026-11-09T13:40:00Z",
-        "minutesAway": 1119
+        "minutesAway": 892
       },
       "reasons": [
-        "Macro score -32.3 with 0 bullish layers",
+        "Macro score -30.3 with 1 bullish layers",
         "4H structure bullish; daily structure bearish",
         "Bullish order block quality 81/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 2701 minutes old.",
         "Daily structure is bearish.",
-        "Macro gold score is not bullish enough (-32.3).",
+        "Macro gold score is not bullish enough (-30.3).",
         "Fewer than two independent macro layers are bullish.",
         "Buy zone is 3.7 ATR below current price; too far away for an up-to-date pending signal."
       ],
@@ -6244,9 +6268,9 @@
       "side": "sell",
       "status": "no-signal",
       "action": "NO SELL LIMIT SIGNAL",
-      "generatedAt": "2026-11-08T19:00:57.846671Z",
-      "marketObservedAt": "2026-11-06T21:59:05.181643517Z",
-      "validUntil": "2026-11-08T19:15:57.846671Z",
+      "generatedAt": "2026-11-08T22:47:48.767564Z",
+      "marketObservedAt": "2026-11-08T22:47:47.972720285Z",
+      "validUntil": "2026-11-08T23:02:48.767564Z",
       "currentPrice": 4070.59,
       "entryZoneLow": 4173.65,
       "entryZoneHigh": 4184.88,
@@ -6259,29 +6283,28 @@
       "orderBlockQuality": 82,
       "confluenceCount": 3,
       "confidenceScore": 0,
-      "macroScore": -32.27,
-      "macroAgreementPct": 100,
+      "macroScore": -30.31,
+      "macroAgreementPct": 83,
       "layers": {
-        "fresh": -0.77,
-        "weekly": -18.56,
-        "regime": -10.93,
-        "market": -2.0,
-        "bullishCount": 0,
-        "bearishCount": 2,
-        "marketInputs": 1
+        "fresh": 3.17,
+        "weekly": -18.23,
+        "regime": -10.89,
+        "market": -4.36,
+        "bullishCount": 1,
+        "bearishCount": 3,
+        "marketInputs": 3
       },
       "nextEvent": {
         "name": "Fed's Bowman speech",
         "dateUtc": "2026-11-09T13:40:00Z",
-        "minutesAway": 1119
+        "minutesAway": 892
       },
       "reasons": [
-        "Macro score -32.3 with 2 bearish layers",
+        "Macro score -30.3 with 3 bearish layers",
         "4H structure bullish; daily structure bearish",
         "Bearish order block quality 82/100"
       ],
       "blockers": [
-        "OANDA market snapshot is 2701 minutes old.",
         "4H structure is bullish, not bearish.",
         "Sell zone is 2.8 ATR above current price; too far away for an up-to-date pending signal.",
         "No nearby 4H structural target offers a realistic 1.8R\u20136R reward/risk window."
