@@ -1,7 +1,53 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-12T05:07:42Z",
+  "updatedAt": "2026-11-12T13:44:08Z",
   "events": [
+    {
+      "key": "ede3cb20-255d-46a8-ab72-b4551790d64d|2026-11-12T13:30:00Z",
+      "id": "ede3cb20-255d-46a8-ab72-b4551790d64d",
+      "dateUtc": "2026-11-12T13:30:00Z",
+      "name": "Initial Jobless Claims",
+      "family": "Jobless claims",
+      "category": "labour",
+      "volatility": "MEDIUM",
+      "unit": null,
+      "source": "FXStreet public calendar",
+      "actual": 200.0,
+      "consensus": 195.0,
+      "previous": 189.0,
+      "revised": 191.0,
+      "firstObservedAt": "2026-11-12T13:43:21Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
+      "model": {
+        "bias": "bullish",
+        "score": 21.96,
+        "surpriseZ": -0.333,
+        "revisionZ": -0.133,
+        "importance": 12.55,
+        "family": "Jobless claims"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-11-12T13:43:21Z",
+          "xau": 3906.21,
+          "dxy": 102.9125,
+          "us2y": 4.73,
+          "us10y": 4.98,
+          "real10y": 2.78
+        }
+      ],
+      "outcomes": {
+        "m15": {
+          "changePct": 0.0,
+          "observedAt": "2026-11-12T13:43:21Z",
+          "minutesAfterRelease": 13.3,
+          "baselinePrice": 3906.21,
+          "observedPrice": 3906.21
+        },
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "75a2fedb-a0e4-446b-94fb-726f952c0f8e|2026-11-10T13:30:00Z",
       "id": "75a2fedb-a0e4-446b-94fb-726f952c0f8e",
@@ -17,7 +63,7 @@
       "previous": 0.6,
       "revised": null,
       "firstObservedAt": "2026-11-10T18:09:12Z",
-      "lastObservedAt": "2026-11-12T05:06:57Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
       "model": {
         "bias": "bearish",
         "score": -57.17,
@@ -57,7 +103,7 @@
       "previous": 0.3,
       "revised": null,
       "firstObservedAt": "2026-11-10T18:09:12Z",
-      "lastObservedAt": "2026-11-12T05:06:57Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
       "model": {
         "bias": "bearish",
         "score": -57.17,
@@ -97,7 +143,7 @@
       "previous": 48.0,
       "revised": null,
       "firstObservedAt": "2026-11-06T15:45:07Z",
-      "lastObservedAt": "2026-11-12T05:06:57Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
       "model": {
         "bias": "bearish",
         "score": -47.77,
@@ -137,7 +183,7 @@
       "previous": 0.1,
       "revised": 0.3,
       "firstObservedAt": "2026-11-06T15:45:07Z",
-      "lastObservedAt": "2026-11-12T05:06:57Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
       "model": {
         "bias": "bearish",
         "score": -46.41,
@@ -177,7 +223,7 @@
       "previous": 3.0,
       "revised": 3.2,
       "firstObservedAt": "2026-11-06T15:45:07Z",
-      "lastObservedAt": "2026-11-12T05:06:57Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
       "model": {
         "bias": "bearish",
         "score": -69.19,
@@ -217,7 +263,7 @@
       "previous": 29.0,
       "revised": 60.0,
       "firstObservedAt": "2026-11-06T15:45:07Z",
-      "lastObservedAt": "2026-11-12T05:06:57Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
       "model": {
         "bias": "bearish",
         "score": -67.1,
@@ -257,7 +303,7 @@
       "previous": 4.2,
       "revised": null,
       "firstObservedAt": "2026-11-06T15:45:07Z",
-      "lastObservedAt": "2026-11-12T05:06:57Z",
+      "lastObservedAt": "2026-11-12T13:43:21Z",
       "model": {
         "bias": "bearish",
         "score": -47.77,
