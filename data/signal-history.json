@@ -1,7 +1,167 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T08:49:59Z",
+  "updatedAt": "2026-11-13T16:48:22Z",
   "events": [
+    {
+      "key": "6f17fd45-9b35-417e-a00d-4a386d9d9689|2026-11-13T13:30:00Z",
+      "id": "6f17fd45-9b35-417e-a00d-4a386d9d9689",
+      "dateUtc": "2026-11-13T13:30:00Z",
+      "name": "Producer Price Index (MoM)",
+      "family": "PPI",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.3,
+      "consensus": 0.4,
+      "previous": 1.3,
+      "revised": 1.4,
+      "firstObservedAt": "2026-11-13T16:47:36Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
+      "model": {
+        "bias": "bullish",
+        "score": 17.48,
+        "surpriseZ": -0.4,
+        "revisionZ": 0.4,
+        "importance": 17.36,
+        "family": "PPI"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-11-13T16:47:36Z",
+          "xau": 3882.26,
+          "dxy": 103.3678,
+          "us2y": 4.86,
+          "us10y": 5.1,
+          "real10y": 2.86
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "d1406aec-376e-4fe4-b6bd-dc009573b31e|2026-11-13T13:30:00Z",
+      "id": "d1406aec-376e-4fe4-b6bd-dc009573b31e",
+      "dateUtc": "2026-11-13T13:30:00Z",
+      "name": "Producer Price Index (YoY)",
+      "family": "PPI",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 6.5,
+      "consensus": 6.6,
+      "previous": 6.3,
+      "revised": null,
+      "firstObservedAt": "2026-11-13T16:47:36Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
+      "model": {
+        "bias": "bullish",
+        "score": 30.23,
+        "surpriseZ": -0.4,
+        "revisionZ": null,
+        "importance": 17.36,
+        "family": "PPI"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-11-13T16:47:36Z",
+          "xau": 3882.26,
+          "dxy": 103.3678,
+          "us2y": 4.86,
+          "us10y": 5.1,
+          "real10y": 2.86
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "b09590d2-def1-4e53-a19f-a8cfd91acccf|2026-11-13T13:30:00Z",
+      "id": "b09590d2-def1-4e53-a19f-a8cfd91acccf",
+      "dateUtc": "2026-11-13T13:30:00Z",
+      "name": "Producer Price Index ex Food & Energy (MoM)",
+      "family": "PPI",
+      "category": "inflation",
+      "volatility": "MEDIUM",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 0.3,
+      "consensus": 0.3,
+      "previous": 0.7,
+      "revised": 0.8,
+      "firstObservedAt": "2026-11-13T16:47:36Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
+      "model": {
+        "bias": "mixed",
+        "score": -6.13,
+        "surpriseZ": 0.0,
+        "revisionZ": 0.4,
+        "importance": 17.36,
+        "family": "PPI"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-11-13T16:47:36Z",
+          "xau": 3882.26,
+          "dxy": 103.3678,
+          "us2y": 4.86,
+          "us10y": 5.1,
+          "real10y": 2.86
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
+    {
+      "key": "4b4a258c-07b2-4107-b8e4-335180759526|2026-11-13T13:30:00Z",
+      "id": "4b4a258c-07b2-4107-b8e4-335180759526",
+      "dateUtc": "2026-11-13T13:30:00Z",
+      "name": "Producer Price Index ex Food & Energy (YoY)",
+      "family": "PPI",
+      "category": "inflation",
+      "volatility": "HIGH",
+      "unit": "%",
+      "source": "FXStreet public calendar",
+      "actual": 5.0,
+      "consensus": 5.0,
+      "previous": 5.0,
+      "revised": null,
+      "firstObservedAt": "2026-11-13T16:47:36Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
+      "model": {
+        "bias": "mixed",
+        "score": -0.0,
+        "surpriseZ": 0.0,
+        "revisionZ": null,
+        "importance": 28.0,
+        "family": "PPI"
+      },
+      "marketObservations": [
+        {
+          "at": "2026-11-13T16:47:36Z",
+          "xau": 3882.26,
+          "dxy": 103.3678,
+          "us2y": 4.86,
+          "us10y": 5.1,
+          "real10y": 2.86
+        }
+      ],
+      "outcomes": {
+        "m15": null,
+        "m60": null,
+        "m240": null
+      }
+    },
     {
       "key": "849a9a10-92f4-46e8-820d-65af826f7b10|2026-11-12T19:00:00Z",
       "id": "849a9a10-92f4-46e8-820d-65af826f7b10",
@@ -17,7 +177,7 @@
       "previous": -27.0,
       "revised": null,
       "firstObservedAt": "2026-11-12T21:08:02Z",
-      "lastObservedAt": "2026-11-13T08:49:15Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
       "model": {
         "bias": "bullish",
         "score": 100.0,
@@ -57,7 +217,7 @@
       "previous": 1.5,
       "revised": 1.0,
       "firstObservedAt": "2026-11-12T21:08:02Z",
-      "lastObservedAt": "2026-11-13T08:49:15Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
       "model": {
         "bias": "bullish",
         "score": 99.51,
@@ -88,7 +248,7 @@
       "previous": 189.0,
       "revised": 191.0,
       "firstObservedAt": "2026-11-12T13:43:21Z",
-      "lastObservedAt": "2026-11-13T08:49:15Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
       "model": {
         "bias": "bullish",
         "score": 21.96,
@@ -134,7 +294,7 @@
       "previous": 0.6,
       "revised": null,
       "firstObservedAt": "2026-11-10T18:09:12Z",
-      "lastObservedAt": "2026-11-13T08:49:15Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
       "model": {
         "bias": "bearish",
         "score": -57.17,
@@ -174,7 +334,7 @@
       "previous": 0.3,
       "revised": null,
       "firstObservedAt": "2026-11-10T18:09:12Z",
-      "lastObservedAt": "2026-11-13T08:49:15Z",
+      "lastObservedAt": "2026-11-13T16:47:36Z",
       "model": {
         "bias": "bearish",
         "score": -57.17,
