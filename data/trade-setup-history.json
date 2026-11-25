@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T15:51:18Z",
+  "updatedAt": "2026-11-25T23:53:39Z",
   "calibration": {
     "completed": 28,
     "wins": 12,
@@ -10,6 +10,44 @@
     "minimumSamplesForAdjustment": 30
   },
   "setups": [
+    {
+      "key": "bullish|2026-11-25T10:00:00.000000000Z|3467.435|3530.27",
+      "side": "bullish",
+      "createdAt": "2026-11-25T18:00:00.000000000Z",
+      "blockCandleAt": "2026-11-25T10:00:00.000000000Z",
+      "zoneLow": 3467.435,
+      "zoneHigh": 3530.27,
+      "quality": 86,
+      "confluence": {
+        "fairValueGap": false,
+        "liquiditySweep": true,
+        "premiumDiscountAligned": true
+      },
+      "planning": {
+        "limitReference": 3498.852,
+        "invalidationReference": 3459.584,
+        "targets": [
+          {
+            "price": 3595.29,
+            "rMultiple": 2.46
+          },
+          {
+            "price": 3689.865,
+            "rMultiple": 4.86
+          }
+        ],
+        "bestRMultiple": 4.86,
+        "passesRewardRiskGate": true
+      },
+      "source": "OANDA v20 practice",
+      "firstObservedAt": "2026-11-25T23:53:39Z",
+      "status": "triggered",
+      "triggerIndex": 0,
+      "triggeredAt": "2026-11-25T18:00:00.000000000Z",
+      "completedAt": null,
+      "bestR": 0.0,
+      "outcomeR": null
+    },
     {
       "key": "bullish|2026-11-23T06:00:00.000000000Z|3600.51|3616.9",
       "side": "bullish",
